@@ -81,7 +81,7 @@
 # minitoc
 *.maf
 *.mtc
-*.mtc0
+*.mtc[0-9]
 
 # minted
 *.pyg
