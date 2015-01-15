@@ -145,6 +145,7 @@
 \addtolength{\trueupper}{\headsep}
 \setulmargins{\trueupper}{*}{*}
 \setmarginnotes{7pt}{102pt}{12pt}
+\sideparmargin{outer}
 \checkandfixthelayout
 % Next come part, chapter, and section title formatting
 \setlength{\chapindent}{\marginparsep}
@@ -282,6 +283,11 @@
 \newcommand{\marginnote}[1]{\marginpar[\tiny\RaggedRight%
   #1]{\tiny\RaggedLeft #1}}
 \newcommand{\margincite}[2][{.}]{\marginnote{\bibentry{#2}#1}}
+% Sidepars
+\renewcommand{\sideparfont}{\tiny}
+\renewcommand{\sideparform}{%
+     \ifmemtortm\RaggedLeft\else\RaggedRight\fi}
+
 % Chapter Precis
 \renewcommand{\prechapterprecis}{% 
 %  \vspace*{-2\baselineskip}% 
