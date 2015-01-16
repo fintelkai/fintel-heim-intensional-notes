@@ -65,19 +65,16 @@
 \providecommand{\svt}[1]{\llbracket \mbox{#1} \rrbracket}
 \providecommand{\svcent}[1]{{\sv{#1}}_{\mbox{\tiny \textcent}}}
 \newcommand{\angles}[1]{\ensuremath{\langle #1 \rangle}}
-\newcommand{\choice}[2]{\ensuremath{\left\{ \begin{array} {l}
-        \mbox{#1} \\ \mbox{#2} \end{array} \right\}}}
-\newcommand{\choicethree}[3]{\ensuremath{\left\{ \begin{array} {l}
-        \mbox{#1} \\ \mbox{#2} \\ \mbox{#3} \end{array} \right\}}}
-\newcommand{\choicefour}[4]{\ensuremath{\left\{ \begin{array} {l}
-        \mbox{#1} \\ \mbox{#2} \\ \mbox{#3} \\ \mbox{#4} \end{array}
-    \right\}}}
-\newcommand{\choicefive}[5]{\ensuremath{\left\{ \begin{array} {l}
-        \mbox{#1} \\ \mbox{#2} \\ \mbox{#3} \\ \mbox{#4} \\ \mbox{#5}
-      \end{array} \right\}}}
-\newcommand{\choicesix}[6]{\ensuremath{\left\{ \begin{array} {l}
-        \mbox{#1} \\ \mbox{#2} \\ \mbox{#3} \\ \mbox{#4} \\ \mbox{#5}
-        \\ \mbox{#6} \end{array} \right\}}}
+\newcommand{\choice}[1]
+  {\ensuremath{\left\{\!\!\begin{array}{l}
+     \@for\xx:=#1\do {\text{\xx}\\}
+     \\ [-2.75ex]
+     \end{array}\!\!\right\}}}
+\newcommand{\leftchoice}[1]
+  {\ensuremath{\left\{\!\!\begin{array}{l}
+     \@for\xx:=#1\do {\text{\xx}\\}
+     \\ [-2.75ex]
+     \end{array}\right.}}
 \def\twodigits#1{\ifnum#1<10 0\fi\the#1} %stolen from hyperref paper
                                          %by Oberdiek
 \newcommand{\shorttoday}{\twodigits\month/\twodigits\day/\number\year}
