@@ -640,7 +640,10 @@ all we need, please do the following exercise.
   \expression{slow} to the intension of \expression{Watson}? \eex
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:meta}%
+  \sidepar{Please think about this exercise before looking at
+    Section~\ref{sec:meta-issues}, which explores this issue.}%
+%
   What is wrong with the following equation:
 
 	\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
@@ -652,6 +655,8 @@ all we need, please do the following exercise.
 	in $w$. ] \eex
 	
 \end{exercise}
+
+
 
 \section{Comments and Complications} \label{sec:comm-compl}
 
@@ -853,6 +858,105 @@ One also needs to figure out how to deal with cases where the fiction
 is internally inconsistent. In any case, for our purposes we're done
 with this kind of operator.
 
+\section{*Issues with an informal meta-language}\label{sec:meta-issues}
+
+Exercise~\ref{exercise:meta} asks what is wrong with writing something
+like%
+\footnote{Thanks to Magda Kaufmann, Angelika Kratzer, and Ede
+  Zimmermann for discussion on the issues explored in this section.}%
+
+\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
+in $w$.\label{ex:badwatson}
+
+Think about it. On the left hand side of the ``='' sign is a
+meta-language expression consisting of a $\lambda$-expression (so some
+kind of function) applied to an individual (contributed by the
+meta-language name ``Watson''). The function is a function from
+individuals to truth-values that will deliver the truth-value 1 iff
+the individual is slow in world $w$. So, what we have on the left hand
+side is the result of a function from individuals to truth-values
+applied to an individual. In other words, on the left hand side we
+have a truth-value, namely the truth-value 1 if Watson is slow in $w$
+and the truth-value 0 if Watson is not slow in $w$. 
+
+Now, what do we have on the right hand side of the ``=''? We have the
+meta-language sentence ``Watson is slow in $w$''. That is not nor does
+it contribute a truth-value. It is a statement of fact. Truth-values
+are not the same as statements of fact.
+
+The proper thing to do is to write
+
+\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = 1 iff Watson
+is slow in $w$.\label{ex:goodwatson}
+
+There are actually two ways to parse the statement in \Last, both
+legitimate it appears.
+
+On one parse, the major connective is the meta-language expression
+``iff''. On its left hand side is a meta-language statement (that
+applying the function to the individual Watson gives the truth-value
+1) and on the right hand side of the ``iff'' we have another
+meta-language statement (that Watson is slow in $w$). So, the whole
+thing says that these two statements are equivalent: (i) that function
+applied to that individual gives us the truth-value 1, and (ii) that
+Watson is slow in $w$.
+
+The other parse is perhaps more conspicuously represented as follows:
+
+\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = \leftchoice{1 if
+  Watson is slow in $w$,0 if Watson is not slow in $w$}
+
+Here, the ``='' sign is the major connective. The left hand side is a
+meta-language expression that resolves to a truth-value and the right
+hand side %
+\sidepar{Is this weird? It turns out that natural language, not just
+  our semi-formal meta-language, has conditionals that seem very
+  similar: \expression{I fear [the consequences if we fail].} See
+  \citealt{lasersohn:1996:adnominal} for some discussion.}%
+as well contributes a truth-value: 1 if such and such and 0 if such
+and such.
+
+H\amp\ K, of course, introduced a convention that allowed
+meta-language statements to be used in a place where a truth-value was
+expected (p.37, (9)):
+
+\begin{quote}
+  Read ``$[\lambda \alpha\co \phi.\ \gamma]$'' as either (i) or (ii),
+  whichever makes sense.
+  \begin{enumerate}[(i)]
+  \item ``the function which maps every $\alpha$ such that $\phi$ to
+    $\gamma$''
+  \item ``the function which maps every $\alpha$ such that $\gamma$ to
+    1, if $\gamma$, and to 0 otherwise''
+  \end{enumerate}
+\end{quote}
+%
+Since it never makes sense to map anything to a meta-language
+statement, no ambiguity will ever arise.
+
+So, %
+\sidepar{This is the approach of \cite{stechow:1991:lecturenotes}.}%
+one might want to extend this leeway and use it in the case of
+\ref{ex:badwatson} as well. We could say that in general,
+meta-language statements supply truth-values wherever that makes
+sense. In that case, \ref{ex:badwatson} is just shorthand for \ref{ex:goodwatson}.
+
+\newcommand{\nupsis}[1]{\ensuremath{\vdash #1 \dashv}}
+
+Alternatively, %
+\sidepar{This is the approach Ede Zimmermann (pc) advocates and has
+  been using in his classes.}%
+one can introduce a new notation that indicates that a meta-language
+statement is being used to contribute a truth-value:
+
+\ex. $\nupsis{\alpha}\ = \leftchoice{1 if $\alpha$,0 if otherwise}$
+
+Lastly, one could abandon the H\amp\ K informal meta-language approach
+altogether and introduce a rigidly formalized meta-language. 
+
+These lecture notes will proceed to follow H\amp\ K's approach and
+will not introduce any further innovations. So, \ref{ex:badwatson} is
+illicit and only \ref{ex:goodwatson} is acceptable.
 \section{Supplemental Readings}
 
 {\setlength{\parindent}{0pt}\nonzeroparskip
@@ -957,6 +1061,7 @@ interview with physicist Brian Greene, who just wrote a book called
   Cosmos}:
 \url{http://www.npr.org/2011/01/24/132932268/a-physicist-explains-why-parallel-universes-may-exist}.
 }
+
 
 % chapter beginnings_of_intensional_semantics (end)
 
