@@ -133,9 +133,14 @@ According\marginnote{It is well-known that natural language quantification is in
 
 We encountered context-dependency before when we talked about pronouns and their referential (and E-Type) readings (H\amp K, chapters 9--11). We treated referential pronouns as free variables, appealing to a general principle that free variables in an LF need to be supplied with values from the utterance context. If we want to describe the context-dependency of modals in a technically analogous fashion, we can think of their LF-representations as incorporating or subcategorizing for a kind of invisible pronoun, a free variable that stands for a set of possible worlds. So we posit LF-structures like this:
 
-\exi. \label{newlf} [I$'$ [I must $p_{\angles{s,t}}$ ] [VP you quiet]]
+\exi. \label{newlf} [I$'$ [I must $p_{\angles{n,\angles{s,t}}}$ ] [VP you quiet]]
 
-$p_{\angles{s,t}}$ here is a variable over (characteristic functions of) sets of worlds, which \dash like all free variables \dash needs to receive a value from the utterance context. Possible values include: the set of worlds compatible with the speaker's current knowledge; the set of worlds in which everyone obeys all the house rules of a certain dormitory; and many others. The denotation of the modal itself now has to be of type $\angles{st,\angles{st,t}}$ rather than $\angles{st,t}$, thus it will be more like a quantificational determiner rather than a complete generalized quantifier. Only after the modal has been combined with its covert restrictor do we obtain a value of type $\angles{st,t}$.
+\sidepar{We are using the notation for variables of types other than
+  $e$, introduced by Heim \amp\ Kratzer. See p. 213. An index on a
+  variable now is an ordered pair of a natural number and a type.}%
+\sidepar{Q: Can you think of overt anaphoric expressions that are
+  arguably of the type $\angles{s,t}$, a proposition?}
+$p_{\angles{n,\angles{s,t}}}$ here is a variable over (characteristic functions of) sets of worlds, which \dash like all free variables \dash needs to receive a value from the utterance context. Possible values include: the set of worlds compatible with the speaker's current knowledge; the set of worlds in which everyone obeys all the house rules of a certain dormitory; and many others. The denotation of the modal itself now has to be of type $\angles{st,\angles{st,t}}$ rather than $\angles{st,t}$, thus it will be more like a quantificational determiner rather than a complete generalized quantifier. Only after the modal has been combined with its covert restrictor do we obtain a value of type $\angles{st,t}$.
 
 \ex. \a. \exts{must} = \exts{have-to} = \exts{need-to} = \dots{} =\\
 $\lambda p\in D_{\angles{s,t}}.\ \lambda q\in D_{\angles{s,t}}.\ \forall w\in W\ [p(w)=1 \rightarrow q(w)=1]$\marginnote{in set talk: $p\ensuremath{\subseteq}q$}
@@ -190,7 +195,7 @@ The problem, it turns out, is with the idea that the utterance context supplies 
 
 Suppose, then, that the covert restrictor of a modal predicate denotes such a function, i.e., its value is of type $\angles{s,st}$.
 
-\exi. \label{newnewlf} [I' [I must $R_{\angles{s,st}}$ ] [VP you quiet]]
+\exi. \label{newnewlf} [I' [I must $R_{\angles{n,\angles{s,st}}}$ ] [VP you quiet]]
 
 And the new lexical entries for \expression{must} and \expression{may} that will fit this new structure are these:
 
@@ -201,13 +206,13 @@ $\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \exists w'\in 
 
 Let us see now how this solves the contingency problem. 
 
-\ex. Let $w$ be a world, and assume that the context supplies an assignment $g$ such that $g(R) = \lambda w.\ \lambda w'.$ the house rules in force in $w$ are obeyed in $w'$\\[9pt]
-\exts{must $R$ you quiet} = \hfill{\tiny (IFA)}\\
-\exts{must $R$}$(\lambda w'\ $\exts[w']{you quiet}) = \hfill{\tiny (FA)}\\
-\exts{must} (\exts{$R$}) $(\lambda w'\ $\exts[w']{you quiet}) = \hfill{\tiny (lex. entries \expression{you}, \expression{quiet})}\\
-\exts{must} (\exts{$R$}) $(\lambda w'.\ $you are quiet in $w'$) = \hfill{\tiny (lex. entry \expression{must})}\\
-$\forall w'\in W:$ \exts{$R$}$(w)(w') =1 \rightarrow $ you are quiet in $w'$ = \hfill{\tiny (pronoun rule)}\\
-$\forall w'\in W:$ $g$({$R$})$(w)(w') =1 \rightarrow $ you are quiet in $w'$ = \hfill{\tiny (def. of $g$)}\\
+\ex. Let $w$ be a world, and assume that the context supplies an assignment $g$ such that $g(R_{\angles{17,\angles{s,st}}}) = \lambda w.\ \lambda w'.$ the house rules in force in $w$ are obeyed in $w'$\\[9pt]
+\exts{must $R_{\angles{17,\angles{s,st}}}$ you quiet} = \hfill{\tiny (IFA)}\\
+\exts{must $R_{\angles{17,\angles{s,st}}}$}$(\lambda w'\ $\exts[w']{you quiet}) = \hfill{\tiny (FA)}\\
+\exts{must} (\exts{$R_{\angles{17,\angles{s,st}}}$}) $(\lambda w'\ $\exts[w']{you quiet}) = \hfill{\tiny (lex. entries \expression{you}, \expression{quiet})}\\
+\exts{must} (\exts{$R_{\angles{17,\angles{s,st}}}$}) $(\lambda w'.\ $you are quiet in $w'$) = \hfill{\tiny (lex. entry \expression{must})}\\
+$\forall w'\in W:$ \exts{$R_{\angles{17,\angles{s,st}}}$}$(w)(w') =1 \rightarrow $ you are quiet in $w'$ = \hfill{\tiny (pronoun rule)}\\
+$\forall w'\in W:$ $g$({$R_{\angles{17,\angles{s,st}}}$})$(w)(w') =1 \rightarrow $ you are quiet in $w'$ = \hfill{\tiny (def. of $g$)}\\
 $\forall w'\in W$ [the house rules in force in $w$ are obeyed in $w'$ \\
 \null\hfill $\rightarrow$ you are quiet in $w'$]
 
@@ -215,11 +220,11 @@ As we see in the last line of \Last, the truth-value of \ref{newnewlf} depends o
 \begin{exercise}
 	
 	Describe two worlds $w_{1}$ and $w_{2}$ so that\\
-	\exts[w_1,g]{must $R$ you quiet} = 1 and \exts[w_2,g]{must $R$ you quiet} = 0. \eex
+	\exts[w_1,g]{must $R_{\angles{17,\angles{s,st}}}$ you quiet} = 1 and \exts[w_2,g]{must $R_{\angles{17,\angles{s,st}}}$ you quiet} = 0. \eex
 \end{exercise}
 \begin{exercise}
 	
-	In analogy to the deontic relation $g(R)$ defined in \Last, define an appropriate relation that yields an epistemic reading for a sentence like \expression{You may be quiet}. \eex 
+	In analogy to the deontic relation $g(R_{\angles{17,\angles{s,st}}})$ defined in \Last, define an appropriate relation that yields an epistemic reading for a sentence like \expression{You may be quiet}. \eex 
 \end{exercise}
 
 \subsection{Iteration}
@@ -228,13 +233,35 @@ Consider the following example:
 
 \ex. You might have to leave.
 
-What does this mean? Under one natural interpretation, we learn that the speaker considers it possible that the addressee is under the obligation to leave. This seems to involve one modal embedded under a higher modal. It appears that this sentence should be true in a world $w$ iff some world $w'$ compatible with what the speaker knows in $w$ is such that every world $w''$ in which the rules as they are in $w'$ are followed is such that you leave in $w''$.
+What does this mean? Under one natural interpretation, we learn that
+the speaker considers it possible that the addressee is under the
+obligation to leave. This seems to involve one modal embedded under a
+higher modal. %
+\sidepar{There is more to be said about which modals can embed under
+  which other modals. See for some discussion the handout mentioned
+  earlier:
+  \url{http://web.mit.edu/fintel/lsa220-class-2-handout.pdf}.}%
+It appears that this sentence should be true in a world
+$w$ iff some world $w'$ compatible with what the speaker knows in $w$
+is such that every world $w''$ in which the rules as they are in $w'$
+are followed is such that you leave in $w''$.
 
-Assume the following LF\marginnote{There is more to be said about which modals can embed under which other modals. See for some discussion the handout mentioned earlier: \url{http://web.mit.edu/fintel/lsa220-class-2-handout.pdf}.}:
+Assume the following LF:
 
-\exi. [I$'$ [ might $R_1$] [VP [ have-to $R_2$] [IP you leave]]]
+\exi. [I$'$ [ might $R_{\angles{1,\angles{s,st}}}$] [VP [ have-to $R_{\angles{2,\angles{s,st}}}$] [IP you leave]]]
 
-Suppose $w$ is the world for which we calculate the truth-value of the whole sentence, and the context maps $R_1$ to the function which maps $w$ to the set of all those worlds compatible with what is known in $w$. \expression{might} says that some of those worlds are worlds $w'$ that make the tree below \expression{might} true. Now assume further that the context maps $R_2$ to the function which assigns to any such world $w'$ the set of all those worlds in which the rules as they are in $w'$ are followed. \expression{have to} says that all of those worlds are worlds $w''$ in which you leave.
+Suppose $w$ is the world for which we calculate the truth-value of %
+\sidepar{From now on, we will omit the type-designation of variables
+  whenever we feel confident that their type is easy to figure out
+  from the context.}%
+the whole sentence, and the context maps $R_1$ to the function which maps
+$w$ to the set of all those worlds compatible with what is known in
+$w$. \expression{might} says that some of those worlds are worlds $w'$
+that make the tree below \expression{might} true. Now assume further
+that the context maps $R_2$ to the function which assigns to any such
+world $w'$ the set of all those worlds in which the rules as they are
+in $w'$ are followed. \expression{have to} says that all of those
+worlds are worlds $w''$ in which you leave.
 
 In other words, while it is not known to be the case that you have to leave, for all the speaker knows it might be the case.
 \begin{exercise}
@@ -279,7 +306,15 @@ We posit the following LF-representation:
 
 \exi. \label{brandlf} [I$'$ [I must [ $R_{\angles{4,\angles{s,st}}}$ w*]] [VP you quiet]]
 
-What is new here is that the covert restrictor is complex. The first part, $R_{\angles{4,\angles{s,st}}}$, is (as before) a free variable of type \angles{s,st}, which gets assigned an accessibility relation by the context of utterance. The second part is a special terminal symbol which is interpreted as picking out the evaluation world:
+What is new here is that the covert restrictor is complex. The first
+part, $R_{\angles{4,\angles{s,st}}}$, is (as before) a free variable
+of type \angles{s,st}, which gets assigned an accessibility relation
+by the context of utterance. %
+\sidepar{Note that as soon as we're introducing an object language
+  expression whose extension is a possible world, we will now have
+  expressions of type $s$ and should also introduce the domain of
+  things of type $s$: $D_s = W$.}%
+The second part is a special terminal symbol which is interpreted as picking out the evaluation world:
 
 \ex. For any $w\in W: \sv{w*}^{w,g} = w$.\footnote{\citet{dowty:1982:time-adverbs} introduced an analogous symbol to pick out the evaluation \emph{time}. We have chosen the star-notation to allude to this precedent.}
 
