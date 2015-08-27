@@ -1,0 +1,45 @@
+Mary wants to buy an inexpensive coat.
+
+specific, opaque reading?
+
+There’s a coat that Mary wants to buy. She thinks it is inexpensive. But really, it is quite expensive.
+
+Mary wants to buy an inexpensive coat. #But really, it is quite expensive.
+
+-----
+
+If everyone in this room were outside, it would be empty.
+
+(cf. Some politician will be happy if everyone votes for him.)
+
+-----
+
+Keshet's problem cases:
+
+ # Mary thinks that if three professors were professors, the classes would be better taught.
+
+-----
+
+Romoli & Sudo:
+
+John wants to meet the wife of the president.
+
+a. Wife de dicto; president de re: The president, Barack Obama, is such
+that John wants to meet his wife, whoever she may be.
+
+b. Both de re: The wife of the president, Michelle Obama, is such that
+John wants to meet her, though perhaps he does not even know she’s
+the wife of the president.
+
+c. Both de dicto: John wants to meet whoever the wife of the current
+president is, though perhaps he does not even know who the president
+is, or who his wife is.
+
+d. Wife de re; president de dicto: #John believes some particular woman
+to be the wife of the president, but is mistaken about the president himself. For instance, John is an American in London and sees the prime minister and his wife, but mistakenly believes the prime minister to be the (non-existent) president of the United Kingdom.
+
+-----
+
+Keshet's split intensionality solution
+
+----- 
