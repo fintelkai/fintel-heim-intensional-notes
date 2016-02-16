@@ -1,8 +1,9 @@
 %!TEX root = IntensionalSemantics.tex
 \chapter{Conditionals, First Tries}\label{cha:conditionals-first} % (fold)
 
-\chapterprecishere{In progress}
-% \chapterprecishere{We integrate conditionals into the semantics of modal expressions that we are developing. We show that the material implication analysis and the strict implication analysis are inferior to the restrictor analysis. Our discussion will remain focussed on some simple questions and we refer you to the rich literature on conditionals for further topics.}
+\chapterprecishere{We develop a possible worlds semantics for conditionals that
+  treats the \emph{if}-clause as an intensional operator, with a bit of
+  context-dependency thrown in.}
 
 \minitoc
 
@@ -84,99 +85,51 @@ Some of the problems we encountered would go away if we treated \expression{if} 
 
 Applied to \ref{earthquake}, we would derive the truth-conditions that \ref{earthquake} is true iff all of the worlds where there is a major earthquake in Cambridge tomorrow are worlds where my house collapses.
 
-We immediately note that this analysis has the same problem of non-contingency that we faced with one of our early attempts at a quantificational semantics for modals like \expression{must} and \expression{may}. The obvious way to fix this here is to assume that \expression{if} takes a covert accessibility function as one of its arguments. The antecedent clause then serves as an additional restrictive device. Here is the proposal:
+There are some obvious and immediate problems with this analysis. For one, while
+it's easy to imagine circumstances where the conditional \ref{earthquake} is
+judged to be true, there surely are possible worlds where there's an earthquake
+but my house does not collapse: perhaps, the builders in that world used all the
+recommended best practices to make the building earthquake-safe, perhaps it's a
+world where I'm simply unreasonably lucky, or the house is immediately adjacent
+to much sturdier neighboring buildings which keep it propped up, or Harry Potter
+flies by and protects the house at the last minute (he owes me a favor, after
+all). This problem (that the house doesn't in fact collapse in \emph{all}
+possible worlds where there's an earthquake but that the conditional can still
+be judged true in some worlds) is accompanied with another problem: whether the
+conditional is true depends on what the world is like. Was the house built to
+exacting standards? Is it propped up by its neighbors? Does Harry Potter owe me
+a favor?
 
-\ex. $\sv{\mbox{if}}^{w,g} = \lambda R \in D_{\angles{s,\angles{s,t}}}.\ \lambda p\in D_{\angles{s,t}}.\ \lambda q\in D_{\angles{s,t}}.\\
-\null\hfill \forall w'\co \left( R(w)(w')=1\ \&\ p(w')=1 \right) \rightarrow q(w')=1.\\[6pt]
-(\mbox{in set talk: }R(w)\cap p \subseteq q)$
+We can build dependence on the evaluation world in by saying that \emph{if} only
+operates on worlds that are ``relevant like'' the evaluation world:
 
-If we understand \ref{earthquake} as involving an epistemic accessibility relation, it would claim that among the worlds epistemically accessible from the actual world (i.e. the worlds compatible with what we know), those where there is a major earthquake in Cambridge tomorrow are worlds where my house collapses. This would appear to be quite adequate \dash although potentially traumatic to me.
+\ex.\label{ex:if-strict-context} $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in
+D_{\angles{s,t}}.$ \\ \null\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is
+  relevantly like } w \rightarrow q(w')=1.$
 
+Obviously, this is a semantics with a ``placeholder'', because what does
+``relevantly like'' mean precisely? Now, just because the semantics is therefore
+rather vague and context-dependent doesn't mean it is wrong. As
+\textcite{lewis:1973:counterfactuals} writes:
+
+\begin{quote} Counterfactuals are notoriously vague. That does not mean that we
+cannot give a clear account of their truth conditions. It does mean that such an
+account must either be stated in vague terms-which does not mean ill-understood
+terms-or be made relative to some parameter that is fixed only within rough
+limits on any given occasion of language use.
+\end{quote}
+
+\noindent In a later chapter, we will revisit the formulation in
+\ref{ex:if-strict-context} and fill it out more explicitly. 
+ 
 \begin{exercise}
-	
-	Can you come up with examples where a conditional is interpreted relative to a non-epistemic accessibility relation? \eex
+	What prediction does the strict implication analysis in
+  \ref{ex:if-strict-context} make about the negated conditional in \ref{neg-earthquake}? \eex
 \end{exercise}
 
-\begin{exercise}
-	
-	What prediction does the strict implication analysis make about the negated conditional in \ref{neg-earthquake}? \eex
-\end{exercise}
+% chapter conditionals-first (end)
 
-%
-%\absatz [what about deontic accessibility? what about compatibility
-%presupposition?]
-%
-\newpage\section*{Supplementary Readings} \label{sec:suppl-read-conditionals}
-
-\phantomsection \addcontentsline{toc}{section}{Supplemental Readings}
-
-{\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
-
-A short handbook article on conditionals:
-\begin{bibentrylist}
-	\item\bibentry{fintel:2009:hsk-conditionals}.
-\end{bibentrylist}
-
-Overviews of the philosophical work on conditionals:
-\begin{bibentrylist}
-	\item \bibentry{edgington:1995:conditionals}.
-	\item \bibentry{bennett:2003:guide}.
-\end{bibentrylist}
-
-A handbook article on the logic of conditionals:
-\begin{bibentrylist}
-	\item \bibentry{nute:1984:conditional}.
-\end{bibentrylist}
-
-Three indispensable classics:
-\begin{bibentrylist}
-	\item \bibentry{lewis:1973:counterfactuals}.
-	\item \bibentry{stalnaker:1968:theory}.
-	\item \bibentry{stalnaker:1975:indicative}. 
-\end{bibentrylist}
-
-The Restrictor Analysis:
-\begin{bibentrylist}
-	\item \bibentry{lewis:1975:adverbs}. 
-	\item \bibentry{kratzer:1986:conditionals}.
-\end{bibentrylist}
-
-The application of the restrictor analysis to the interaction of nominal quantifiers and conditionals:
-\begin{bibentrylist}
-	\item \bibentry{fintel:1998:qandif}.
-	\item \bibentry{fintel-iatridou:2002:ifwhen}.
-	\item \bibentry{higginbotham:2003:conditionals}.
-	\item \bibentry{leslie:2009:unless}.
-	\item \bibentry{huitink:2009:quantified-conditionals}.
-\end{bibentrylist}
-
-Syntax of conditionals:
-\begin{bibentrylist}
-  \item \bibentry{fintel:1994:thesis}, Chapter 3: ``Conditional Restrictors''
-  \item \bibentry{iatridou:1993:then}.
-	\item \bibentry{bhatt-pancheva:2006:conditionals}.
-\end{bibentrylist}
-
-A shifty alternative to the restrictor analysis:
-
-\begin{bibentrylist}
-  \item \bibentry{gillies:2009:truth-conditions}.
-  \item \bibentry{gillies:2010:iffiness}.
-\end{bibentrylist}
-
-The Belnap alternative:
-
-\begin{bibentrylist}
-   \item \bibentry{belnap:1970:restricted}.
-   \item \bibentry{belnap:1973:restricted}.
-   \item \bibentry{fintel:2007:gurt-slides}.
-   \item \bibentry{huitink:2008:thesis}, Chapters 1 and 2 give a nice summary of what we're covering in this class, while Chapter 5 is about the Belnap-method.
-   \item \bibentry{huitink:2009:domain-conditionals}.
-\end{bibentrylist}
-  
-%More references are given at the end of the next chapter.
-
-}
-
-% chapter conditionals (end)
-
+%%% Local Variables:
+%%% mode:latex 
+%%% TeX-master: "IntensionalSemantics.tex" 
+%%% End: 
