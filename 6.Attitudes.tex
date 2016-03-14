@@ -1,8 +1,7 @@
 %!TEX root = IntensionalSemantics.tex
 \chapter{Propositional Attitudes}\label{cha:propositional_attitudes} % (fold)
 
-\chapterprecishere{With the basic framework in place, we now proceed
-  to analyze a number of intensional constructions. We start with the
+\chapterprecishere{We start with the
   basic possible worlds semantics for propositional attitude
   ascriptions. We talk briefly about the formal properties of
   accessibility relations.}
@@ -41,7 +40,7 @@ by tying the truth-conditions to contingent facts about the evaluation
 world. That is, what George believes is different in different
 possible worlds.
 
-The following lexical entry thus offers itself:
+\clearpage The following lexical entry thus offers itself:
 
 \ex. $\sv{\mbox{believe}}^{w,g} =\\
 \null\hfill\lambda p_{\angles{s,t}}.\ \lambda x. \ \forall w' \mbox{ compatible with } x's \mbox{ beliefs in } w\!: p(w') = 1.$
@@ -161,7 +160,7 @@ source for this semantics for propositional attitudes:
   attitude predicates? [Warning: this is unexplored territory!]\eex
 \end{exercise}
 %
-We can also think of belief states as being represented by a function
+\clearpage We can also think of belief states as being represented by a function
 $\mathcal{BS}$\sidepar{$\mathcal{BS}$ is meant to stand for
   `\underline{\bfseries b}elief \underline{\bfseries s}tate', not for
   what you might have thought!}, which maps an individual and a world
@@ -230,20 +229,19 @@ itself. Which accessibility relations are reflexive? Take knowledge:
 
 \ex. $w\mathcal{R}^{\mathcal{K}}_{x}w'$ iff $w'$ is compatible with what $x$ knows in $w$.
 
-We are asking whether for any given possible world $w$, we know that
-$\mathcal{R}^{\mathcal{K}}_{x}$ holds between $w$ and $w$ itself. It
-will hold if $w$ is a world that is compatible with what we know in
-$w$. And clearly that must be so. Take our body of knowledge in $w$. %
+We%
 \sidepar{We talk here about knowledge entailing (or even presupposing)
   truth but we do not mean to say that knowledge simply equals true
   belief. Professors Socrates and Gettier and their exegetes have
   further considerations.}%
-The concept of knowledge crucially contains the concept of truth: what
+ are asking whether for any given possible world $w$, we know that
+$\mathcal{R}^{\mathcal{K}}_{x}$ holds between $w$ and $w$ itself. It
+will hold if $w$ is a world that is compatible with what we know in
+$w$. And clearly that must be so. Take our body of knowledge in $w$. The concept of knowledge crucially contains the concept of truth: what
 we know must be true. So if in $w$ we know that something is the case
 then it must be the case in $w$. So, $w$ must be compatible with all
 we know in $w$. $\mathcal{R}^{\mathcal{K}}_{x}$ is reflexive.
 
-\clearpage
 Now, if an attitude $X$ corresponds to a reflexive accessibility
 relation, then we can conclude from \expression{$a$ $Xs$ that $p$}
 being true in $w$ that $p$ is true in $w$. %
@@ -373,7 +371,6 @@ w\mathcal{R}w' \rightarrow \exists w'' \left[ w'\mathcal{R}w'' \&\
 % und Phänomenologische Forschung, vol. 11 (1930), 497-548, called
 % this Brouwer's axiom.)
 
-\clearpage
 \begin{figure}[htbp]
   \centering
     \includegraphics[height=1.5in]{symmetry.pdf}
