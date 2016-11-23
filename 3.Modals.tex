@@ -41,7 +41,7 @@ lowest copy in the movement chain.\sidepar{We will talk about
   reconstruction in more detail later.}) We will be able to prove that
 movement of a name or pronoun never affects truth-conditions, so at
 any rate the interpretation of the structure in \Last[b] would be the
-same as of \Next. As a matter of convenience, then, we will take the
+same as that of \Next. As a matter of convenience, then, we will take the
 reconstructed structures, which allow us to abstract away from the
 (here irrelevant) mechanics of variable binding.
 
@@ -59,7 +59,7 @@ take a full sentence as their semantic argument.\footnote{We will
 \subsection{Quantification over Possible Worlds} \label{sec:quant-over-poss}
 
 The\sidepar{This idea goes back a long time. It was famously held
-  by Leibniz, but there are precedents in the medieval literature, see
+  by Leibniz, but there are precedents in the medieval literature; see
   \citet{knuuttila:2003:modality-medieval}. See
   \citet{copeland:2002:genesis} for the modern history of the possible
   worlds analysis of modal expressions.} basic idea of the possible
@@ -90,7 +90,7 @@ Therefore, you must stay. \hfill\textsc{invalid}
 
 \ex. \a. You may stay, but it is not the case that you must
 stay.\footnote{The somewhat stilted \expression{it is not the
-    case}-construction is used in to make certain that negation takes
+    case}-construction is used in (a) to make certain that negation takes
   scope over \expression{must}. When modal auxiliaries and negation
   are together in the auxiliary complex of the same clause, their
   relative scope seems not to be transparently encoded in the surface
@@ -152,7 +152,7 @@ prove.\marginnote{More linguistic data regarding the ``parallel
   logic'' of modals and quantifiers can be found in Larry Horn's
   dissertation \citep{horn:1972:dissertation}.}
 
-\ex. \a. $\forall x \phi \equiv \neg \exists \neg \phi$ \b. $\forall x \neg \phi \equiv \neg \exists x \phi$
+\ex. \a. $\forall x \phi \equiv \neg \exists x \neg \phi$ \b. $\forall x \neg \phi \equiv \neg \exists x \phi$
 
 \ex. \a. $\exists x \phi \equiv \neg \forall x \neg \phi$ \b. $\exists x \neg \phi \equiv \neg \forall x \phi$
 
@@ -323,7 +323,7 @@ this:
 \exi. \label{newlf} [I$'$ [I must $p_{\angles{n,\angles{s,t}}}$ ] [VP you quiet]]
 
 \sidepar{We are using the notation for variables of types other than
-  $e$, introduced by Heim \amp\ Kratzer. See p. 213. An index on a
+  $e$ introduced by Heim \amp\ Kratzer. See p. 213. An index on a
   variable now is an ordered pair of a natural number and a type.
   \\[\baselineskip] Q: Can you think of overt anaphoric expressions
   that are arguably of the type $\angles{s,t}$, a proposition?}%
@@ -494,9 +494,9 @@ And the new lexical entries for \expression{must} and \expression{may}
 that will fit this new structure are these:
 
 \ex. \a. \exts{must} = \exts{have-to} = \exts{need-to} = \dots{} =\\
-$\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \forall w'\in W\ [R(w)(w') =1 \rightarrow q(w')=1]$\marginnote{in set talk: $(R(w)\ensuremath{\subseteq}q$}
+$\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \forall w'\in W\ [R(w)(w') =1 \rightarrow q(w')=1]$\marginnote{in set talk: $R(w)\ensuremath{\subseteq}q$}
 \b. \exts{may} = \exts{can} = \exts{be-allowed-to} = \dots{} =\\
-$\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \exists w'\in W\ [R(w)(w')=1\ \&\ q(w')=1]$\marginnote{in set talk: $(R(w)\ensuremath{\cap}q\ensuremath{\neq}\ensuremath{\emptyset}$}
+$\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \exists w'\in W\ [R(w)(w')=1\ \&\ q(w')=1]$\marginnote{in set talk: $R(w)\ensuremath{\cap}q\ensuremath{\neq}\ensuremath{\emptyset}$}
 
 Let us see now how this solves the contingency problem.
 
@@ -609,7 +609,7 @@ extensions of type \angles{\angles{s,st}, \angles{st,t}}:
 \ex. (repeated from earlier):\\
 For any $w \in W$: \exts{must}\\
 $\lambda R\in D_{\angles{s,st}}.\ \lambda q\in D_{\angles{s,t}}.\ \forall w'\in W\ [R(w)(w') =1 \rightarrow q(w')=1]$\\
-\null\hfill(in set talk: $\lambda R_{\angles{s,st}}.\ \lambda q_{\angles{s,t}}.\ (R(w)\ensuremath{\subseteq}q)$).
+\null\hfill(in set talk: $\lambda R_{\angles{s,st}}.\ \lambda q_{\angles{s,t}}.\ R(w)\ensuremath{\subseteq}q$).
 
 Unfortunately, this treatment somewhat obscures the parallel between
 the modals and the quantificational determiners, which have
@@ -626,7 +626,7 @@ modals at first:
 
 We posit the following LF-representation:
 
-\exi. \label{brandlf} [I$'$ [I must [ $R_{\angles{4,\angles{s,st}}}$ w*]] [VP you quiet]]
+\exi. \label{brandlf} [I$'$ [I must [ $R_{\angles{4,\angles{s,st}}}\ w*$]] [VP you quiet]]
 
 What is new here is that the covert restrictor is complex. The first
 part, $R_{\angles{4,\angles{s,st}}}$, is (as before) a free variable
@@ -641,7 +641,7 @@ picking out the evaluation world:
 
 \ex. For any $w\in W: \sv{w*}^{w,g} = w$.\footnote{\citet{dowty:1982:time-adverbs} introduced an analogous symbol to pick out the evaluation \emph{time}. We have chosen the star-notation to allude to this precedent.}
 
-When $R_{\angles{4,\angles{s,st}}}$ and \expression{w*} combine (by
+When $R_{\angles{4,\angles{s,st}}}$ and $w*$ combine (by
 Functional Application), we obtain a constituent whose extension is of
 type \angles{s,t} (a proposition or set of worlds). This is the same
 type as the extension of the free variable $p$ in the previous
@@ -652,7 +652,7 @@ evaluation world, the new complex constituent's extension depends on
 both the assignment and the world:
 
 \ex. For any $w\in W$ and any assignment $g$: \\
-\exts[w,g]{$R_{\angles{4,\angles{s,st}}}$(w*)} = g(\angles{4,\angles{s,st}})($w$).
+\exts[w,g]{$R_{\angles{4,\angles{s,st}}}\ w*$} = g(\angles{4,\angles{s,st}})($w$).
 
 As a consequence of this, the extensions of the higher nodes I and
 I$'$ will also vary with the evaluation world, and this is how we
