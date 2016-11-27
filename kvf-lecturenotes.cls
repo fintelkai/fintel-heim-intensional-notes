@@ -25,6 +25,7 @@
 \RequirePackage{amstext,amsmath} %What of this should I use?
 \RequirePackage{minitoc}
 \RequirePackage{linguex}
+\RequirePackage{mparhack}
 \RequirePackage[backend=biber,
 		bibstyle=biblatex-sp-unified,
 		citestyle=sp-authoryear-comp,
