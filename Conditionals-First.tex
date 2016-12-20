@@ -1,5 +1,15 @@
 %!TEX root = IntensionalSemantics.tex
-\chapter{Conditionals, First Tries}\label{cha:conditionals-first} % (fold)
+\chapter{Conditionals}\label{cha:conditionals} % (fold)
+
+\epigraph{The word ``if'', just two tiny letters \\
+    Says so much for something so small \\
+    The biggest little word in existence; \\
+    Never answers, just questions us all\\[6pt]
+
+    If regrets were gold, I'd be rich as a queen \\
+    If teardrops were diamonds, how my face would gleam \\
+    If I'd loved you better, I wouldn't be lonely \\
+    If only, if only, if only}{Dolly Parton, \emph{If Only}}
 
 \chapterprecishere{We develop a possible worlds semantics for conditionals that
   treats the \emph{if}-clause as an intensional operator, with a bit of
@@ -7,7 +17,91 @@
 
 \minitoc
 
-\section{The Material Implication Analysis}
+\section{If \dots the biggest little word}
+\label{sec:if}
+
+Consider a few conditional sentences:
+
+\ex
+\a If Kim left before 6am, she got here in time.
+\b If there's an earthquake tomorrow, this house will collapse.
+\c If there had been a massive snowstorm last night, Kai would have stayed home.
+
+These represent the three main subtypes of conditionals (there are more):
+\Last[a] is an ``indicative'' conditional about the past, \Last[b] is an
+indicative conditional about the future, and \Last[c] is a ``subjunctive''
+conditional. For the moment, the differences will be left aside.
+
+The basic idea of how conditionals work is this: the \expression{if}-clause
+takes us to a particular possible world (or maybe a set thereof) and the
+consequent clause is asserted to hold in that world (or those worlds). As we
+know by now, intensional operators are always anchored to the actual world (or
+more accurately, the local evaluation world, to make allowance for intensional
+operators embedded under other intensional operators).
+
+So, as before, fleshing out the analysis of \expression{if}-clauses as world
+shifters will involve talking about the accessibility relation that anchors the
+world(s) we are taken to.
+
+An intuition that seems essentially correct is that \Last[a] involves an
+epistemic accessibility relation: we are considering worlds that are compatible
+with the available evidence, and among those worlds we are taken to the subset
+where Kim left before 6am. \Last[a] then 
+
+\section{The Strict Implication Analysis}
+
+If \expression{if} is not a truth-functional connective, it seems we should
+treat it as an intensional operator. 
+
+Some of the problems we encountered would go away if we treated \expression{if} as introducing a modal meaning. The simplest way to do that would be to treat it as a universal quantifier over possible worlds. \expression{If p, q} would simply mean that the set of $p$-worlds is a subset of the $q$-worlds. This kind of analysis is usually called \term{strict implication}. The difference between \expression{if} and \expression{must} would be that \expression{if} takes an overt restrictive argument. Here is what the lexical entry for \expression{if} might look like:
+
+\ex. $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in D_{\angles{s,t}}.\ \forall w'\co p(w')=1 \rightarrow q(w')=1.\\[6pt]
+(\mbox{in set talk: } p \subseteq q)$
+
+Applied to \ref{earthquake}, we would derive the truth-conditions that \ref{earthquake} is true iff all of the worlds where there is a major earthquake in Cambridge tomorrow are worlds where my house collapses.
+
+There are some obvious and immediate problems with this analysis. For one, while
+it's easy to imagine circumstances where the conditional \ref{earthquake} is
+judged to be true, there surely are possible worlds where there's an earthquake
+but my house does not collapse: perhaps, the builders in that world used all the
+recommended best practices to make the building earthquake-safe, perhaps it's a
+world where I'm simply unreasonably lucky, or the house is immediately adjacent
+to much sturdier neighboring buildings which keep it propped up, or Harry Potter
+flies by and protects the house at the last minute (he owes me a favor, after
+all). This problem (that the house doesn't in fact collapse in \emph{all}
+possible worlds where there's an earthquake but that the conditional can still
+be judged true in some worlds) is accompanied with another problem: whether the
+conditional is true depends on what the world is like. Was the house built to
+exacting standards? Is it propped up by its neighbors? Does Harry Potter owe me
+a favor?
+
+We can build dependence on the evaluation world in by saying that \emph{if} only
+operates on worlds that are ``relevantly like'' the evaluation world:
+
+\ex.\label{ex:if-strict-context} $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in
+D_{\angles{s,t}}.$ \\ \null\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is
+  relevantly like } w \rightarrow q(w')=1.$
+
+Obviously, this is a semantics with a ``placeholder'', because what does
+``relevantly like'' mean precisely? Now, just because the semantics is therefore
+rather vague and context-dependent doesn't mean it is wrong. As
+\textcite{lewis:1973:counterfactuals} writes:
+
+\begin{quote} Counterfactuals are notoriously vague. That does not mean that we
+cannot give a clear account of their truth conditions. It does mean that such an
+account must either be stated in vague terms---which does not mean ill-understood
+terms---or be made relative to some parameter that is fixed only within rough
+limits on any given occasion of language use.
+\end{quote}
+
+\noindent In a later chapter, we will revisit the formulation in
+\ref{ex:if-strict-context} and fill it out more explicitly. 
+ 
+\begin{exercise}
+	What prediction does the strict implication analysis in
+  \ref{ex:if-strict-context} make about the negated conditional in \ref{neg-earthquake}? \eex
+\end{exercise}
+\section{A red herring: Material implication}
 
 Consider the following example:
 
@@ -73,59 +167,6 @@ State the predicted truth-conditions in words and evaluate whether they correspo
 \eex
 \end{exercise}
 
-\section{The Strict Implication Analysis}
-
-If \expression{if} is not a truth-functional connective, it seems we should
-treat it as an intensional operator. 
-
-Some of the problems we encountered would go away if we treated \expression{if} as introducing a modal meaning. The simplest way to do that would be to treat it as a universal quantifier over possible worlds. \expression{If p, q} would simply mean that the set of $p$-worlds is a subset of the $q$-worlds. This kind of analysis is usually called \term{strict implication}. The difference between \expression{if} and \expression{must} would be that \expression{if} takes an overt restrictive argument. Here is what the lexical entry for \expression{if} might look like:
-
-\ex. $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in D_{\angles{s,t}}.\ \forall w'\co p(w')=1 \rightarrow q(w')=1.\\[6pt]
-(\mbox{in set talk: } p \subseteq q)$
-
-Applied to \ref{earthquake}, we would derive the truth-conditions that \ref{earthquake} is true iff all of the worlds where there is a major earthquake in Cambridge tomorrow are worlds where my house collapses.
-
-There are some obvious and immediate problems with this analysis. For one, while
-it's easy to imagine circumstances where the conditional \ref{earthquake} is
-judged to be true, there surely are possible worlds where there's an earthquake
-but my house does not collapse: perhaps, the builders in that world used all the
-recommended best practices to make the building earthquake-safe, perhaps it's a
-world where I'm simply unreasonably lucky, or the house is immediately adjacent
-to much sturdier neighboring buildings which keep it propped up, or Harry Potter
-flies by and protects the house at the last minute (he owes me a favor, after
-all). This problem (that the house doesn't in fact collapse in \emph{all}
-possible worlds where there's an earthquake but that the conditional can still
-be judged true in some worlds) is accompanied with another problem: whether the
-conditional is true depends on what the world is like. Was the house built to
-exacting standards? Is it propped up by its neighbors? Does Harry Potter owe me
-a favor?
-
-We can build dependence on the evaluation world in by saying that \emph{if} only
-operates on worlds that are ``relevantly like'' the evaluation world:
-
-\ex.\label{ex:if-strict-context} $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in
-D_{\angles{s,t}}.$ \\ \null\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is
-  relevantly like } w \rightarrow q(w')=1.$
-
-Obviously, this is a semantics with a ``placeholder'', because what does
-``relevantly like'' mean precisely? Now, just because the semantics is therefore
-rather vague and context-dependent doesn't mean it is wrong. As
-\textcite{lewis:1973:counterfactuals} writes:
-
-\begin{quote} Counterfactuals are notoriously vague. That does not mean that we
-cannot give a clear account of their truth conditions. It does mean that such an
-account must either be stated in vague terms---which does not mean ill-understood
-terms---or be made relative to some parameter that is fixed only within rough
-limits on any given occasion of language use.
-\end{quote}
-
-\noindent In a later chapter, we will revisit the formulation in
-\ref{ex:if-strict-context} and fill it out more explicitly. 
- 
-\begin{exercise}
-	What prediction does the strict implication analysis in
-  \ref{ex:if-strict-context} make about the negated conditional in \ref{neg-earthquake}? \eex
-\end{exercise}
 
 % chapter conditionals-first (end)
 
