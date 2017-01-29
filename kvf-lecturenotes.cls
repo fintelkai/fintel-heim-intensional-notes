@@ -259,12 +259,15 @@
         \gdef\stiT{\huge{#1}}
 }
 \newcommand{\stiT}{}
+\newcommand{\coverimage}[1]{%
+  \gdef\coverPIC{\includegraphics[width=\textwidth]{#1}}}
+\newcommand{\coverPIC}{}
 \pretitle{\ba\begin{center}\Huge\scshape}
 \posttitle{%
         \par\vskip 0.25em\stiT
         \par\vskip\onelineskip
         \par\vskip 36pt
-        \includegraphics[width=\textwidth]{kandinsky-1923-composition-viii.jpg}
+        \coverPIC
         \end{center} 
         \ab\vskip 1.5em
 }
