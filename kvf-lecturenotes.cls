@@ -24,7 +24,7 @@
 \RequirePackage[hyperref,thref]{ntheorem}  % Replace with amstheorem
 \RequirePackage{amstext,amsmath} %What of this should I use?
 \RequirePackage{minitoc}
-\RequirePackage{linguex}
+\RequirePackage{expex}
 \RequirePackage{mparhack}
 \RequirePackage[backend=biber,
 		bibstyle=biblatex-sp-unified,
@@ -39,7 +39,17 @@
 \hypersetup{colorlinks,breaklinks,hypertexnames=false,
             linkcolor=linkcolour,citecolor=linkcolour,
             filecolor=linkcolour, urlcolor=linkcolour}
+% 
+% Expex settings
 %
+  \lingset{%
+    exskip=-0.5ex,
+    interpartskip=0.5ex,
+    aboveexskip=1ex,
+    belowexskip=2ex,
+    everygla=}
+  \gathertags
+          
 % Macros
 %
 \def\co{\colon\thinspace}
@@ -253,7 +263,9 @@
 \posttitle{%
         \par\vskip 0.25em\stiT
         \par\vskip\onelineskip
-        \par\end{center} 
+        \par\vskip 36pt
+        \includegraphics[width=\textwidth]{kandinsky-1923-composition-viii.jpg}
+        \end{center} 
         \ab\vskip 1.5em
 }
 \preauthor{\vfill\ba\begin{center}\Large\scshape
@@ -296,7 +308,6 @@
 \newcommand{\bufferpage}{\newpage\hbox{}\vfill{\scshape\caps{--- This page
       intentionally left blank
       ---}}\vfill\hbox{}\thispagestyle{cleared}}
-\settowidth{\Exlabelwidth}{(110)}
 
 % Strong widow and orphan control
 
@@ -306,9 +317,6 @@
 % French Spacing
 
 \frenchspacing
-
-\renewcommand{\firstrefdash}{}%
-\AtBeginDocument{\settowidth{\Exlabelwidth}{(110)}}
 
 % Macros
 

@@ -27,17 +27,17 @@ How does natural language untie us from the actual here and now? One degree of
 freedom is given by the ability to name entities and refer to them even if they
 are not where we are when we speak:
 
-\ex. Thomas is in Hamburg.
+\ex Thomas is in Hamburg. \xe
 
 This kind of displacement is not something we will explore here. We'll take it
 for granted.
 
 Consider a sentence with no names of absent entities in it:
 
-\ex. It is snowing (in Cambridge).
+\ex It is snowing (in Cambridge). \xe
 
-On its own, \Last makes a claim about what is happening right now here in
-Cambridge. But there are devices at our disposal that can be added to \Last,
+On its own, (\lastx) makes a claim about what is happening right now here in
+Cambridge. But there are devices at our disposal that can be added to (\lastx),
 resulting in claims about snow in displaced situations. Displacement can occur
 in the \term{temporal} dimension and/or in what might be called the
 \term{modal}\sidepar{The terms \term{modal} and \term{modality} descend from the
@@ -45,15 +45,15 @@ in the \term{temporal} dimension and/or in what might be called the
   a proposition holds, necessarily, contingently, etc.} dimension. Here's an
 example of temporal displacement:
 
-\ex. At noon yesterday, it was snowing in Cambridge.
+\ex At noon yesterday, it was snowing in Cambridge. \xe
 
 This sentence makes a claim not about snow now but about snow at noon yesterday,
 a different time from now.
 
 Here's an example of modal displacement:
 
-\ex. If the storm system hadn't been deflected by the jet stream, it would have
-been snowing in Cambridge.
+\ex If the storm system hadn't been deflected by the jet stream, it would have
+been snowing in Cambridge. \xe
 
 This sentence makes a claim not about snow in the actual world but about snow in
 the world as it would have been if the storm system hadn't been deflected by the
@@ -63,23 +63,23 @@ us), a merely \term{possible world}.
 Natural %
 \sidepar{See \citet{kratzer:1981:notional,kratzer:1991:modality} for more
   examples of modal constructions.}%
-language abounds in modal constructions. \Last is a so-called
+language abounds in modal constructions. (\lastx) is a so-called
 \term{counterfactual conditional}. Here are some other examples:
 
-\ex. \term{Modal Auxiliaries}\\
-It may be snowing in Cambridge.
+\ex \term{Modal Auxiliaries}\\
+It may be snowing in Cambridge. \xe
 
-\ex. \term{Modal Adverbs}\\
-Possibly, it will snow in Cambridge tomorrow.
+\ex \term{Modal Adverbs}\\
+Possibly, it will snow in Cambridge tomorrow. \xe
 
-\ex. \term{Propositional Attitudes}\\
-Jens believes that it is snowing in Cambridge.
+\ex \term{Propositional Attitudes}\\
+Jens believes that it is snowing in Cambridge. \xe
 
-\ex. \term{Habituals}\\
-Jane smokes.
+\ex \term{Habituals}\\
+Jane smokes. \xe
 
-\ex. \term{Generics}\\
-Bears like honey.
+\ex \term{Generics}\\
+Bears like honey. \xe
 
 % The plan for this course is as follows. In Part 1, we explore modality
 % and associated topics. In Part 2, we explore temporal matters.
@@ -89,10 +89,10 @@ In this chapter, we will put in place the basic framework of \term{intensional
 evaluation in temporal and modal dimensions. To do this, we will start with one
 rather special example of modal displacement:
 
-\ex.\label{sherlock} In the world of Sherlock Holmes, a detective
-lives at 221B Baker Street.
+\ex\label{sherlock} In the world of Sherlock Holmes, a detective
+lives at 221B Baker Street. \xe
 
-\Last\marginpar{\raggedleft\includegraphics[width=1in]{sherlock-holmes-147255.png}}\marginnote{
+(\lastx)\marginpar{\raggedleft\includegraphics[width=1in]{sherlock-holmes-147255.png}}\marginnote{
   \url{https://en.wikipedia.org/wiki/Sherlock_Holmes}} doesn't claim that a
 detective lives at 221B Baker Street in the actual world (presumably a false
 claim), but that in the world as it is described in the Sherlock Holmes stories
@@ -202,7 +202,7 @@ following holds:\footnote{We will see in Section \ref{sec:why-talk-about} that
 \ex. The sentence \expression{In the world of Sherlock Holmes, a detective lives
   at 221B Baker Street} is true in a world w iff the sentence \expression{a
   detective lives at 221B Baker Street} is true in the world as it is described
-in the Sherlock Holmes stories.
+in the Sherlock Holmes stories. \xe
 
 What this suggests is that we need to make space in our system for having
 devices that control in what world a claim is evaluated. This is what we will do
@@ -225,8 +225,8 @@ described as follows:\footnote{Recall from H\amp\ K, pp.22f, that what's inside
   field and not use a special typographic distinction, but let it be understood
   that what is interpreted are object language expressions.}
 
-\ex. $\sv{\mbox{a famous detective lives at 221B Baker Street}}^{w,g} = 1$\\
-iff a famous detective lives at 221B Baker Street in world $w$.
+\ex $\sv{\mbox{a famous detective lives at 221B Baker Street}}^{w,g} = 1$\\
+iff a famous detective lives at 221B Baker Street in world $w$. \xe
 
 It is customary to refer to the world for which we are calculating the extension
 of a given expression as the \term{evaluation world}. In the absence of any
@@ -235,7 +235,7 @@ then there are shifting devices such as our \expression{in the world of Sherlock
   Holmes}. We will soon see how they work. But first some more pedestrian steps:
 adding lexical entries and composition principles that are formulated relative
 to a possible world. This will allow us to derive the truth-conditions as stated
-in \Last in a compositional manner.
+in (\lastx) in a compositional manner.
 
 \subsubsection{Step 3: Lexical Entries.} \label{sec:lexical-entries}
 
@@ -243,8 +243,8 @@ Among our lexical items, we can distinguish between items which have a
 \term{world-dependent} semantic value and those that are world-independent.
 Predicates are typically world-dependent. Here are some sample entries.
 
-\ex. For any $w \in W$ and any assignment function $g$: \a.
-$\sv{\mbox{famous}}^{w,g} = \lambda x \in D.\ x \mbox{ is famous in }
+\pex For any $w \in W$ and any assignment function $g$:
+\a $\sv{\mbox{famous}}^{w,g} = \lambda x \in D.\ x \mbox{ is famous in }
 w$.%
 \footnote{Of course, ``$\lambda x \in D.\ \dots$'' is short for
   ``$\lambda x\co x \in D.\ \dots$''. Get used to semanticists
@@ -257,14 +257,14 @@ w$.%
   world $w$ and a variable assignment $g$ is that function that is
   defined for an argument $x$ only if $x$ is a member of the domain of
   individuals and that, if it is defined, yields the truth-value 1 if
-  and only if $x$ is famous in $w$. \Last[a] does \emph{not} mean that the
+  and only if $x$ is famous in $w$. (\lastx)[a] does \emph{not} mean that the
   function maps $x$ to ``$x$ is famous in $w$'', which would be very weird:
-  mapping an individual to a meta-language statement!} \b.
-$\sv{\mbox{detective}}^{w,g} = \lambda x \in D.\ x \mbox{ is a
+  mapping an individual to a meta-language statement!}
+\a $\sv{\mbox{detective}}^{w,g} = \lambda x \in D.\ x \mbox{ is a
   detective in } w$.
-\b.
-$\sv{\mbox{lives-at}}^{w,g} = \lambda x \in D.\ \lambda y \in D.\ y
+\a $\sv{\mbox{lives-at}}^{w,g} = \lambda x \in D.\ \lambda y \in D.\ y
 \mbox{ lives-at } x \mbox{ in } w $.
+\xe
 
 The set of detectives will obviously differ from world to world, and so will the
 set of famous individuals and the set of pairs where the first element lives at
@@ -274,31 +274,32 @@ Other items have semantic values which do not differ from world to world. The
 most important such items are certain ``logical'' expressions, such as
 truth-functional connectives and determiners:
 
-\ex. \a.
-$\sv{\mbox{and}}^{w,g} = \lambda u \in D_t.\ \lambda v \in D_t.\ u=v=1
+\pex
+\a $\sv{\mbox{and}}^{w,g} = \lambda u \in D_t.\ \lambda v \in D_t.\ u=v=1
 $.
-\b.
-$\sv{\mbox{the}}^{w,g} = \lambda f \in D_{\angles{e,t}}\co \exists !
+\a $\sv{\mbox{the}}^{w,g} = \lambda f \in D_{\angles{e,t}}\co \exists !
 x[f(x) = 1]. \mbox{ the } y \mbox{ such that } f(y) = 1$.
-\b.
-$\sv{\mbox{every}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
+\a $\sv{\mbox{every}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
 h_{\angles{e,t}}.\ \forall x_e\co f(x) = 1 \rightarrow h(x) = 1 $.
 \sidepar{Note the ruthless condensation of the notation in (c) and
   (d): variables are subscripted with the type of the domain that
-  their values are constrained to come from.} \c.
-$\sv{\mbox{a/some}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
+  their values are constrained to come from.}
+\a $\sv{\mbox{a/some}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
 h_{\angles{e,t}}.\ \exists x_e\co f(x) = 1\ \&\ h(x) = 1 $.
+\xe
 
 Note that there is no occurrence of $w$ on the right-hand side of the entries in
-\Last. That's the tell-tale sign of the world-independence of the semantics of
+(\lastx). That's the tell-tale sign of the world-independence of the semantics of
 these items.
 
 We will also assume that proper names have world-independent semantic values,
 that is, they refer to the same individual in any possible world.
 
-\ex. \a. $\sv{\mbox{Noam Chomsky}}^{w,g}$ = Noam Chomsky. 
-\b. $\sv{\mbox{Sherlock Holmes}}^{w,g}$ = Sherlock Holmes. 
-\c. $\sv{\mbox{221B Baker Street}}^{w,g}$ = 221B Baker Street.
+\pex
+\a $\sv{\mbox{Noam Chomsky}}^{w,g}$ = Noam Chomsky. 
+\a $\sv{\mbox{Sherlock Holmes}}^{w,g}$ = Sherlock Holmes. 
+\a $\sv{\mbox{221B Baker Street}}^{w,g}$ = 221B Baker Street.
+\xe
 
 \subsubsection{Step 4: Composition Principles.} \label{sec:comp-princ}
 
@@ -306,12 +307,13 @@ The old rules of Functional Application, Predicate Modification, and
 $\lambda$-Abstraction can be retained almost intact. We just need to modify them
 by adding world-superscripts to the interpretation function. For example:
 
-\ex. \term{Functional Application (FA)}\\
+\ex \term{Functional Application (FA)}\\
 If $\alpha$ is a branching node and $\{\beta, \gamma\}$ the set of its
 daughters, then, for any world $w$ and assignment $g$: if
 $\sv{\beta}^{w,g}$ is a function whose domain contains
 $\sv{\gamma}^{w,g}$, then
 $\sv{\alpha}^{w,g} = \sv{\beta}^{w,g} (\sv{\gamma}^{w,g})$.
+\xe
 
 The rule simply passes the world parameter down.
 
@@ -321,18 +323,19 @@ Lastly, we will want to connect our semantic system to the notion of the
 \term{truth of an utterance}. We first adopt the ``Appropriateness Condition''
 from Heim \amp\ Kratzer (p.243):
 
-\ex. \extitle{Appropriateness Condition}\\
+\ex \extitle{Appropriateness Condition}\\
 A context $c$ is \emph{appropriate} for an LF $\phi$ only if $c$
 determines a variable assignment $g_c$ whose domain includes every
-index which has a free occurrence in $\phi$.
+index which has a free occurrence in $\phi$. \xe
 
 We then intensionalize Heim \amp\ Kratzer's definition of truth and falsity of
 utterances:
 
-\ex. \extitle{Truth and Falsity Conditions for Utterances}\\
+\ex \extitle{Truth and Falsity Conditions for Utterances}\\
 An utterance of a sentence $\phi$ in a context $c$ in a possible world $w$ is
 \emph{true} iff $\sv{\phi}^{w,g_c} = 1$ and \emph{false} if $\sv{\phi}^{w,g_c} =
 0$.
+\xe
 
 \begin{exercise}
   Compute under what conditions an utterance in possible world $w_7$ (which may
@@ -361,24 +364,26 @@ syntactically and semantically.
 We begin with a heuristic step. We want to derive something like the following
 truth-conditions for our sentence:
 
-\ex. $\sv{\mbox{in the world of Sherlock Holmes,}\\
+\ex $\sv{\mbox{in the world of Sherlock Holmes,}\\
   \mbox{a famous detective lives at 221B Baker Street}}^{w,g} = 1$\\
 iff the world $w'$ as it is described in the Sherlock Holmes stories is such
 that there exists a famous detective in $w'$ who lives at 221B Baker Street in
 $w'$.
+\xe
 
 We would get this if in general we had this rule for \expression{in the world of
   Sherlock Holmes}:
 
-\ex. For any sentence $\phi$, any world $w$, and any assignment $g$:\\
+\ex For any sentence $\phi$, any world $w$, and any assignment $g$:\\
 $\sv{\mbox{in the world of Sherlock Holmes }\phi}^{w,g} = 1$\\
 iff the world $w'$ as it is described in the Sherlock Holmes stories is such
 that $\sv{\phi}^{w',g} = 1$.
+\xe
 
 This is a so-called \term{syncategorematic} treatment of the meaning of this
 expression. Instead of giving an explicit semantic value to the expression, we
 specify what effect it has on the meaning of a complex expression that contains
-it. In \Last, we do not compute the meaning for \expression{in the world of
+it. In (\lastx), we do not compute the meaning for \expression{in the world of
   Sherlock Holmes, $\phi$} from the combination of the meanings of its parts,
 since \expression{in the world of Sherlock Holmes} is not given a separate
 meaning, but in effect triggers a special composition principle. This %
@@ -404,7 +409,7 @@ principle. The Fregean slogan we adopted says that all composition is function
 application (modulo the need for $\lambda$-abstraction and the possible need for
 predicate modification).\footnote{See Heim \amp\ Kratzer, Section 4.3, pp.
   63--72 for a reminder about the status of predicate modification.} So, what we
-will want to do is to make \LLast be the result of functional application. But
+will want to do is to make \blastx be the result of functional application. But
 we can immediately see that it cannot be the result of our usual rule of
 functional application, since that would feed to \expression{in the world of
   Sherlock Holmes} the semantic value of \expression{a famous detective lives in
@@ -448,7 +453,7 @@ abbreviatory notation\footnote{The notation with the subscripted cent-sign comes
   from Montague Grammar. See e.g. \citet[147]{dowty-wall-peters:1981:intro}.}
 for the intension of $\alpha$:
 
-\ex. $\svcent{\alpha}^g := \lambda w. \sv{\alpha}^{w,g}$.
+\ex $\svcent{\alpha}^g := \lambda w. \sv{\alpha}^{w,g}$. \xe
 
 It should be immediately obvious that since the definition of intension
 abstracts over the evaluation world, intensions are not
@@ -461,7 +466,7 @@ world-dependent.\footnote{Since intensions are by definition not dependent on
   an extension in certain worlds. In such a case, the intension has no extension
   to map such a world to. Therefore, the intension will have to be a partial
   function. So, the official, more ``pedantic'', definition will have to be as
-  follows: $\sv{\alpha}_{\tiny \mbox{\textcent}}^g := \lambda w\co \alpha \in
+  follows: $\sv{\alpha}_{\mbox{\tiny\textcent}}^g := \lambda w\co \alpha \in
   \mbox{dom}(\sv{\null}^{w,g}). \sv{\alpha}^{w,g}$.}
 
 Note that strictly speaking, it now makes no sense anymore to speak of
@@ -503,22 +508,28 @@ functions from possible worlds to all kinds of extensions. So, basically we want
 to add for any kind of extension we have in our system, a corresponding kind of
 intension, a function from possible worlds to that kind of extension.
 
-We add a new clause, \Next[c], to the definition of semantic types:
+We add a new clause, (\nextx c), to the definition of semantic types:
 
-\ex. \extitle{Semantic Types}
-\a. $e$ and $t$ are semantic types.
-\b. If $\sigma$ and $\tau$ are semantic types, then $\angles{\sigma,\tau}$ is a semantic type.
-\c. If $\sigma$ is a semantic type, then $\angles{s,\sigma}$ is a semantic type.
-\d. Nothing else is a semantic type.
+\pex \extitle{Semantic Types}
+\a $e$ and $t$ are semantic types.
+\a If $\sigma$ and $\tau$ are semantic types, then $\angles{\sigma,\tau}$ is a semantic type.
+\a If $\sigma$ is a semantic type, then $\angles{s,\sigma}$ is a semantic type.
+\a Nothing else is a semantic type.
+\xe
 
 We also add a fourth clause to the previous definition of semantic domains:
 
-\ex. \extitle{Semantic Domains} \a. $D_{e} = D$, the set of all possible
-individuals \b. $D_{t} = \{0,1\}$, the set of truth-values \b. If $\sigma$ and
+\pex \extitle{Semantic Domains}
+\a $D_{e} = D$, the set of all possible
+individuals
+\a $D_{t} = \{0,1\}$, the set of truth-values
+\a If $\sigma$ and
 $\tau$ are semantic types, then $D_{\angles{\sigma,\tau}}$ is the set of all
-functions from $D_{\sigma}$ to $D_{\tau}$. \b. \term{Intensions}: If $\sigma$ is
+functions from $D_{\sigma}$ to $D_{\tau}$.
+\a \term{Intensions}: If $\sigma$ is
 a type, then $D_{\angles{s,\sigma}}$ is the set of all functions from $W$ to
 $D_{\sigma}$.
+\xe
 
 Clause (d) is the addition to our previous system of types. The functions of the
 schematic type $\angles{s,\dots}$ are intensions.\footnote{Note a curious
@@ -561,9 +572,9 @@ We are ready to formulate the lexical entry for \expression{in the world of
   condensed notation: ``$\lambda p_{\angles{s,t}}.\ \dots$'' stands for the
   fully official ``$\lambda p\co p \in D_{\angles{s,t}}.\ \dots$''.}
 
-\ex. $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
+\ex $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
 \lambda p_{\angles{s,t}}.\ \mbox{the world } w' \mbox{ as it is described in the Sherlock Holmes stories}\\
-\mbox{is such that } p(w') = 1$.
+\mbox{is such that } p(w') = 1$. \xe
 
 That is, \expression{in the world of Sherlock Holmes} expects as its argument a
 function of type $\angles{s,t}$, a proposition. It yields the truth-value 1 iff
@@ -578,15 +589,15 @@ composition principle.
 
 We add the new rule of Intensional Functional Application.
 
-\ex. \term{Intensional Functional Application (IFA)}\\
+\ex \term{Intensional Functional Application (IFA)}\\
 If $\alpha$ is a branching node and $\{\beta, \gamma\}$ the set of its
 daughters, then, for any world $w$ and assignment $g$: if $\sv{\beta}^{w,g}$ is
 a function whose domain contains $\svcent{\gamma}^g$, then $\sv{\alpha}^{w,g} =
-\sv{\beta}^{w,g} (\svcent{\gamma}^g)$.
+\sv{\beta}^{w,g} (\svcent{\gamma}^g)$. \xe
 
 This is the crucial move. It makes space for expressions that want to take the
 intension of their sister as their argument and do stuff to it. Now, everything
-is in place. Given \LLast, the semantic argument of \expression{in the world of
+is in place. Given \blastx, the semantic argument of \expression{in the world of
   Sherlock Holmes} will not be a truth-value but a proposition. And thus,
 \expression{in the world of Sherlock Holmes} will be able to check the
 truth-value of its prejacent in various possible worlds. To see in practice that
@@ -613,13 +624,13 @@ we have all we need, please do the following exercise.
 %
   What is wrong with the following equation:
 
-	\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
-	in $w$.
+	\ex ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
+	in $w$. \xe
 
 	[ Hint: there is nothing wrong with the following:
 
 	\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = 1 iff Watson is slow
-	in $w$. ] \eex
+	in $w$. ] \xe \eex
 	
 \end{exercise}
 
@@ -640,9 +651,10 @@ demonstrates this.
 	
   Consider the following ``intensional'' meaning for \expression{and}:
 	
-  \ex.
+  \ex
   $\sv{\mbox{and}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda
   q_{\angles{s,t}}.\ p(w) = q(w) = 1$.
+  \xe
 	
   With this semantics, \expression{and} would operate on the intensions of the
   two conjoined sentences. In any possible world $w$, the complex sentence will
@@ -726,9 +738,10 @@ have decided to locate Holmes' abode on Abbey Road.
 To see that our semantics does not yet capture this fact, notice that in the
 semantics we gave for \expression{in the world of Sherlock Holmes}:
 
-\ex. $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
+\ex $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
 \lambda p_{\angles{s,t}}.\ \mbox{the world } w' \mbox{ as it is described in the Sherlock Holmes stories}\\
 \mbox{is such that } p(w') = 1$.
+\xe
 
 there is no occurrence of $w$ on the right hand side. This means that the
 truth-conditions for sentences with this shifter are world-independent. In other
@@ -739,9 +752,9 @@ The fix is obvious: what matters to the truth of our sentence is the content of
 the Sherlock Holmes stories as they are in the evaluation world. So, we need the
 following semantics for our shifter:
 
-\ex. $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
+\ex $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
 \lambda p_{\angles{s,t}}.\ \mbox{the world } w' \mbox{ as it is described in the Sherlock Holmes stories}\\
-\mbox{\emph{in} } w \mbox{ is such that } p(w') = 1$.
+\mbox{\emph{in} } w \mbox{ is such that } p(w') = 1$. \xe
 
 We see now that sentences with this shifter do make a claim about the evaluation
 world: namely, that the Sherlock Holmes stories as they are in the evaluation
@@ -751,7 +764,7 @@ worlds and thus couldn't really be very informative, they actually only talk
 about certain possible worlds, those that stand in some relation to what is
 going on at the ground level in the actual world. As a crude analogy, consider:
 
-\ex. My grandmother is sick.
+\ex My grandmother is sick. \xe
 
 At one level this is a claim about my grandmother. But it is also a claim about
 me: namely that I have a grandmother who is sick. Thus it is with modal
@@ -792,9 +805,9 @@ its complement is true throughout the worlds compatible with the stories. In
 other words, the operator \emph{universally quantifies} over the compatible
 worlds. Our next iteration of the semantics for the operator is therefore this:
 
-\ex. $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
+\ex $\sv{\mbox{in the world of Sherlock Holmes}}^{w,g} =\\
 \lambda p_{\angles{s,t}}.\ \forall w' \mbox{ compatible with the Sherlock Holmes stories \emph{in} } w\!:\\
-p(w') = 1$.
+p(w') = 1$. \xe
 
 At a very abstract level, the way we parse sentences of the form \emph{in the
   world of Sherlock Holmes, $\phi$} is that both components, the
@@ -841,8 +854,8 @@ asks what is wrong with writing something like%
 \footnote{Thanks to Magda Kaufmann, Angelika Kratzer, and Ede
   Zimmermann for discussion on the issues explored in this section.}%
 
-\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
-in $w$.\label{ex:badwatson}
+\ex ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = Watson is slow
+in $w$.\label{ex:badwatson} \xe
 
 Think about it. On the left hand side of the ``='' sign is a meta-language
 expression consisting of a $\lambda$-expression (so some kind of function)
@@ -861,10 +874,10 @@ same as statements of fact.
 
 The proper thing to do is to write
 
-\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = 1 iff Watson
-is slow in $w$.\label{ex:goodwatson}
+\ex ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = 1 iff Watson
+is slow in $w$.\label{ex:goodwatson} \xe
 
-There are actually two ways to parse the statement in \Last, both legitimate it
+There are actually two ways to parse the statement in (\lastx), both legitimate it
 appears.
 
 On one parse, the major connective is the meta-language expression ``iff''. On
@@ -877,8 +890,8 @@ Watson is slow in $w$.
 
 The other parse is perhaps more conspicuously represented as follows:
 
-\ex. ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = \leftchoice{1 if
-  Watson is slow in $w$,0 if Watson is not slow in $w$}
+\ex ($\lambda x.\ x \mbox{ is slow in } w$) (Watson) = \leftchoice{1 if
+  Watson is slow in $w$,0 if Watson is not slow in $w$} \xe
 
 Here, the ``='' sign is the major connective. The left hand side is a
 meta-language expression that resolves to a truth-value and the right hand
@@ -921,7 +934,7 @@ Alternatively, %
 one can introduce a new notation that indicates that a meta-language statement
 is being used to contribute a truth-value:
 
-\ex. $\nupsis{\alpha}\ = \leftchoice{1 if $\alpha$,0 if otherwise}$
+\ex $\nupsis{\alpha}\ = \leftchoice{1 if $\alpha$,0 if otherwise}$ \xe
 
 Lastly, one could abandon the H\amp\ K informal meta-language approach
 altogether and introduce a rigidly formalized meta-language.
