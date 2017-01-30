@@ -1,7 +1,8 @@
 %!TEX root = IntensionalSemantics.tex
 \chapter{Conditionals}\label{cha:conditionals} % (fold)
+\excnt=1
 
-\epigraph{The word ``if'', just two tiny letters \\
+{\setlength{\epigraphwidth}{44ex}\epigraph{The word ``if'', just two tiny letters \\
     Says so much for something so small \\
     The biggest little word in existence; \\
     Never answers, just questions us all\\[6pt]
@@ -9,7 +10,7 @@
     If regrets were gold, I'd be rich as a queen \\
     If teardrops were diamonds, how my face would gleam \\
     If I'd loved you better, I wouldn't be lonely \\
-    If only, if only, if only}{Dolly Parton, \emph{If Only}}
+    If only, if only, if only}{Dolly Parton, \emph{If Only}}}
 
 \chapterprecishere{We develop a possible worlds semantics for conditionals that
   treats the \emph{if}-clause as an intensional operator, with a bit of
@@ -17,51 +18,87 @@
 
 \minitoc
 
-\section{If \dots the biggest little word}
+\section{\expression{If} \dots\ the biggest little word}
 \label{sec:if}
 
-Consider a few conditional sentences:
+In many ways, conditionals are the archetypal construction of displacement: the
+consequent is evaluated not against the actual here and now but against the
+scenario conjured up by the antecedent. Consider a few conditional sentences:
 
-\ex
+\pex
 \a If Kim left before 6am, she got here in time.
-\b If there's an earthquake tomorrow, this house will collapse.
-\c If there had been a massive snowstorm last night, Kai would have stayed home.
-
+\a If there's an earthquake tomorrow, this house will collapse.\label{ex:earthquake}
+\a If there had been a massive snowstorm last night, Kai would have stayed home.
+\xe
+%
 These represent the three main subtypes of conditionals (there are more):
-\Last[a] is an ``indicative'' conditional about the past, \Last[b] is an
-indicative conditional about the future, and \Last[c] is a ``subjunctive''
+(\lastx a) is an ``indicative'' conditional about the past, (\lastx b) is an
+indicative conditional about the future, and (\lastx c) is a ``subjunctive''
 conditional. For the moment, the differences will be left aside.
 
 The basic idea of how conditionals work is this: the \expression{if}-clause
 takes us to a particular possible world (or maybe a set thereof) and the
-consequent clause is asserted to hold in that world (or those worlds). As we
-know by now, intensional operators are always anchored to the actual world (or
-more accurately, the local evaluation world, to make allowance for intensional
-operators embedded under other intensional operators).
+consequent clause is asserted to be true of that world (or those worlds). But
+what world(s) are we being taken to? The most obvious requirement is that the
+antecedent of the conditional needs to be true of the world(s). But there's
+more.
 
-So, as before, fleshing out the analysis of \expression{if}-clauses as world
-shifters will involve talking about the accessibility relation that anchors the
-world(s) we are taken to.
+Given our discussion of how the semantics of fiction operators anchors them in
+facts about the actual world (the content of the relevant body of fiction), it
+shouldn't come as a surprise that conditionals are similarly anchored. So, look
+at the examples in (\lastx): what in the actual world are they about?
 
-An intuition that seems essentially correct is that \Last[a] involves an
-epistemic accessibility relation: we are considering worlds that are compatible
-with the available evidence, and among those worlds we are taken to the subset
-where Kim left before 6am. \Last[a] then 
+\sidepar{It is perhaps unfortunate that David Lewis used a rather whimsical
+  example to start off his seminal book on counterfactuals (``If kangaroos had
+  not tails, they would topple over''). Or consider this scene from the TV show
+  ``Big Bang Theory'': \url{https://www.youtube.com/watch?v=0lpY0Kt4bn8}. As the
+  examples in the text make clear, conditionals can be very down-to-earth.}%
+Here's a sketch: (\lastx a) is about the local transportation system, the
+weather, the traffic, and so on. (\lastx b) is about the sturdiness of this
+house, facts of geology, laws of physics, and so on. (\lastx c) is about Kai's
+proclivities (such as avoiding traffic snarls), the local climate, and so on.
+Since the conditionals are anchored in real world facts, they are no mere
+flights of fancy and whether they are true depends on those facts. If today's
+traffic was particularly bad, it may be false that Kim's leaving before 6am
+would have got her here in time. If the architects went to great lengths to make
+the house earthquake-safe, (\lastx b) may well be false. And if there was an
+attendance-mandatory faculty meeting, Kai may well have come in in spite of a
+massive snowstorm.
 
-\section{The Strict Implication Analysis}
+So, the outlines of the semantics of conditionals are clear: \expression{if}
+takes us to worlds where the antecedent is true but that match the actual world
+in certain relevant features. And the consequent then is evaluated in those
+worlds. There are many details to work out and we'll return to that task in Part
+III of these notes. But for now, we put forward a placeholder analysis.
 
-If \expression{if} is not a truth-functional connective, it seems we should
-treat it as an intensional operator. 
+\section{The Restricted Strict Implication Analysis}
 
-Some of the problems we encountered would go away if we treated \expression{if} as introducing a modal meaning. The simplest way to do that would be to treat it as a universal quantifier over possible worlds. \expression{If p, q} would simply mean that the set of $p$-worlds is a subset of the $q$-worlds. This kind of analysis is usually called \term{strict implication}. The difference between \expression{if} and \expression{must} would be that \expression{if} takes an overt restrictive argument. Here is what the lexical entry for \expression{if} might look like:
+We will treat \expression{if} as a higher-order operator that together with the
+antecedent creates an intensional operator with a semantics very similar to the
+final analysis we gave to \expression{in the world of Sherlock Holmes} in the
+previous chapter. But where the fiction operator directly encoded what features
+of the actual world it's sensitive to (the Sherlock Holmes fiction),
+conditionals rely on context for this job. Here's the proposal:
 
-\ex. $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in D_{\angles{s,t}}.\ \forall w'\co p(w')=1 \rightarrow q(w')=1.\\[6pt]
-(\mbox{in set talk: } p \subseteq q)$
+\ex\label{ex:if-strict-context}%
+$\svt{if}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in
+D_{\angles{s,t}}.$ \\ \null\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is
+  relevantly like } w \rightarrow q(w')=1.$ \xe
+%
+The contextual anchoring to features of the evaluation world $w$ is here
+effected by the placeholder ``relevantly like $w$''. This is crucial because
+otherwise the conditional would talk about any world whatsoever where the
+antecedent is true. This would make the truth-conditions not just not contingent
+on the actual world but also far too strong to allow most sensible conditionals
+to be true ever.
 
-Applied to \ref{earthquake}, we would derive the truth-conditions that \ref{earthquake} is true iff all of the worlds where there is a major earthquake in Cambridge tomorrow are worlds where my house collapses.
+Think about the earthquake conditional \refx{ex:earthquake}: we would derive the
+absurdly strong truth-conditions that the conditional is true iff \emph{all} of
+the worlds where there is a major earthquake in Cambridge tomorrow are worlds
+where my house collapses.
 
 There are some obvious and immediate problems with this analysis. For one, while
-it's easy to imagine circumstances where the conditional \ref{earthquake} is
+it's easy to imagine circumstances where the conditional \refx{ex:earthquake} is
 judged to be true, there surely are possible worlds where there's an earthquake
 but my house does not collapse: perhaps, the builders in that world used all the
 recommended best practices to make the building earthquake-safe, perhaps it's a
@@ -73,14 +110,8 @@ possible worlds where there's an earthquake but that the conditional can still
 be judged true in some worlds) is accompanied with another problem: whether the
 conditional is true depends on what the world is like. Was the house built to
 exacting standards? Is it propped up by its neighbors? Does Harry Potter owe me
-a favor?
-
-We can build dependence on the evaluation world in by saying that \emph{if} only
-operates on worlds that are ``relevantly like'' the evaluation world:
-
-\ex.\label{ex:if-strict-context} $\sv{\mbox{if}}^{w,g} = \lambda p \in D_{\angles{s,t}}.\ \lambda q \in
-D_{\angles{s,t}}.$ \\ \null\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is
-  relevantly like } w \rightarrow q(w')=1.$
+a favor? That is the problem solved by restricting the quantifier over worlds to
+world ``relevantly like $w$''.
 
 Obviously, this is a semantics with a ``placeholder'', because what does
 ``relevantly like'' mean precisely? Now, just because the semantics is therefore
@@ -88,38 +119,67 @@ rather vague and context-dependent doesn't mean it is wrong. As
 \textcite{lewis:1973:counterfactuals} writes:
 
 \begin{quote} Counterfactuals are notoriously vague. That does not mean that we
-cannot give a clear account of their truth conditions. It does mean that such an
-account must either be stated in vague terms---which does not mean ill-understood
-terms---or be made relative to some parameter that is fixed only within rough
-limits on any given occasion of language use.
+  cannot give a clear account of their truth conditions. It does mean that such
+  an account must either be stated in vague terms \dash which does not mean
+  ill-understood terms \dash or be made relative to some parameter that is fixed
+  only within rough limits on any given occasion of language use.
 \end{quote}
-
-\noindent In a later chapter, we will revisit the formulation in
-\ref{ex:if-strict-context} and fill it out more explicitly. 
+%
+In a later chapter, we will revisit the formulation in
+\refx{ex:if-strict-context} and fill it out more explicitly. Before we go on to
+consider other intensional constructions, we'll briefly talk about the
+astonishingly silly idea that conditionals are not intensional constructions.
  
-\begin{exercise}
-	What prediction does the strict implication analysis in
-  \ref{ex:if-strict-context} make about the negated conditional in \ref{neg-earthquake}? \eex
-\end{exercise}
 \section{A red herring: Material implication}
 
 Consider the following example:
 
-\ex. If I am healthy, I will come to class.
+\ex If I am healthy, I will come to class. \xe
 
-The simplest analysis of such conditional constructions is the so-called \term{material implication} analysis,\footnote{Quoth the Stoic philosopher Philo of Megara: ``a true conditional is one which does not have a true antecedent and a false consequent'' (according to \citet[II, 110--112]{sextus-empiricus:200:outlines}).} which treats \expression{if} as contributing a truth-function operating on the truth-values of the two component sentences (which are called the \term{antecedent} and \term{consequent} \dash from Latin \dash or \term{protasis} and \term{apodosis} \dash from Greek). The lexical entry for \expression{if} would look as follows:
+The simplest analysis of such conditional constructions is the so-called
+\term{material implication} analysis,\footnote{Quoth the Stoic philosopher Philo
+  of Megara: ``a true conditional is one which does not have a true antecedent
+  and a false consequent'' (according to \citet[II,
+  110--112]{sextus-empiricus:200:outlines}).} which treats \expression{if} as
+contributing a truth-function operating on the truth-values of the two component
+sentences (which are called the \term{antecedent} and \term{consequent} \dash
+from Latin \dash or \term{protasis} and \term{apodosis} \dash from Greek). The
+lexical entry for \expression{if} would look as follows:
 
-\ex.\label{ex:material} \marginnote{Note that as a truth-functional connective, this \expression{if} does not vary its denotation depending on the evaluation world. It's its arguments that vary with the evaluation world.}$\sv{\mbox{if}} = \lambda u \in D_t.\ \lambda v \in D_t.\ u=0 \mbox{ or } v=1.$
+\ex\label{ex:material} \marginnote{Note that as a truth-functional connective,
+  this \expression{if} does not vary its denotation depending on the evaluation
+  world. It's its arguments that vary with the evaluation world.}$\sv{\mbox{if}}
+= \lambda u \in D_t.\ \lambda v \in D_t.\ u=0 \mbox{ or } v=1.$ \xe
+%
+Applied to example in (\blastx), this semantics would predict that the example
+is false just in case the antecedent is true, I am healthy, but the consequent
+false, I do not come to class. Otherwise, the sentence is true. We will see that
+there is much to complain about here. But one should realize that under the
+assumption that \expression{if} denotes a truth-function, \emph{this one} is the
+most plausible candidate.
 
-Applied to example in \LLast, this semantics would predict that the example is false just in case the antecedent is true, I am healthy, but the consequent false, I do not come to class. Otherwise, the sentence is true. We will see that there is much to complain about here. But one should realize that under the assumption that \expression{if} denotes a truth-function, \emph{this one} is the most plausible candidate.
-
-\citet{suber:1997:material} does a good job of persuading (or at least trying to persuade) recalcitrant logic students:
+\citet{suber:1997:material} does a good job of persuading (or at least trying to
+persuade) recalcitrant logic students:
 
 \begin{quote}
 	
-	After saying all this, it is important to note that material implication does conform to some of our ordinary intuitions about implication. For example, take the conditional statement, \expression{If I am healthy, I will come to class.} We can symbolize it: H $\supset$ C.\footnote{The symbol $\supset$ which Suber uses here is called the ``horseshoe''. We have been using the right arrow $\rightarrow$ as the symbol for implication. We think that this is much preferable to the confusing horseshoe symbol. There is an intimate connection between universal quantification, material implication, and the subset relation, usually symbolized as $\subset$, which is the other way round from the horseshoe. The horseshoe can be traced back to the notation introduced by \citet{peano:1889:nova}, a capital C standing for `conseguenza' facing backwards. The C facing in the other (more ``logical'') direction was actually introduced first by \citet{gergonne:1817:essai}, but didn't catch on.}
+	After saying all this, it is important to note that material implication does
+  conform to some of our ordinary intuitions about implication. For example,
+  take the conditional statement, \expression{If I am healthy, I will come to
+    class.} We can symbolize it: H $\supset$ C.\footnote{The symbol $\supset$
+    which Suber uses here is called the ``horseshoe''. We have been using the
+    right arrow $\rightarrow$ as the symbol for implication. We think that this
+    is much preferable to the confusing horseshoe symbol. There is an intimate
+    connection between universal quantification, material implication, and the
+    subset relation, usually symbolized as $\subset$, which is the other way
+    round from the horseshoe. The horseshoe can be traced back to the notation
+    introduced by \citet{peano:1889:nova}, a capital C standing for
+    `conseguenza' facing backwards. The C facing in the other (more ``logical'')
+    direction was actually introduced first by \citet{gergonne:1817:essai}, but
+    didn't catch on.}
 	
-	The question is: when is this statement false? When will I have broken my promise? There are only four possibilities:
+	The question is: when is this statement false? When will I have broken my
+  promise? There are only four possibilities:
 	
 	\begin{center}
 		\begin{tabular}
@@ -133,39 +193,99 @@ Applied to example in \LLast, this semantics would predict that the example is f
 
 \begin{itemize}
 		
-		\item In case \#1, I am healthy and I come to class. I have clearly kept my promise; the conditional is true. 
-		\item In case \#2, I am healthy, but I have decided to stay home and read magazines. I have broken my promise; the conditional is false. 
-		\item In case \#3, I am not healthy, but I have come to class anyway. I am sneezing all over you, and you're not happy about it, but I did not violate my promise; the conditional is true. 
-		\item In case \#4, I am not healthy, and I did not come to class. I did not violate my promise; the conditional is true. 
+\item In case \#1, I am healthy and I come to class. I have clearly kept my
+  promise; the conditional is true.
+\item In case \#2, I am healthy, but I have decided to stay home and read
+  magazines. I have broken my promise; the conditional is false.
+\item In case \#3, I am not healthy, but I have come to class anyway. I am
+  sneezing all over you, and you're not happy about it, but I did not violate my
+  promise; the conditional is true.
+\item In case \#4, I am not healthy, and I did not come to class. I did not
+  violate my promise; the conditional is true.
 
 \end{itemize}
 %	
-But this is exactly the outcome required by the material implication. The compound is only false when the antecedent is true and the consequence is false (case \#2); it is true every other time.
+But this is exactly the outcome required by the material implication. The
+compound is only false when the antecedent is true and the consequence is false
+(case \#2); it is true every other time.
 
 \end{quote}
 %
-Despite the initial plausibility of the analysis, it cannot be maintained. Consider this example:
+Despite the initial plausibility of the analysis, it cannot be maintained.
+Consider again our earthquake example:
 
-\ex. \label{earthquake}If there is a major earthquake in Cambridge tomorrow, my house will collapse.
+\ex[exno=\ref{ex:earthquake}] If there is a major earthquake in Cambridge
+tomorrow, my house will collapse. \xe
+%
+If we adopt the material implication analysis, we predict that
+\refx{ex:earthquake} will be false just in case there is indeed a major
+earthquake in Cambridge tomorrow but my house fails to collapse. This makes a
+direct prediction about when the negation of \refx{ex:earthquake} should be
+true. A false prediction, if ever there was one:
 
-If we adopt the material implication analysis, we predict that \Last will be false just in case there is indeed a major earthquake in Cambridge tomorrow but my house fails to collapse. This makes a direct prediction about when the negation of \Last should be true. A false prediction, if ever there was one:
+\pex \a\label{neg-earthquake} It's not true that if there is a major earthquake
+in Cambridge tomorrow, my house will collapse. \a $\not\equiv$ There will be a
+major earthquake in Cambridge tomorrow, and my house will fail to collapse. \xe
+%
+Clearly, one might think that (\lastx a) is true without at all being committed
+to what the material implication analysis predicts to be the equivalent
+statement in (\lastx b). This is one of the inadequacies of the material
+implication analysis.
 
-\ex. \a. \label{neg-earthquake}It's not true that if there is a major earthquake in Cambridge tomorrow, my house will collapse. 
-\b. $\not\equiv$ There will be a major earthquake in Cambridge tomorrow, and my house will fail to collapse.
-
-Clearly, one might think that \Last[a] is true without at all being committed to what the material implication analysis predicts to be the equivalent statement in \Last[b]. This is one of the inadequacies of the material implication analysis.
-
-These inadequacies are sometimes referred to as the ``paradoxes of material implication''. But that is misleading. As far as logic is concerned, there is nothing wrong with the truth-function of material implication. It is well-behaved and quite useful in logical systems. What is arguable is that it is not to be used as a reconstruction of what conditionals mean in natural language.
+These inadequacies are sometimes referred to as the ``paradoxes of material
+implication''. But that is misleading. As far as logic is concerned, there is
+nothing wrong with the truth-function of material implication. It is
+well-behaved and quite useful in logical systems. What is arguable is that it is
+not to be used as a reconstruction of what conditionals mean in natural
+language.
 
 \begin{exercise}
-  Under the assumption that \emph{if} has the meaning in \ref{ex:material}, calculate the truth-conditions predicted for \Next:
+	What prediction does the restricted strict implication analysis in
+  \refx{ex:if-strict-context} make about the negated conditional in
+  \refx{neg-earthquake}? \eex
+\end{exercise}
 
-\ex. \a. No student will succeed if he goofs off.
-\b. No student $\lambda x$ (if $x$ goofs off, $x$ will succeed)
+\begin{exercise}
+  Under the assumption that \emph{if} has the meaning in \refx{ex:material},
+  calculate the truth-conditions predicted for (\nextx):
 
-State the predicted truth-conditions in words and evaluate whether they correspond to the actual meaning of \Last.
+  \pex
+  \a No student will succeed if he goofs off.
+  \a No student $\lambda x$ (if $x$ goofs off, $x$ will succeed)
+  \xe
+
+State the predicted truth-conditions in words and evaluate whether they correspond to the actual meaning of (\lastx).
 \eex
 \end{exercise}
+
+\section{Supplemental Readings}
+\label{sec:supplemental}
+
+{\setlength{\parindent}{0pt}\nonzeroparskip
+
+We'll come back to conditionals soon enough, but here are two introductory
+readings:
+
+\begin{bibentrylist}
+\item \fullcite{fintel-2011-hsk-conditionals}.
+\item \fullcite{fintel-2012-subjunctives}.
+\end{bibentrylist}
+
+Here is a not so introductory reading:
+
+\begin{bibentrylist}
+\item \fullcite{gillies-2016-conditionals}.
+\end{bibentrylist}
+
+A couple of defenses of the material conditional:
+
+\begin{bibentrylist}
+\item \fullcite{abbott-2010-fopl}.
+  \item \fullcite{rieger-2015-simple}.
+\end{bibentrylist}
+
+}
+
 
 
 % chapter conditionals-first (end)
