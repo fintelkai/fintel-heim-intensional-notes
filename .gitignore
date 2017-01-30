@@ -108,6 +108,9 @@ sympy-plots-for-*.tex/
 # xindy
 *.xdy
 
+# expex
+*-tags.tex
+
 # Emacs
 
 *#*
