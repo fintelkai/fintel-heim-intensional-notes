@@ -2,6 +2,7 @@
 \ProvidesClass{kvf-lecturenotes}[2015/01/05 v.1.000 Kai's document class for lecture notes]
 \LoadClass[oldfontcommands,12pt]{memoir}
 \renewcommand{\encodingdefault}{T1}% What's that for?
+\RequirePackage{checkend}
 \RequirePackage[scaled=1.05,osf]{xagaramon}%
 \RequirePackage[small]{eulervm}%
 \RequirePackage[T1]{fontenc}%
@@ -49,7 +50,9 @@
     belowexskip=2ex,
     everygla=}
   \gathertags
-          
+
+  \newcommand{\refx}[2][]{(\ref{#2}#1)}
+  
 % Macros
 %
 \def\co{\colon\thinspace}
@@ -301,7 +304,8 @@
 \renewcommand{\sideparfont}{\tiny}
 \renewcommand{\sideparform}{%
      \ifmemtortm\RaggedLeft\else\RaggedRight\fi}
-
+\epigraphfontsize{\footnotesize}
+   
 % Chapter Precis
 \renewcommand{\prechapterprecis}{% 
 %  \vspace*{-2\baselineskip}% 
@@ -311,6 +315,7 @@
 \newcommand{\bufferpage}{\newpage\hbox{}\vfill{\scshape\caps{--- This page
       intentionally left blank
       ---}}\vfill\hbox{}\thispagestyle{cleared}}
+
 
 % Strong widow and orphan control
 

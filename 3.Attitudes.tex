@@ -6,7 +6,7 @@
   properties of accessibility relations.}
 
 \minitoc
-
+\excnt=1
 \section{Hintikka's Idea} \label{sec:hintikkas-idea}
 
 Expressions %
@@ -36,8 +36,9 @@ George believes is different in different possible worlds.
 
 \clearpage The following lexical entry thus offers itself:
 
-\ex. $\sv{\mbox{believe}}^{w,g} =\\
-\null\hfill\lambda p_{\angles{s,t}}.\ \lambda x. \ \forall w' \mbox{ compatible with } x's \mbox{ beliefs in } w\!: p(w') = 1.$
+\ex $\sv{\mbox{believe}}^{w,g} =\\
+\null\hfill\lambda p_{\angles{s,t}}.\ \lambda x. \ \forall w' \mbox{ compatible
+  with } x's \mbox{ beliefs in } w\!: p(w') = 1.$ \xe
 
 What %
 \sidepar{It is important to realize the modesty of this semantics: we are not
@@ -111,38 +112,42 @@ attitudes:
   into the set of worlds $w'$ compatible with what $x$ believes in $w$. Call
   this function $\mathcal{B}$. That is,
 	
-	\ex. $\mathcal{B} = \lambda x.\ \lambda w.\ \{w'\co w' \mbox{ is compatible with what } x \mbox{ believes in } w\}.$
-	
+	\ex $\mathcal{B} = \lambda x.\ \lambda w.\ \{w'\co w' \mbox{ is compatible
+    with what } x \mbox{ believes in } w\}.$ \xe
+%	
 	Using this notation, our lexical entry for \expression{believe} would look as
   follows:
 	
-	\ex. $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x.\ \mathcal{B}(x)(w) \subseteq p.$
-	
+	\ex $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x.\
+  \mathcal{B}(x)(w) \subseteq p.$ \xe
+%	
 	We are here indulging in the usual sloppiness in treating $p$ both as a
   function from worlds to truth-values and as the set characterized by that
   function.
 	
 	Here now are two ``alternatives'' for the semantics of \expression{believe}:
 	
-	\ex. \extitle{Attempt 1 (very wrong)}\\[3pt]
-	$\sv{\mbox{believe}}^{w,g} = \lambda p \in D_{\angles{s,t}}. \big[ \lambda x \in D.\ p = \mathcal{B}(x)(w) \big]$.
+	\ex \extitle{Attempt 1 (very wrong)}\\[3pt]
+	$\sv{\mbox{believe}}^{w,g} = \lambda p \in D_{\angles{s,t}}. \big[ \lambda x
+  \in D.\ p = \mathcal{B}(x)(w) \big]$. \xe
 	
-	\ex. \extitle{Attempt 2 (also very wrong)}\\[3pt]
-	$\sv{\mbox{believe}}^{w,g} = \lambda p \in D_{\angles{s,t}}. \big[ \lambda x \in D.\ p \cap \mathcal{B}(x)(w) \neq \emptyset \big]$.
-	
+	\ex \extitle{Attempt 2 (also very wrong)}\\[3pt]
+	$\sv{\mbox{believe}}^{w,g} = \lambda p \in D_{\angles{s,t}}. \big[ \lambda x
+  \in D.\ p \cap \mathcal{B}(x)(w) \neq \emptyset \big]$. \xe
+%	
 	Explain why these do not adequately capture the meaning of
   \expression{believe}. \eex
 \end{exercise}
 %
 \begin{exercise}
-  Follow-up: The semantics in \Last would have made \emph{believe} into an
+  Follow-up: The semantics in (\lastx) would have made \emph{believe} into an
   existential quantifier of sorts: it would say that \emph{some} of the worlds
   compatible with what the subject believes are such-and-such. You have argued
   (successfully, of course) that such an analysis is wrong for \emph{believe}.
   But \emph{are} there attitude predicates with such an ``existential'' meaning?
   Discuss some candidates. If you can't find any candidates that survive
   scrutiny, can you speculate why there might be no existential attitude
-  predicates? [Warning: this is underexplored territory!]\eex
+  predicates? [Warning: this is underexplored territory!] \eex
 \end{exercise}
 %
 \clearpage We can also think of belief states as being represented by a function
@@ -156,7 +161,8 @@ $\mathcal{BS}(x)(w)$ are true: $\{w': \forall p \in \mathcal{BS}(x)(w): p(w') =
 1\}$, which in set talk is simply the big intersection of all the propositions
 in the set: $\cap \mathcal{BS}(x)(w)$. Our lexical entry then would be:
 
-\ex. $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x. \cap \mathcal{BS}(x)(w) \subseteq p.$
+\ex $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x. \cap
+\mathcal{BS}(x)(w) \subseteq p.$ \xe
 
 \begin{exercise}
 	
@@ -178,7 +184,8 @@ $w\mathcal{R}^{\mathcal{B}}_{a}w'$ which holds iff $w'$ is compatible with $a$'s
 belief state in $w$. We have then yet another equivalent way of specifying the
 lexical entry for \expression{believe}:
 
-\ex. $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x. \ \forall w': w\mathcal{R}^{\mathcal{B}}_{x}w' \rightarrow p(w') = 1.$
+\ex $\sv{\mbox{believe}}^{w,g} = \lambda p_{\angles{s,t}}.\ \lambda x. \ \forall
+w': w\mathcal{R}^{\mathcal{B}}_{x}w' \rightarrow p(w') = 1.$ \xe
 
 It is profitable to think of different attitudes (belief, knowledge, hope,
 regret, memory, \dots) as corresponding to different accessibility relations.
@@ -207,7 +214,8 @@ A relation is reflexive iff for any object in the domain of the relation we know
 that the relation holds between that object and itself. Which accessibility
 relations are reflexive? Take knowledge:
 
-\ex. $w\mathcal{R}^{\mathcal{K}}_{x}w'$ iff $w'$ is compatible with what $x$ knows in $w$.
+\ex $w\mathcal{R}^{\mathcal{K}}_{x}w'$ iff $w'$ is compatible with what $x$
+knows in $w$. \xe
 
 We %
 \marginnote{We talk here about knowledge entailing (or even presupposing) truth but
@@ -322,42 +330,40 @@ KK Thesis are discussed by \citet{williamson:2000:limits}.]
 What would the consequences be if the accessibility relation were symmetric?
 Symmetry of the accessibility relation $\mathcal{R}$ corresponds to the validity
 of the following principle:
-
-\ex. Brouwer's Axiom%
-\sidepar{In modal logic notation: $p \rightarrow \square\diamondsuit p$, known
+%
+\marginnote{In modal logic notation: $p \rightarrow \square\diamondsuit p$, known
   simply as B in modal logic. The system that combines \textbf{T}/\textbf{M}
   with B is often called Brouwer's System (\textbf{B}), after the mathematician
   L.E.J. Brouwer, not because he proposed it but because it was thought that it
   had some connections to his doctrines.}%
-:\\
+\ex Brouwer's Axiom :\\
 $\forall p \forall w:\ w\in p \rightarrow \Bigl[\forall w' \bigl[ w\mathcal{R}w'
-\rightarrow \exists w'' \left[ w'\mathcal{R}w'' \&\ w''\in p\right]\bigr]\Bigr]$
+\rightarrow \exists w'' \left[ w'\mathcal{R}w'' \&\ w''\in p\right]\bigr]\Bigr]$ \xe
 %
 % Brouwer photo from
 % http://www-gap.dcs.st-and.ac.uk/~history/Mathematicians/Brouwer.html
 % O. Becker in "Zur Logik der Modalitäten" (Jahrbuch für Philosophie
 % und Phänomenologische Forschung, vol. 11 (1930), 497-548, called
-% this Brouwer's axiom.)
+% this Brouwer's axiom.) 
 
+\marginpar{\centering\includegraphics[height=1in]{Brouwer.jpg}\\
+  {\tiny \href{http://plato.stanford.edu/entries/brouwer/}{L.E.J. Brouwer}}}%
 \begin{figure}[htbp]
   \centering
     \includegraphics[height=1.5in]{symmetry.pdf}
   \caption{Symmetry}
   \label{fig:symmetry}
 \end{figure}
-
-\noindent
-Here's %
-\sidepar{\centering\includegraphics[height=1in]{Brouwer.jpg}\\
-  {\tiny \href{http://plato.stanford.edu/entries/brouwer/}{L.E.J. Brouwer}}}%
-the reasoning: Assume that $R$ is in fact symmetric. Pick a world $w$ in which
-$p$ is true. Now, could it be that the right hand side of the inference fails to
-hold in $w$? Assume that it does fail. Then, there must be some world $w'$
-accessible from $w$ in which $\diamondsuit p$ is false. In other words, from
-that world $w'$ there is no accessible world $w''$ in which $p$ is true. But
-since $R$ is assumed to be symmetric, one of the worlds accessible from $w'$ is
-$w$ and in $w$, $p$ is true, which contradicts the assumption that the inference
-doesn't go through. So, symmetry ensures the validity of the inference.
+%
+Here's the reasoning: Assume that $R$ is in fact symmetric. Pick a world $w$ in
+which $p$ is true. Now, could it be that the right hand side of the inference
+fails to hold in $w$? Assume that it does fail. Then, there must be some world
+$w'$ accessible from $w$ in which $\diamondsuit p$ is false. In other words,
+from that world $w'$ there is no accessible world $w''$ in which $p$ is true.
+But since $R$ is assumed to be symmetric, one of the worlds accessible from $w'$
+is $w$ and in $w$, $p$ is true, which contradicts the assumption that the
+inference doesn't go through. So, symmetry ensures the validity of the
+inference.
 
 The other way (validity of the inference requires symmetry): the inference says
 that from any $p$ world we only have worlds accessible from which there is at
@@ -408,9 +414,9 @@ belief and knowledge coincide. One\sidepar{All one really needs to make
 accessibility relation for knowledge is that one predicts the principle of
 \term{Negative Introspection} to hold:
 
-\ex. \extitle{Negative Introspection (\textbf{ni})}\\
+\ex \extitle{Negative Introspection (\textbf{ni})}\\
 If one doesn't know that $p$, then one knows that one doesn't know that $p$.
-($\neg\square p \rightarrow \square\neg\square p$).
+($\neg\square p \rightarrow \square\neg\square p$). \xe
 
 This surely seems rather dubious: imagine that one strongly believes that $p$
 but that nevertheless $p$ is false, then one doesn't know that $p$, but one

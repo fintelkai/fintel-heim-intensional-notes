@@ -2,8 +2,9 @@
 
 \chapter{Beginnings}\label{cha:beginnings_of_intensional_semantics} % (fold)
 
-\epigraph{Language is the main instrument of man's refusal to accept the world
-  as it is.}{George Steiner, \emph{After Babel}, p. 228}
+{\setlength{\epigraphwidth}{22ex}\epigraph{Language is the main instrument of
+    man's refusal to accept the world as it is.}{George Steiner, \emph{After
+      Babel}, p. 228}}
 
 \chapterprecishere{We introduce the idea of extension vs. intension and its main
   use: taking us from the actual here and now to past, future, possible,
@@ -196,10 +197,10 @@ has a trusted sidekick named Dr. Watson. Our sentence \expression{In the world
   of Sherlock Holmes, a detective lives at 221B Baker Street} displaces the
 claim that a famous detective lives at 221B Baker Street from the actual world
 to the world as described in the Sherlock Holmes stories. In other words, the
-following holds:\footnote{We will see in Section \ref{sec:why-talk-about} that
+following holds:\footnote{We will see in Section \refx{sec:why-talk-about} that
   this is not quite right. It'll do for now.}
 
-\ex. The sentence \expression{In the world of Sherlock Holmes, a detective lives
+\ex The sentence \expression{In the world of Sherlock Holmes, a detective lives
   at 221B Baker Street} is true in a world w iff the sentence \expression{a
   detective lives at 221B Baker Street} is true in the world as it is described
 in the Sherlock Holmes stories. \xe
@@ -217,7 +218,7 @@ semantic values in our system to possible worlds as well. What this means is
 that from now on, our interpretation function will have two superscripts: a
 world $w$ and an assignment $g$: $\sv{\mbox{\textperiodcentered}}^{w,g}$.
 
-So, the prejacent embedded in \ref{sherlock} will have its truth-conditions
+So, the prejacent embedded in \refx{sherlock} will have its truth-conditions
 described as follows:\footnote{Recall from H\amp\ K, pp.22f, that what's inside
   the interpretation brackets is a mention of an object language expression.
   They make this clear by bold-facing all object language expressions inside
@@ -272,7 +273,10 @@ the second element.
 
 Other items have semantic values which do not differ from world to world. The
 most important such items are certain ``logical'' expressions, such as
-truth-functional connectives and determiners:
+truth-functional connectives and determiners:\sidepar{Note the ruthless
+  condensation of the notation in (c) and (d): variables are subscripted with
+  the type of the domain that their values are constrained to come from.}
+
 
 \pex
 \a $\sv{\mbox{and}}^{w,g} = \lambda u \in D_t.\ \lambda v \in D_t.\ u=v=1
@@ -281,9 +285,6 @@ $.
 x[f(x) = 1]. \mbox{ the } y \mbox{ such that } f(y) = 1$.
 \a $\sv{\mbox{every}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
 h_{\angles{e,t}}.\ \forall x_e\co f(x) = 1 \rightarrow h(x) = 1 $.
-\sidepar{Note the ruthless condensation of the notation in (c) and
-  (d): variables are subscripted with the type of the domain that
-  their values are constrained to come from.}
 \a $\sv{\mbox{a/some}}^{w,g} = \lambda f_{\angles{e,t}}.\ \lambda
 h_{\angles{e,t}}.\ \exists x_e\co f(x) = 1\ \&\ h(x) = 1 $.
 \xe
@@ -564,7 +565,7 @@ Here are some examples of intensions:
 
 We are ready to formulate the lexical entry for \expression{in the world of
   Sherlock Holmes}:\footnote{This is not yet the final semantics, see Section
-  \ref{sec:comm-compl} for complications. One complication we will not even
+  \refx{sec:comm-compl} for complications. One complication we will not even
   start to discuss is that obviously it is not a necessity that there are
   Sherlock Holmes stories in the first place and that the use of this operator
   \emph{presupposes} that they exist; so a more fully explicit semantics would
@@ -620,7 +621,7 @@ we have all we need, please do the following exercise.
 
 \begin{exercise}\label{exercise:meta}%
   \sidepar{Please think about this exercise before looking at
-    Section~\ref{sec:meta-issues}, which explores this issue.}%
+    Section~\refx{sec:meta-issues}, which explores this issue.}%
 %
   What is wrong with the following equation:
 
@@ -848,7 +849,7 @@ conditionals.
 
 \section{*Issues with an informal meta-language}\label{sec:meta-issues}
 
-Exercise~\ref{exercise:meta} %
+Exercise~\refx{exercise:meta} %
 \marginnote{Starred sections are optional on a first pass.}%
 asks what is wrong with writing something like%
 \footnote{Thanks to Magda Kaufmann, Angelika Kratzer, and Ede
@@ -922,9 +923,9 @@ ambiguity will ever arise.
 So, %
 \sidepar{This is the approach of \cite{stechow:1991:lecturenotes}.}%
 one might want to extend this leeway and use it in the case of
-\ref{ex:badwatson} as well. We could say that in general, meta-language
+\refx{ex:badwatson} as well. We could say that in general, meta-language
 statements supply truth-values wherever that makes sense. In that case,
-\ref{ex:badwatson} is just shorthand for \ref{ex:goodwatson}.
+\refx{ex:badwatson} is just shorthand for \refx{ex:goodwatson}.
 
 \newcommand{\nupsis}[1]{\ensuremath{\vdash #1 \dashv}}
 
@@ -940,8 +941,9 @@ Lastly, one could abandon the H\amp\ K informal meta-language approach
 altogether and introduce a rigidly formalized meta-language.
 
 These lecture notes will proceed to follow H\amp\ K's approach and will not
-introduce any further innovations. So, \ref{ex:badwatson} is illicit and only
-\ref{ex:goodwatson} is acceptable.
+introduce any further innovations. So, \refx{ex:badwatson} is illicit and only
+\refx{ex:goodwatson} is acceptable.
+
 \section{Supplemental Readings}
 
 {\setlength{\parindent}{0pt}\nonzeroparskip
