@@ -79,6 +79,7 @@
 \providecommand{\svt}[1]{\llbracket \mbox{#1} \rrbracket}
 \newcommand{\svwg}[1]{\sv{\text{#1}}^{w,g}}
 \providecommand{\svcent}[1]{{\sv{#1}}_{\mbox{\tiny \textcent}}}
+\newcommand{\exts}[2][w,g]{\ensuremath{\sv{\mbox{#2}}^{#1}}}
 \newcommand{\angles}[1]{\ensuremath{\langle #1 \rangle}}
 \newcommand{\choice}[1]
   {\ensuremath{\left\{\!\!\begin{array}{l}
