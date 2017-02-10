@@ -600,9 +600,10 @@ turns out to be one other choice besides e that works, namely \angles{et,t}:
 \ex somebody $\lambda_{2,\angles{et,t}}$ [ [ must $R$] [ $t_{2,\angles{et,t}}$ have-been-here]]\xe
 %
 \marginnote{That a trace of type $\angles{et,t}$ does not in fact yield the
-  targeted non-specific reading had not been noticed until we bothered to
-  calculate the meaning of (\lastx). \cite{fox:2000}, which derives from a
-  dissertation supervised by us, contains this erroneous claim: }%
+  targeted non-specific opaque reading had not been noticed until we bothered to
+  calculate the meaning of (\lastx). For example, \cite{fox:2000}, which derives
+  from a dissertation supervised by us, is unaware of the fact that a high-type
+  but extensional trace gives a scope-reconstructed but transparent reading.}%
 (\lastx) is interpretable in our system, but again, as in the previous approach,
 the predicted interpretation is not exactly the non-specific reading as we have
 been describing it so far, but the non-specific transparent third reading.
@@ -640,7 +641,16 @@ been describing it so far, but the non-specific transparent third reading.
 
 \subsubsection{4. Higher type for trace of raising, variant 2: type \angles{s,\angles{et,t}}}
 
-If we want to get \emph{exactly} the non-specific reading that results from syntactic reconstruction out of a surface-like LF of the form \refx{dere}, we must use an even higher type for the raising trace, namely \angles{s,\angles{\angles{e,t},t}}, the type of the intension of a quantifier. As you just proved in the exercise, this is not possible if we stick to exactly the composition rules that we have currently available. The problem is in the VP: the trace in subject position is of type \angles{s,\angles{\angles{e,t},t}} and its sister is of type \angles{e,t}. These two connot combine by either FA or IFA, but it works if we employ another variant of functional application.\footnote{Notice that the problem here is kind of the mirror image of the problem that led to the introduction of ``Intensional Functional Application'' in H\amp K, ch. 12. There, we had a function looking for an argument of type \angles{s,t}, but the sister node had an extension of type t. IFA allowed us to, in effect, construct an argument with an added ``s'' in its type. This time around, we have to get rid of an ``s'' rather than adding one; and this is what EFA accomplishes. \\
+If we want to get \emph{exactly} the non-specific reading that results from
+syntactic reconstruction out of a surface-like LF of the form \refx{dere}, we
+must use an even higher type for the raising trace, namely
+\angles{s,\angles{\angles{e,t},t}}, the type of the intension of a quantifier.
+As you just proved in the exercise, this is not possible if we stick to exactly
+the composition rules that we have currently available. The problem is in the
+VP: the trace in subject position is of type \angles{s,\angles{\angles{e,t},t}}
+and its sister is of type \angles{e,t}. These two connot combine by either FA or
+IFA, but it works if we employ another variant of functional application.%
+\footnote{Notice that the problem here is kind of the mirror image of the problem that led to the introduction of ``Intensional Functional Application'' in H\amp K, ch. 12. There, we had a function looking for an argument of type \angles{s,t}, but the sister node had an extension of type t. IFA allowed us to, in effect, construct an argument with an added ``s'' in its type. This time around, we have to get rid of an ``s'' rather than adding one; and this is what EFA accomplishes. \\
   \indent So we now have three different ``functional application''-type rules altogether in our system: ordinary FA simply applies $\sv{\beta}^w$ to $\sv{\gamma}^w$; IFA applies $\sv{\beta}^w$ to $\lambda w'.\sv{\gamma}^{w'}$; and EFA applies $\sv{\beta}^w(w)$ to $\sv{\gamma}^w$. At most one of them will be applicable to each given branching node, depending on the type of $\sv{\gamma}^w$.\\
   \indent Think about the situation. Might there be other variant functional
   application rules?}
@@ -648,8 +658,7 @@ If we want to get \emph{exactly} the non-specific reading that results from synt
 \ex \emph{Extensionalizing Functional Application} (EFA)\\
 If $\alpha$ is a branching node and $\{\beta,\gamma\}$ the set of its daughters, then, for any world $w$ and assignment $g$: \\
 if $\sv{\beta}^{w,g}(w)$ is a function whose domain contains $\sv{\gamma}^{w,g}$,\\
-then $\sv{\alpha}^{w,g} = \sv{\beta}^{w,g}(w)(\sv{\gamma}^{w,g})$.
-\xe
+then $\sv{\alpha}^{w,g} = \sv{\beta}^{w,g}(w)(\sv{\gamma}^{w,g})$. \xe
 
 \begin{exercise}
 	
@@ -743,36 +752,96 @@ consideration against semantic reconstruction and in favor of syntactic
 reconstruction comes from binding theoretic concerns. We give some crucial
 examples from \cite{fox:2000} here.
 
-\subsubsection{Scope reconstruction and Condition C}
+\subsubsection{Scope reconstruction and Condition C.}
 
 Consider:
 
 \pex
-\a A student of his$_{1}$ seems to David$_1$ to be at the party.\\
+\a\null [A first year student] seems to David t to be at the party.
+\a\null [Someone from NY] is very likely t to win the lottery.
+\xe
+%
+These examples are a reminder that we can get non-specific readings of raised
+subjects. Fox argues that Binding Theory Condition C can be used to distinguish
+syntactic and semantic reconstruction. Assuming that Condition C applies at LF,
+syntactic reconstruction (where the full DP is interpreted in a lower position)
+predicts that an R-expression in that DP should not be allowed if there's a
+higher coreferential pronoun. The semantic reconstruction account has no simple
+way of making the same prediction.
+
+Here are the crucial tests:
+
+\pex
+\a\null [A student of his$_{1}$] seems to David$_1$ to be at the party.\\
 \null\hfill $^{OK}$specific, $^{OK}$non-specific 
-\a A student of David's$_{1}$ seems to him$_{1}$ to be at the party.\\
+\a\null [A student of David's$_{1}$] seems to him$_{1}$ to be at the party.\\
 \null\hfill $^{OK}$specific, {\small *}non-specific
 \xe
 
-Sketch of argument: If Cond. C is formulated in terms of c-command relations and
-applies at LF, it will distinguish between specific and non-specific readings
-only if those involve LFs with different hierarchical relations.
+\pex
+\a\null [Someone from his$_1$ city] seems to David$_1$ t to be likely to win the
+lottery.
+\null\hfill $^{OK}$specific, $^{OK}$non-specific
+\a\null [Someone from David$_1$'s city] seems to him$_1$ t to be likely to win the
+lottery.
+\null\hfill $^{OK}$specific, {\small *}non-specific
+\xe
+%
+Fox claims that the (b) cases do not have a non-specific reading. If syntactic
+reconstruction is the mechanism that gives us non-specific readings of A-moved
+subjects, the explanation is straightforward.
 
-\subsubsection{Raising of idiom chunks}
+\begin{exercise}
+  Use the following observations to bolster Fox's argument.
 
-Consider:
+  \pex
+  \a The cat seems to be out of the bag.
+  \a Advantage might have been taken of them.
+  \xe
 
-\ex The cat seems to be out of the bag. \xe
+  \pex
+  \a For these issues to be clarified, many new papers about his$_1$ philosophy
+  seem to Quine t to be needed.
+  \a \#For these issues to be clarified, many new papers about Quine's$_1$ philosophy
+  seem to him t to be needed. \hfill\eex
+  \xe
+  
+\end{exercise}
 
-\ex ?Advantage might have been taken of them. \xe
+If Fox's argument is correct, then (some form of) syntactic reconstruction is
+the mechanism by which we get non-specific readings of A-movement subjects. This
+means that syntactic reconstruction is possible, but it also means that semantic
+reconstruction must not be available. Otherwise, there would be a way of getting
+non-specific readings that would not be sensitive to Condition C. So, the
+question arises \emph{why} semantic reconstruction is unavailable. \citet[p.
+171, fn. 41]{fox:2000} discusses two ways of ruling out the high type traces
+that would give rise to semantic reconstruction:
 
-Sketch of argument: If idioms must be constituents at LF in order to receive
-their idiomatic interpretations, these cases call for syntactic reconstruction.
-An additional mechanism of semantic reconstruction via high-type traces is then
-at best redundant.
+\begin{enumerate}[(i)] 
+\item ``traces, like pronouns, are always interpreted as variables that range
+  over individuals (type $e$)'',
+\item ``the semantic type of a trace is determined to be the lowest type
+  compatible with the syntactic environment (as suggested in
+  \cite{beck:diss})''.
+\end{enumerate}
+%
+We will return to this issue in a later chapter when we can raise it again in a
+slightly different framework.
 
-\medskip\noindent Tentative conclusion: Syntactic reconstruction (some version
-of it) provides the best account of non-specific readings for raised subjects.
+\section{Supplemental readings}
+\label{sec:label}
+
+{\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+
+In addition to the references about reconstruction in the text, you might want
+to look at:
+
+\begin{bibentrylist}
+\item \fullcite{boeckx-2001-reconstruction}.
+\item \fullcite{baltin-2010-copy}.
+\end{bibentrylist}
+
+}
 
 
 
