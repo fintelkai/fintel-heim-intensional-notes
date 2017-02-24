@@ -162,7 +162,7 @@ the set of all indices, for now possible worlds (later: world-time pairs).
 
 There are a number of innovations in the lexicon and in the syntax. As for the
 lexicon, the main change concerns the treatment of predicates (verbs, nouns,
-adjectives). They now all get an additional argument, of type $s$.\footnote{The
+adjectives). They now all get an additional argument, of type $s$.\marginnote{The
   decision to make the world-argument the predicate's first (lowest) argument is
   arbitrary, and nothing hinges on it. For all we know, it could be the highest
   argument, or somewhere in between.}
@@ -298,16 +298,17 @@ below, we can choose to co-index it with either \emph{OP}, which is how we
 generate two non-specific readings, one opaque and one transparent. Here are the
 three LFs (to make the structures more readable, we leave off most of the
 bracketing and start writing the world arguments as subscripts to the
-predicates):
+predicates):\marginnote{So, instead of writing $t_1$ for a trace of type $s$
+  that serves as the first argument of \emph{leaves}, say, we write ``leaves$_{w_1}$''}
 
 \pex
 \a non-specific opaque:\\
-\emph{OP} 1 Mary wants$_1$ [ \emph{OP} 2 a friend-of-mine$_2$ leave$_2$ ]
+\emph{OP} 1 Mary wants$_{w_1}$ [ \emph{OP} 2 a friend-of-mine$_{w_2}$ leave$_{w_2}$ ]
 \a specific transparent:\\
-\emph{OP} 1 a friend-of-mine$_1$ 3 Mary wants$_1$ [ \emph{OP} 2 $t_3$ leave$_2$
+\emph{OP} 1 a friend-of-mine$_{w_1}$ 3 Mary wants$_{w_1}$ [ \emph{OP} 2 $t_3$ leave$_{w_2}$
 ]
 \a non-specific transparent:\\
-\emph{OP} 1 Mary wants$_1$ [ \emph{OP} 2 a friend-of-mine$_1$ leave$_2$ ]
+\emph{OP} 1 Mary wants$_{w_1}$ [ \emph{OP} 2 a friend-of-mine$_{w_1}$ leave$_{w_2}$ ]
 \xe
 %
 Notice that the third reading is minimally different from the first reading: all
