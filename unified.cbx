@@ -1,0 +1,280 @@
+%% ---------------------------------------------------------------
+%% biblatex-unified --- A biblatex implementation of the Unified Style
+%%   Sheet for Linguistics Journals. This is the house style of the
+%%   journal "Semantics & Pragmatics" (A journal of the Linguistic
+%%   Society of America).
+%% Maintained by Kai von Fintel (fintel@mit.edu)
+%% Released under the LaTeX Project Public License v1.3c or later
+%% See http://www.latex-project.org/lppl.txt
+%% ---------------------------------------------------------------
+%%
+
+\ProvidesFile{unified.cbx}[2020/05/25 v1.00 biblatex citation style]
+
+\RequireCitationStyle{authoryear-comp}
+
+\ExecuteBibliographyOptions{%
+  labeldateparts,%
+  uniquename=minfull,%
+  uniquelist=minyear,%
+  autocite=inline,%
+  sortcites=false}
+
+% disabled sortcites option, since it was sorting by name, instead of
+% year, and we often want to keep citations in the order chosen by the
+% author
+
+% Setting the delimiters the way we want them:
+
+\renewcommand*{\nameyeardelim}{\addspace}
+\renewcommand*{\postnotedelim}{\addcolon\space}
+\renewcommand*{\multicitedelim}{\addcomma\space}
+
+% Apart from setting some options, the main change from
+% authoryear-comp is that we extend what parts of a citation label are
+% hyperlinked (to match what natbib did in the old days). The solution
+% used to be a very ugly homegrown rewrite of the entirety of
+% `authoryear-comp.cbx`, which meant that we were left behind when
+% that style was updated. The new solution, still a hack, is to apply
+% patches to the base style. These patches were first proposed in
+% https://tex.stackexchange.com/a/27615/70432.
+
+% It would be nice if biblatex simply offered more expansive
+% hyperlinks as an option and then we wouldn't have to patch things.
+% But this seems not to be in the cards:
+% https://github.com/plk/biblatex/issues/428
+
+\usepackage{xpatch}
+
+% Patches for biblatex > v3.8 2017-11-04, when labeldate+extradate
+% were introduced
+
+% Combine label and labelyear links
+\xpatchbibmacro{cite}
+  {\usebibmacro{cite:label}%
+   \setunit{\printdelim{nonameyeardelim}}%
+   \usebibmacro{cite:labeldate+extradate}}
+  {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \usebibmacro{cite:label}%
+     \setunit{\printdelim{nonameyeardelim}}%
+     \usebibmacro{cite:labeldate+extradate}}}{}{}
+
+% Include labelname in labelyear link
+\xpatchbibmacro{cite}
+  {\printnames{labelname}%
+   \setunit{\printdelim{nameyeardelim}}%
+   \usebibmacro{cite:labeldate+extradate}}
+  {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \printnames{labelname}%
+     \setunit{\printdelim{nameyeardelim}}%
+     \usebibmacro{cite:labeldate+extradate}}}{}{}
+
+% Patches for biblatex 3.7
+
+% Combine label and labelyear links
+\xpatchbibmacro{cite}
+ {\usebibmacro{cite:label}%
+   \setunit{\printdelim{nonameyeardelim}}%
+   \usebibmacro{cite:labelyear+extrayear}}
+ {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \usebibmacro{cite:label}%
+     \setunit{\addspace}%
+     \usebibmacro{cite:labelyear+extrayear}}}{}{}
+
+% Include labelname in labelyear link
+\xpatchbibmacro{cite}
+ {\printnames{labelname}%
+   \setunit{\printdelim{nameyeardelim}}%
+   \usebibmacro{cite:labelyear+extrayear}}
+ {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \printnames{labelname}%
+     \setunit{\nameyeardelim}%
+     \usebibmacro{cite:labelyear+extrayear}}}{}{} 
+
+% Patches for biblatex before 3.7
+
+% Combine label and labelyear links
+\xpatchbibmacro{cite}
+  {\usebibmacro{cite:label}%
+   \setunit{\addspace}%
+   \usebibmacro{cite:labelyear+extrayear}}
+  {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \usebibmacro{cite:label}%
+     \setunit{\addspace}%
+     \usebibmacro{cite:labelyear+extrayear}}}{}{}
+
+% Include labelname in labelyear link
+\xpatchbibmacro{cite}
+  {\printnames{labelname}%
+   \setunit{\nameyeardelim}%
+   \usebibmacro{cite:labelyear+extrayear}}
+  {\printtext[bibhyperref]{%
+     \DeclareFieldAlias{bibhyperref}{default}%
+     \printnames{labelname}%
+     \setunit{\nameyeardelim}%
+     \usebibmacro{cite:labelyear+extrayear}}}{}{} 
+
+% Access hyperref's citation link start/end commands
+\protected\def\blx@imc@biblinkstart{%
+  \@ifnextchar[%]
+    {\blx@biblinkstart}
+    {\blx@biblinkstart[\abx@field@entrykey]}}
+\def\blx@biblinkstart[#1]{%
+  \blx@sfsave\hyper@natlinkstart{\the\c@refsection @#1}\blx@sfrest}
+\protected\def\blx@imc@biblinkend{%
+  \blx@sfsave\hyper@natlinkend\blx@sfrest}
+\blx@regimcs{\biblinkstart \biblinkend}
+
+\newbool{cbx:link}
+
+% Include parentheses around labelyear in \textcite only in
+% single citations without pre- and postnotes
+\def\iflinkparens{%
+  \ifboolexpr{ test {\ifnumequal{\value{multicitetotal}}{0}} and
+               test {\ifnumequal{\value{citetotal}}{1}} and
+               test {\iffieldundef{prenote}} and
+               test {\iffieldundef{postnote}} }}
+
+\xpatchbibmacro{textcite}
+  {\printnames{labelname}}
+  {\iflinkparens
+     {\DeclareFieldAlias{bibhyperref}{default}%
+      \global\booltrue{cbx:link}\biblinkstart%
+      \printnames{labelname}}
+     {\printtext[bibhyperref]{\printnames{labelname}}}}{}{}
+
+\xpatchbibmacro{textcite}
+  {\usebibmacro{cite:label}}
+  {\iflinkparens
+     {\DeclareFieldAlias{bibhyperref}{default}%
+      \global\booltrue{cbx:link}\biblinkstart%
+      \usebibmacro{cite:label}}
+     {\usebibmacro{cite:label}}}{}{}
+
+\xpretobibmacro{textcite:postnote}
+  {\ifbool{cbx:link}% patch 2.7+
+     {\ifbool{cbx:parens}
+        {\bibcloseparen\global\boolfalse{cbx:parens}}
+        {}%
+         \biblinkend\global\boolfalse{cbx:link}}
+        {}}
+  {}
+  {\xpatchbibmacro{textcite}% patch earlier releases
+     {\setunit{%
+        \ifbool{cbx:parens}
+          {\bibcloseparen\global\boolfalse{cbx:parens}}
+          {}%
+        \multicitedelim}}
+     {\ifbool{cbx:link}
+        {\ifbool{cbx:parens}
+           {\bibcloseparen\global\boolfalse{cbx:parens}}
+           {}%
+         \biblinkend\global\boolfalse{cbx:link}}
+        {}%
+      \setunit{%
+        \ifbool{cbx:parens}
+          {\bibcloseparen\global\boolfalse{cbx:parens}}
+          {}%
+        \multicitedelim}}
+    {}{}}
+
+% Making the old code in \posscite work with new biblatex
+\@ifpackagelater{biblatex}{2016/12/06}%
+{\letbibmacro{cite:labelyear+extrayear}{cite:labeldate+extradate}}
+{}
+
+% What follows is ugly and meh. These cite commands have been part of
+% S&P's author convenience macros since the beginning. We shouldn't
+% advertise them anymore, but here they are. We should add warnings
+% that people shouldn't use them, because they are deprecated and will
+% go away at some point.
+
+\newcommand{\pgcitep}[2]{(\cite{#1}:~#2)}
+\newcommand{\pgcitealt}[2]{\cite{#1}:~#2}
+\newcommand{\pgcitet}[2]{\citeauthor{#1} (\citeyear{#1}:~#2)}
+\newcommand{\pgposscitet}[2]{\citeauthor{#1}'s (\citeyear{#1}:~#2)}
+\newcommand{\seccitealt}[2]{\cite{#1}:~$\S$#2}
+\newcommand{\seccitep}[2]{(\cite{#1}:~$\S$#2)}
+\newcommand{\seccitet}[2]{\citeauthor{#1} (\citeyear{#1}:~$\S$#2)}
+\newcommand{\secposscitet}[2]{\citeauthor{#1}'s (\citeyear{#1}:~$\S$#2)}
+
+\newbibmacro*{posscite}{% Based on textcite
+  \iffieldequals{namehash}{\cbx@lasthash}
+    {\iffieldundef{shorthand}
+       {\usebibmacro{labelyearrepeat}}
+       {\setunit{\compcitedelim}%
+        \usebibmacro{cite:shorthand}%
+        \global\undef\cbx@lastyear}}
+    {\ifnameundef{labelname}
+       {\printtext[bibhyperref]{% Include labelname in hyperlink
+          \DeclareFieldAlias{bibhyperref}{default}% Prevent nested hyperlinks
+          \iffieldundef{shorthand}
+            {\usebibmacro{cite:label}%
+             \setunit{%
+               \global\booltrue{cbx:parens}%
+               \addspace\bibopenparen}%
+             \ifnumequal{\value{citecount}}{1}
+               {\usebibmacro{prenote}}
+               {}%
+             \usebibmacro{cite:labelyear+extrayear}}
+            {\usebibmacro{cite:shorthand}}%
+          \ifthenelse{\iffieldundef{postnote}\AND
+                      \(\value{multicitetotal}=0\AND\value{citetotal}=1\)}
+            {\bibcloseparen% Include closing parenthesis in hyperlink
+             \global\boolfalse{cbx:parens}}
+            {}}}
+       {\printtext[bibhyperref]{% Include labelname in hyperlink
+          \DeclareFieldAlias{bibhyperref}{default}% Prevent nested hyperlinks
+          \printnames{labelname}'s%
+          \setunit{%
+            \global\booltrue{cbx:parens}%
+            \addspace\bibopenparen}%
+          \ifnumequal{\value{citecount}}{1}
+            {\usebibmacro{prenote}}
+            {}%
+          \iffieldundef{shorthand}
+            {\iffieldundef{labelyear}
+               {\usebibmacro{cite:label}}
+               {\usebibmacro{cite:labelyear+extrayear}}%
+             \savefield{labelyear}{\cbx@lastyear}}
+            {\usebibmacro{cite:shorthand}%
+             \global\undef\cbx@lastyear}%
+          \ifthenelse{\iffieldundef{postnote}\AND
+                      \(\value{multicitetotal}=0\AND\value{citetotal}=1\)}
+            {\bibcloseparen% Include closing parenthesis in hyperlink
+             \global\boolfalse{cbx:parens}}
+            {}}%
+          \savefield{namehash}{\cbx@lasthash}}}%
+  \setunit{%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}%
+    \multicitedelim}}
+\DeclareCiteCommand{\posscitet}
+  {\usebibmacro{cite:init}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{posscite}}
+  {}
+  {\usebibmacro{textcite:postnote}}
+
+\DeclareCiteCommand{\posscitealt}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}}
+  {\printtext[bibhyperref]{\printnames{labelname}'s \iffieldundef{year}{\printfield{labelyear}}{\printfield{year}}\printfield{extradate}}}
+  {}
+  {}
+
+\DeclareCiteCommand{\possciteauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}}
+  {\printtext[bibhyperref]{\printnames{labelname}'s}}
+  {}
+  {}
+
+  
+\endinput

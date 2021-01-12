@@ -1,0 +1,1124 @@
+% chktex-file 1
+\newcommand{\pres}{\textsc{pres}\xspace}
+\newcommand{\past}{\textsc{past}\xspace}
+\newcommand{\pfv}{\textsc{pfv}\xspace}
+\newcommand{\prog}{\textsc{prog}\xspace}
+
+\chapter{Beginnings of tense and aspect}\label{cha:tense-aspect}
+
+\minitoc
+
+\section{A first proposal for tense}
+\label{sec:first-proposal}
+
+\note{This chapter is even more the outcome of collaborative efforts than other
+  chapters. We are very much indebted to Roger Schwarzschild, who has used our
+  notes several times in his teaching and is the source of many edits and
+  additions.}%
+Tense logic, or temporal logic, is a branch of logic first developed by the
+aptly named Arthur Prior in a series of works, in which he proposed treating
+tense in a way that is formally quite parallel to the treatment of modality
+discussed in Chapter 3. Since tense logic (and modal logic) typically is
+formulated at a high level of abstraction regarding the structure of sentences,
+it doesn’t concern itself with the internal make-up of ``atomic'' sentences and
+thus treats tenses as sentential operators (again, in parallel to the way modal
+operators are typically treated in modal logic). We will begin by integrating a
+version of Prior’s tense logic into our framework.
+
+\note{We remain vague for now about what we mean by ``times'' (points in time?
+  time intervals?). This will soon need clarification, and we will decide that
+  we should mean ``intervals''.}%
+The first step is to switch to a version of our intensional semantic system
+where instead of a world parameter, the evaluation function is sensitive to a
+parameter that is a pair of a world and a time. Such a pair will also be called
+an ``index''. We use metalanguage variables $i$, $i'$, \dots\ for indices, and
+write $w_{i}$ and $t_{i}$ to pick out the world in $i$ and the time in $i$
+respectively (i.e., $i = \pair{w_{i},t_{i}}$). Predicates will now have lexical
+entries that incorporate their sensitivity to both worlds and times:
+
+\ex $\svt{tired}^{i} = \lambda x\in D.\ x\ \text{is tired
+  in}\ w_{i}\ \text{at}\ t_{i}$ \xe
+
+The composition principles from Heim \& Kratzer and the preceding chapters stay
+the same, except that type $s$ is now the type of indices, and intensions are
+functions from indices to extensions. For example, the intension of sentence is
+now a function from world-time pairs to truth-values. %
+\note{This necessitates a slight rewriting of our previous entries for modals
+  and attitude verbs. We will attend to this when we get to relevant examples
+  later on.}%
+We might call this a ``temporal proposition'', to distinguish it from a function
+from just worlds to truth-values, but we will often just call it a
+``proposition''.
+
+In this framework, we can formulate a very simple-minded first analysis of the
+present and past tenses and the future auxiliary \emph{will.} As for (LF) syntax
+let’s assume that complete sentences are TPs, headed by T (for ``tense''). There
+are two morphemes of the functional category T, namely \past (past tense) and
+\pres (present tense). The complement of T is an MP or a VP. MP is headed by M
+(for ``modal''). Morphemes of the category M include the modal auxiliaries
+\emph{must}, \emph{can}, etc., which we talked about in previous chapters, the
+semantically vacuous \emph{do} (in so-called ``\emph{do}-support'' structures),
+and the future auxiliary \emph{will}. Evidently, this is a semantically
+heterogeneous category, grouped together solely because of their common syntax
+(they are all in complementary distribution with each other). The complement of
+M is a VP. When the sentence contains none of the items in the category M, we
+assume that MP isn’t projected at all; the complement of T is just a VP in this
+case. %
+\note{Many subordinate clauses \dash those we call ``finite'' \dash also always
+  have a TP. As for embedded clauses more generally (including infinitives
+  etc.), we don't need to take a stand here.}%
+(TP is always projected in a root clause, whether there is an MP or not.) We
+thus have LF-structures like the following. (The corresponding surface sentences
+are given below, and we won’t be explicit about the derivational relation
+between these and the LFs. Assume your favorite theories of syntax and
+morphology here.)
+
+\ex \lb[TP] Svenja \lb[T$'$] \pres \lb[VP] t \lb[V$'$] be tired \rb \rb \rb \rb\\
+= Svenja is tired.\label{ex:is-tired} \xe
+
+\ex~ \lb[TP] Svenja \lb[T$'$] \past \lb[VP] t \lb[V$'$] be tired \rb \rb \rb \rb\\
+= Svenja was tired.\label{ex:was-tired} \xe
+
+\ex~ \lb[TP] Svenja \lb[T$'$] \pres \lb[MP] t \lb[M$'$] woll \lb[VP] t \lb[V$'$]
+be tired \rb \rb \rb \rb \rb \rb\\
+= Svenja will be tired. \xe
+%
+\note{We use ``\emph{woll}'' as the name of the root underlying \emph{will} and
+  \emph{would}, following \cite{abusch-1988-wccfl} and
+  \cite[p.32]{ogihara-1989-thesis}; \textcite[fn.14, p.22]{abusch-1997-sequence}
+  attributes the coinage of \emph{woll} to Mats Rooth in class lectures at UT
+  Austin.}%
+\emph{woll} in \Last stands for the underlying uninflected form of the auxiliary
+which surfaces as \emph{will} in the present tense (and as \emph{would} in the
+past tense). When we have proper name subjects, we will assume for simplicity
+that they are reconstructed into their VP-internal base position.
+
+What are the meanings of \pres, \past, and \emph{woll}? For \pres, the simplest
+assumption that seems to work is that it is semantically vacuous. This means
+that the interpretation of the LF in \refx{ex:is-tired} is identical to the
+interpretation of the bare VP \emph{Svenja be tired}:
+
+\ex For any index $i$: $\svt{\pres (Svenja be tired)}^i$ =
+$\svt{Svenja be tired}^{i}$ = 1\\ iff Svenja is tired in $w_{i}$ at $t_{i}$.\xe
+%
+Does this adequately capture the intuitive truth-conditions of the sentence
+\emph{Svenja is tired}? It does if we make the following general
+assumption:
+
+\ex Utterance Rule:\\
+An utterance of a sentence (= LF) $\phi$ that is made in a world $w$ at a time
+$t$ counts as true iff $\sv{\phi}^{\pair{w,t}} = 1$ (and as false if
+$\sv{\phi}^{\pair{w,t}} = 0$).
+\xe
+%
+This assumption ensures that (unembedded) sentences are, in effect, interpreted
+as claims about the time at which they are uttered (``utterance time'' or
+``speech time''). If we make this assumption and we stick to the lexical entries
+we have adopted, then we are driven to conclude that the present tense has no
+semantic job to do. A tenseless VP \emph{Svenja be tired} would in principle be
+just as good as \refx{ex:is-tired} to express the assertion that Svenja is tired
+at the utterance time. Apparently, it is just not well-formed as an unembedded
+structure, but this fact then must be attributed to principles of syntax rather
+than semantics.
+
+What about \past? When a sentence like \refx{ex:was-tired} \emph{Svenja was
+  tired} is uttered at a time $t$, then what are the conditions under which this
+utterance is judged to be true? A quick answer is: an utterance of
+\refx{ex:was-tired} at $t$ is true iff there is some time before $t$ at which
+Svenja is tired. This suggests the following entry:
+
+\ex For any index $i$:
+$\svt{\past}^{i} = \lambda p \in D_{\type{s,t}}.\
+\exists t\ \text{before}\ t_{i}\co p(\pair{w_{i,},t}) = 1$ \xe
+%
+So, the past tense seems to be an existential quantifier over times, restricted
+to times before the utterance time.
+
+\note{Are there also tenses with universal force ? Two possible candidates that
+  call for closer examination: gnomic tenses (e.g. in Ancient Greek), and the
+  (universal reading of the) English perfect (as in \emph{I have been tired
+    since yesterday morning)}. Both have been written about in the formal
+  semantics literature (the latter extensively \dash you could start with
+  \cite{iatridou-anagnostopolou-izvorski-2001-perfect} and
+  \cite{fintel-iatridou-2019-since}.}%
+For \emph{will}, we can say something completely analogous:
+
+\ex For any index $i$:
+$\svt{woll}^{i} = \lambda p \in D_{\type{s,t}}.\
+\exists t\ \text{after}\ t_{i}\co p(\pair{w_{i,},t}) = 1$ \xe
+%
+Apparently, \past and \emph{woll} are semantically alike, even mirror images of
+each other, though they are of different syntactic categories. The fact that
+\past is the topmost head in its sentence, while \emph{woll} appears below
+\pres, is due to the fact that our syntax happens to require a T-node in every
+complete sentence. Semantically, this has no effect, since \pres is vacuous.
+
+\note{Strict linear orders are transitive, irreflexive, asymmetric, and
+  connected. See Section~\ref{subsec:math-orderings} on the basics of order
+  theory. Some rethinking is needed once we move to intervals.}%
+Both \LLast and \Last presuppose that the set or times comes with an intrinsic
+order. For concreteness, assume that the relation ‘precedes’ (in symbols: <) is
+a strict linear order on the set of all times. The relation ‘follows’, of
+course, can be defined in terms of ‘precedes’ ($t$ follows $t'$ iff $t'$
+precedes $t$).
+
+\section{Time frame adverbials}
+\label{sec:frames}
+
+In this section, we take a brief look at temporal adverbials, specifically
+so-called frame adverbials, such as:
+
+\ex Svenja was tired on February 1, 2001.\label{ex:on} \xe
+%
+There are two ideas that come to mind. One is that phrases like \emph{on
+  February 1, 2001} are restrictors of temporal operators (kind of like
+\emph{if}-clauses are restrictors of modals). The other idea is that they are
+modifiers of the proposition in the temporal operator's scope. If we want to go
+with the first idea, we have to make some changes. Our current \past and
+\emph{woll} are unrestricted (1-place) operators, so there is no place for a
+restrictor. The second idea is easier to implement, and we try that first.
+
+A propositional modifier is a function from propositions to truth-values, where
+``proposition'' for us now means ``temporal proposition''. Here is an entry for
+on February 1, 2001. %
+\note{Technically, the modifier returns a truth-value, not a proposition. We get
+  back a proposition only when we compute the intension of the phrase that
+  includes the modifier.}%
+Intuitively, this modifier takes a proposition and returns a proposition that
+puts an added condition on the time-coordinate of its index-argument.
+
+\ex
+$\svt{on February 1, 2001}^{i} = \lambda p \in D_{\type{s,t}}.$\\
+\hfill$[p(i) = 1\ \&\ t_{i}\ \text{is part of February 1, 2001}]$\label{ex:pp}
+\xe
+
+\ex~ LF: \past \lb[VP] \lb[VP] Svenja be tired \rb \lb[PP] on February 1, 2001 \rb
+\rb\label{ex:on-lf} \xe
+
+\begin{exercise}
+  Imagine that sentence \refx{ex:on} is not given the LF in \Last, but this one,
+  with the PP attached higher:
+
+  \ex LF: \lb[T$'$] \past \lb[VP] Svenja be tired \rb \rb\, \lb[PP] on
+  February 1, 2001\rb \xe
+%
+  What would the truth-conditions of this LF be? Does this result correspond at
+  all to a possible reading of this sentence (or any other analogous sentence)?
+  If not, how could we prevent such an LF from being produced? \qed
+
+\end{exercise}
+
+The truth conditions that we derive given \refx{ex:pp} and \refx{ex:on-lf} look
+good: the sentence is predicted true as uttered if there is a time which is both
+before the utterance time and within Feb 1, 2001 and at which Svenja is tired, and
+it is predicted false if there is no such time. But arguably this is not
+\emph{exactly} right. Suppose that somebody uttered this sentence at an
+utterance time that \emph{preceded} the date in the adverbial, say at some time
+in the year 2000. Our analysis predicts that this utterance is false. But in
+fact it feels more like a presupposition failure; the speaker is heard to be
+taking for granted that Feb 1, 2001 is in the past of his speaking. Standard
+presupposition tests confirm this. For example, the negated sentence (\emph{Svenja
+  wasn't tired on Feb 1, 2001}) and the polar question (\emph{Was Svenja tired on
+  Feb 1, 2001?}) also convey that the speaker assumes he is speaking after Feb
+1, 2001.
+
+\note{It also has the virtue of avoiding the potential overgeneration issue that
+  you looked at in the exercise above. Q: How so?}%
+If we want to account for this more fine-grained intuition, the restrictor
+approach has an advantage after all. Let's revise the entries for \past and
+\emph{woll} so that they denote 2-place operators, and moreover they encode a
+non-emptiness presupposition.
+
+\ex For any index $i$:\\
+$\svt{\past}^{i} = \lambda p\co \exists [t < t_{i}\ \&\ p(w_{i},t) = 1].$\\
+\hfill $\lambda q. \exists t [ t < t_{i}\ \&\ p(w_{i},t)=1\ \&\ q(w_{i},t) = 1]$
+\xe
+
+\ex~%
+\note{How about present tense? Should we make this presuppositonal as well \dash
+  which would imply it is not, after all, completely vacuous? Frame adverbials
+  in present tense sentences do occur. Typically they are adverbials like
+  \emph{today, on this beautiful Monday}, which in virtue of their own meaning
+  already are required to contain the speech time. The following entry would
+  make room for them and duplicate this requirement as a presupposition:
+
+  \ex For any index $i$:
+  $\svt{\pres}^{i} = \lambda p\in D_{\type{s,t}}\co p(w_{i},t_{i}).\
+  \lambda q\in D_{\type{s,t}}.\ q(w_{i},t_{i}) = 1$ \xe
+%
+  For the purposes of these lecture notes, we leave the matter open and stick
+  with the vacuous meaning for \pres in the discussions of the upcoming sections.
+}%
+For any index $i$:\\
+$\svt{woll}^{i} = \lambda p\co \exists [t > t_{i}\ \&\ p(w_{i},t) = 1].$\\
+\hfill $\lambda q. \exists t [ t > t_{i}\ \&\ p(w_{i},t)=1\ \&\ q(w_{i},t) = 1]$
+\xe
+%
+Furthermore, let's change (i.e., simplify) the meaning of the adverbial so that
+it has a suitable type to serve as the temporal operator's first argument. The
+LF-structure must be accordingly different as well. Instead of \refx{ex:on-lf}
+above, we now posit \NNext, where the adverb forms a constituent with the tense.
+This requires the surface order to be derived by some reordering, perhaps
+extraposition of the adverbial.
+
+\ex\label{ex:on-part}%
+$\svt{on February 1, 2001}^{i} = 1$ iff $t_{i}$ is part of February 1, 2001
+\xe
+
+\ex~ LF: \lb[T$'$] \past \lb[PP] on February 1, 2001 \rb \rb \lb[VP] Svenja be
+tired \rb \label{ex:pp-lf}\xe
+%
+The meanings we now derive contain the desired presuppositions: The past tense
+sentence \refx{ex:on} presupposes that Feb 1, 2001 is at least in part before
+the utterance time, the future sentence \emph{Svenja will be tired on Feb 1, 2001}
+presupposes that this date is at least in part after the utterance time, and the
+present tense sentence \emph{Svenja is tired on Feb 1, 2001} presupposes that the
+utterance time is on this date. Apart from the presuppositions, the meanings are
+the same as before. On the down-side, the new analysis posits both more complex
+meanings for the tenses and a less direct correspondence between LF constituency
+and surface structure. Furthermore, how is it supposed to apply to simple
+sentences without adverbials? Not every tensed sentence contains an obligatory
+frame adverb, after all. We are forced to say there is a covert restrictor
+whenever there isn't an overt one. But this, upon reflection, turns out to be a
+virtue, as we will see in the next section.
+
+\note{Considering the mismatch between the LF in \refx{ex:pp-lf} and the surface
+  order, note that we saw a similar issue of apparent mismatch when we decided
+  to treat \emph{if}-clauses as restrictors of modals. Both issues might be
+  addressed by simply letting modal and temporal operators take their arguments
+  in the opposite order (something suggested by
+  \cite{chierchia-1995-dynamics-book}). Rewriting the lexical entries in this
+  way is a routine exercise. We leave this matter open. The syntax of frame
+  adverbials is a non-trivial object of study.}%
+\begin{exercise}
+When a quantifier appears in a tensed sentence, we expect two scope construals.
+Consider a sentence like this:
+
+\ex Every professor (in the department) was a teenager in the Sixties. \xe
+%
+We can imagine two LFs:
+
+\ex\ [\past in the sixties]  [every professor be a teenager] \xe
+
+\ex~\ [every professor] 7 [ [\past in the sixties] [$t_{7}$ be a teenager] ] \xe
+%
+Describe the different truth-conditions which our system assigns to the two LFs.
+Is the sentence ambiguous in this way? If not this sentence, are there analogous
+sentences that do have the ambiguity? \qed
+\end{exercise}
+
+\begin{exercise}
+  Our official entry for \emph{every} makes it a time-insensitive (and
+  world-insensitive) item:
+
+  \ex For any $i$,
+  $\svt{every}^{i} = \lambda f_{\type{e,t}}.\lambda g_{\type{e,t}}.\ \forall x\co
+  f(x)=1 \rightarrow g(x)=1$ \xe
+%
+  Consider now two possible variants (we have boxed the portion where they
+  differ):
+
+  \ex For any $i$,
+  $\svt{every}^{i} = \lambda f_{\type{e,t}}.\lambda g_{\type{e,t}}.\ \forall x
+  \ \boxed{\text{at}\ t_{i}}\co
+  f(x)=1 \rightarrow g(x)=1$ \xe
+
+  \ex~ For any $i$,
+  $\svt{every}^{i} = \lambda f_{\type{e,t}}.\lambda g_{\type{e,t}}.\ \forall x\co
+  f(x)=1\ \boxed{\text{at}\ t_{i}} \rightarrow g(x)=1$ \xe
+  %
+  Does either of these alternative entries make sense? If so, what does it say?
+  Is it equivalent to our official entry? Could it lead to different predictions
+  about the truth-conditions of English sentences? \qed
+\end{exercise}
+
+\section{Are tenses referential?}
+\label{sec:referential}
+
+Our first semantics for the past tense, in Section~\ref{sec:first-proposal},
+treated it as an unrestricted existential quantifier over times. This seems
+quite adequate for examples like \Next, which seem to display the expected
+unrestricted existential meaning:
+
+\ex Georgia went to a private school.\label{ex:school}\xe
+%
+All we learn from \Last is that at some point in the past, whenever it was that
+Georgia went to school, she went to a private school.
+
+Partee in her famous paper ``Some structural analogies between tenses and
+pronouns in English'' \parencite{partee-1973-analogies} presented an example
+where tense appears to act more ``referentially'':
+
+\ex I didn’t turn off the stove.\label{ex:stove} \xe
+%
+``When uttered, for instance, halfway down the turnpike, such a sentence clearly
+does not mean either that there exists some time in the past at which I did not
+turn off the stove or that there exists no time in the past at which I turned
+off the stove. The sentence clearly refers to a particular time \dash not a
+particular instant, most likely, but a definite interval whose identity is
+generally clear from the extralinguistic context, just as the identity of the
+\emph{he} in [\emph{He shouldn’t be in here}] is clear from the context.''
+
+Partee argues, in effect, that neither of the two plausible LFs that our system
+from Section~\ref{sec:first-proposal} derives can correctly capture the meaning
+of \Last. Given that the sentence contains a past tense and a negation, there
+are two possible scopings of the two operators:
+
+\pex
+\a \past \textsc{neg} I turn off the stove.
+\a \textsc{neg} \past I turn off the stove.
+\xe
+
+\begin{exercise}
+  Using our old semantics from \ref{sec:first-proposal}, show that neither LF in
+  \Last captures the meaning of \LLast correctly.
+\end{exercise}
+
+In a commentary on Partee’s paper (at the same conference it was presented at),
+Stalnaker pointed out that a minor amendment of the Priorean theory can deal
+with \LLast. One just needs to allow the existential quantifier to be
+contextually restricted to times in a salient interval. Since natural language
+quantifiers are typically subject to contextual restrictions, this is not a
+problematic assumption. Note that Partee formulated her observation in quite a
+circumspect way: ``The sentence refers to a particular time''; Stalnaker’s
+suggestion was that the reference to a particular time is part of the
+restriction to the quantifier over times expressed by tense, rather than tense
+itself being a referring item.
+
+\cite{ogihara-1995-tense-embedded, ogihara-1996-tense-book} argued that the
+restricted existential quantification view is in fact superior to Partee’s
+analysis, since Partee’s analysis needs an existential quantifier anyway. It is
+clear that the time being referred to in the stove-sentence \LLast is a
+protracted interval (the time during which Partee was preparing to leave her
+house). But the sentence is not interpreted as merely saying that this interval
+is not a time at which she turned off her stove. That would only exclude a
+fairly absurd kind of slow-motion turning-off-of-the-stove (turning off the
+stove only takes a moment). Instead, the sentence says that in the salient
+interval there is no time at which she turned off the stove. %
+\note{The alternative is to say that the existential quantifier is not expressed
+  by tense but comes from somewhere else \dash perhaps from aspect, or from the
+  lexical entry of the verb itself. We will come back to these options.}%
+Clearly, we need an existential quantifier in there somewhere and the Priorean
+theory provides one.
+
+Ogihara made the point with the following example:
+
+\pex[labelformat=A:,samplelabel=Patricia]
+\a[label=Patricia] Did you see Solène?
+\a[label=Lea] Yes, I saw her, but I don’t remember exactly when.
+\xe
+%
+The question and answer in this dialogue concern the issue of whether Lea saw
+Solène at some time in a contextually salient interval.
+
+Stalnaker's and Ogihara's conclusions converge with what we already ended up
+with in Section~\ref{sec:frames}, after considering the interaction of tenses
+with time frame adverbials. In order to capture presuppositions of tensed
+sentences with frame adverbials, we already modified Prior's original proposal
+and made room for a restrictor in the semantics of the past tense. Given this
+revised analysis of the past tense as a 2-place existential quantifier, it is
+unsurprising, in fact expected, that an implicit, contextually salient
+restrictor should be present when there isn't an overt one. What then about
+example \refx{ex:school}, \emph{Georgia went to a private school}, for which the
+unrestricted analysis seemed to do well? Let us say that the covert restrictor
+in this case picks out a very long interval, perhaps Georgia's entire life-time,
+or even the entire past from the big bang to the utterance time, or all
+eternity. (What exactly the right restrictor is in this case, and what makes it
+contextually available, may be a bit unclear, but we leave it at that.)
+
+\begin{exercise}
+  Assuming the restricted existential quantifier analysis of past tense that we
+  adopted in Section~\ref{sec:frames}, which of the scope constellations in
+  \LLast captures the meaning of \refx{ex:stove} correctly?
+\end{exercise}
+
+\section{Referential tense and perfective/imperfective aspect}
+\label{sec:aspect}
+
+\subsection{Referential tense after all}
+\label{subsec:after-all}
+
+Let us return to Partee's stove and the prospects of a ``referential'' theory of
+tense. Our discussion of Partee's example (following Stalnaker and Ogihara) just
+now came to the conclusion that we did need past tense to be an existential
+quantifier over times, albeit a contextually restricted one. The stove-example
+is interpreted as a claim about a particular contextually relevant interval. But
+the speaker's claim is not merely that she didn't turn off the stove at that
+interval. That in itself would be compatible with her turning off the stove at
+some smaller interval inside the contextually relevant interval. The speaker's
+claim is stronger: she did not turn off the stove at any time that is contained
+in this interval. This is a negative existential claim. So there needs to be an
+existential quantifier somewhere in the LF and below the scope of \emph{not},
+and we concluded that past tense must be supplying it. But this conclusion is
+not inescapable. Granted that there has to be an existential quantifier
+somewhere \dash but couldn't it be somewhere else than in the meaning of tense?
+One alternative that comes to mind is to locate it in the lexical meaning of the
+verb (here \emph{turn off}). This means we abandon the lexical entry in \Next
+and instead adopt the one in \NNext.
+
+\ex $\svt{turn-off}^{i} = \lambda y. \lambda x. x\ \text{turns
+  off}\ y\ \text{in}\ w_{i}\ \text{at}\ t_{i}$ \label{ex:turnoff-at}\xe
+
+\ex~ $\svt{turn-off}^{i} = \lambda y. \lambda x. x\ \text{turns
+  off}\ y\ \text{in}\ w_{i}\ \boxed{\text{in}}\ t_{i}$\label{ex:turnoff-in} \xe
+%
+The difference between `at' and `in' looks small at first, but if we reflect on
+the meaning of `in', we see the hidden existential quantifier. When something
+happens in an interval, it happens at some part of the interval. We can make
+this more transparent in the metalanguage and rewrite \Last as \Next.
+
+\ex
+$\svt{turn-off}^{i} = \lambda y. \lambda x. \exists t \subseteq t_{i}\co x\
+\text{turns off}\ y\ \text{in}\ w_{i}\ \text{at}\ t$ \label{ex:turnoff-ex}\xe
+%
+The subset sign here stands for the containment relation between time intervals.
+A time interval can be defined as a certain kind of set of moments, as in \Next,
+so the subset relation is well defined.
+
+\ex A set of moments $S$ is an interval iff for any two moments that are in $S$,
+every moment between them is also in $S$.\xe
+%
+Another way to clarify the distinction between `at' and `in' is to use the kind
+of metalanguage that is familiar from the literature on Davidsonian event
+semantics.
+
+\pex abbreviations in ``event talk'':
+\a      turn-off($e, x, y$)  =  $e$ is an event of turning off $y$ by agent $x$
+\a      $\tau(e)$ = the (exact) time-interval occupied by event $e$\\
+        also called the ``run-time'' or ``temporal trace'' of e
+\xe
+
+\ex~ event-talk formulation of \refx{ex:turnoff-at}, the old entry with 'at':\\
+$\svt{turn-off}^{i} = \lambda y.\lambda x.\exists e [\text{turn-off}(e,x,y)\ \&\
+e\ \text{is in } w_{i}\ \&\ \tau(e) = t_{i}]$
+\xe
+
+\ex~ event-talk formulation of \refx{ex:turnoff-in}, the new entry with 'in':\\
+$\svt{turn-off}^{i} = \lambda y.\lambda x.\exists e [\text{turn-off}(e,x,y)\ \&\
+e\ \text{is in } w_{i}\ \&\ \tau(e) \subseteq t_{i}]\label{ex:turnoff-ev}$
+\xe
+%
+Let us spell out now how Partee's proposal for the meaning of past tense can be
+upheld after all, once we assume the lexical semantics specified in
+\refx{ex:turnoff-in}/\refx{ex:turnoff-ex}/\refx{ex:turnoff-ev}. The first task
+here is to write new lexical entries for the tense morphemes, which encode
+Partee's idea that tenses refer to specific time intervals and are semantically
+and pragmatically akin to personal pronouns. We will defer the full execution of
+this task until later and make do for the time being with a couple of
+syncategorematic ad hoc rules for the interpretation of TPs.
+
+\ex %
+\note{This contextually salient time is also called the ``topic time''
+  \parencite{klein-1994-time} or the ``reference time'' (a term which goes back
+  to \cite{reichenbach-1947-elements}, but which has various other uses in the
+  literature).}%
+$\sv{\past\ \phi}^{i} = 1$ iff $\sv{\phi}^{\pair{w_{i},t'}} = 1$, where $t'$ is
+the contextually salient\\ \hfill time before $t_{i}$ (no truth value defined if
+there is no such time) \label{ex:past-syn}\xe
+
+\ex~ $\sv{\text{woll}\ \phi}^{i} = 1$ iff $\sv{\phi}^{\pair{w_{i},t'}} = 1$,
+where $t'$ is the contextually salient\\ \hfill time after $t_{i}$ (no truth
+value defined if there is no such time) \xe
+%
+(\pres remains vacuous as before, i.e., $\sv{\pres\ \phi}^{i} = \sv{\phi}^{i}$.)
+
+The stove example has the two potential LFs in \Next.
+
+\pex
+\a \past \textsc{neg} I turn off the stove.
+\a \textsc{neg} \past I turn off the stove.
+\xe
+%
+We can compute the truth conditions for both of these under the new semantics
+for \past and \emph{turn off}, and it turns out that they are the same.
+
+\ex $\svt{\Last[a]}^{i} = 1$ iff $\svt{\Last[b]}^{i} = 1$ iff\\
+\hfill$\neg \exists e [\text{turn-off}(e,x,y)\ \&\ e\ \text{is
+  in}\ w_{i}\ \&\ \tau(e) \subseteq t']$,\\ \hfill where $t'$ is the
+contextually salient time before $t_{i}$\\ \hfill (no truth-value defined if
+there is no such time) \xe
+%
+The fact that both scopal orders yield the same truth conditions is arguably a
+point in favor of this approach. The English sentence is not in fact perceived
+as ambiguous. Our earlier approach, on which past tense was a contextually
+restricted existential quantifier, did not make this prediction \dash at least
+not without the help of additional assumptions (such as a syntactic constraint
+on the position of negation with respect to other heads on the clausal spine).
+Now that the existential quantifier comes bundled with the lexical verb, its
+scope is automatically ``frozen'' below everything that scopes over the verb.
+
+\subsection{Event semantics and perfective aspect}
+\label{sec:event-perfective}
+
+\note{We share the goal of integrating Davidsonian event semantics and
+  traditional intensional semantics with \cite{stechow-beck-2015-event-times},
+  from whom we borrow a number of ideas.}%
+Up to now, we have presupposed a pre-Davidsonian view of lexical meanings, on
+which verbs take only individuals or propositions as their arguments. Even when
+we recently inserted some event-talk into the metalanguage of our lexical
+entries, we still defined the denotation of a verb like \emph{turn off} as a
+function from two individuals to a truth value. In this section, we switch to a
+Davidsonian treatment of verbs as predicates of events and integrate this with
+our conception of sentence-intensions as temporal propositions.
+
+\note{Many practitioners of event semantics assume that the event argument is
+  the only real argument of the verb, whereas the subject, object, etc. are
+  arguments of abstract theta-role heads that combine with the verb in the
+  manner of modifiers. Here we remain agnostic on this matter. For concreteness,
+  we assume that verbs take all the traditional arguments in addition to their
+  event-argument, but the other view is equally compatible with everything we
+  will say. We just abstract away from the internal compositional semantics of
+  the VP.}%
+In an extensional Davidsonian semantics, lexical entries look like \Next.
+
+\ex $\svt{laugh} = \lambda x.\lambda e.\ e$ is an event of $x$ laughing\\
+abbreviated: $\svt{laugh} = \lambda x.\lambda e.\ \text{laugh}(e,x)$
+\label{ex:laugh}\xe
+%
+Assuming that events are not in $D_{e}$, but have their own basic type $\nu$,
+VPs thus are of type $\type{\nu,t}$. (All the verb's non-event arguments are
+merged inside the VP.)
+
+In a semantics that is both Davidsonian and intensional, do we have to rewrite
+these entries? For example, should we perhaps rewrite \Last as \Next?
+
+\ex $\svt{laugh}^{i} = \lambda x.\lambda e.\ e$ is an event of $x$ laughing
+$\boxed{\text{in}\ w_{i}\ \text{at}\ t_{i}}$\label{ex:laugh-i} \xe
+%
+That depends. Here we follow Kratzer and assume that each event occurs in just
+one world and at just one time. %
+\note{This assumption is made here mostly to keep things simple. It is not
+  innocuous and not uncontroversial. See e.g. \cite{hacquard-2009-aspect-modal}
+  for an analysis of root modals that makes crucial use of the idea that an
+  actual event exists in non-actual worlds and has different properties there.}%
+It is not possible for a given $e$ to be an event of $x$ laughing in one world
+and to be some other kind of event in another world. Nor is it possible for one
+and the same $e$ to be an event of $x$ laughing at one time and something else
+at another time. %
+\note{Strictly speaking, we should now write \Next, but since $i$ in \LLast does
+  not occur on the right side of =, \LLast can be shorthand for \Next.
+
+  \ex For any index $i$,
+  $\svt{laugh}^{i} = \lambda x.\lambda e.\ \text{laugh}(e,x)$\xe}%
+Reformulations such as \refx{ex:laugh-i} are uncalled for then, and we can
+essentially stick with \refx{ex:laugh}.
+
+But how then does world and time dependence enter the semantic computation? And
+how can tenses and modal operators combine with VPs? VPs are now type $\type{\nu,t}$,
+which leads to a type-mismatch if we try to combine them directly with a modal
+operator or with a tense (regardless of whether the tense is a Priorian temporal
+operator or a Partee-style referential tense). The way out of this problem is to
+posit a more complex clause structure, with a further functional head that
+intervenes between T (or M) and V. This is called an ``aspect'' head (category
+label ``Asp''), and its semantic job is to existentially bind the event argument
+of the VP and return a world- and time-sensitive denotation of type $t$.
+
+\kwn\note{\Next combines the standard formal analysis of perfective aspect
+  (among many others: \cite{klein-1994-time, kratzer-1998-analogies}) with the
+  semantics of \cite{stechow-beck-2015-event-times}'s Modl head. It locates the
+  event both in a time interval and in a possible world.}%
+One instance of Asp is the so-called ``perfective'', for which we posit the
+following entry.
+
+\ex $\sv{\pfv}^{i} = \lambda P_{\type{\nu,t}}.\exists e [P(e) = 1\ \&\
+\tau(e) \subseteq t_{i}\ \&\ e \le w_{i}]$\\
+\hfill $\le\ :=$ is part of (= occurs in)\\
+\hfill $\tau\ :=$ the run time of (temporal trace of)
+\xe
+%
+\pfv is morphologically zero in English, so we can posit it in the LFs of
+sentences with simple tensed verbs. Here is an example.
+
+\pex
+\a Barbara turned off the stove.
+\a LF: \lb[TP] \past \lb[AspP] \pfv \lb[VP] Barbara turn-off the stove \rb \rb
+\rb \xe
+%
+Using the syncategorematic rule \refx{ex:past-syn} for referential \past, our
+entry \LLast for \pfv, and a Davidsonian entry for the verb, we compute the
+following interpretation. (Do this as an exercise.)
+
+\ex $\svt{\Last[b]}^{i} = 1$ iff $\exists e [\text{turn-off}(e,\ \text{B,
+  the stove})\ \& \ \tau(e) \subseteq t'\ \&\ e \le w_{i}]$,\\
+\hfill where $t'$ is the contextually salient time before $t_{i}$\\
+\hfill (no truth-value defined if there is no such time)
+\xe
+%
+This is the same meaning that we obtained in the previous section, when we had
+built the existential quantification into the lexical meaning of the verb. What
+used to be the meaning of VP is now the meaning of AspP. We have located the
+event-quantifier in its own functional head, but otherwise it is the same
+analysis.
+
+\begin{exercise}
+  What about the negated sentence that was Partee's original example? Where can
+  we now generate negation in an interpretable LF? Does the current analysis
+  still predict that the sentence is not in fact ambiguous? \qed
+\end{exercise}
+
+\subsection{The English progressive}
+\label{sec:progressive}
+
+\note{See e.g. \cite{arregui-rivero-salanova-2014-imperfectivity} for a recent
+  approach to cross-linguistic semantic variation in imperfective aspects.}%
+\note{We are not serious about morphology here. The meaning may well be carried
+  by an abstract head and the \emph{be} a vacuous element.}%
+Besides perfective aspect, there is imperfective aspect \dash or more
+accurately, there is probably a family of imperfective aspects in different
+languages that have some shared and some non-shared properties. English has an
+imperfective aspect known as the ``progressive'', with an overt morphology that
+consists of a copula which governs a present-participial form of the VP
+(\emph{V-ing}). We posit a functional head be-\prog as the aspect head in the
+English progressive construction.
+
+The basic intuition behind much work on the perfective-imperfective distinction
+is that, whereas perfective aspect locates an event within the evaluation time,
+imperfective aspect does the reverse, i.e., it places the evaluation time within
+the event time. If we formalize this intuition directly, without introducing any
+further differences from the perfective, we come up with \Next.
+
+\clearpage
+\ex\note{This is similar to the first formal analysis of the progressive, due to
+  \cite{bennett-partee-1978-tense-aspect}. They did not work in an event
+  semantics, however. Also, their semantics required $t_{i}$ to be a
+  \emph{non-final} subinterval of $\tau(e)$, rather than merely
+  $t_{i} \subseteq \tau(e)$. This requirement seemed too strong in light of
+  examples such as \cite{dowty-1977-progressive}'s \emph{John was watching TV
+    when he fell asleep} (which does not say that TV-watching continued beyond
+  the point of falling asleep). However, as Dowty showed, it turned out to be
+  the right requirement in the context of the modalized analysis that he
+  proposed, see below.}%
+First attempt:\label{ex:prog-simple}\\
+$\svt{be-\prog}^{i} = \lambda P_{\type{\nu,t}}. \exists e [P(e) = 1\ \& \
+\boxed{t_{i} \subseteq \tau(e)}\ \&\ e \le w_{i}]$
+\xe
+%
+It is well-known, however, that there is also a difference in how the event is
+related to the evaluation world. While perfective places the event within the
+actual world, the progressive permits it to be partly in another world, so to
+speak. This point, which was at the center of \cite{dowty-1977-progressive}'s
+seminal work on the progressive, is brought home by examples like \Next.
+
+\ex \note{Dowty dubbed this the ``imperfective paradox'', although it's not
+  really a paradox, just a counterexample to a certain analysis that looked
+  plausible at first.}%
+John was going to the store when he ran into Svenja.\label{ex:interrupt} \xe
+%
+We can't infer from this sentence that John actually made it to the store, or
+will ever make it there. The sentence leaves this open. Perhaps John does
+complete his trip to the store after the encounter, and perhaps he doesn't. The
+truth-conditions of the sentence \Last are compatible with either scenario. The
+entry in \LLast, on the other hand, would require that there be a John-going-
+to-the-store event which occupies a super-interval of the time of the encounter
+with Svenja and which \emph{occurs in the actual world}. So \LLast can't be quite
+right.
+
+Dowty's analysis of the progressive says instead that a John-going-to-the-store
+event occurs in certain \emph{possible} worlds. These possible worlds are
+related to the actual world in a particular way: they are worlds which share a
+history with the actual world up to a certain point and then develop (possibly
+counterfactually) in such a way that no events that were already in progress get
+interrupted (``inertia worlds''). The idea is, very roughly, that the sentence
+tells us: either John actually went to the store, or if he didn't, then at least
+he \emph{would have gone} there if he hadn't been interrupted. %
+\note{See among many others, \cite{landman-1992-progressive,
+    portner-1998-progressive}.}%
+Since the publication of Dowty's paper, there has been a succession of
+sophisticated counterexamples and refinements to his original proposal, but this
+is beyond the scope of this introduction. Here is a version based on Dowty.
+
+\ex\note{Apart from introducing quantification over other worlds, \Next also
+  differs from \LLast in that it strengthens the requirement on the temporal
+  relation between $t_{i}$ and $\tau(e)$: not only must $\tau(e)$ contain all of
+  $t_{i}$, but it must moreover extend into the time after $t_{i}$. This is
+  intended to capture the intuition that e.g. \Last is not appropriate if John
+  already reaches the store during his encounter with Svenja; see
+  \cite{dowty-1977-progressive} for discussion.}%
+second attempt (and final version for us):\label{ex:prog-dowty}
+\begin{multline*}
+  \svt{be-\prog}^{i} = \lambda P_{\type{\nu,t}}. \forall w \bigl[w \in
+\text{Inert}(i) \rightarrow \exists e [P(e) = 1\ \& \\
+t_{i} \subset^{<} \tau(e)\ \&\ e \le w]\bigr]
+\end{multline*}
+where $\subset^{<}$ abbreviates: ``is a non-final subinterval of''\\
+(that is: $\tau(e)$ includes every moment in $t_{i}$ as well as some moment
+after the end of $t_{i}$) \xe
+\ex~ Definition: $w \in \text{Inert}(i)$  iff\\
+$w$ is exactly like $w_{i}$ up to the end of $t_{i}$ and then develops in such a
+way that no events are interrupted. \xe
+%
+We will see in a minute that there is a class of VPs for which the
+truth-conditions predicted by \LLast come very close to those predicted by the
+simpler \refx{ex:prog-simple}. But examples like \refx{ex:interrupt} show that
+this must not always hold.
+
+Let's do a simple example.
+
+\pex\label{ex:laughing}
+\a Sari is laughing.
+\a LF: \lb[TP] \pres \lb[AspP] be-\prog \lb[VP] Sari laugh \rb \rb \rb
+\a $\svt{\refx[b]{ex:laughing}}^{i} = 1$ iff\\
+$\forall w \bigl[ w \in \text{Inert}(i) \rightarrow \exists e [t_{i} \subset^{<}
+\tau(e)\ \&\ e \le w\ \&\ \text{laugh}(e,\text{Sari})]\bigr]$
+\xe
+%
+Just as it stands, \Last[c] does not logically entail that any laughing happens
+in the world $w_{i}$ (i.e., in the utterance world $w_{u}$ if this is an
+unembedded assertion). It only talks about the inertia worlds. However, there is
+a property of the lexical meaning of \emph{laugh} that permits us to draw
+further inferences. Laughing events are made up of lots of sub-events which
+themselves are laughing events, down to very little ones that don't last much
+more than an instant. Given this, consider a world in Inert$(w_{u},t_{u})$, say
+$w$. If \Last[b] is true in $w_{u}$ at $t_{u}$ , it follows that $w$ contains an
+event of Sari laughing whose run-time includes $t_{u}$. Among the subevents of
+this event, which themselves are events of Sari laughing, there will most likely
+be one that is early enough and small enough to have transpired by the end of
+$t_{u}$. %
+\note{The only condition under which this would not hold is if the laughing
+  starts right at the beginning of $t_{u}$ and $t_{u}$ itself is too short to
+  fit even a minimal laughing event. This would have to be a very short
+  utterance time, shorter than it realistically takes to say \emph{Sari laughs},
+  so we disregard this possibility. But we will later see a problem with this.}%
+And since up to the end of $t_{u}$, the histories of $w$ and $w_{u}$ are
+identical, this small Sari-laughing event in $w$ must have a perfectly matching
+counterpart in $w_{u}$. That's why we infer from \Last[a] that there is actual
+laughing at the utterance time.
+
+This is the kind of example for which \refx{ex:prog-dowty} and the simpler entry
+\refx{ex:prog-simple} predict almost identical truth conditions.
+\refx{ex:prog-dowty} demands something slightly stronger, namely that moreover
+the laughing continues at least a little bit beyond the utterance time unless it
+is interrupted (which means it \emph{would} have continued). So they are not
+quite equivalent, but the difference is very subtle.
+
+Importantly, however, this almost-equivalence depends on the particular property
+of the meaning of the VP that we just exploited in our reasoning. Had the VP
+been \emph{Sari go to the store}, it would have been a very different matter.
+Events of Sari going to the store are \emph{not} made up of lots of smaller
+events which each are events of Sari going to store. They are made up of smaller
+events which are events of Sari going \emph{towards} the store, but since most
+of these don't end with Sari at the store, they are not events of Sari going
+\emph{to} the store. So if we are told that every $w \in$ Inert$(i)$ contains an
+event of Sari going to the store which occupies a super-interval of $t_{i}$, we
+cannot infer that Sari goes to the store in $w_{i}$. We can merely infer that
+$w_{i}$ contains an event that is indistinguishable from those parts of the
+inertia-worldly trips-to-the-store which fall \emph{before the end of} $t_{i}$.
+In other words, we infer that $w_{i}$ contains the \emph{beginning} of a
+Sari-go-to-the-store event, but not necessarily anything more.
+
+The attentive reader may have wondered why we used a past tense example to
+illustrate the perfective in the previous section, but a present tense example
+for the progressive in the current section. Indeed, it is incumbent upon us to
+examine what the theory predicts for every possible combination of a tense and
+an aspect.
+
+\subsection{Stativity effects}
+\label{sec:stativity}
+
+\note{The examples in \Next do not have prominent habitual (generic) readings.
+  Ignore such readings if you can get them anyway. The \# judgments apply to an
+  intended episodic reading (describing a single event).
+
+  Simple present tense on a non-stative verb is systematically grammatical when
+  the sentence has a generic or habitual interpretation, or when it describes
+  the content of a plan or schedule. We don't worry about these cases here,
+  since they very plausibly involve a covert modal operator of some kind that
+  applies to the VP before any tense or (higher) aspect. (See for example,
+  \cite{copley-2008-plan} or \cite{thomas-2014-tense-mbya}.) That modal operator
+  may itself be an aspect head, or it may create a bigger VP which is a
+  predicate of states. In the latter case, whatever explains the acceptability
+  of stative VPs under present tense will also explain the acceptability of
+  present tense generics/habituals. See below. Some kind of modal analysis might
+  also work for some of the cases in the list, like stage directions and plot
+  summaries, but less plausibly to e.g. the sportscaster style or the historical
+  present.}%
+It is well known that non-stative predicates in the simple present tense have a
+limited range of felicitous uses. Sentences such as those in \Next are
+spontaneously judged as odd by speakers of English.
+
+\pex\label{ex:statives}
+\a \#Sari laughs.
+\a \#Sari wakes up.
+\a \#Sari goes to the store.
+\xe
+%
+Let us see what our theory predicts. We see no progressive morphology, but there
+has to be an aspect head for the sentence to express a proposition, so the
+aspect must be \pfv. With present tense semantically vacuous, we then have LFs
+and predicted meanings like \Next for \Last[c].
+
+\ex LF: \lb[TP] \pres \lb[AspP] \pfv \lb[VP] Sari go to the store \rb \rb  \rb\\
+true at $i$ iff $\exists e [\tau(e)\subseteq t_{i}\ \&\ e\le w_{i}\ \&\
+\text{go-to}(e,\text{Sari, the store})]$
+\xe
+%
+This says that if \emph{Sari goes to the store} is asserted in $w_{u}$ at
+$t_{u}$, the assertion is true iff there is a Sari-go-to-the store event in
+$w_{u}$ whose run-time is contained within $t_{u}$. This is a somewhat
+implausible scenario, given that trips to the store typically take longer than
+the production of such a short sentence. One may be tempted to attribute the
+strangeness of \LLast[c] to this fact. But upon reflection, that doesn't look
+like the right explanation. We can set up a scenario that eliminates the
+implausibility. Imagine Sari was already very close to the store, and/or she is
+on a very fast vehicle \dots. The judgment about \LLast[c] is not really
+affected by such manipulations, but we would expect it to be if pragmatic
+plausibility were all that mattered. And the pragmatic explanation looks even
+less convincing when we consider the other examples in \LLast. Waking-up events
+are very short, if not instantaneous, so such events should have no problem
+fitting inside the utterance time and \LLast[b] should be just fine. As regards
+\LLast[a], we have already said that longer laughing events are made up of
+shorter laughing events. So if Sari laughs for any duration that overlaps with
+the utterance time, there is probably a laughing event within the utterance
+time, and \LLast[a] should be fine as well.
+
+\note{There are few formal semantic analyses of the historical present. An
+  exception is \cite{zucchi-2005-present}.}%
+Friends of pragmatic approaches like to remind us that the examples in \LLast
+are not ungrammatical. Sentences of this sort are acceptable in a variety of
+special contexts or registers, such as play-by-play sportscasting, the
+historical or narrative present, newspaper headlines, stage directions, plot
+summaries, explicit performatives, \dots, to name some. It is appealing to say
+that the essence of (at least some of) these special uses is a pretense that the
+utterance time is something other than what it is, a pretense that one is
+speaking at a time closer to the events being reported, at a
+pretend-utterance-time that is earlier and/or longer than one's actual
+utterance. This may or may not be right. At any rate, it does not directly
+address the question why \LLast[a-c] are unacceptable \emph{outside} of these
+special registers or contexts. %
+\note{Cf. \cite{bennett-partee-1978-tense-aspect}: ``We regard a speech act as
+  occurring at a moment of time and understand the assertion as being true at
+  that moment. Accordingly, we are inclined to only use the reportive simple
+  present when the act being described seems to be almost instantaneous and to
+  be occurring at the moment of utterance.'' See also \cite{dowty-1979-verbs}.}%
+One seems to need a concomitant assumption that the ``ordinary'' register
+involves a different pretense, namely that the utterance time is \emph{shorter}
+than it actually is, in fact, that it is a mere instant in the technical sense
+(a singleton of one moment), and hence too short to contain even a getting-up
+event or a minimal laughing-event.
+
+\note{As Milo Philipps-Brown (pc) pointed out, one worry about this assumption
+  is that it undermines our earlier reasoning about the progressive \emph{Sari
+    is laughing}. There we attributed the intuition that this sentence entails
+  the existence of laughter in $w_{u}$ to the fact that $t_{u}$ was long enough
+  to contain a minimal laugh. It is not clear how to resolve this tension.
+  Perhaps we can get out of it by convincing ourselves that we judge the
+  utterance true, after all, if all that actually happens before the
+  interruption is an instant sized beginning of a minimal laugh.}%
+For the sake of the argument, let's see how it may help to stipulate that
+$t_{u}$ is always an instant. To get the desired mileage out of this assumption,
+we must also sharpen some specifics regarding the lexical meanings of verbs. %
+\note{These ideas are common in the literature and go back at least to
+  \cite{taylor-1977-continuity}. See \cite{filip-2012-lexical-aspect} for a
+  recent and comprehensive survey.}%
+These assumptions are not uncontroversial, but widely accepted in the
+literature: None of the VPs in \LLast describe events that can possibly have
+run-times that are instants. Any VP that entails a change of state \dash whether
+it is a change that takes time (like getting from some place else to the store)
+or a virtually ``instantaneous'' change (like from asleep to awake) \dash
+because of that applies only to events whose run-time contains at least two
+moments (one at which the previous state holds and one at which the result state
+holds). Likewise, any VP that describes an activity or movement or other
+happening of some sort (like laughing, oscillating, raining, even sleeping)
+describes events that may have very short run times but never just a single
+moment. These assumptions about lexical semantics make the predicted
+truth-conditions for clauses with \pfv (as computed in \Last) impossible to
+satisfy unless $t_{i}$ is a proper interval, i.e., not a singleton.
+
+From this perspective there is a straightforward account of what makes stative
+predicates different. Once we change the VPs in \LLast to stative ones, the
+simple present tense becomes perfectly fine (in every register).
+
+\pex
+\a Sari is tired.
+\a Sari is at home.
+\a Sari owns a factory.
+\xe
+
+Suppose the distinguishing semantic feature is precisely that predicates like
+\emph{tired}, \emph{at home}, and \emph{own a factory} describe eventualities
+(``states'') whose run-times can be instants. A state of Sari being tired may be
+long or short, but it is necessarily made up of shorter and shorter sub-states
+which are also states of Sari being tired. And not only that \dash it is even
+made up of such sub-states that occupy a single instant. The latter makes
+\emph{tired} different from \emph{laugh} or even \emph{move}, which apply to
+eventualities whose run-times may be infinitesimally short but are still always
+proper intervals. What does this buy us? It lets us say that the sentences in
+\Last have the exact same parses as those in \refx{ex:statives}, with a
+perfective aspect head, and yet they have truth-conditions which can be
+satisfied by an instant.
+
+\ex LF: \pres [ \pfv [ Sari \emph{be} tired ]]\\
+meaning: true at $i$ iff $\exists e [\tau(e) \subseteq t\ \& e \le w_{i}\ \&\
+\text{tired}(e, \text{Sari})]$\\
+lexical entry: $\svt{tired} = \lambda x. \lambda e.\ e$ is a state of $x$ being
+tired
+\xe
+%
+(Type $\nu$ must be understood in such a way that $D_{\nu}$ includes states in
+addition to ``events'' in a narrow sense. \cite{bach-1986-algebra} coined the
+term ``eventuality'' for this broader sense of ``event''.)
+
+\note{It is often said in this context that progressives pattern with statives
+  in the present tense because progressive VPs \emph{are} stative. This is not
+  literally true on our analysis, because \emph{be}-\prog is an aspect head and
+  AspPs are not predicates of states (or of eventualities of any kind). One
+  might, however, entertain a different analysis on which (at least some of) the
+  operators we are used to calling ``aspects'' have meanings of type
+  $\type{\nu t, \nu t}$. (Another head higher in the structure would then have
+  to be responsible for binding the state argument and introducing the world and
+  time.)}%
+So, together with the stipulation that the utterance time is treated as an
+instant, this approach to the stative/non-stative distinction provides an
+explanation for why stativity is required in the simple present tense. We can
+also reassure ourselves that present progressives are still expected to be
+uniformly good even if $t_{u}$ must be an instant. This is because
+\emph{be}-\prog places the event in a super-interval of $t_{i}$.
+
+Whether or not the assumption that $t_{u}$ is an instant can ultimately be defended,
+it is important to be aware that the stativity effect we witness in present
+tense matrix clauses is replicated perfectly in certain environments which are
+neither matrix nor (morphologically) present. These environments include the
+complements of epistemic necessity modals and the infinitival complements of
+verbs like \emph{believe} and \emph{claim}.
+
+\pex\label{ex:must}\a\note{The judgment in (a) presupposes an intended episodic
+  reading for the VP. To the extent that the VP can be read habitually, the
+  epistemic reading becomes available. The point here is that the judgments for
+  the constructions in \refx{ex:must}--\refx{ex:believe} are parallel to the
+  judgments for the same VPs in the simple present tense.}%
+Sari must sleep/go to the store.\\
+deontic reading only
+\a Sari must be at home/ be sleeping.\\
+epistemic reading okay \xe
+
+\ex~ Sari claimed to *work/*go to work/be at work/be going to work.\xe
+
+\ex~ Sari believed Svenja to *sleep/*go to the store/be at home/be sleeping.
+\label{ex:believe}\xe
+%
+We will return to this observation in a later section, in connection with the
+discussion of so-called ``Sequence of Tense''.
+
+\section{Formalizing the referential analysis}
+\label{sec:formalizing-referential}
+
+Above we stated Partee's proposal as follows:
+
+\ex[exno=\ref{ex:past-syn}]%
+$\sv{\past\ \phi}^{i} = 1$ iff $\sv{\phi}^{\pair{w_{i},t'}} = 1$, where $t'$
+is the contextually salient\\ \hfill time before $t_{i}$ (no truth value defined
+if there is no such time)
+\xe
+%
+Apart from not being fully compositional, this is a bit vague for us to work
+with when (in the next chapter) we consider complex sentences with several
+occurrences of past tense. Let us therefore make it a little more precise.
+
+Partee suggested that past tense was analogous to a pronoun like \emph{he}. We
+are used to representing pronouns as variables (see e.g. Heim \& Kratzer), so
+Partee-style tenses too should then have denotations that are sensitive to a
+variable assignment. So let's make two assumptions: First, each occurrence of
+\past and \emph{woll} at LF must carry a numerical subscript, like a pronoun.
+Second, we add a new type $i$ (for ``intervals'') and we assume that variable
+assignments can assign elements of $D_{i}$ to object-language variables
+(numerical indices). Notice that this new type $i$ is not the same as our
+existing type $s$ (world-interval-pairs), though the second member of an element
+of $D_{s}$ is always a member of $D_{i}$.
+
+We now write the following entries. (\pres remains vacuous for now and therefore
+needs no entry.)
+
+\ex $\sv{\past_{n}}^{i,g} = \lambda p\in D_{st}\co g(n) \in D_{i}\
+\&\ g(n) < t_{i}.\ p(w_{i},g(n)) = 1$\label{ex:formal-past}\xe
+
+\ex~ $\sv{\text{woll}_{n}}^{i,g} = \lambda p\in D_{st}\co g(n) \in D_{i}\
+\&\ g(n) > t_{i}.\ p(w_{i},g(n)) = 1$\label{ex:formal-woll}\xe
+%
+Let's illustrate how this works in a simple example.
+
+\ex Barbara turned off the stove.\\
+new LF:  $\past_{7}$ [ \pfv [ Barbara turn off the stove ]]\xe
+\ex~ $\svt{\past$_{7}$ [ \pfv [ Barbara turn off the stove ]]}^{i,g}$
+is defined\\
+\hfill iff $7 \in \text{dom}(g)\ \& \ g(7)\in D_{i}\ \& \ g(7) < t_{i}$\\
+when defined,
+$\svt{\past$_{7}$ [ \pfv [ Barbara turn off the stove ]]}^{i,g} = 1$\\
+\hfill iff
+$\exists e [\tau(e) \subseteq g(7)\ \&\ e \le w_{i}\ \& \
+\text{turn-off}(e,\text{Barbara, the stove})]$
+\xe
+%
+If this is a matrix sentence, we evaluate it with respect to the utterance world
+and time, and we also rely on the utterance context to furnish a suitable
+assignment (call it $g_{u}$), which maps the free variable $7$ to a time
+interval that precedes $t_{u}$. Intuitively, this is the salient past interval
+that the speaker has in mind when making this past-tense claim (also called the
+``topic time''). So we have:
+
+\ex An utterance $u$ of the LF ``\past$_{7}$[\pfv [Barbara turn off the
+stove]]'' is felicitous only if\\
+\hfill $g_{u}$ is such that
+$7\in \text{dom}(g_{u})\ \&\ g_{u}(7)\in D_{i}\ \&\ g_{u}(7) < t_{u}$,\\
+and it is moreover true iff\\
+\hfill
+$\exists e [\tau(e) \subseteq g(7)\ \&\ e \le w_{i}\ \& \ \text{turn-off}(e,\text{Barbara,
+  the stove})]$ \xe
+
+It will also be useful to clarify how frame adverbials might be treated in a
+Partee-style approach to tense. A natural idea here is that a frame adverb
+contributes a further presupposition about the intended topic time. Recall our
+treatment of frame adverbs as having extensions of type $t$.
+
+\ex[exno=\ref{ex:on-part}]
+$\svt{on February 1, 2001}^{i} = 1$ iff $t_{i}$ is part of February 1, 2001
+\xe
+%
+To make room for this in the LF of a sentence with a Partee-style tense, we want
+to revise the entries from \refx{ex:formal-past} and \refx{ex:formal-woll} and
+give \past and \emph{woll} a second argument.
+
+\ex $\sv{\past_{n}}^{i,g} = \lambda p\in D_{st}\co g(n) \in D_{i}\
+\&\ g(n) < t_{i}\ \& \ p(w_{i},g(n)) = 1.$\\
+\hfill $\lambda q_{st}. q(w_{i},g(n)) = 1$\xe
+%
+\kwn For example:
+
+\ex Barbara turned off the stove on February 1, 2001.\\
+LF: [ \past$_{7}$ on February 1, 2001 [ \pfv [ Barbara turn off the stove]]]\\
+uttered felicitously only if \\
+\hfill
+$7\in \text{dom}(g_{u})\ \&\ g_{u}(7)\in D_{i}\ \&\ g_{u}(7) < t_{u}\ \&\ g_{u}(7) \subseteq$
+Feb 1, 2001,\\
+and uttered truly iff $\exists e [\tau(e) \subseteq g(7)\ \&\ e \le w_{u}\ \& \
+\text{turn-off}(e,\text{Barbara, the stove})]$
+\xe
+%
+Notice that there is still some room for context-dependency, in that the speaker
+may be referring to either the whole of Feb 1st or to a proper part of it (e.g.
+the morning of that day). But the role of context is greatly reduced by the
+contribution of the adverb.
+
+The revised, 2-place, entry for the future is analogous. When we have frame
+adverbs with present tense, we also need a non-vacuous semantics for \pres, but
+this is no different in the Partee-approach than it was in the Priorian
+approach.
+
+To conclude, let us highlight how the Partee-style, ``referential'', analysis of
+tenses differs from the Prior-as-modified-by-Stalnaker-style analysis, and also
+what they have in common. The essential difference is that Partee-style
+$\past_{n}$ and \emph{woll}$_{n}$ do not express existential quantification over
+times, but instead rely on a contextually furnished variable assignment to
+supply a particular time. In the Partee-approach, the denotations of past and
+future clauses are always context-dependent; in the modified-Prior approach,
+they only are if there happens be a silent restrictor together with the
+existential quantifier. Both approaches assume that the extensions of
+$\past_{(n)}$ and \emph{woll}$_{(n)}$ are sensitive to the evaluation time, and
+both assume that these items \emph{shift} the evaluation time for their
+complements. The two approaches also agree on the treatment of \pres, which,
+according to both, does not shift evaluation time and makes no semantic
+contribution other than a presupposition when there is a frame adverb.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ik-book"
+%%% End:

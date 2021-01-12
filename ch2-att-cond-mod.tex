@@ -1,0 +1,1471 @@
+\chapter{Attitudes, conditionals, modals}
+\label{cha:att-cond-mod}
+
+\minitoc
+
+\section*{Introduction}
+
+\note{%
+  \(M\ [f(a)]\ (\phi)\)
+  \begin{description}
+  \item[\(M\):] a quantificational/modal relation between two sets of worlds
+    (propositions)
+  \item[\(a\):] the anchor of the modal claim
+  \item[\(f\):] the flavor function that projects a set of worlds from the
+    anchor
+  \item[\(\phi\):] the prejacent set of worlds (proposition)
+  \end{description}
+} %
+Towards the end of the first chapter, we identified a general schema for modal
+displacement operators. It begins with a ``flavor function'' that ``projects'' a
+set of relevant worlds from an ``anchor'', and then a quantificational claim is
+made about those worlds and their relation to the prejacent. We will now see
+this pattern at work in three kinds of constructions: propositional attitudes,
+conditionals, and modals. These look superficially quite dissimilar:
+
+\pex
+\a Charlotte believes that Lucy is smart.
+\a If Lucy is smart, she will cancel the meeting.
+\a Lucy might cancel the meeting.
+\xe
+%
+The intensional operator in \Last[a] is the lexical verb \expression{believe},
+in \Last[b] it is the subordinating complementizer \expression{if}, and in
+\Last[c] it is the auxiliary verb \expression{might}. Despite this surface
+variety, the core semantic contributions are very similar.
+
+Propositional attitude predicates like \expression{believe} project a set of
+worlds from the mental state of their subject and relate those worlds to the
+worlds described by the prejacent proposition. Conditionals select a relevant
+subset of the worlds described by their antecedent and relate them to the worlds
+described by their consequent. And the modal \expression{might} says that
+some worlds in a relevant set make the prejacent proposition true.
+
+We will now look at these ideas in more detail and build some nimbleness in
+deploying the technical notions here.
+
+\section{Attitudes}
+\label{sec:attitudes}
+
+We move from the contents of works of fiction to the contents of the minds of
+people. Instead of worlds compatible with the Sherlock Holmes stories, we look
+at the worlds compatible with the beliefs or other mental states of a person.
+
+\subsection{Hintikka's idea}
+\label{subsec:hintikka}
+
+\note{According to \cite{hintikka-1969-attitudes}, the term \term{propositional
+    attitude} goes back to \cite{russell-1940-inquiry}.}%
+Expressions like \expression{believe}, \expression{know}, \expression{doubt},
+\expression{expect}, \expression{want}, \expression{regret}, and so on are
+usually said to describe \term{propositional attitudes}, expressing relations
+between individuals (the attitude holder) and propositions (intensions of
+sentences).
+
+\note{The possible worlds semantics for propositional attitudes was in place
+  long before the extension to fiction contexts was proposed. Our discussion
+  here has inverted the historical sequence for pedagogical purposes.}%
+The simple idea is that \expression{Amandine believes that Letícia is a spy}
+claims that Amandine believes of the proposition that Letícia is a spy that it
+is true. Note that for the attitude ascription to be true it does not have to
+hold that Letícia is actually a spy. But where \dash in which world(s) \dash
+does Letícia have to be a spy for it be true that Amandine believes that Letícia
+is a spy?
+
+\marginfig{accordingtoMrRogers.jpg}%
+We might want to be inspired by the colloquial phrase ``the world according to
+\dots'' and say that \expression{Amandine believes that Letícia is a spy} is
+true iff in the world according to Amandine, Letícia is a spy. We immediately
+recall from Chapter 1 that we need to fix this idea up by making space for
+multiple worlds compatible with Amandine's beliefs and by tying the
+truth-conditions to contingent facts about the evaluation world. That is, what
+Amandine believes is different in different possible worlds.
+
+\kwn The following lexical entry thus offers itself:
+
+\ex $\svt{believe}^{w,g} =$\\\ \null\hfill$\lambda p_{\type{s,t}}.\ \lambda x. \
+\forall w' \mbox{ compatible with } x's \mbox{ beliefs in } w\co p(w') = 1.$ \xe
+
+\note{It is important to realize the modesty of this semantics: we are not
+  trying to figure out what belief systems are and particularly not what their
+  internal workings are. That is the job of psychologists (and philosophers of
+  mind, perhaps). For our semantics, we treat the belief system as a black box
+  that determines for each possible world whether it considers it possible that
+  it is the world it is located in.}%
+What is going on in this semantics? We conceive of Amandine's beliefs as a state
+of her mind about whose internal structure we will remain agnostic, a matter
+left to other cognitive scientists. What we require of it is that it embody
+opinions about what the world she is located in looks like. In other words, if
+her beliefs are confronted with a particular possible world $w'$, they will
+determine whether that world may or may not be the world as they think it is.
+What we are asking of Amandine's mental state is whether any state of affairs,
+any event, anything in $w'$ is in contradiction with anything that Amandine
+believes. If not, then $w'$ is compatible with Amandine's beliefs. For all
+Amandine believes, $w'$ may well be the world where she lives. Many worlds will
+pass this criterion, just consider as one factor that Amandine is unlikely to
+have any precise opinions about the number of leaves on the tree in front of my
+house. Amandine's belief system determines a set of worlds compatible with her
+beliefs: those worlds that are viable candidates for being the actual world, as
+far as her belief system is concerned.
+
+Now, Amandine believes a proposition iff that proposition is true in all of the
+worlds compatible with her beliefs. If there is just one world compatible with
+her beliefs where the proposition is not true, that means that she considers it
+possible that the proposition is not true. In such a case, we can't say that she
+believes the proposition.
+
+\kwn 
+Here is the same story in the words of \citet{hintikka-1969-attitudes}, the
+source for this semantics for propositional attitudes:
+
+\begin{quotation}
+  \marginfig{hintikka.jpg}%
+  My basic assumption (slightly simplified) is that an attribution of any
+  propositional attitude to the person in question involves a division of all
+  the possible worlds (\dots) into two classes: into those possible worlds which
+  are in accordance with the attitude in question and into those which are
+  incompatible with it. The meaning of the division in the case of such
+  attitudes as knowledge, belief, memory, perception, hope, wish, striving,
+  desire, etc. is clear enough. For instance, if what we are speaking of are
+  (say) $a$'s memories, then these possible worlds are all the possible worlds
+  compatible with everything he remembers. [\dots]
+	
+	How are these informal observations to be incorporated into a more explicit
+  semantical theory? According to what I have said, understanding attributions
+  of the propositional attitude in question (\dots) means being able to make a
+  distinction between two kinds of possible worlds, according to whether they
+  are compatible with the relevant attitudes of the person in question. The
+  semantical counterpart to this is of course a function which to a given
+  individual person assigns a set of possible worlds.
+	
+	However, a minor complication is in order here. Of course, the person in
+  question may himself have different attitudes in the different worlds we are
+  considering. Hence %
+  \note{We recognize our schema: the anchor is the pair of an individual and a
+    world, the flavor function projects from the anchor a set of worlds
+    compatible with the relevant attitude of the anchor individual in the anchor
+    world.}%
+  \note{Note that what Hintikka calls ``alternativeness relations'' are now
+    more commonly known as \term{accessibility relations}. We will encounter
+    such relations again and again, and we will explore their formal properties
+    later on.}%
+  this function in effect becomes a relation which to a given individual and to
+  a given possible world $\mu$ associates a number of possible worlds which we
+  shall call the \term{alternatives} to $\mu$. The relation will be called the
+  alternativeness relation. (For different propositional attitudes, we have to
+  consider different alternativeness relations.)
+\end{quotation}
+
+\begin{exercise}
+	
+	Let's adopt Hintikka's idea that we can use a function that maps $x$ and $w$
+  into the set of worlds $w'$ compatible with what $x$ believes in $w$. Call
+  this function $\mathcal{B}$. That is,
+	
+	\ex $\mathcal{B} = \lambda x.\ \lambda w.\ \{w'\co w' \mbox{ is compatible
+    with } x \mbox{'s beliefs in } w\}.$ \xe
+%	
+	Using this notation, our lexical entry for \expression{believe} could look as
+  follows:
+	
+	\ex $\svt{believe}^{w,g} = \lambda p_{\type{s,t}}.\ \lambda x.\
+  \mathcal{B}(x)(w) \subseteq p.$ \xe
+%	
+	We are here indulging in the usual sloppiness in treating $p$ both as a
+  function from worlds to truth-values and as the set characterized by that
+  function.
+	
+	Here now are two ``alternatives'' for the semantics of \expression{believe}:
+	
+	\ex \extitle{Attempt 1 (very wrong)}\\[3pt]
+	$\svt{believe}^{w,g} = \lambda p \in D_{\type{s,t}}. \big[ \lambda x
+  \in D.\ p = \mathcal{B}(x)(w) \big]$. \xe
+	
+	\ex~ \extitle{Attempt 2 (also very wrong)}\\[3pt]
+	$\svt{believe}^{w,g} = \lambda p \in D_{\type{s,t}}. \big[ \lambda x
+  \in D.\ p \cap \mathcal{B}(x)(w) \neq \emptyset \big]$. \xe
+%	
+	Explain why these do not adequately capture the meaning of
+  \expression{believe}. \qed
+\end{exercise}
+%
+\begin{exercise}\label{exercise:existential-attitudes}
+  Follow-up: The semantics in \Last would have made \emph{believe} into an
+  existential quantifier of sorts: it would say that \emph{some} of the worlds
+  compatible with what the subject believes are such-and-such. You have argued
+  (successfully, of course) that such an analysis is wrong for \emph{believe}. %
+  \note{If you can't find any candidates that survive scrutiny, can you
+    speculate why there might be no existential attitude predicates? [Warning:
+    this is underexplored territory!]}%
+  But \emph{are} there attitude predicates with such an ``existential'' meaning?
+  Discuss some candidates. \qed
+\end{exercise}
+
+\begin{exercise}%
+  \note{After this little exercise, you might be interested in some really tough
+    questions about intensionality inside noun phrases:
+    \cite{bogal-albritten-2013-epistemic-adverbs,
+      bogal-albritten-weir-2017-collins} and \cite[especially Chapter
+    4]{hirsch-2017-thesis}.}%
+  Propose a semantics for the adjective \emph{alleged} as in \emph{Vera is an
+    alleged kleptomaniac}. Do not assume any hidden structure. Try to relate
+  your semantics to the verb \emph{allege} as in \emph{Romelu alleged that Vera
+    is a kleptomaniac}. \qed
+\end{exercise}
+
+\subsection{Iterated attitudes}
+\label{subsec:iterated-attitudes}
+
+\marginfig{madscientist.jpeg}%
+Semantics is a lab science in several ways. The most crucial way is that we
+learn a lot about our objects of study when we put them together and see how
+they react to each other.
+
+We expect attitudes to be able to \emph{iterate}: an attitude claim is a
+sentence with contingent truth-conditions and thus provides a proposition that
+in turn could be the complement of another attitude claim. In fact, one suspects
+that much of the fabric of human life involves iterated attitudes: we wonder
+whether Emma realizes that Caroline believes that Janet has invited Preston for
+dinner without telling Abby.
+
+\begin{exercise}
+  Derive the truth-conditions of \emph{Emma believes that Caroline believes that
+    Preston is from Texas}. [Follow-up question: if Emma's belief is correct,
+  does that mean that Preston is from Texas?] \qed
+\end{exercise}
+
+\clearpage
+\section{Conditionals}
+\label{sec:conditionals}
+
+In many ways, conditionals are the archetypal construction of displacement: the
+consequent is evaluated not against the actual here and now but against the
+scenario conjured up by the antecedent. Consider a few conditional sentences:
+
+\pex
+\a If Kim left before 6am, she got there in time.
+\a If there's an earthquake tomorrow, this house will collapse.\label{ex:earthquake}
+\a If there had been a massive snowstorm last night, Kai would have stayed home.
+\xe
+%
+These represent the three main subtypes of conditionals (there are more):
+(\lastx a) is an ``indicative'' conditional about the past, (\lastx b) is an
+indicative conditional about the future, and (\lastx c) is a ``subjunctive''
+conditional. For the moment, the differences will be left aside.
+
+The basic idea of how conditionals work is this: the \expression{if}-clause
+whisks us away to a particular possible world (or maybe a set thereof) and the
+consequent clause is asserted to be true of that world (or those worlds). But
+what world(s) are we being taken to? The most obvious requirement is that the
+antecedent of the conditional needs to be true of the world(s). But there's
+more.
+
+\note{Lewis used a rather whimsical example to start off his seminal
+  \citeyear{lewis-1973-counterfactuals} book on counterfactuals: ``If kangaroos
+  had not tails, they would topple over''. For another example of counterfactual
+  whimsy, consider this scene from the TV show ``Big Bang Theory'':
+  \url{https://www.youtube.com/watch?v=0lpY0Kt4bn8}. As the examples in the text
+  make clear, conditionals are actually very down-to-earth in real life.}%
+\marginfig{kangaroo-upright.jpg}%
+\marginfig{kangaroo-toppled.jpg}%
+Given our discussions of how the semantics of fiction operators anchors them in
+facts about the actual world (the content of the relevant body of fiction) and
+how the semantics of attitude predicates is anchored in the mental states of an
+individual in the actual world, it shouldn't come as a surprise that
+conditionals are similarly anchored. So, look at the examples in (\lastx): what
+in the actual world are they about?
+
+Here's a first attempt of an answer: (\lastx a) is about the local
+transportation system, the weather, the traffic, and so on. (\lastx b) is about
+the sturdiness of this house, facts of geology, laws of physics, and so on.
+(\lastx c) is about Kai's proclivities (such as avoiding traffic snarls), the
+local climate, and so on. Since the conditionals are anchored in real world
+facts, they are no mere flights of fancy and whether they are true depends on
+those facts. If today's traffic was particularly bad, it may be false that Kim's
+leaving before 6am would have got her there in time. If the architects went to
+great lengths to make the house earthquake-safe, (\lastx b) may well be false.
+And if there was an attendance-mandatory faculty meeting, Kai may well have come
+in in spite of a massive snowstorm.
+
+So, the outlines of the semantics of conditionals are clear: \expression{if}
+takes us to worlds where the antecedent is true but that match the actual world
+in certain relevant features. And the consequent then is evaluated in those
+worlds. There are many details to work out and we'll keep returning to that
+task. But for now, we put forward a placeholder analysis.
+
+We will treat \expression{if} as a higher-order operator that together with the
+antecedent creates an intensional operator with a semantics very similar to the
+final analysis we gave to \expression{in the world of Sherlock Holmes}. But
+where the fiction operator directly encoded what features of the actual world
+it's sensitive to (the Sherlock Holmes fiction), conditionals rely on context
+for this job. Here's a first draft of the proposal:
+
+\ex\label{ex:if-strict-context}%
+$\svt{if}^{w,g} = \lambda p \in D_{\type{s,t}}.\ \lambda q \in
+D_{\type{s,t}}.$ \\
+\hfill $\forall w'\co p(w')=1\ \&\ w' \text{ is relevantly like } w \rightarrow
+q(w')=1.$ \xe
+%
+The contextual anchoring to features of the evaluation world $w$ is here
+effected by the placeholder ``relevantly like $w$''. This is crucial because
+otherwise the conditional would talk about any world whatsoever where the
+antecedent is true. This would make the truth-conditions not just not contingent
+on the actual world but also far too strong to allow most sensible conditionals
+to be true ever.
+
+Think about the earthquake conditional \refx{ex:earthquake}: we would derive the
+absurdly strong truth-conditions that the conditional is true iff \emph{all} of
+the worlds where there is a major earthquake in Cambridge tomorrow are worlds
+where my house collapses.
+
+There are some obvious and immediate problems with this analysis. For one, while
+it's easy to imagine circumstances where the conditional \refx{ex:earthquake} is
+judged to be true, there surely are possible worlds where there's an earthquake
+but my house does not collapse: perhaps, the builders in that world used all the
+recommended best practices to make the building earthquake-safe, perhaps it's a
+world where I'm simply unreasonably lucky, or the house is immediately adjacent
+to much sturdier neighboring buildings which keep it propped up, or Harry Potter
+flies by and protects the house at the last minute (he owes me a favor, after
+all). This problem (that the house doesn't in fact collapse in \emph{all}
+possible worlds where there's an earthquake but that the conditional can still
+be judged true in some worlds) is accompanied with another problem: whether the
+conditional is true depends on what the world is like. Was the house built to
+exacting standards? Is it propped up by its neighbors? Does Harry Potter owe me
+a favor? That is the problem solved by restricting the quantifier over worlds to
+world ``relevantly like $w$''.
+
+\enlargethispage{24pt}
+Obviously, this is a semantics with a ``placeholder'', because what does
+``relevantly like'' mean precisely? Now, just because the semantics is therefore
+rather vague and context-dependent doesn't mean it is wrong. As
+\cite[p.1]{lewis-1973-counterfactuals} writes:
+
+\begin{quote} Counterfactuals are notoriously vague. That does not mean that we
+  cannot give a clear account of their truth conditions. It does mean that such
+  an account must either be stated in vague terms \dash which does not mean
+  ill-understood terms \dash or be made relative to some parameter that is fixed
+  only within rough limits on any given occasion of language use.
+\end{quote}
+%
+\clearpage
+\note{\cite{strawson-1950-referring} famously wrote: ``Neither Aristotelian nor
+  Russellian rales give the exact logic of any expression of ordinary language;
+  for ordinary language has no exact logic.''}%
+The insight articulated by Lewis here is very important. Applying mathematical
+or logical methods to analyzing natural language meaning often arouses severe
+skepticism, precisely because natural language is often vague and
+context-dependent. But that just means that an adequate analysis needs to not
+ignore vagueness and context-dependence and rather be clear about where they
+enter.
+
+All the more reason to refine our initial draft of the proposal. We put a
+placeholder for context-dependence in the meta-language (``worlds relevantly
+like the evaluation world'') but that is not really sufficient. We would like to
+embed the analysis in a general framework for how context enters the semantics.
+For the purposes of this book, we will adopt an approach that generalizes from
+the analysis of ``free'' pronouns in the Heim \&\ Kratzer textbook.
+
+In H\&K, chapters 9--11, a technical implementation of context-dependency is
+developed for pronouns and their referential (and E-Type) readings. Referential
+pronouns are analyzed there as free variables, appealing to a general principle
+that free variables in an LF need to be supplied with values from the utterance
+context. If we want to describe the context-dependency of conditionals (and as
+we'll soon see, modals) in a technically analogous fashion, we can think of
+their LF-representations as incorporating or subcategorizing for a kind of
+invisible pronoun, a free variable that effects the anchoring of the conditional
+claim to relevant features of the evaluation world.
+
+\note{We are using the notation for variables of types other than $e$ introduced
+  by Heim \&\ Kratzer, p. 213. An index on a variable now is an ordered pair of
+  a natural number and a type. The variable assignments relative to which we
+  calculate semantic values now are functions from ordered pairs of a natural
+  number and a type to elements of the domain of objects of that type.}%
+Concretely, we posit LF-structures where \emph{if} doesn't just take two
+propositions as its arguments but also an object language variable of type
+\type{s,\type{s,t}}:
+
+\ex
+\begin{forest}
+baseline,
+sn edges,
+for tree={s sep=10mm, inner sep=0, l=0}
+[{}, my pretty nice empty nodes
+[[[if][$f_{\type{3,\type{s,st}}}$]][$\phi_{\text{antecedent}}$]]
+[$\psi_{\text{consequent}}$]]
+\end{forest}
+\xe
+%
+We have written the silent pronoun as ``$f$'' to remind you of ``flavor'', the
+evocative term we used to describe the anchoring of intensional operators. So,
+we have a variable over flavor functions that will return a set of worlds when
+applied to a given world. We will give \emph{if} the job of telling $f$ that
+what we need is the set of worlds that $f$ assigns to the evaluation world:
+
+\ex\label{ex:if-strict-context-formal}%
+$\svt{if}^{w,g} = \lambda f \in D_{\type{s,\type{s,t}}}.\ \lambda p \in
+D_{\type{s,t}}.\ \lambda q \in D_{\type{s,t}}.$ \\
+\hfill $\forall w'\co f(w)(w') = 1\ \&\ p(w')=1 \rightarrow
+q(w')=1.$
+\xe
+%
+Together this means that a conditional says about the evaluation world $w_{0}$
+that among the worlds that are $f$-related to $w_{0}$, the ones where the
+antecedent is true are all worlds where the consequent is also true.
+
+We get different flavors of conditionals from different contextual resolutions
+of $f$. Consider for example the earthquake conditional in \refx{ex:earthquake}.
+Context might assign to $f$ the function that when given an evaluation world $w$
+returns the set of worlds that ``agree'' with $w$ on how sturdy this house is,
+what the local geology is like, and what the laws of physics are. Then, the
+conditional claims that the actual world is such that all the worlds that agree
+with it via $f$ and where there is an earthquake are worlds where this house
+collapses. 
+
+With context-dependency comes the spectre of indeterminacy. A famous example is
+a pair attributed by \cite[221]{quine-1960-word} to Nelson Goodman (imagine
+these being said while the Korean War was going on):
+
+\marginfig{mushroom.jpg}%
+\marginfig{catapult.png}%
+\pex
+\a If Caesar were in command, he would use the atom bomb.
+\a If Caesar were in command, he would use catapults.
+\xe
+%
+Both versions seem possible: saying \Last[a] would talk about worlds where
+Caesar with all his ruthlessness is in command, while \Last[b] would talk about
+worlds where Caesar's own arsenal comes with him.
+
+We will return to conditionals in the next chapter when some additional
+complications become necessary.
+
+\begin{exercise}
+  We continue our experiments and embed a conditional under an attitude. Compute
+  the truth-conditions of the following sentence:
+
+  \ex\label{ex:embedded-if}
+  Allie believes that if there's an earthquake, this house will collapse.
+  \xe
+\end{exercise}
+
+\begin{exercise}
+  Here's a potentially simpler analysis of conditionals. What if the silent
+  pronoun were of type \type{s,t}, a set of worlds? \emph{If}
+  would then take the contextually assigned set of worlds and say that all
+  the worlds in that set in which the antecedent is true are worlds where the
+  consequent is true. Spell out the details of this idea. How would it fare when
+  confronted with the embedded conditional \refx{ex:embedded-if} from the
+  previous exercise? \qed 
+\end{exercise}
+
+
+\clearpage
+\section{Modals}
+\label{sec:modals}
+
+The final empirical addition of this chapter are modal auxiliaries like
+\expression{may, must, can, have to}, etc. Most of what we say here should carry
+over straightforwardly to modal adverbs like \expression{maybe, possibly,
+  certainly}, etc. We will make certain syntactic assumptions, which make our
+work easier but which leave aside many questions that at some point deserve to
+be addressed.
+
+\subsection{Syntactic assumptions} \label{sec:synt-assumpt-1}
+
+% \note{The issue of raising vs. control will probably be taken up later. If you
+% are eager to get started on it and other questions of the morphosyntax of
+% modals, read the handout from an LSA class Sabine and Kai taught some years
+% ago: \url{http://web.mit.edu/fintel/lsa220-class-2-handout.pdf}.}
+We will assume, at least for the time being, that a modal like \expression{may}
+is a \term{raising} predicate (rather than a \term{control} predicate), i.e.,
+its subject is not its own argument, but has been moved from the
+subject-position of its infinitival complement. So, we are dealing with the
+following kind of structure:
+
+\pex
+\a Ann may be smart. 
+\a\null [ Ann [ $\lambda_1$ [ may [ t$_1$ be smart ]]]]
+\xe
+
+Actually, we will be working here with the even simpler structure below, in
+which the subject has been reconstructed to its lowest trace position. (E.g.,
+these could be generated by deleting all but the lowest copy in the movement
+chain.\note{We will talk about reconstruction in more detail later.}) We will be
+able to prove that movement of a name or pronoun never affects truth-conditions,
+so at any rate the interpretation of the structure in (\lastx b) would be the
+same as that of (\nextx). As a matter of convenience, %
+\note{We will assume that even though \expression{Ann be smart} is a non-finite
+  sentence, this will not have any effect on its semantic type, which is that of
+  a sentence, which in turn means that its semantic value is a truth-value. This
+  is hopefully independent of the (interesting) fact that \expression{Ann be
+    smart} on its own cannot be used to make a truth-evaluable assertion.}%
+then, we will take the reconstructed structures, which allow us to abstract away
+from the (here irrelevant) mechanics of variable binding.
+
+\ex may [ Ann be smart ] \xe
+
+So, for now at least, we are assuming that modals are expressions that take a
+full sentence as their semantic argument. Now then, what do modals mean?
+
+\subsection{Quantification over possible worlds} \label{sec:quant-over-poss}
+
+\note{This idea goes back a long time. It was famously held by Leibniz,
+  but there are precedents in the medieval literature; see
+  \cite{knuuttila-2003-modality-medieval}. See \cite{copeland-2002-genesis}
+  for the modern history of the possible worlds analysis of modal expressions.}%
+The basic idea of the possible worlds semantics for modal expressions is that they
+are quantifiers over possible worlds. Toy lexical entries for \expression{must}
+and \expression{may}, for example, would look like this:
+
+\ex $\sv{\mbox{must}}^{w,g} = \lambda p_{\type{s,t}}.\ \forall w'\co p(w') =
+1$. \xe
+
+\ex~ $\sv{\mbox{may}}^{w,g} = \lambda p_{\type{s,t}}.\ \exists w'\co p(w') =
+1$. \xe
+%
+\note{Sometimes, people call necessity modals ``universal modals'' and
+  possibility modals ``existential modals'', which obviously presupposes this
+  quantificational analysis.}%
+A necessity modal like \emph{must} says that all worlds make its prejacent true,
+while a possibility modal like \emph{may} says that some worlds make its
+prejacent true. Note that our previous intensional operators were all universal
+quantifiers (unless you found some existential attitudes in
+Exercise~\ref{exercise:existential-attitudes}), so the existential force of
+\emph{may} is a new frontier for us.
+
+The analysis in \LLast/\Last is too crude (in particular, notice that it would
+make modal sentences non-contingent \dash there is no occurrence of the
+evaluation world on the right hand side!). But it does already have some
+desirable consequences that we will seek to preserve through all subsequent
+refinements. It correctly predicts a number of intuitive judgments about the
+logical relations between \expression{must} and \expression{may} and among
+various combinations of these items and negations. To start with some elementary
+facts, we feel that \expression{must} $\phi$ entails \expression{may} $\phi$,
+but not vice versa:
+
+\ex You must stay.\\
+Therefore, you may stay. \hfill\textsc{valid} \xe
+
+\ex~ You may stay.\\
+Therefore, you must stay. \hfill\textsc{invalid} \xe
+
+\note{The somewhat stilted \expression{it is not the case}-construction is used
+  in (\ref{ex:stilted}a) to make certain that negation takes scope over
+  \expression{must}. When modal auxiliaries and negation are together in the
+  auxiliary complex of the same clause, their relative scope seems not to be
+  transparently encoded in the surface order; specifically, the scope order is
+  not reliably negation $\succ$ modal. (Think about examples with
+  \expression{mustn't}, \expression{can't, shouldn't, may not} etc. What's going
+  on here? This is an interesting topic which we must set aside for now. See the
+  references at the end of the chapter for relevant work.) With modal
+  \emph{main} verbs (such as \expression{have to}), this complication doesn't
+  arise; they are consistently inside the scope of clause-mate auxiliary
+  negation. Therefore we can use (\ref{ex:stilted}b) to (unambiguously) express
+  the same scope order as (\ref{ex:stilted}a), without having to resort to a
+  biclausal structure.}%
+\pex~\label{ex:stilted} \a You may stay, but it is not the case that you must
+stay. \a You may stay, but you don't have to stay. \hfill\textsc{consistent} \xe
+
+We judge \expression{must} $\phi$ incompatible with its ``inner negation''
+\expression{must} [\expression{not} $\phi$ ], but find \expression{may} $\phi$
+and \expression{may} [\expression{not} $\phi$ ] entirely compatible:
+
+\ex You must stay, and/but also, you must leave. (leave = not stay).\\
+\hfill\textsc{contradictory} \xe
+
+\ex~ You may stay, but also, you may leave. \hfill\textsc{consistent} \xe
+
+We also judge that in each pair below, the (a)-sentence and the (b)-sentences
+say the same thing.
+
+\pex\label{ex:must} \a You must stay. \a It is not the case that you may leave.\\
+You aren't allowed to leave.\\
+(You may not leave.)%
+\note{The parenthesized variants of the (b)-sentences in \refx{ex:must} are
+  pertinent here only to the extent that we can be certain that negation scopes
+  over the modal. In these examples, apparently it does, but as we remarked
+  above, this cannot be taken for granted in all structures of this form.}
+\\
+(You can't leave.) \xe
+
+\pex~ \a You may stay. \a It is not the case that you must leave.\\
+You don't have to leave.\\
+You don't need to leave.\\
+(You needn't leave.)
+\xe
+
+\note{In logicians' jargon, \expression{must} and
+  \expression{may} behave as \term{duals} of each other. For definitions of
+  ``dual'', see \cite[197]{barwise-cooper-1981-generalized} or
+  \cite[vol.2,238]{gamut:91}.}%
+Given that \expression{stay} and \expression{leave} are each other's negations
+(i.e. \exts{leave} = \exts{not stay}, and \exts{stay} = \exts{not leave}), the
+LF-structures of these equivalent pairs of sentences can be seen to instantiate
+the following schemata:
+
+\pex \a \expression{must} $\phi$ $\equiv$ \expression{not} [\expression{may}
+[\expression{not} $\phi$]] \a \expression{must} [\expression{not}
+\ensuremath{\psi}] $\equiv$ \expression{not} [\expression{may}
+\ensuremath{\psi}] \xe
+
+\pex~ \a \expression{may} $\phi$ $\equiv$ \expression{not} [\expression{must}
+[\expression{not} $\phi$]] \a \expression{may} [\expression{not}
+\ensuremath{\psi}] $\equiv$ \expression{not} [\expression{must}
+\ensuremath{\psi}] \xe
+
+\note{More linguistic data regarding the ``parallel logic'' of modals and
+  quantifiers can be found in Horn's dissertation
+  \parencite{horn-1972-dissertation}.}%
+Our present analysis of \expression{must}, \expression{have-to}, \dots{} as
+universal quantifiers and of \expression{may}, \expression{can}, \dots{} as
+existential quantifiers straightforwardly predicts all of the above judgments,
+as you can easily prove.
+
+% \pex \a $\forall x \phi \equiv \neg \exists x \neg \phi$ \a $\forall x \neg
+% \phi \equiv \neg \exists x \phi$ \xe
+
+% \pex \a $\exists x \phi \equiv \neg \forall x \neg \phi$ \a $\exists x \neg \phi
+% \equiv \neg \forall x \phi$ \xe
+
+\subsection{Contingency, flavors, context-dependency} \label{sec:contingency}
+
+We already said that the semantics we started with is too simple-minded. In
+particular, we have no dependency on the evaluation world, which would make
+modal statements non-contingent. This is not correct.
+
+If one says \expression{It may be snowing in Cambridge}, that may well be part
+of useful, practical advice about what to wear on your upcoming trip to
+Cambridge. It may be true or it may be false. The sentence seems true if said in
+the dead of winter when we have already heard about a Nor'Easter that is
+sweeping across New England. The sentence seems false if said by a clueless
+Australian acquaintance of ours in July.
+
+The contingency of modal claims is not captured by our current semantics. All
+the \expression{may}-sentence would claim under that semantics is that there is
+some possible world where it is snowing in Cambridge. And surely, once you have
+read Lewis' quote in Chapter 1, where he asserts the existence of possible
+worlds with different physical constants than we enjoy here, you must admit that
+there have to be such worlds even if it is July. The problem is that in our
+semantics, repeated here:
+
+\ex $\sv{\mbox{may}}^{w,g} = \lambda p_{\type{s,t}}.\ \exists w'\co p(w') =
+1$, \xe
+%
+\note{Conversely, the plenitude of possible worlds would make
+  \expression{must}-claims very likely false if they are not reigned in or
+  anchored somehow.}%
+there is no occurrence of $w$ on the right hand side. This means that the
+truth-conditions for \expression{may}-sentences are world-independent. In other
+words, they make non-contingent claims that are either true whatever or false
+whatever, and because of the plenitude of possible worlds they are more likely
+to be true than false. This needs to be fixed. But how?
+
+Well, what makes \expression{it may be snowing in Cambridge} seem true when we
+know about a Nor'Easter over New England? What makes it seem false when we know
+that it is summer in New England? The idea is that we only consider possible
+worlds \term{compatible with the evidence available to us}. And since what
+evidence is available to us differs from world to world, so will the truth of a
+\expression{may}-statement.
+
+\ex \note{From now on, we will leave off type-specifications such as that $p$
+  has to be of type $\type{s,t}$, whenever it is obvious what they should be and
+  when saving space is aesthetically called for.}%
+$\sv{\mbox{may}}^{w,g} = \lambda p.\ \exists w' \mbox{ compatible w/ the
+  evidence in } w\co p(w') = 1$. \xe
+
+\ex~ $\sv{\mbox{must}}^{w,g} = \lambda p.\ \forall w' \mbox{ compatible w/ the
+  evidence in } w\co p(w') = 1$. \xe
+
+\kwn
+Let us consider a different example:
+
+\ex You have to be quiet. \xe
+%
+Imagine this sentence being said based on the house rules of the particular
+dormitory you live in. Again, this is a sentence that could be true or could be
+false. Why do we feel that this is a contingent assertion? Well, the house rules
+can be different from one world to the next, and so we might be unsure or
+mistaken about what they are. In one possible world, they say that all noise
+must stop at 11pm, in another world they say that all noise must stop at 10pm.
+Suppose we know that it is 10:30 now, and that the dorm we are in has either one
+or the other of these two rules, but we have forgotten which. Then, for all we
+know, \expression{you have to be quiet} may be true or it may be false. This
+suggests a lexical entry along these lines:
+
+\ex $\sv{\mbox{have-to}}^{w,g} = \lambda p.\ \forall w' \mbox{ compatible with
+  the rules in } w\co p(w') = 1$. \xe
+
+Again, we are tying the modal statement about other worlds down to certain
+worlds that stand in a certain relation to the actual world: those worlds where
+the rules as they are here are obeyed.
+
+A note of caution: it is very important to realize that the worlds compatible
+with the rules as they are in $w$ are those worlds where nothing happens that
+violates any of the $w$-rules. This is not at all the same as saying that the
+worlds compatible with the rules in $w$ are those worlds where the same rules
+are in force. Usually, the rules do not care what the rules are, unless the
+rules contain some kind of meta-statement to the effect that the rules have to
+be the way they are, i.e. that the rules cannot be changed. So, in fact, a world
+$w'$ in which nothing happens that violates the rules as they are in $w$ but
+where the rules are quite different and in fact what happens violates the rules
+as they are in $w'$ is nevertheless a world compatible with the rules in $w$.
+For example, imagine that the only relevant rule in $w$ is that students go to
+bed before midnight. Take a world $w'$ where a particular student goes to bed at
+11:30 pm but where the rules are different and say that students have to go to
+bed before 11 pm. Such a world $w'$ is compatible with the rules in $w$ (but of
+course not with the rules in $w'$).
+
+Apparently, there are different flavors of modality, varying in what kind of
+facts in the evaluation world they are sensitive to. The semantics we gave for
+\expression{must} and \expression{may} above makes them talk about evidence,
+while the semantics we gave for \expression{have-to} made it talk about rules.
+But that was just because the examples were hand-picked. In fact, in the dorm
+scenario we could just as well have said \expression{You must be quiet}. And,
+vice versa, there is nothing wrong with using \expression{it has to be snowing
+  in Cambridge} based on the evidence we have. In fact, many modal expressions
+seem to be multiply ambiguous. The English modal \emph{have to} is probably the
+world champion in this regard:
+
+\pex\label{ex:poly-have}
+\a It has to be raining.
+\a Visitors have to leave by six pm.
+\a You have to go to bed in ten minutes.
+\a I have to sneeze.
+\a To get home in time, you have to take a taxi.
+\xe
+
+\note{Beyond ``epistemic'' and ``deontic,'' there is a great deal of
+  terminological exuberance. Sometimes all non-epistemic readings are grouped
+  together under the term \term{root modality} (nobody knows why).}%
+Traditional descriptions of modals often distinguish a number of ``readings'':
+\term{epistemic, deontic, ability, circumstantial, dynamic,} \dots. Here are
+some initial illustrations.
+
+\ex \label{epist}\extitle{Epistemic Modality}\\[6pt]
+A: Where is John?\\
+B: I don't know. He \expression{may} be at home. \xe
+
+\ex \extitle{Deontic Modality}\\[6pt]
+A: Am I allowed to stay over at Janet's house?\\
+B: No, but you \expression{may} bring her here for dinner. \xe
+
+\ex \extitle{Circumstantial/Dynamic Modality}\\[6pt]
+A: I will plant the rhododendron here.\\
+B: That's not a good idea. It \expression{can} grow very tall. \xe
+
+How are \expression{may} and \expression{can} interpreted in each of these
+examples? What do the interpretations have in common, and where do they differ?
+
+In all three examples, the modal makes an existentially quantified claim about
+possible worlds. This is usually called the \term{modal force} of the claim.
+What differs is what worlds are quantified over, sometimes called the
+\term{modal flavor}. In \term{epistemic} modal sentences, we quantify over
+worlds compatible with the available evidence. In \term{deontic} modal
+sentences, we quantify over worlds compatible with the rules and/or regulations.
+And in the \term{circumstantial} modal sentence, we quantify over the set of
+worlds which conform to the laws of nature (in particular, plant biology). What
+speaker B in (\lastx) is saying, then, is that there are some worlds conforming
+to the laws of nature in which this rhododendron grows very tall.
+
+\subsection{Epistemic vs. Circumstantial}
+
+\note{In the earlier \cite{kratzer-1981-notional}, the hydrangeas were
+    \expression{Zwetschgenbäume} `plum trees'. The German word
+    \expression{Zwetschge}, by the way, is etymologically derived from the name
+    of the city Damascus (Syria), the center of the ancient plum trade.}%
+Do flavors of modality correspond to some sorts of signals in the structure of
+sentences? Read the following famous passage from \cite{kratzer-1991-modality}
+and think about how the two sentences with their very different modal meanings
+differ in structure:
+
+\begin{quotation}
+	
+	\noindent Consider sentences (\nextx) and (\anextx):%
+  
+  \ex[numoffset=\leftmargin] Hydrangeas can grow here. \xe
+	\ex~[numoffset=\leftmargin] There might be hydrangeas growing here. \xe
+	
+	\noindent The two sentences differ in meaning in a way which is illustrated by
+  the following scenario.
+	
+	\medskip Suppose I acquire a piece of land in a far away country and discover
+  that soil and climate are very much like at home, where hydrangeas prosper
+  everywhere. Since hydrangeas are my favorite plants, I wonder whether they
+  would grow in this place and inquire about it. The answer is (\blastx). In
+  such a situation, the proposition expressed by (\blastx) is true. It is true
+  regardless of whether it is or isn't likely that there are already hydrangeas
+  in the country we are considering. All that matters is climate, soil, the
+  special properties of hydrangeas, and the like. Suppose now that the country
+  we are in has never had any contacts whatsoever with Asia or America, and the
+  vegetation is altogether different from ours. Given this evidence, my
+  utterance of (\lastx) would express a false proposition. What counts here is
+  the complete evidence available. And this evidence is not compatible with the
+  existence of hydrangeas.
+	
+	\medskip (\blastx) together with our scenario illustrates the pure
+  \term{circumstantial} reading of the modal \expression{can}. [\dots ].
+  (\lastx) together with our scenario illustrates the epistemic reading of
+  modals. [\dots] circumstantial and epistemic conversational backgrounds
+  involve different kinds of facts. In using an epistemic modal, we are
+  interested in what else may or must be the case in our world given all the
+  evidence available. Using a circumstantial modal, we are interested in the
+  necessities implied by or the possibilities opened up by certain sorts of
+  facts. Epistemic modality is the modality of curious people like historians,
+  detectives, and futurologists. Circumstantial modality is the modality of
+  rational agents like gardeners, architects, and engineers. A historian asks
+  what might have been the case, given all the available facts. An engineer asks
+  what can be done given certain relevant facts.
+\end{quotation}
+
+\noindent Consider also the very different prominent meanings of the following
+two sentences, taken from Kratzer as well:
+
+\pex \a Cathy can make a pound of cheese out of this can of milk. 
+\a Cathy might make a pound of cheese out of this can of milk. \xe
+
+\subsection{Toward an analysis}
+\label{sec:modal-analysis}
+
+How can we account for this variety of readings? One way would be to write a
+host of lexical entries, basically treating this as a kind of (more or less
+principled) ambiguity/polysemy. Another way, which is preferred by many people,
+is to treat this as a case of context-dependency, as argued in seminal work by
+\citet{kratzer-1977-must-can, kratzer-1978-dissertation,
+  kratzer-1981-notional,kratzer-1991-modality}.
+
+\note{It is well-known that natural language quantification is in general
+  subject to contextual restriction. See for example
+  \cite[Ch.2]{fintel-1994-thesis} and \cite{stanley-szabo-2000-restriction}.}%
+According to Kratzer, what a modal brings with it intrinsically is just a modal
+force, that is, whether it is an existential (possibility) modal or a universal
+(necessity) modal. What worlds it quantifies over is determined by context. In
+essence, the context has to supply a restriction to the quantifier. How can we
+implement this idea? Well, we just have to transpose the setup we put in place
+for conditionals.
+
+We give modals a flavor argument, a silent pronoun of type \type{s,st}, just
+like we did with \emph{if}. So we posit LF-structures like this:
+
+\ex \label{newlf} [ [must $f_{\type{n,\type{s,st}}}$ ] [you quiet] ] \xe
+%
+$f_{\type{n,\type{s,st}}}$, again, is a variable over functions from worlds to
+(characteristic functions of) sets of worlds, which \dash like all free
+variables \dash needs to receive a value from the utterance context. For
+example, it may be supplied with the function which, for any world $w$, yields
+the set \{$w'$: the house rules that are in force in $w$ are obeyed in $w'$\}.
+If we apply this function to a world $w_{1}$, in which the house rules read ``no
+noise after 10 pm'', it will yield a set of worlds in which nobody makes noise
+after 10 pm. If we apply the same function to a world $w_{2}$, in which the
+house rules read ``no noise after 11 pm'', it will yield a set of worlds in
+which nobody makes noise after 11 pm.
+
+\note{Compare these entries for the modals to the entry for \emph{if} in
+  \refx{ex:if-strict-context-formal}. What are the differences?}%
+The new lexical entries for \expression{must} and \expression{may} that will fit
+this new structure are these:
+
+\pex\label{ex:modal-sst}
+\a \exts{must} = \\
+$\lambda f\in D_{\type{s,st}}.\ \lambda q\in D_{\type{s,t}}.\ \forall w'\in W\
+[f(w)(w') =1 \rightarrow q(w')=1]$%
+\note{in set talk: $f(w)\subseteq q$}
+\a \exts{may} = \\
+$\lambda f\in D_{\type{s,st}}.\ \lambda q\in D_{\type{s,t}}.\ \exists w'\in
+W\ [f(w)(w')=1\ \&\ q(w')=1]$%
+\note{in set talk: $f(w)\cap q\neq\emptyset$}
+\xe
+
+\begin{exercise}
+  Let $w$ be a world, and assume that the context supplies an assignment $g$
+  such that:
+  %
+  \ex $g(f_{\type{17,\type{s,st}}}) = \lambda w.\ \lambda w'.$ the rules
+  in force in $w$ are obeyed in $w'$.\label{ex:deontic-f} \xe
+  %
+  Compute the truth-conditions for the LF in \Next:
+
+  \ex\ [ must $f_{\type{17,\type{s,st}}}$  [you quiet] ] \xe
+  %
+  Does truth-value of \Last correctly depend on the evaluation world $w$? \qed
+\end{exercise}
+
+
+On this approach, the epistemic, deontic, etc. ``readings'' of individual
+occurrences of modal verbs come about by a combination of two separate things.
+The lexical semantics of the modal itself encodes just a quantificational force,
+a \emph{relation} between sets of worlds. This is either the subset-relation
+(universal quantification; necessity) or the relation of non-disjointness
+(existential quantification; possibility). The covert variable next to the modal
+when applied to the evaluation world yields a set of worlds, and this functions
+as the quantifier's restrictor. The labels ``epistemic'', ``deontic'',
+``circumstantial'' etc. group together certain conceptually natural classes of
+possible values for this covert restrictor.
+
+Notice that, strictly speaking, there is not just one deontic reading (for
+example), but many. A speaker who utters
+
+\ex You have to be quiet. \xe
+%
+might mean: `I want you to be quiet,' (i.e., you are quiet in all those worlds
+that conform to my preferences). Or she might mean: `unless you are quiet, you
+won't succeed in what you are trying to do,' (i.e., you are quiet in all those
+worlds in which you succeed at your current task). Or she might mean: `the house
+rules of this dormitory here demand that you be quiet,' (i.e., you are quiet in
+all those worlds in which the house rules aren't violated). And so on. %
+\note{Proponents of polysemy accounts of the variety of modal flavors will
+  presumably have to tackle the apparent limitlessness of variation in some
+  principle way. See \cite{viebahn-vetter-2016-modal-polysemy} for a polysemy
+  account.}%
+So the label ``deontic'' appears to cover a whole open-ended set of imaginable
+``readings'', and which one is intended and understood on a particular utterance
+occasion may depend on all sorts of things in the interlocutors' previous
+conversation and tacit shared assumptions. (And the same goes for the other
+traditional labels.)
+
+A disappointing feature of our analysis in \refx{ex:modal-sst} is that a lot of
+the work is being done by the modals: they don't just take a restriction as
+their argument but they have to enforce that this restriction is evaluated in
+the evaluation world. This is a departure from the ideal that modals are simply
+quantifiers over possible worlds. It would be preferable to merely present them
+with a set of worlds to quantify over rather than giving them the responsibility
+of obtaining this set by applying an accessibility relation to the evaluation
+world. We will later put in place a different framework (for unrelated reasons)
+that will make good on this vision.
+
+\begin{exercise}	
+	Describe two worlds $w_{1}$ and $w_{2}$ so that\\
+	\exts[w_1,g]{must $f_{\type{17,\type{s,st}}}$ you quiet} = 1\\
+  and \exts[w_2,g]{must $f_{\type{17,\type{s,st}}}$ you quiet} = 0. \qed
+\end{exercise}
+\begin{exercise}
+	
+	In analogy to the deontic relation
+  $g(f_{\type{17,\type{s,st}}})$ defined in \refx{ex:deontic-f}, define an
+  appropriate relation that yields an epistemic reading for a sentence
+  like \expression{You may be quiet}. \qed
+\end{exercise}
+
+\begin{exercise}
+  Describe the set of worlds that constitutes the understood restrictor of
+  \emph{have to} in each of the examples in \refx{ex:poly-have}. \qed
+\end{exercise}
+
+\begin{exercise}
+	
+	Describe values for the covert \type{s,st}-variable that are
+  intuitively suitable for the interpretation of the modals in the
+  following sentences:
+	
+	\ex As far as John's preferences are concerned, you
+  \expression{may} stay with us. \xe
+	
+	\ex~ According to the guidelines of the graduate school, every PhD
+  candidate \expression{must} take 9 credit hours outside his/her
+  department. \xe
+	
+	\ex~ John \expression{can} run a mile in 5 minutes. \xe
+	
+	\ex~ This \expression{has} to be the White House. \xe
+	
+	\ex~ This elevator \expression{can} carry up to 3000 pounds. \xe
+	%
+	For some of the sentences, different interpretations are conceivable
+  depending on the circumstances in which they are uttered. You may
+  therefore have to sketch the utterance context you have in mind
+  before describing the accessibility relation. \qed
+\end{exercise}
+\begin{exercise}
+	
+	Collect two naturally occurring examples of modalized sentences
+  (e.g., sentences that you overhear in conversation, or read in a
+  newspaper or novel -- not ones that are being used as examples in a
+  linguistics or philosophy paper!), and give definitions of values
+  for the covert \type{s,st}-variable which account for the way in
+  which you actually understood these sentences when you encountered
+  them. (If the appropriate interpretation is not salient for the
+  sentence out of context, include information about the relevant
+  preceding text or non-linguistic background.) \qed
+\end{exercise}
+
+\begin{exercise}
+  Modals can be iterated like other intensional operators:
+
+  \ex You might have to walk. \xe
+  %
+  Describe a context in which \Last would be an appropriate utterance. State
+  plausible values for the \type{s,st} flavor functions restricting the two
+  modals. Posit an LF for \Last. Derive the truth-conditions compositionally.
+  \qed
+  
+\end{exercise}
+
+\section{Explorations and variations}
+\label{sec:variations}
+
+With the basic analyses of attitudes, conditionals, and modals in place, we turn
+to some technical explorations.
+
+\subsection{Accessibility relations}
+\label{sec:accessibility}
+
+In all of the cases we have looked at the intensional operator ranges over
+worlds that are relevant related to the evaluation world (via some kind of
+anchor). In the case of conditional and modals, in fact, we made the operator
+take a relation between worlds as its contextually provided first
+argument:
+
+\ex%
+$\svt{if}^{w,g} = \lambda f_{\type{s,st}}.\ \lambda p_{\type{s,t}}.\
+\lambda q_{\type{s,t}}.$ \\
+\hfill $\forall w'\co f(w)(w') = 1\ \&\ p(w')=1 \rightarrow q(w')=1.$ \xe
+
+\ex \exts{must} =
+$\lambda f_{\type{s,st}}.\ \lambda q_{\type{s,t}}.\ \forall w'\co f(w)(w')
+=1 \rightarrow q(w')=1$. \xe
+
+\enlargethispage{24pt}
+In the Hintikka-semantics for attitudes as well, we think of the worlds
+quantified over as those that stand in a particular relation to the evaluation
+world. Which relation that is is lexically specified by the attitude predicate.
+So, \expression{believe} ranges over worlds compatible with the subject's
+beliefs in the evaluation world.
+
+It might be useful to rehearse some mathematical basics. A relation is something
+that two elements stand in. A relation might not be symmetrical (or as we say
+outside of math, it might not be reciprocated), so the order of elements is part
+of the notion. The formal model of a relation $\mathcal{R}$ therefore is a set
+of ordered pairs drawn from two sets $A$ and $B$:
+
+\[\mathcal{R} = \{\pair{x,y}\co x\in A\ \&\ y\in B\}\]
+
+In the function-centric and Schönfinkeled world we inherit from Heim \& Kratzer,
+this notion of a set of ordered pairs becomes a staggered function that takes
+first an element from $A$, then an element from $B$, and then yields a
+truth-value:
+
+\[f_{\mathcal{R}} = \lambda x\co x\in A.\ \left( \lambda y\co y\in B.\ \pair{x,y}\in
+\mathcal{R}\right)\]
+
+Since we are used to thinking of a function from some type to truth-values as
+characterizing a set of things of that type, we can reconceive a relation as a
+function from elements of the first set to a set of elements from the second set
+(the ones they stand in the relevant relation to).
+
+\note{One might call this an ``endorelation''.}%
+Note that in the case of accessibility relations, we are dealing with a relation
+between worlds. That is, the elements that stand in the relation come from the
+same set. 
+
+\note{Why do we call reflexivity, transitivity, and symmetry ``formal''
+  properties of relations? The idea is that certain properties are ``formal'' or
+  ``logical'', while others are more substantial. So, the fact that the relation
+  ``have the same birthday as'' is symmetric seems a more formal fact about it
+  than the fact that the relation holds between my daughter and my
+  brother-in-law. Nevertheless, one of the most common ways of characterizing
+  formal/logical notions (permutation-invariance, if you're curious) does not in
+  fact make symmetry etc. a formal/logical notion. So, while intuitively these
+  do seem to be formal/logical properties, we do not know how to substantiate
+  that intuition. See \cite{macfarlane-2005-logical-constants} for discussion.}%
+Recall now (for example, from Section 6.6 of H\&K) that the linguistic study of
+determiners benefitted quite a bit from an investigation of the formal
+properties of the relations between sets of individuals that determiners
+express. We can do the same thing here and ask about the formal properties of
+the accessibility relation associated with belief versus the one associated with
+knowledge, etc. The obvious properties to think about are reflexivity,
+transitivity, and symmetry.
+
+A relation is \term{reflexive} iff for any object in the domain of the relation
+we know that the relation holds between that object and itself. Which
+accessibility relations are reflexive? Take a knowledge-induced accessibility
+relation (let's call it $\mathcal{K}_{x}$):
+
+\ex $w\mathcal{K}_{x}w'$ iff $w'$ is compatible with what $x$
+knows in $w$. \xe
+
+\note{We talk here about knowledge entailing (or even presupposing) truth but we
+  do not mean to say that knowledge simply equals true belief. For initial
+  overview of the issues, see the Stanford Encyclopedia entry:
+  \cite{sep-knowledge-analysis}.}%
+We are asking whether for any given possible world $w$, we know that
+$\mathcal{K}_{x}$ holds between $w$ and $w$ itself. It will hold
+if $w$ is a world that is compatible with what we know in $w$. And clearly that
+must be so. Take our body of knowledge in $w$. The concept of knowledge
+crucially contains the concept of truth: what we know must be true. So if in
+$w$, we know that something is the case then it must be the case in $w$. So, $w$
+must be compatible with all we know in $w$. $\mathcal{K}_{x}$ is
+reflexive.
+
+\clearpage
+Now, if an attitude $X$ corresponds to a reflexive accessibility relation, then
+we can conclude from \expression{$a$ $Xs$ that $p$} being true in $w$ that $p$
+is true in $w$. %
+\note{In modal logic notation: $\Box p \rightarrow p $. This pattern is
+  sometimes called \textbf{T} or \textbf{M}, as is the corresponding system of
+  modal logic.}%
+This property of an attitude predicate is often called \term{veridicality}. It
+is to be distinguished from \term{factivity}, which is a property of attitudes
+which \emph{presuppose} -- rather than (merely) entail -- the truth of their
+complement.
+
+If we consider the relation $\mathcal{B}_{x}$ pairing with a world
+$w$ those worlds $w'$ which are compatible with what $x$ \emph{believes} in $w$,
+we no longer have reflexivity: belief is not a veridical attitude. %
+\note{The difference between \emph{believe} and \emph{know} in natural
+  discourse is quite delicate, especially when one considers first person uses
+  (\emph{I believe the earth is flat} vs. \emph{I know the earth is flat}).}%
+It is easy to have false beliefs, which means that the actual world is not in
+fact compatible with one's beliefs, which contradicts reflexivity. And many
+other attitudes as well do not involve veridicality/reflexivity: what we hope
+may not come true, what we remember may not be what actually happened, etc.
+
+In modal logic, the correspondence between formal properties of the
+accessibility relation and the validity of inference patterns is well-studied.
+What we have just seen is that reflexivity of the accessibility relation
+corresponds to the validity of $\Box p \rightarrow p$. Other properties
+correspond to other characteristic patterns. Let's see this for transitivity and
+symmetry.
+
+\note{In the literature on epistemic modal logic, the pattern is known as the
+  \term{KK Thesis} or \term{Positive Introspection}. In general modal logic, it
+  is the characteristic axiom \textbf{4} of the modal logic system \textbf{S4},
+  which is a system that adds \textbf{4} to the previous axiom
+  \textbf{M}/\textbf{T}. Thus, \textbf{S4} is the logic of accessibility
+  relations that are both reflexive and transitive.}%
+\term{Transitivity} of the accessibility relation corresponds to the inference
+$\Box p \rightarrow \Box \Box p$. The pattern seems not obviously wrong
+for knowledge: if one knows that $p$, doesn't one thereby know that one knows
+that $p$? But before we comment on that, let's establish the formal
+correspondence between transitivity and that inference pattern. This needs to go
+in both directions.
+  
+\marginfig{transitivity.pdf}%
+What does it take for the pattern to be valid? Assume that $\Box p$
+holds for an arbitrary world $w$, i.e. that $p$ is true in all worlds $w'$
+accessible from $w$. Now, the inference is to the fact that $p$ again holds in
+any world $w''$ accessible from any of those worlds $w'$ accessible from $w$.
+But what would prevent $p$ from being false in some $w''$ accessible from some
+$w'$ accessible from $w$? That could only be prevented from happening if we knew
+that $w''$ itself is accessible from $w$ as well, because then we would know
+from the premiss that $p$ is true in it (since $p$ is true in \emph{all} worlds
+accessible from $w$). Ah, but $w''$ (some world accessible from a world $w'$
+accessible from $w$) is only guaranteed to be accessible from $w$ if the
+accessibility relation is transitive (if $w'$ is accessible from $w$ and $w''$
+is accessible from $w'$, then transitivity ensures that $w''$ is accessible from
+$w$). This reasoning has shown that validity of the pattern requires
+transitivity. The other half of proving the correspondence is to show that
+transitivity entails that the pattern is valid.
+
+The proof proceeds by reductio. Assume that the accessibility relation is
+transitive. Assume that (i) $\Box p$ holds for some world $w$ but that (ii)
+$\Box \Box p$ doesn't hold in $w$. We will show that this situation cannot
+obtain. By (i), $p$ is true in all worlds $w'$ accessible from $w$. By (ii),
+there is some non-$p$ world $w''$ accessible from some world $w'$ accessible
+from $w$. But by transitivity of the accessibility relation, that non-$p$ world
+$w''$ must be accessible from $w$. And since \emph{all} worlds accessible from
+$w$ are $p$ worlds, $w''$ must be a $p$ world, in contradiction to (ii). So, as
+soon as we assume transitivity, there is no way for the inference not to go
+through.
+
+Now, do any of the attitudes have the transitivity property? It seems rather
+obvious that as soon as you believe something, you thereby believe that you
+believe it (and so it seems that belief involves a transitive accessibility
+relation). And in fact, as soon as you believe something, you believe that you
+\emph{know} it. But one might shy away from saying that knowing something
+automatically amounts to knowing that you know it. For example, many are
+attracted to the idea that to know something requires that (i) that it is true,
+(ii) that you believe it, and (iii) that you are justified in believing it: the
+justified true belief analysis of knowledge. So, now couldn't it be that you
+know something, and thus (?) that you believe you know it, and thus that you
+believe that you are justified in believing it, but that you are not justified
+in believing that you are \emph{justified} in believing it? After all, one's
+source of knowledge, one's reliable means of acquiring knowledge, might be a
+mechanism that one has no insight into. So, while one can implicitly trust
+(believe) in its reliability, and while it is in fact reliable, one might not
+have any means to have trustworthy beliefs about it. [Further worries about the
+KK Thesis are discussed in \cite{williamson-2000-limits}.]
+
+\kwn
+\note{In modal logic notation, \Next looks as follows:
+  $p \rightarrow \Box\Diamond p$, known simply as B in modal logic. The
+  system that combines \textbf{T}/\textbf{M} with B is often called Brouwer's
+  System (\textbf{B}), after the mathematician L.E.J. Brouwer, not because he
+  proposed it but because it was thought that it had some connections to his
+  doctrines. Brouwer got his own commemorative stamp from the Netherlands:}%
+\marginfig[0.5]{brouwer.jpg}%
+What would the consequences be if the accessibility relation were
+\term{symmetric}? Symmetry of the accessibility relation $\mathcal{R}$
+corresponds to the validity of the following principle:
+%
+\ex Brouwer's Axiom :\\
+$\forall p \forall w:\ w\in p \rightarrow \Bigl[\forall w' \bigl[ w\mathcal{R}w'
+\rightarrow \exists w'' \left[ w'\mathcal{R}w'' \&\ w''\in p\right]\bigr]\Bigr]$
+\xe
+
+Here's the reasoning: Assume that $R$ is in fact symmetric. Pick a world $w$ in
+which $p$ is true. Now, could it be that the right hand side of the inference
+fails to hold in $w$? Assume that it does fail. Then, there must be some world
+$w'$ accessible from $w$ in which $\Diamond p$ is false. In other words,
+from that world $w'$ there is no accessible world $w''$ in which $p$ is true.
+But since $R$ is assumed to be symmetric, one of the worlds accessible from $w'$
+is $w$ and in $w$, $p$ is true, which contradicts the assumption that the
+inference doesn't go through. So, symmetry ensures the validity of the
+inference.
+
+\marginfig{symmetry.pdf}%
+The other way (validity of the inference requires symmetry): the inference says
+that from any $p$-world (``$p$-world'' is a very common way of saying ``world of
+which $p$ is true''), we can only access worlds from which, in turn, there is at
+least one accessible $p$-world. But imagine that $p$ is true in $w$ but not true
+in any other world. So, the only way for the conclusion of the inference to hold
+automatically is to have a guarantee that $w$ (the only $p$-world) is accessible
+from any world accessible from it. That is, we need to have symmetry. QED.
+
+To see whether a particular kind of attitude is based on a symmetric
+accessibility relation, we can ask whether Brouwer's Axiom is intuitively valid
+with respect to this attitude. If it is not valid, this shows that the
+accessibility relation can't be symmetric. In the case of a knowledge-based
+accessibility relation (epistemic accessibility), one can argue that
+\emph{symmetry does not hold} (thanks to Bob Stalnaker (pc to Kai von
+  Fintel) for help with the following reasoning):
+\begin{quote}
+  
+  The symmetry condition would imply that if something happens to be true in the
+  actual world, then you know that it is compatible with your knowledge
+  (Brouwer's Axiom). This will be violated by any case in which your beliefs are
+  consistent, but mistaken. Suppose that while $p$ is in fact true, you feel
+  certain that it is false, and so think that you know that it is false. Since
+  you think you know this, it is compatible with your knowledge that you know
+  it. (Since we are assuming you are consistent, you can't both believe that you
+  know it, and know that you do not). So it is compatible with your knowledge
+  that you know that \expression{not} $p$. Equivalently\note{This and the
+    following step rely on the duality of necessity and possibility: $q$ is
+    compatible with your knowledge iff you don't know that \expression{not}
+    $q$.}: you don't know that you don't know that \expression{not} $p$.
+  Equivalently: you don't know that it's compatible with your knowledge that
+  $p$. But by Brouwer's Axiom, since $p$ is true, you would have to know that
+  it's compatible with your knowledge that $p$. So if Brouwer's Axiom held,
+  there would be a contradiction. So Brouwer's Axiom doesn't hold here, which
+  shows that epistemic accessibility is not symmetric.
+\end{quote}
+
+\note{All one really needs to make \textbf{NI} valid is to have a
+  \term{Euclidean} accessibility relation: any two worlds accessible from the
+  same world are accessible from each other. It is a nice little exercise to
+  prove this, if you have become interested in this sort of thing. Note that all
+  reflexive and Euclidean accessibility relations are transitive and symmetric
+  as well \dash another nice little thing to prove.}%
+Game theorists and theoretical computer scientists who traffic in logics of
+knowledge often assume that the accessibility relation for knowledge is an
+equivalence relation (reflexive, symmetric, and transitive). But this is
+appropriate only if one abstracts away from any error, in effect assuming that
+belief and knowledge coincide. One striking consequence of working with an
+equivalence relation as the accessibility relation for knowledge is that one
+predicts the principle of \term{Negative Introspection} to hold:
+
+\ex \extitle{Negative Introspection (\textbf{ni})}\\
+If one doesn't know that $p$, then one knows that one doesn't know that $p$.
+($\neg\Box p \rightarrow \Box\neg\Box p$). \xe
+
+This surely seems rather dubious: imagine that one strongly believes that $p$
+but that nevertheless $p$ is false, then one doesn't know that $p$, but one
+doesn't seem to believe that one doesn't know that $p$, in fact one believes
+that one does know that $p$.
+
+\clearpage
+\subsection{Conversational backgrounds}
+\label{sec:conversational-backgrounds}
+
+\marginfig{angelika.jpg}%
+There is a well-known technical variant on relativizing the semantics of
+intensional operators to accessibility relations. The basic idea, due to
+Kratzer, is to make intensional operators work with a set of propositions rather
+than a set of worlds. For example, \expression{must} would say that a certain
+set of propositions together entail the prejacent. A conditional \expression{if
+  $p$, $q$} would say that a certain set of propositions when augmented with
+the antecedent proposition $p$ will entail the consequent proposition $q$.
+And one could conceive of a belief state as providing a set of propositions
+(each of which is a belief of the agent), so that the intensional operator
+\expression{believe} would claim that this set of propositions entails the
+prejacent.
+
+We need to add the usual layer of contingency, which in this case means that the
+relevant ingredient is actually a function from evaluation worlds to sets of
+propositions.
+
+At this point, we will assume that the resulting set of propositions is always
+consistent, by which we mean that there's at least one world where all of the
+propositions in the set are true:
+
+\ex A set of propositions $\mathcal{P}$ is \term{consistent} relative to a set
+of worlds $W$ iff $\exists w\in W\co \forall p\in\mathcal{P}\co p(w)=1)$. \xe
+
+From any consistent set of propositions, we can retrieve the set of worlds
+characterized by it: those worlds such that each proposition in the set is true
+in them. If we think of propositions as sets of worlds, this corresponds to the
+grand intersection of the set of propositions:
+
+\ex For any consistent set of propositions $\mathcal{P}$,\\
+\(char({\mathcal{P}}) = \{w\co \forall p\in\mathcal{P}\co p(w)=1\} =
+\bigcap(\mathcal{P})\) \xe
+
+The semantics of the modal \expression{must}, for example, can now be rewritten:
+
+\ex \(\exts{must} = \lambda \mathcal{M}_{\type{s,\type{\type{st,t}}}}.\ \lambda
+p.\ \bigcap(\mathcal{M}(w)) \subseteq p\) \xe
+%
+The context supplies a function $\mathcal{M}$ from worlds to sets of
+propositions and \expression{must} claims that when applied to the evaluation
+world, $\mathcal{M}$ yields a set of propositions that jointly entail the
+prejacent $p$, or in other words: all the worlds where all the propositions in
+$\mathcal{M}(w)$ are true are worlds where the prejacent $p$ is true.
+
+Kratzer called functions of type $\type{s,\type{\type{st,t}}}$
+\term{conversational backgrounds} and used the term \term{modal base} for the
+conversational backgrounds that restrict modal operators. She also sometimes
+calls the resulting sets of propositions \term{premise sets}.
+
+\kwn
+Note that we can retrieve accessibility relations from conversational
+backgrounds:
+
+\ex \label{convers}For any conversational background $\mathcal{M}$ of type
+\type{s,\type{st,t}}, we define the corresponding accessibility relation $f_{\mathcal{M}}$
+of type \type{s,st} as follows:
+
+$f_{\mathcal{M}} := \lambda w.\ \lambda w'.\ \forall p\ [ \mathcal{M}(w)(p)=1\ \rightarrow\ p(w')=1
+]$. \xe
+%
+In words, $w'$ is $f_{\mathcal{M}}$-accessible from $w$ iff all propositions $p$
+that are assigned by $\mathcal{M}$ to $w$ are true in $w'$.
+
+What motivates the complication from accessibility relations to conversational
+backgrounds? One consideration that we will turn to in the next chapter concerns
+inconsistent premise sets. But there is also another, perhaps more intuitive,
+motivation. A conversational background is the sort of thing that is identified
+by phrases like \expression{what the law provides, what we know}, etc. Take the
+phrase \expression{what the law provides}. What the law provides is different
+from one possible world to another. And what the law provides in a particular
+world is a \emph{set of propositions}. Likewise, what we know differs from world
+to world. And what we know in a particular world is a set of propositions. The
+intension of \expression{what the law provides} is then that function which
+assigns to every possible world the set of propositions $p$ such that the law
+provides in that world that $p$. Of course, that doesn't mean that $p$ holds in
+that world itself: the law can be broken. And the intension of \expression{what
+  we know} will be that function which assigns to every possible world the set
+of propositions we know in that world. Now, consider:
+
+\ex (In view of what we know,) Brown must have murdered Smith. \xe
+
+The \expression{in view of}-phrase may explicitly signal the intended
+conversational background. Or, if the phrase is omitted, we can just infer from
+other clues in the discourse that such an epistemic conversational background is
+intended. 
+
+What follows are some (increasingly technical exercises) on conversational
+backgrounds.
+
+\begin{exercise}
+  \note{``$\mathcal{BS}$'' stands for ``belief state''.}%
+  Imagine that we model individual $x$'s belief state with a set of
+  propositions $\mathcal{BS}_{x}$. Now, when $x$ forms a new opinion, we could model
+  this by adding a new proposition $p$ to $\mathcal{BS}_x$. So,
+  $\mathcal{BS}_x$ now contains one further element. There are now more
+  opinions. What happens to the set of worlds compatible with $x$'s beliefs?
+  Does it get bigger or smaller? Is the new set a subset or superset of the
+  previous set of compatible worlds? \qed
+\end{exercise}
+
+\begin{exercise}
+  Kratzer calls a conversational background (modal base) \term{realistic} iff it
+  assigns to \emph{any} world a set of propositions that are all true in that
+  world. The modal base \expression{what we know} is realistic, the modal bases
+  \expression{what we believe} and \expression{what we want} are not.
+
+  Show that a conversational background $\mathcal{M}$ is realistic iff the
+  corresponding accessibility relation $f_{\mathcal{M}}$ (defined as in
+  \refx{convers}) is reflexive. \qed
+\end{exercise}
+
+\begin{exercise}
+	
+	Let us call an accessibility relation \term{trivial} if it makes
+  every world accessible from every world. $f$ is \term{trivial} iff
+  $\forall w\forall w'\co w'\in f(w)$. What would the conversational
+  background $\mathcal{M}$ have to be like for the accessibility relation
+  $f_{\mathcal{M}}$ to be trivial in this sense? \qed
+\end{exercise}
+
+\begin{exercise}\label{closure}
+	
+	[For the intrepid only!] The definition in \refx{convers} specifies, in
+  effect, a function from $D_{\type{s,\type{st,t}}}$ to $D_{\type{s,st}}$. It
+  maps each function $\mathcal{M}$ of type \type{s,\type{st,t}} to a unique
+  function $f_{\mathcal{M}}$ of type \type{s,st}. This mapping is not
+  one-to-one, however. Different elements of $D_{\type{s,\type{st,t}}}$ may be
+  mapped to the same value in $D_{\type{s,st}}$.
+
+  Prove this claim. I.e., give an example of two functions $\mathcal{M}$ and
+  $\mathcal{M}'$ in $D_{\type{s,\type{st,t}}}$ for which \refx{convers}
+  determines $f_{\mathcal{M}}$ = $f_{\mathcal{M}'}$ .
+		
+  As you have just proved, if every function of type \type{s,\type{st,t}}
+  qualifies as a `conversational background', then two different conversational
+  backgrounds can collapse into the same accessibility relation. Conceivably,
+  however, if we imposed further restrictions on conversational backgrounds
+  (i.e., conditions by which only a proper subset of the functions in
+  $D_{\type{s,\type{st,t}}}$ would qualify as conversational backgrounds), then
+  the mapping between conversational backgrounds and accessibility relations
+  might become one-to-one after all. In this light, consider the following
+  potential restriction:
+
+	\ex Every conversational background $\mathcal{M}$ must be ``closed under
+  entailment''; i.e., it must meet this condition:\\
+  $\forall w. \forall p\ [ \ensuremath{\cap}\mathcal{M}(w)
+  \ensuremath{\subseteq} p\
+  \rightarrow\ p \in \mathcal{M}(w) ]$.\\
+  (In words: if the propositions in $\mathcal{M}(w)$ taken together entail $p$,
+  then $p$ must itself be in $\mathcal{M}(w)$.) \xe
+	%
+  Show that this restriction would ensure that the mapping defined in
+  \refx{convers} will be one-to-one. \qed
+\end{exercise} 
+
+\section*{Further readings}
+
+We have just put in place some of the basics of the analysis of attitudes,
+conditionals, and modals. Much of the work in this area will become accessible
+to you after the following chapter. For now, we recommend just a few
+further readings.
+
+\cite{swanson-2011-hsk-attitudes} is a recent survey on attitudes.
+
+Further connections between mathematical properties of accessibility relations
+and logical properties of various notions of necessity and possibility are
+studied extensively in modal logic, see \cite{hughes-cresswell-1996-new} and
+\cite{garson-2018-sep-logic-modal}, especially section 7 and 8, ``Modal Axioms
+and Conditions on Frames'', ``Map of the Relationships between Modal Logics''. 
+\note{We encourage you to visit the admirable Open Logic Project
+  (\url{https://openlogicproject.org/}), that the \cite{zach-2019-open-modal}
+  textbook is part of.}%
+An open access textbook on modal logic is \cite{zach-2019-open-modal}.
+
+A thorough discussion of the possible worlds theory of attitudes, and some of
+its potential shortcomings, can be found in Bob Stalnaker's work
+\citeyearpar{stalnaker-1984-inquiry,stalnaker-1999-contextandcontent}.
+
+Two introductory readings on conditionals are
+\cite{fintel-2011-hsk-conditionals,fintel-2012-subjunctives}.
+
+The most important background readings on modals are the two papers
+\cite{kratzer-1981-notional,kratzer-1991-modality}. There are updated versions
+of Kratzer's classic papers in her volume ``Modals and conditionals''
+\parencite{kratzer-2012-book}. A major resource on modality is Paul
+Portner's book: \cite{portner-2009-modality-book}. You might also profit from
+some survey-ish type papers on modals and modality: \cite{fintel-2005-modality},
+\cite{fintel-gillies-2007-ose2}, \cite{swanson-2008-modality},
+\cite{hacquard-2009-hsk-modality}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ik-book"
+%%% End:

@@ -1,0 +1,933 @@
+\chapter{Specificity and Transparency}
+
+\minitoc
+
+\section{Predictions of our framework}
+\label{sec:predictions}
+
+When a DP occurs in the scope of an intensional operator, our framework makes
+clear predictions. Consider, for example:
+
+\ex
+Emma wanted Taylor to buy a book about soccer.
+\xe
+%
+\note{We know from the previous chapter exactly in what sense this meaning is
+  simplified: it doesn't capture the interplay of beliefs and preferences.}%
+Imagine that we give the following simplified meaning to \emph{want}:
+
+\ex $\svt{want}^{w,g} = \lambda p.\lambda x.\ \forall w'\co x$'s wants in $w$
+are satisfied in $w'$\\\hfill$\rightarrow p(w')=1$. \xe
+%
+In other words, \emph{$x$ wants $p$} is true iff $p$ is true in all worlds where
+$x$'s wants are satisfied. Further, assume that the DP \emph{a book about
+  soccer} is interpreted within the embedded clause. Then, we claim, (\blastx)
+will be true iff in all of the worlds that satisfy all of Emma's wants, there is
+a book about soccer that Taylor buys. (You prove this claim in the following
+exercise.)
+
+\begin{exercise}
+  Draw the obvious, if simplified, LF for (\blastx) and calculate its
+  truth-conditions. \qed
+\end{exercise}
+%
+Now, consider what happens if the object of the lower verb QRs and adjoins to
+the matrix clause:
+
+\ex\null
+[a book about soccer] (1 [Emma wanted Taylor to buy $t_1$])
+\xe
+%
+When you calculate the truth-conditions of (\lastx) [please do so], you will get
+a result that is very different from the previous exercise. Now what is claimed
+is that there is a book about soccer, call it $x$, such that in all of the
+worlds satisfying all of Emma's wants Taylor buys $x$.
+
+There are two important differences between the truth-conditions that our
+framework assigns to these two LFs.
+
+\emph{Quantifier scope}: Since \emph{want} is a universal quantifier over worlds
+and \emph{a book about soccer} is an existential quantifier over individuals,
+there's a question about the relative scope of the two quantifiers. In the first
+truth-conditions we sketched, the existential quantifier scopes under the
+universal quantifier: for every world there is an individual such that bla-bla.
+In the second LF, the existential quantifier scopes over the universal one:
+there is an individual such that in every world yadda-yadda. The most common
+terminology for this difference involves the pair \emph{specific/non-specific}:
+the sentence (or the object DP) is interpreted specifically if the DP takes
+scope over the intensional operator, and it is interpreted non-specifically if
+the DP takes scope under the intensional operator.
+
+\emph{Predicate evaluation}: When the existential quantifier scopes over the
+intensional operator, this also has the effect that the predicate contained in
+it, \emph{book about soccer}, is evaluated in the matrix evaluation world. And
+when the quantifier takes lower scope, its predicate is evaluated in the worlds
+that the intensional operator shifts to. One evocative terminology for whether
+the predicate is evaluated with respect to the matrix evaluation world or the
+worlds shifted to by the intensional operator is \emph{transparent/opaque}. A
+predicate evaluated relative to the matrix world is called \emph{transparent}. A
+predicate evaluated in the worlds shifted to by an intensional operator is
+receiving an \emph{opaque} interpretation.
+
+There's another terminological pair that is very common: \emph{de re}/\emph{de
+  dicto}. One way to conceive of that distinction in our framework is that it
+stands for a particular combination of the two distinctions we just introduced:
+\emph{de re} means specific and transparent, and \emph{de dicto} means
+non-specific and opaque.
+
+Caution about terminology: terminological confusion and exuberance is rampant in
+this area (and many others). In a way, terminology is just a short-hand way to
+pick out salient properties of LFs (or their denotation). It's the latter that
+truly matters. One particular problematic aspect of the terminology is its
+binary nature, while the relevant distinctions are actually more complex,
+especially as soon as we are dealing with nested intensionality.
+
+\begin{exercise}
+  Consider the sentence \emph{Emma must want Taylor to buy a book about soccer}.
+  One can imagine using this to describe a scenario where we are seeing Taylor
+  enter a bookstore known to cater to soccer aficionados. For some reason we
+  won't go into, we come to the conclusion that there is a specific book about
+  soccer that Emma must have asked Taylor to buy. But at the same time, we have
+  no idea what that book might be, so there's not a specific book about which we
+  made our deduction. This suggest that we may want to give the object DP
+  intermediate scope. So, draw an LF that corresponds to this idea and calculate
+  its truth-conditions. \qed
+\end{exercise}
+
+The notion of \emph{specificity} is particularly laden with complexity. We use
+it here to indicate the scope of a DP with respect to an intensional operator.
+There are quite a few other conceptions, usefully surveyed by
+\cite{heusinger-2011-specificity}. One that is very common is the notion that
+specific DPs indicate that the speaker has a referent or referents ``in mind'',
+something that may even be relevant in the absence of intensional operators.
+Consider:
+
+\ex
+A man is knocking on the door.
+\xe
+%
+The speaker might base such a claim on circumstantial evidence (hearing a
+particularly masculine knock on the door) or on clear visual evidence (seeing
+the man through the window). In the second case, we're tempted to say that the
+speaker has a specific referent ``in mind'' while in the first case there is
+non-specific existential quantification.\note{For discussion, see for example
+  \cite{ludlow-neale-1991-indefinites}.} Whether this is merely a pragmatic
+distinction about what is grounding the speaker's claim or whether the LF
+reflects this difference in ``specificity'' is a debatable issue. If one adopted
+the idea that all matrix sentences contain an epistemic operator, such as
+Meyer's ``Matrix K'' operator \parencite{meyer-2013-thesis}, then we would have
+a genuine LF ambiguity if DPs such as \emph{a man} could take scope over or
+under that operator.
+
+Our recommendation is to use the terms \emph{specific/non-specific},
+\emph{transparent/opaque}, \emph{de re/de dicto} only with extreme caution. They
+are sometimes useful shorthands, but unless it is crystal-clear what properties
+of LFs/denotations you are using them to pick out, they are more likely to be a
+source of obfuscation and confusion.
+
+Let's look at some more examples of the ambiguity predicted by our framework as
+soon as we allow for the possibility of an embedded DP to take scope either
+under or over a relevant intensional operator. A classic kind of example is
+(\nextx), which is of the same form as our initial example and contains the DP
+\emph{a plumber} inside the infinitival complement of \emph{want}.
+
+\ex Mesut wants to marry a plumber. \xe
+%
+According to the non-specific reading, every possible world in which Mesut gets
+what he wants is a world in which there is a plumber whom he marries. According
+to the specific reading, there is a plumber in the actual world whom Mesut
+marries in every world in which he gets what he wants. We can imagine situations
+in which one of the readings is true and the other one false.
+
+For example, suppose Mesut thinks that plumbers make ideal spouses, because they
+can fix things around the house. He has never met one so far, but he definitely
+wants to marry one. In this scenario, the non-specific reading is true, but the
+specific reading is false. What all of Mesut's desire-worlds have in common is
+that they have a plumber getting married to Mesut in them. But it's not the same
+plumber in all those worlds. In fact, there is no particular individual (actual
+plumber or other) whom he marries in every one of those worlds.
+
+For a different scenario, suppose that Mesut has fallen in love with Robin and
+wants to marry Robin. Robin happens to be a plumber, but Mesut doesn't know
+this; in fact, he wouldn't like it and might even call off the engagement if he
+found out. Here the specific reading is true, because there is an actual
+plumber, viz. Robin, who gets married to Mesut in every world in which he gets
+what he wants. The non-specific reading is false, however, because the worlds
+which conform to Mesut's wishes actually do not have him marrying a plumber in
+them. In his favorite worlds, he marries Robin, who is not a plumber in those
+worlds.
+
+When confronted with this second scenario, you might, with equal justification,
+say `Mesut wants to marry a plumber', or `Mesut \emph{doesn't} want to marry a
+plumber'. Each can be taken in a way that makes it a true description of the
+facts \dash although, of course, you cannot assert both in the same
+breath.\note{Actually, \emph{why} wouldn't one be able to assert both
+  sentences in the same breath, if both have a true reading?} This intuition
+fits well with the idea that we are dealing with a genuine ambiguity.
+
+Let's look at another example:
+
+\ex Sari believes that your abstract will be accepted. \xe
+%
+Here the relevant DP in the complement clause of the verb \emph{believe} is
+\emph{your abstract}. Again, we detect an ambiguity, which is brought to light
+by constructing different scenarios.
+
+\begin{enumerate}[(i)]
+	
+\item Sari's belief may be about an abstract that she reviewed, but since the
+  abstract is anonymous, she doesn't know who wrote it. She told me that there
+  was a wonderful abstract about subjacency in Hindi that is sure to be
+  accepted. I know that it was your abstract and inform you of Sari's opinion by
+  saying (\lastx). This is the specific reading. In the same situation, the
+  non-specific reading is false: Among Sari's belief worlds, there are many
+  worlds in which \emph{your abstract will be accepted} is not true or even
+  false. For all she knows, you might have written, for instance, that terrible
+  abstract about Antecedent-Contained Deletion, which she also reviewed and is
+  positive will be rejected.
+	
+\item For the other scenario, imagine that you are a famous linguist, and Sari
+  doesn't have a very high opinion about the fairness of the abstract selection
+  process. She thinks that famous people never get rejected, however the
+  anonymous reviewers judge their submissions. She believes (correctly or
+  incorrectly \dash this doesn't matter here) that you submitted a (unique)
+  abstract. She has no specific information or opinion about the abstract's
+  content and quality, but given her general beliefs and her knowledge that you
+  are famous, she nevertheless believes that your abstract will be accepted.
+  This is the non-specific reading. Here it is true in all of Sari's belief
+  worlds that you submitted a (unique) abstract and it will be accepted. The
+  specific reading of (\lastx), though, may well be false in this scenario.
+  Suppose \dash to flesh it out further \dash the abstract you actually
+  submitted is that terrible one about ACD. That one surely doesn't get accepted
+  in every one of Sari's belief worlds. There may be some where it gets in
+  (unless Sari is certain it can't be by anyone famous, she has to allow at
+  least the possibility that it will get in despite its low quality). But there
+  are definitely also belief-worlds of hers in which it doesn't get accepted.
+	
+	We have taken care here to construct scenarios that make one of the readings
+  true and the other false. This establishes the existence of two distinct
+  readings. We should note, however, that there are also many possible and
+  natural scenarios that simultaneously support the truth of \emph{both}
+  readings. Consider, for instance, the following third scenario for sentence
+  (\lastx).
+	
+\item Sari is your adviser and is fully convinced that your abstract will be
+  accepted, since she knows it and in fact helped you when you were writing it.
+  This is the sort of situation in which both the non-specific and the specific
+  reading are true. It is true, on the one hand, that the sentence \emph{your
+    abstract will be accepted} is true in every one of Sari's belief worlds
+  (non-specific reading). And on the other hand, if we ask whether the abstract
+  which you actually wrote will get accepted in each of Sari's belief worlds,
+  that is likewise true (specific reading).
+	
+	In fact, this kind of ``doubly verifying'' scenario is very common when we
+  look at actual uses of attitude sentences in ordinary conversation. There may
+  even be many cases where communication proceeds smoothly without either the
+  speaker or the hearer making up their minds as to which of the two readings
+  they intend or understand. It doesn't matter, since the possible circumstances
+  in which their truth-values would differ are unlikely and ignorable anyway.
+  Still, we \emph{can} conjure up scenarios in which the two readings come
+  apart, and our intuitions about those scenarios do support the existence of a
+  semantic ambiguity.
+  
+\end{enumerate}
+
+\begin{exercise}
+
+For the two examples just discussed, we can explain their non-specific (and
+opaque) interpretation via LFs where the relevant DP remains inside the scope of
+the intensional operator at LF:
+
+\ex\label{first} Mesut wants [ [ a plumber]$_1$ [ \textsc{pro}$_2$ to marry
+t$_1$]] \xe
+
+\ex Sari believes [ the abstract-by-you will-be-accepted] \xe
+
+To obtain the specific (and transparent) readings, we apparently have to QR the
+DP to a position above the intensional predicate, minimally the VP headed by
+\emph{want} or \emph{believe}.
+
+\ex\null [ a plumber]$_1$ [ Mesut wants [ \textsc{pro}$_2$ to marry t$_1$]] \xe
+
+\ex\null [ the abstract-by-you]$_1$ [ Sari believes t$_1$ will-be-accepted] \xe
+%	
+Calculate the interpretations of the four structures in
+\refx{first}\dash(\lastx), and determine their predicted truth-values in each of
+the (types of) possible worlds that we described above in our introduction to
+the ambiguity.
+	
+Some assumptions to make the job easier: (i) Assume that \refx{first} and
+(\blastx) are evaluated with respect to a variable assignment that assigns Mesut
+to the number 2. This assumption takes the place of a worked out theory of how
+controlled PRO is interpreted. (ii) Assume that \emph{abstract-by-you} is an
+unanalyzed one-place predicate. This takes the place of a worked out theory of
+how genitives with a non-possessive meaning are to be analyzed. \qed
+\end{exercise}
+
+\section{Raised subjects}
+\label{sec:raised}
+
+In the examples of ambiguities that we have looked at so far, the surface
+position of the DP in question was inside the modal predicate's clausal or
+VP-complement. We saw that if it stays there at LF, a non-specific opaque
+reading results, and if it covertly moves up above the modal operator, we get a
+specific transparent reading. In the present section, we will look at cases in
+which a DP that is superficially \emph{higher} than a modal operator can still
+be read non-specifically. In these cases, it is the specific reading which we
+obtain if the LF looks essentially like the surface structure, and it is the
+non-specific reading for which we apparently have to posit a non-trivial covert
+derivation.
+
+\subsection{Non-specific readings for raised subjects}
+
+Suppose I come to my office one morning and find the papers and books on my desk
+in different locations than I remember leaving them the night before. I say:
+
+\ex \label{some} Somebody must have been here (since last night).\xe
+%
+On the assumptions we have been making, \emph{somebody} is base-generated as the
+subject of the VP \emph{be here} and then moved to its surface position above
+the modal. So (\lastx) has the following S-structure, which is also an
+interpretable LF.
+
+\ex \label{dere} somebody [ 2 [ [ must $f$] [ t$_2$ have-been-here]]] \xe
+%
+What does (\lastx) mean? The appropriate reading for \emph{must} here is
+epistemic, so suppose the variable $f$ is mapped to the relation $\bigl[\lambda
+w.\lambda w'.\ w'$ is compatible with the evidence in $w\bigr]$. Let $w_{0}$
+be the utterance world. Then the truth-condition calculated by our rules is as
+follows.
+
+\ex \refx{dere} is true iff $\exists x [x$ is a person in $w_{0}$ \& \\
+$\forall w'[w'$ is compatible with the evidence in $w_{0}$ $\rightarrow\ x$ was
+here in $w'$]] \xe
+%
+But this is not the intended meaning. For (\lastx) to be true, there has to be a
+person who in every world compatible with the evidence was in my office. In
+other words, all the relevant worlds have to have one and the same person coming
+to my office. But this is not what you intuitively understood me to be saying
+about the evidence when I said \refx{some}. The context we described suggests
+that I do not know (nor have any opinion about) which person it was that was in
+my office. For all I know, it might have been John, or it might have been Mary,
+or it have been this stranger here, or that stranger there. In each of the
+relevant worlds , somebody or other was in my office, but no one person was
+there in all of them. I do not believe of anyone in particular that he or she
+was there, and you did not understand me to be saying so when I uttered
+\refx{some}. What you did understand me to be claiming, apparently, was not
+(\lastx) but (\nextx).
+
+\ex \label{dedic} $\forall w' [ w'$ is compatible with the evidence in $w_{0}$\\
+\hfill$\rightarrow\ \exists x\ [x$ is a person in $w'$ \& $x$ was here in
+$w']]$ \xe
+%
+In other words \dash to use the terminology we introduced in the last section
+\dash the DP \emph{somebody} in \refx{some} appears to have a non-specific
+reading.
+
+How can sentence \refx{some} have the meaning in (\lastx)? The LF in
+\refx{dere}, as we saw, means something else; it expresses a specific reading,
+which typically is false when \refx{some} is uttered sincerely. So there must be
+another LF. What does it look like and how is it derived? One way to capture the
+intended reading, it seems, would be to generate an LF that's essentially the
+same as the underlying structure we posited for \refx{some}, i.e., the structure
+\emph{before} the subject has raised:
+
+\ex\ [$_{\text{IP}}$ e [$_{\text{I}'}$ [ must $f$] [ somebody have-been-here]]] \xe
+%
+(\lastx) means precisely (\blastx) (assuming that the unfilled Spec-of-IP
+position is semantically vacuous), as you can verify by calculating its
+interpretation by our rules. So is (\lastx) (one of) the LF(s) for \refx{some},
+and what assumption about syntax allow it to be generated? Or are there other
+\dash perhaps less obvious, but easier to generate \dash candidates for the
+non-specific LF-structure of \refx{some}?
+
+Before we get into these question, let's look at a few more examples. Each of
+the following sentences, we claim, has a non-specific reading for the subject,
+as given in the accompanying formula. The modal operators in the examples are of
+a variety of syntactic types, including modal auxiliaries, main verbs,
+adjectives, and adverbs.
+
+\ex\label{everymay}Everyone in the class may have received an A.\\
+$\exists w'[w'$ conforms to what I believe in $w$ \&\\
+\hfill$\forall x[x$ is in this class in $w'\ \rightarrow\ x$ received an A in
+$w'$]].\xe
+
+\ex At least two semanticists have to be invited.\\
+$\forall w'[w'$ conforms to what is desirable in $w$\\
+\hfill$ \rightarrow\ \exists_2 x$\ [$x$ is a semanticist in $w'$ \& $x$ is
+invited in $w'$]].\xe
+
+\ex\label{ny}Somebody from New York is expected to win the lottery.\\
+$\forall w'[w'$ conforms to what is expected in $w$\\
+\hfill$ \rightarrow\ \exists x[x$ is a person from NY in $w'$ \& $x$ wins the
+lottery in $w'$]]\xe
+
+\ex\label{nyli}Somebody from New York is likely to win the lottery.\\
+$\forall w'[w'$ is as likely as any other world, given what I know in $w$\\
+\hfill$ \rightarrow\ \exists x[x$ is a person from NY in $w'$ \& $x$ wins the
+lottery in $w'$]]\xe
+
+\ex One of these two people is probably infected.\\
+$\forall w'[w'$ is as likely as any other world, given what I know in $w$\\
+\hfill$ \rightarrow\ \exists x[x$ is one of these two people \& $x$ is in
+infected in $w'$]]\xe
+%
+To bring out the intended non-specific reading of the last example (to pick just
+one) imagine this scenario: We are tracking a dangerous virus infection and have
+sampled blood from two particular patients. Unfortunately, we were sloppy and
+the blood samples ended up all mixed up in one container. The virus count is
+high enough to make it quite probable that one of the patients is infected but
+because of the mix-up we have no evidence about which one of them it may be. In
+this scenario, (\lastx) appears to be true. It would not be true under a
+specific reading, because neither one of the two people is infected in every one
+of the likely worlds.
+
+\textbf{Excursus}. Hopefully the exact analysis of the modal operators
+\emph{likely} and \emph{probably} is not too crucial for the present discussion,
+but you may still be wondering about it. As you see in our formula, we are
+thinking of \emph{likely} (\emph{probably}) as a kind of epistemic necessity
+operator, i.e., a universal quantifier over a set of worlds that is somehow
+determined by the speaker's knowledge. (We are focussing on the ``subjective
+probability'' sense of these words. Perhaps there is also an ``objective
+probability'' reading that is circumstantial rather than epistemic.) What is the
+difference then between \emph{likely} and e.g. epistemic \emph{must} (or
+\emph{necessary} or \emph{I believe that})? Intuitively, `it is likely that p'
+makes a weaker claim than `it must be the case that p'. If both are universal
+quantifiers, then, it appears that \emph{likely} is quantifying over a smaller
+set than \emph{must}, i.e., over only a proper subset of the worlds that are
+compatible with what I believe. The difference concerns those worlds that I
+cannot strictly rule out but regard as remote possibilities. These worlds are
+included in the domain for \emph{must}, but not in the one for \emph{likely}.
+For example, if there was a race between John and Mary, and I am willing to bet
+that Mary won but am not completely sure she did, then those worlds where John
+won are remote possibilities for me. They are included in the domain of
+\emph{must}, and so I will not say that Mary \emph{must} have won, but they are
+not in the domain quantified over by \emph{likely}, so I do say that Mary is
+\emph{likely} to have won.
+
+This is only a very crude approximation, of course. For one thing, probability
+is a gradable notion. Some things are more probable than others, and where we
+draw the line between what's probable and what isn't is a vague or
+context-dependent matter. Some people even believe that \emph{must},
+\emph{necessary} etc. arguably don't really express complete certainty (because
+in practice there is hardly anything we are completely certain of), but rather
+just a very high degree of probability. For more discussion of \emph{likely},
+\emph{necessary}, and other graded modal concepts in a possible worlds
+semantics, see e.g. \cite{kratzer-1981-notional, yalcin-2010-probability,
+  lassiter-2017-graded-modality}.
+
+A different approach may be that \emph{likely} quantifies over the same set of
+worlds as \emph{must}, but with a weaker, less than universal, quantificational
+force. I.e., `it is likely that p' means something like p is true in \emph{most}
+of the worlds conforming to what I know. A \emph{prima facie} problem with this
+idea is that presumably every proposition is true in infinitely many possible
+worlds, so how can we make sense of cardinal notions like `more' and `most'
+here? But perhaps this can be worked out somehow. \textbf{End of excursus}.
+
+A word of clarification about our empirical claim: We have been concentrating on
+the observation that non-specific readings are \emph{available}, but have not
+addressed the question whether they are the \emph{only} available readings or
+coexist with equally possible specific readings. Indeed, some of the sentences
+in our list appear to be ambiguous: For example, it seems that \refx{ny} could
+also be understood to claim that there is a particular New Yorker who is likely
+to win (e.g., because he has bribed everybody). Others arguably are not
+ambiguous and can only be read non-specific. This is what
+\citet{fintel-iatridou-2003-ec} claim about sentences like \refx{everymay}. They
+note that if \refx{everymay} also allowed a specific reading, it should be
+possible to make coherent sense of (\nextx).
+
+\ex Everyone in the class may have received an A. But not everybody did. \xe
+%
+\note{Some follow up on \cite{fintel-iatridou-2003-ec} can be found in
+  \cite{tancredi-2008-multiple, swanson-2010-scope-ecp}}%
+In fact, (\lastx) sounds contradictory, which they show is explained if only the
+non-specific reading is permitted by the grammar. They conjecture that this is a
+systematic property of epistemic modal operators (as opposed to deontic and
+other types of modalities). Epistemic operators always have widest scope in
+their sentence.
+
+So there are really two challenges here for our current theory. We need to
+account for the existence of non-specific readings, and also for the absence, in
+at least some of our examples, of specific readings. We will be concerned here
+exclusively with the first challenge and will set the second aside. We will aim,
+in effect, to set up the system so that all sentences of this type are in
+principle ambiguous, hoping that additional constraints that we are not
+investigating here will kick in to exclude the specific readings where they are
+missing.
+
+To complicate the empirical picture further, there are also examples where
+raised subjects are unambiguously specific. Such cases have been around in the
+syntactic literature for a while, and they have received renewed attention in
+the work of Lasnik and others. To illustrate just one of the systematic
+restrictions, negative quantifiers like \emph{nobody} seem to permit only
+surface scope (i.e., wide scope) with respect to a modal verb or adjective they
+have raised over.
+
+\ex Nobody from New York is likely to win the lottery. \xe
+%
+\note{For a thorough investigation of low scope readings of negative DPs,
+  see \cite{iatridou-sichel-2011-diminishment}.}%
+(\lastx) does not have a non-specific reading parallel to the one for
+\refx{nyli} above, i.e., it cannot mean that it is likely that nobody from NY
+will win. It can only mean that there is nobody from NY who is likely to win.
+This too is an issue that we set aside.
+
+In the next couple of sections, all that we are trying to do is find and justify
+a mechanism by which the grammar is able to generate both specific and
+non-specific readings for subjects that have raised over modal operators. It is
+quite conceivable, of course, that the nature of the additional constraints
+which often exclude one reading or the other is ultimately relevant to this
+discussion and that a better understanding of them may undermine our
+conclusions. But this is something we must leave for further research.
+
+\subsection{Syntactic ``Reconstruction''}
+
+Given that the non-specific reading of \refx{some} we are aiming to generate is
+equivalent to the formula in \refx{dedic}, an obvious idea is that there is an
+LF which is essentially the pre-movement structure of this sentence, i.e., the
+structure prior to the raising of the subject above the operator. There are a
+number of ways to make such an LF available.
+
+One option, most defended in \citet{sauerland-elbourne-2002-total}, is to assume
+that the raising of the subject can happen in a part of the derivation which
+only feeds PF, not LF. In that case, the subject simply stays in its underlying
+VP-internal position throughout the derivation from DS to LF. (Recall that
+quantifiers are interpretable there, as they generally are in subject
+positions.)
+
+Another option is a version of the so-called Copy Theory of movement introduced
+in \citet{chomsky-1993-minimalist}. This assumes that movement generally
+proceeds in two separate steps, rather than as a single complex operation as we
+have assumed so far. Recall that in H\&K, it was stipulated that every
+movement effects the following four changes:
+
+\begin{enumerate}
+	[(i)] 
+\item a phrase $\alpha$ is deleted,
+\item an index \emph{i} is attached to the resulting empty node (making it a
+  so-called trace, which the semantic rule for ``Pronouns and Traces''
+  recognizes as a variable),
+\item a new copy of $\alpha$ is created somewhere else in the tree (at the
+  ``landing site''), and
+\item the sister-constituent of this new copy gets another instance of the index
+  \emph{i} adjoined to it (which the semantic rule of Predicate Abstraction
+  recognizes as a binder index).
+\end{enumerate}
+
+If we adopt the Copy Theory, we assume instead that there are three distinct
+operations:
+
+\begin{description}
+	
+\item[``Copy'':] Create a new copy of $\alpha$ somewhere in the tree, attach an
+  index \emph{i} to the original $\alpha$, and adjoin another instance of
+  \emph{i} to the sister of the new copy of $\alpha$. (= steps (ii), (iii), and
+  (iv) above)
+	
+\item[``Delete Lower Copy'':] Delete the original $\alpha$. (= step (i) above)
+	
+\item[``Delete Upper Copy'':] Delete the new copy of $\alpha$ and both instances
+  of \emph{i}.
+\end{description}
+%
+The Copy operation is part of every movement operation, and can happen anywhere
+in the syntactic derivation. The Delete operations happen at the end of the LF
+derivation and at the end of the PF deletion. We have a choice of applying
+either Delete Lower Copy or Delete Upper Copy to each pair of copies, and we can
+make this choice independently at LF and at PF. (E.g., we can do Copy in the
+common part of the derivation and than Delete Lower Copy at LF and Delete Upper
+Copy at PF.) If we always choose Delete Lower Copy at LF, this system generates
+exactly the same structures and interpretations as the one from H\&K. But if we
+exercise the Delete Upper Copy option at LF, we are effectively undoing previous
+movements, and this gives us LFs with potentially new interpretations. In the
+application we are interested in here, we would apply the Copy step of subject
+raising before the derivation branches, and then choose Delete Lower Copy at PF
+but Delete Upper Copy at LF. The LF will thus look as if the raising never
+happened, and it will straightforwardly get the desired non-specific reading.
+
+If the choice between the two Delete operations is generally optional, we in
+principle predict ambiguity wherever there has been movement. Notice, however,
+first, that the two structures will often be truth-conditionally equivalent
+(e.g. when the moved phrase is a name), and second, that they will not always be
+both interpretable. (E.g., if we chose Delete Upper Copy after QRing a
+quantifier from object position, we'd get an uninterpretable structure, and so
+this option is automatically ruled out.) Even so, we predict lots of ambiguity.
+Specifically, since raised subjects are always interpretable in both their
+underlying and raised locations, we predict all raising structures where a
+quantificational DP has raised over a modal operator (or over negation or a
+temporal operator) to be ambiguous. As we have already mentioned, this is not
+factually correct, and so there must be various further constraints that somehow
+restrict the choices. (Similar comments apply, of course, to the option we
+mentioned first, of applying raising only on the PF-branch.)
+
+Yet another solution was first proposed by \citet{may-1977-thesis}: May assumed
+that QR could in principle apply in a ``downward'' fashion, i.e., it could
+adjoin the moved phrase to a node that doesn't contain its trace. Exercising
+this option with a raised subject would let us produce the following structure,
+where the subject has first raised over the modal and then QRed below it.
+
+\ex t$_j$ $\lambda_i$ [ must $f$ [ someone $\lambda_j$ [ t$_i$ have been here]]]
+\xe
+%
+As it stands, this structure contains at least one free variable (the trace
+\emph{t}$_j$) and can therefore not possibly represent any actual reading of
+this sentence. May further assumes that traces can in principle be deleted, when
+their presence is not required for interpretability. This is not yet quite
+enough, though to make (\lastx) interpretable, at least not within our framework
+of assumptions, for (\nextx) is still not a candidate for an actual reading of
+\refx{some}.
+
+\ex $\lambda_i$ [ must $f$ [ someone $\lambda_j$ [ t$_i$ have been here]]] \xe
+%
+We would need to assume further that the topmost binder index could be deleted
+along with the unbound trace, and also that the indices \emph{i} and \emph{j}
+can be the same, so that the raising trace \emph{t}$_j$ is bound by the
+binding-index created by QR. If these things can be properly worked out somehow,
+then this is another way to generate the non-specific reading. Notice that the
+LF is not exactly the same as on the previous two approaches, since the subject
+ends up in an adjoined position rather than in its original argument position,
+but this difference is presumably without semantic import.
+
+What all of these approaches have in common is that they place the burden of
+generating the non-specific reading for raised subjects on the syntactic
+derivation. Somehow or other, they all wind up with structures in which the
+subject is lower than it is on the surface and thereby falls within the scope of
+the modal operator. They also have in common that they take the modal operator
+(here the auxiliary, in other cases a main predicate or an adverb) to be staying
+put. I.e., they assume that the non-specific readings are not due to the modal
+operator being covertly higher than it seems to be, but to the subject being
+lower. Approaches with these features will be said to appeal to ``syntactic
+reconstruction'' of the subject.
+
+This is a very broad notion of ``reconstruction'', where basically any mechanism
+which puts a phrase at LF in a location nearer to its underlying site than its
+surface site is called ``reconstruction''. In some of the literature, the term
+is used more narrowly. For example, May's downward QR is sometimes explicitly
+contrasted with genuine reconstruction, since it places the quantifier somewhere
+else than exactly where it has moved from.
+
+\subsection{Some Alternatives to Syntactic Reconstruction}\label{sem}
+
+Besides (some version of) syntactic reconstruction, there are many other ways in
+which one can try to generate non-specific readings for raised subjects. Here
+are some other possibilities that have been suggested and/or readily come to
+mind. We will see that some of them yield exactly the non-specific reading as we
+have been describing it so far, whereas others yield a reading that is very
+similar but not quite the same. We will confine ourselves to analyses which
+involve no or only minor changes to our system of syntactic and semantic
+assumptions. Obviously, if one departed from these further, there would be even
+more different options, but even so, there seem to be quite a few.
+
+Let us look again at \refx{some} and its apparent surface structure \refx{dere},
+both repeated here:
+
+\ex[exno=\ref{some}] Somebody must have been here (since last night).\xe
+\ex~[exno=\ref{dere}] somebody [ 2 [ [ must $f$] [ t$_2$ have-been-here]]] \xe
+
+\subsubsection{1. Raising the modal operator, variant 1: no trace}
+
+Conceivably, an LF for the non-specific reading of \refx{some} might be derived
+from the S-structure (=\refx{dere}) by covertly moving \emph{must} (and its
+covert \emph{R}-argument) up above the subject. This would have to be a movement
+which leaves no (semantically non-vacuous) trace. Given our inventory of
+composition rules, the only type that the trace could have to make the structure
+containing it interpretable would be the type of the moved operator itself (i.e.
+\type{st,t}). If it had that type, however, the movement would be semantically
+inconsequential, i.e., the structure would mean exactly the same as \refx{dere}.
+So this would not be a way to provide an LF for the non-specific reading. If
+there was no trace left however (and also no binder index introduced), we indeed
+would obtain the non-specific reading.
+\begin{exercise}
+	Prove the claims we just made in the previous paragraph. Why is no type for
+  the trace other than \type{st,t} possible? Why is the movement semantically
+  inert when this type is chosen? How does the correct intended meaning arise if
+  there is no trace and binder index? \qed
+\end{exercise}
+
+\subsubsection{2. Raising the modal operator, variant 2: trace of type s}
+
+[Requires slightly modified inventory of composition rules. Derives an
+interpretation that is not quite the same as the non-specific opaque reading we
+have assumed so far. Rather, it is the non-specific transparent ``third''
+reading discussed in the next chapter.]
+
+\subsubsection{3. Higher type for trace of raising, variant 1: type \type{et,t}}
+
+[Before reading this section, read and do the exercise on p.212/3 in H\&K]
+
+\plainbreak{1}
+
+So far in our discussion, we have taken for granted that the LF which
+corresponds to the surface structure, viz. \refx{dere}, gives us the specific
+reading. This, however, is correct only on the tacit assumption that the trace
+of raising is a variable of type e. If it is part of our general theory that all
+variables, or at least all interpretable binder indices (hence all bound
+variables), in our LFs are of type e, then there is nothing more here to say.
+But it is not \emph{prima facie} obvious that we must or should make this
+general assumption, and if we don't, then the tree in \refx{dere} is not really
+one single LF, but the common structure for many different ones, which differ in
+the type chosen for the trace. Most of the infinitely many semantic types we
+might assign to this trace will lead to uninterpretable structures, but there
+turns out to be one other choice besides e that works, namely \type{et,t}:
+
+\ex somebody $\lambda_{2,\type{et,t}}$ [ [ must $f$] [ $t_{2,\type{et,t}}$
+have-been-here]]\xe
+%
+\note{That a trace of type $\type{et,t}$ does not in fact yield the targeted
+  non-specific opaque reading had not been noticed until we bothered to
+  calculate the meaning of (\lastx). For example, \cite{fox-2000-book}, which
+  derives from a dissertation supervised by us, is unaware of the fact that a
+  high-type but extensional trace gives a scope-reconstructed but transparent
+  reading.}%
+(\lastx) is interpretable in our system, but again, as in the previous approach,
+the predicted interpretation is not exactly the non-specific reading as we have
+been describing it so far, but the non-specific transparent third reading.
+
+\begin{exercise}
+	
+	Using higher-type traces to ``reverse'' syntactic scope-relations is a trick
+  which can be used quite generally. It is useful to look at a non-intensional
+  example as a first illustration. (\nextx) contains a universal quantifier and
+  a negation, and it is scopally ambiguous between the readings in (a) and (b).
+	
+	\pex Everything that glitters is not gold.
+  \a $\forall x[ x$ glitters $\rightarrow\ \ensuremath{\neg} x$ is gold]
+  \hfill``surface scope''
+  \a $\ensuremath{\neg}\forall x[ x$ glitters $\rightarrow\ x$ is gold]
+  \hfill``inverse scope''
+  \xe
+%	
+	We could derive the inverse scope reading for (\lastx) by generating an LF
+  (e.g. by some version of syntactic reconstruction") in which the
+  \emph{every}-DP is below \emph{not}. Interestingly, however, we can also
+  derive this reading if the \emph{every}-DP is in its raised position above
+  \emph{not} but its trace has the type \type{\type{e,t},t}.
+	
+	Spell out this analysis. (I.e., draw the LF and show how the inverse-scope
+  interpretation is calculated by our semantic rules.) \qed
+\end{exercise}
+\begin{exercise}
+	
+	Convince yourself that there are no other types for the raising trace besides
+  e and \type{et,t} that would make the structure in \refx{dere}
+  interpretable. (At least not if we stick exactly to our current composition
+  rules.) \qed
+\end{exercise}
+
+\subsubsection{4. Higher type for trace of raising, variant 2: type
+  \type{s,\type{et,t}}}
+
+If we want to get \emph{exactly} the non-specific reading that results from
+syntactic reconstruction out of a surface-like LF of the form \refx{dere}, we
+must use an even higher type for the raising trace, namely
+\type{s,\type{\type{e,t},t}}, the type of the intension of a quantifier. As you
+just proved in the exercise, this is not possible if we stick to exactly the
+composition rules that we have currently available. The problem is in the VP:
+the trace in subject position is of type \type{s,\type{\type{e,t},t}} and its
+sister is of type \type{e,t}. These two cannot combine by either FA or IFA, but
+it works if we employ another variant of functional application.%
+
+\ex%
+\note{Notice that the problem here is kind of the mirror image of the problem
+  that led to the introduction of ``Intensional Functional Application'' in
+  H\&K, ch. 12. There, we had a function looking for an argument of type
+  \type{s,t}, but the sister node had an extension of type t. IFA allowed us to,
+  in effect, construct an argument with an added ``s'' in its type. This time
+  around, we have to get rid of an ``s'' rather than adding one; and this is
+  what EFA accomplishes.
+
+So we now have three different ``functional application''-type rules altogether
+in our system: ordinary FA simply applies $\sv{\beta}^w$ to $\sv{\gamma}^w$; IFA
+applies $\sv{\beta}^w$ to $\lambda w'.\sv{\gamma}^{w'}$; and EFA applies
+$\sv{\beta}^w(w)$ to $\sv{\gamma}^w$. At most one of them will be applicable to
+each given branching node, depending on the type of $\sv{\gamma}^w$.
+
+Think about the situation. Might there be other variant functional application
+rules?}%
+\emph{Extensionalizing Functional Application} (EFA)\\
+If $\alpha$ is a branching node and $\{\beta,\gamma\}$ the set of its daughters,
+then, for any world $w$ and assignment $g$: \\
+if $\sv{\beta}^{w,g}(w)$ is a function whose domain contains $\sv{\gamma}^{w,g}$,\\
+then $\sv{\alpha}^{w,g} = \sv{\beta}^{w,g}(w)(\sv{\gamma}^{w,g})$. \xe
+
+\begin{exercise}
+	
+	Calculate the truth-conditions of \refx{dere} under the assumption that the
+  trace of the subject quantifier is of type \type{s,\type{\type{e,t},t}}.
+  \qed
+\end{exercise}
+
+\subsubsection{Can we choose between all these options?}\label{semrec}
+
+Two of the methods we tried derived readings in which the raised subject's
+\emph{quantificational determiner} took scope below the world-quantifier in the
+modal operator, but the raised subject's \emph{restricting NP} still was
+evaluated in the utterance world (or the evaluation world for the larger
+sentence, whichever that may be), in other words: a non-specific but transparent
+interpretation. It is difficult to assess whether such readings are actually
+available for the particular sentences under consideration, and we will postpone
+this question to the next chapter. We would like to argue here, however, that
+even if these readings are available, they cannot be the \emph{only} readings
+that are available for raised subjects besides their wide-scope readings. In
+other words, even if we allowed one of the mechanisms that generated these sort
+of hybrid readings, we would still need another mechanism that gives us, for at
+least some examples, the ``real'' non-specific opaque readings that we obtain
+e.g. by syntactic reconstruction. The relevant examples that show this most
+clearly involve DPs with more descriptive content than \emph{somebody} and whose
+NPs express clearly contingent properties.
+
+\ex A neat-freak must have been here. \xe
+%
+If I say this instead of our original \refx{some} when I come to my office in
+the morning and interpret the clues on my desk, I am saying that every world
+compatible with the evidence is such that someone who is a neat-freak \emph{in
+  that world} was here in that world. Suppose there is a guy, Bill, whom I know
+slightly but not well enough to have an opinion on whether or not he is neat. He
+may or not be, for all I know. So there are worlds among the relevant worlds
+where he is a neat-freak and worlds where he is not. I also don't have an
+opinion on whether he was or wasn't the one who came into my office last night.
+He did in some of the relevant worlds and he didn't in others. I am implying
+with (\lastx), however, that if Bill isn't a neat-freak, then it wasn't him in
+my office. I.e., (\lastx) \emph{is} telling you that, even if there are relevant
+worlds in which Bill is a slob and worlds in which (only)
+he was in my office, there aren't any relevant worlds in which Bill is a slob
+\emph{and} the only person who was in my office. This is correctly predicted if
+(\lastx) expresses the ``genuine'' non-specific reading in (\nextx), but not if
+it expresses the ``hybrid'' reading in (\anextx).
+
+\ex $\forall w'[w'$ is compatible with the evidence in $w_{0}\ \rightarrow$ \\
+\hfill$\exists x[x$ is a neatfreak \emph{in $w'$} and $x$ was here in
+$w'$]] \xe
+
+\ex~ $\forall w'[w'$ is compatible with the evidence in $w_{0}\ \rightarrow$ \\
+\hfill$\exists x[x$ is a neatfreak \emph{in $w_{0}$} and $x$ was here in $w'$]]
+\xe
+%
+We therefore conclude the mechanisms 2 and 3 considered above (whatever their
+merits otherwise) cannot supplant syntactic reconstruction or some other
+mechanism that yields readings like (\blastx).
+
+This leaves only the first and fourth options that we looked at as potential
+competitors to syntactic reconstruction, and we will focus the rest of the
+discussion on how we might be able to tease apart the predictions that these
+mechanisms imply from the ones of a syntactic reconstruction approach.
+
+As for moving the modal operator, there are no direct bad predictions that we
+are aware of with this. But it leads us to expect that we might find not only
+scope ambiguities involving a modal operator and a DP, but also scope
+ambiguities between two modal operators, since one of them might covertly move
+over the other. It seems that this never happens. Sentences with stacked modal
+verbs seem to be unambiguous and show only those readings where the scopes of
+the operators reflect their surface hierarchy.
+
+\pex
+\a I have to be allowed to graduate.
+\a \#I am allowed to have to graduate.
+\xe
+%
+\note{See \cite{lechner-2007-head} for an early discussion of semantic
+  effects of head movement. See \cite{mccloskey-2016-head} for a recent
+  re-assessment.}%
+Of course, this might be explained by appropriate constraints on the movement of
+modal operators, and such constraints may even come for free in the right
+syntactic theory. Also, we should have a much more comprehensive investigation
+of the empirical facts before we reach any verdict. If it is true, however, that
+modal operators only engage in scope interaction with DPs and never with each
+other, then a theory which does not allow any movement of modals at all could
+claim the advantage of having a simple and principled explanation for this fact.
+
+What about the ``semantic reconstruction'' option, where raised subjects can
+leave traces of type \type{s,\type{et,t}} and thus get narrow scope
+semantically without ending up low syntactically? This type of approach has been
+explored quite thoroughly and defended with great sophistication. The main
+consideration against semantic reconstruction and in favor of syntactic
+reconstruction comes from binding theoretic concerns. We give some crucial
+examples from \cite{fox-2000-book} here.
+
+\clearpage
+\subsubsection{Scope reconstruction and Condition C.}
+
+Consider:
+
+\pex
+\a\null [A first year student] seems to David t to be at the party.
+\a\null [Someone from NY] is very likely t to win the lottery.
+\xe
+%
+These examples are a reminder that we can get non-specific readings of raised
+subjects. Fox argues that Binding Theory Condition C can be used to distinguish
+syntactic and semantic reconstruction. Assuming that Condition C applies at LF,
+syntactic reconstruction (where the full DP is interpreted in a lower position)
+predicts that an R-expression in that DP should not be allowed if there's a
+higher coreferential pronoun. The semantic reconstruction account has no simple
+way of making the same prediction.
+
+Here are the crucial tests:
+
+\pex
+\a\null [A student of his$_{1}$] seems to David$_1$ to be at the party.\\
+\hfill $^{OK}$specific, $^{OK}$non-specific 
+\a\null [A student of David's$_{1}$] seems to him$_{1}$ to be at the party.\\
+\hfill $^{OK}$specific, {\small *}non-specific
+\xe
+
+\pex~
+\a\null [Someone from his$_1$ city] seems to David$_1$ t to be likely to win the
+lottery.
+\hfill $^{OK}$specific, $^{OK}$non-specific
+\a\null [Someone from David$_1$'s city] seems to him$_1$ t to be likely to win the
+lottery.
+\hfill $^{OK}$specific, {\small *}non-specific
+\xe
+%
+Fox claims that the (b) cases do not have a non-specific reading. If syntactic
+reconstruction is the mechanism that gives us non-specific readings of A-moved
+subjects, the explanation is straightforward.
+
+\begin{exercise}
+  Use the following observations to bolster Fox's argument.
+
+  \pex
+  \a The cat seems to be out of the bag.
+  \a Advantage might have been taken of them.
+  \xe
+
+  \pex
+  \a For these issues to be clarified, many new papers about his$_1$ philosophy
+  seem to Quine t to be needed.
+  \a \#For these issues to be clarified, many new papers about Quine's$_1$ philosophy
+  seem to him t to be needed. \hfill\qed
+  \xe 
+\end{exercise}
+%
+If Fox's argument is correct, then (some form of) syntactic reconstruction is
+the mechanism by which we get non-specific readings of A-movement subjects. This
+means that syntactic reconstruction is possible, but it also means that semantic
+reconstruction must not be available. Otherwise, there would be a way of getting
+non-specific readings that would not be sensitive to Condition C. So, the
+question arises \emph{why} semantic reconstruction is unavailable. \citet[p.
+171, fn. 41]{fox-2000-book} discusses two ways of ruling out the high type traces
+that would give rise to semantic reconstruction:
+
+\begin{enumerate}[(i)] 
+\item ``traces, like pronouns, are always interpreted as variables that range
+  over individuals (type $e$)'',
+\item ``the semantic type of a trace is determined to be the lowest type
+  compatible with the syntactic environment (as suggested in
+  \cite{beck-1996-diss})''.
+\end{enumerate}
+%
+We will return to this issue in a later chapter when we can raise it again in a
+slightly different framework.
+
+\section{Further readings}
+
+In addition to the references about reconstruction in the text, you might want
+to look at \cite{boeckx-2001-reconstruction} and \cite{baltin-2010-copy}.
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ik-book"
+%%% End:

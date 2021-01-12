@@ -1,33 +1,42 @@
-\documentclass{kvf-lecturenotes}
-\usepackage{pdfpages}
+\documentclass{tufte-VDQI}
+\usepackage{kvf-tufte-VDQI}
+\usepackage{kvf-macros}
 \addbibresource{IntensionalSemantics.bib}
-
 \begin{document}
-
 \dominitoc
-
-% \include{0.Frontmatter}
+\include{frontmatter}
 
 \mainmatter
 
-\pagestyle{kaiheadings}
+\nopartblankpage
+\part{The Fifth Dimension}
 
-% \part{Intensionality: Attitudes, Modals, Conditionals}
+\include{ch1-intro}
+\include{ch2-att-cond-mod}
+\include{ch3-restricting-ordering}
 
-% \include{1.FirstSteps} 
-% \include{2.Attitudes}
-% \include{3.Modals}
-% \include{2.Conditionals}
+\part{Escaping opacity}
 
-%\part{DPs in Intensional Contexts}
-%
-\include{5.DP-Distinctions}
-%\include{6.ArgumentStructure}
-\include{7.Third-Reading}
+\include{ch4-specific-transparent}
+\include{ch5-third-reading}
 
-\printbibliography
- 
-%\printindex
+\part{Time}
 
-\end{document} 
-\end
+\include{ch6-tense-aspect}
+\include{ch7-embedded-tenses}
+
+\part{Questions}
+
+\include{ch8-questions}
+
+\backmatter
+
+\printbibliography[heading=bibliographypart]
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
