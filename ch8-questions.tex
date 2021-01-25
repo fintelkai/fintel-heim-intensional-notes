@@ -1,12 +1,1283 @@
 % chktex-file 1
+\providecommand{\ans}{\textsc{ans}\xspace}
+\providecommand{\dox}{\textsc{dox}\xspace}
 \chapter{Interrogative clauses}\label{cha:interrogatives}
 
-[what follows are the lecture notes from 2018; to be revised and retypeset]
+\minitoc
 
-\includepdf[pages=-,scale=.8,pagecommand={}]{./fintel-heim-2018-questions.pdf}
+So far, we have developed a semantic system that compositionally derives
+semantic values for ``declarative'' clauses, whether standing on their own as
+main or matrix sentences or embedded as constituent clauses (relative clauses,
+complement clauses, adjunct clauses). Extensionally speaking, declaratives are
+of type $t$ and their denotation is determined relative to an evaluation index
+(a world, or a world-time pair) and a variable assignment: $\sv{\phi}^{i,g}$.
+The system also supplies (possibly relative to a variable assignment) an
+intension of type $\type{s,t}$: %
+\note{In set talk: a set of indices. In the simplest system: a set of worlds.}%
+a proposition, or a function from indices to truth-values,
+$\svcent{\phi}^{g}=\lambda i.\sv{\phi}^{i,g}$.
+
+\note{Another important kind of non-declarative are imperatives, if you're
+  interested in which, you should consult
+  \cite{portner-2007-imperatives-modals}, \cite{kaufmann-2012-imperatives},
+  \cite{fintel-iatridou-2017-modest}.}%
+In this chapter, we will expand the system to deal with a central kind of
+non-declarative clause: interrogatives. These also can stand on their own:
+
+\pex
+\a Did Sakina see Emily?
+\a Did Sakina see Emily or did Sakina see Julie?
+\a Who did Sakina see?
+\xe
+%
+And they can appear as embedded clauses:
+
+\pex
+\a Melanie wonders whether Sakina saw Emily.
+\a Inessa is surprised who Sakina saw.
+\a Whether Sakina saw Emily or not, she definitely saw Julie.
+\xe
+
+The semanticist's task in the analysis of interrogative clauses is to propose
+suitable types of semantic values for them and to show how these semantic values
+are built up compositionally. But before we apply ourselves to this task, it is
+useful to say a little bit about speech acts, and about the relation between
+semantic values and speech acts.
+
+\section{A little pragmatics}
+\label{sec:pragmatics}
+
+Leaving semantics out of the picture for the moment, interrogative clauses
+differ from declarative clauses in their syntax and in their pragmatics. In
+English, interrogative clauses can be told apart syntactically from declarative
+clauses by the presence of a clause-initial wh-phrase and/or the inverted order
+of subject and auxiliary. The terminology ``interrogative''/``declarative'',
+however, alludes to a distinction not in grammatical form but in communicative
+function. When uttered as main clauses (i.e., not embedded in a larger
+structure), declarative sentences typically serve to make assertions, whereas
+interrogative sentences serve to ask questions. These two clause-types serve to
+perform different kinds of speech acts.
+
+\cite{stalnaker-1978-assertion} outlined an influential formal model of what
+happens in a conversation and what it means to make an assertion. The central
+concept is that of a body of publicly shared information, or ``common ground'',
+which evolves as the conversation proceeds. A proposition is in the common
+ground if each interlocutor is ``disposed to act as if he assumes or believes
+the proposition is true, and as if he assumes or believes that his audience
+assumes or believes that it is true as well''. The common ground can be
+characterized by the set of worlds in which every proposition in the common
+ground is true; Stalnaker calls this set of worlds the ``context set''. The act
+of making an assertion is a proposal to update \dash in fact, to shrink \dash
+the context set. %
+\note{Not ``shrink'' in the sense of reducing cardinality. The cardinality of
+  the context set may never become less than uncountably infinite.}%
+The particular way in which the context set is to be shrunk depends on the
+semantic value of the asserted sentence, more specifically, on its intension. To
+assert a sentence $\phi$ is to propose that the current context set $c$ be
+replaced by a new context set which is the intersection of $c$ with the
+intension of $\phi$, i.e., %
+\note{We're leaving off the variable assignment parameter, which is legitimate
+  if there are no free variables in $\phi$.}%
+$c \cap \svcent{\phi}$.
+
+Against this backdrop, how might we think about the speech act of asking a
+question? What is the point of this speech act? %
+\note{At least this is true if we stick to questions that don't have
+  presuppositions (or to questions whose presuppositions are already common
+  ground at the point when they are asked). When a question that has a
+  presupposition is asked in a context where the presupposition is not yet in
+  the common ground, a listener can get new information by accommodating this
+  presupposition.}%
+Questions, unlike assertions, don't provide information about the world and
+therefore do not in themselves lead to updates of the common ground. Their
+purpose rather is to constrain the future course of the conversation in a
+certain way. In the absence of any particular question under consideration, a
+speaker might assert whatever they find interesting or useful. But if someone
+asks a question, they thereby express an expectation that the next
+conversational move will be one out of a very limited set of possible assertions
+\dash intuitively, the next assertion will ``address the question'' rather than
+provide some random other information.
+
+Here is a way to formally model this intuition. A question partitions the
+context set in a certain way, and it amounts to a request for assertions which,
+so to speak, ``carve up'' the context set along the lines determined by this
+partition. The requested next assertion should not make any distinctions between
+worlds which the partition lumps together.
+
+Here's the formal definition of a partition:
+
+\begin{definition}[Partition]\label{def:partition}
+  A set $\mathcal{P}$ is a \emph{partition} of a set $A$ iff
+
+  \begin{enumerate}[(i)]
+    \item every element of $\mathcal{P}$ is a non-empty subset of $A$,
+    \item any two non-identical elements of $\mathcal{P}$ are disjoint from each
+          other, and
+    \item the union of all the elements of $\mathcal{P}$ is $A$.
+  \end{enumerate}
+
+  The elements of a partition are also called its cells.
+\end{definition}
+
+\clearpage
+\note{The idea of refining the Stalnakerian model of the context by moving from
+  the context set to a partitioned context set goes back to
+  \cite{groenendijk-1999-interrogation}. A formally equivalent way is to model
+  the context as an equivalence relation (see, for example,
+  \cite{hulstijn-1997-issues}). We will later see approaches that give a
+  partition semantics to interrogatives. It's important to distinguish the two
+  moves. As we'll see in this section, one can have a partition pragmatics
+  without a partition semantics.}%
+\note{\cite{starr-2020-imperatives} adds to the partitioned context set model a
+  way of tracking the speech act effect of imperatives.}%
+\note{Our proposed context model is simple compared to some other well-known
+  systems, such as \cite{roberts-2012-information-structure} and
+  \cite{farkas-bruce-2010-reacting}.}%
+With this definition in hand, we refine Stalnaker's model of conversation. Each
+stage in a conversation is now characterized not by its context set, but by its
+``partitioned context set'', i.e., by a partition of some set of possible
+worlds. The union of this partition corresponds to Stalnaker's old context set,
+i.e., it contains the worlds compatible with every proposition in the common
+ground. The partitioning represents the interlocutors' shared commitment not to
+make distinctions between worlds that are ``cell-mates'' \dash at least not for
+the time being. This is a renegotiable commitment and, as we will see, it only
+stays in force until someone raises a new question. The definition of ``relevant
+assertion'' in Definition \ref{def:relevance} below spells out precisely what
+the commitment amounts to. In Definition \ref{def:update-by-assertion}, we adapt
+Stalnaker's characterization of the context-changing role of assertions to our
+new, more elaborate set-up.
+
+\begin{definition}[Update by assertion]\label{def:update-by-assertion}
+  To assert a sentence $\phi$ is to propose that the current partitioned context
+  set $C$ be replaced by a new partitioned context set which is constructed by
+  intersecting each cell of $\mathcal{C}$ with the intension of $\phi$. More
+  precisely, $\mathcal{C}$ is to be replaced by
+
+  $$\{p\co p\neq\emptyset\ \&\ \exists p'\in \mathcal{C}.\ p = p' \cap \svcent{\phi}\}$$
+\end{definition}
+
+\begin{definition}[Relevance]\label{def:relevance}
+  An assertion is \emph{relevant} w.r.t. to a partitioned context set
+  $\mathcal{C}$ iff the update it proposes results in a subset of $\mathcal{C}$.
+\end{definition}
+
+The notion of ``relevance'' that is formalized here calls for a bit of
+clarification. First, here are a couple of more commonly used (and more
+transparent) definitions.
+
+\begin{definition*}[Relevance$'$]\label{def:relevance-a}
+  A proposition $p$ (i.e. set of worlds) is relevant w.r.t. to a partition
+  $\mathcal{Q}$ of a set of worlds iff $p$ is identical to a cell in
+  $\mathcal{Q}$ or to a union of cells in $\mathcal{Q}$.
+\end{definition*}
+
+\begin{definition*}[Relevance$''$]\label{def:relevance-b}
+  A proposition $p$ is relevant w.r.t. to a partition $\mathcal{Q}$ of a set of
+  worlds iff there is no pair of worlds $w$ and $w'$ such that both
+
+  \begin{enumerate}[(i)]
+    \item there is a cell $c \in \mathcal{Q}$ such $w \in c\ \&\ w' \in c$\\
+    (i.e., $w$ and $w'$ are cell-mates),
+    \item and $w \in p\ \&\ w' \in p$\\
+    (i.e. $p$ has different truth values in $w$ and $w'$).
+  \end{enumerate}
+\end{definition*}
+
+These two definitions differ slightly in that Definition~\ref{def:relevance-b}
+(unlike Definition~\ref{def:relevance-a}) allows $p$ to include arbitrary worlds
+that are not in any cell of $\mathcal{Q}$ at all. But both express the essential
+requirement that a relevant proposition must not discriminate among cell-mates.
+It must not ``cut up'' the space of worlds (in the union of the partition) in
+any way that does not coincide with the boundaries between cells.
+
+Definitions \ref{def:relevance-a} and \ref{def:relevance-b} apply to a
+proposition, whereas our Definition \ref{def:relevance} applies to an assertion
+and presupposes the rule for update-by-assertion. But apart from this
+difference, Definition~\ref{def:relevance} captures the same notion of
+relevance. (To make the connections fully precise: If $\mathcal{C}$ is a
+partitioned context set and $\phi$ is an asserted sentence, then the assertion
+of $\phi$ is ``relevant'' w.r.t. $\mathcal{C}$ in the sense of
+Definition~\ref{def:relevance} iff $\bigcup \mathcal{C} \cap \svcent{\phi}$ is
+``relevant'' w.r.t. $\mathcal{C}$ in the sense of
+Definition~\ref{def:relevance-a}, which holds, in turn, iff $\svcent{\phi}$ is
+``relevant'' w.r.t. $\mathcal{C}$ in the sense of
+Definition~\ref{def:relevance-b}. Prove these equivalences as an exercise.)
+
+To get an intuitive appreciation of this concept, it is important to see that
+``relevance'' in this technical sense is a purely negative requirement, so to
+speak: it is just the absence of any irrelevant (i.e., not specifically asked
+for) information. By this criterion, a ``relevant'' answer may be totally
+uninformative; it could be a tautology, or any other proposition that is already
+entailed by the common ground. So evidently, relevance is not a sufficient
+condition for appropriate answers; there are additional conditions, notably that
+an answer \dash or any assertion, for that matter \dash should be informative.
+It is also worth pointing out that the formal requirement of relevance is
+\emph{prima facie} violated by many answers which in actual fact are judged
+felicitous, e.g., when somebody responds to the question \emph{Is it raining?}
+by saying: \emph{Well, Becky just came in dripping wet}, or \emph{Maybe}, or
+\emph{I don't know}. To make sense of this wider range of intuitively felicitous
+answers, a proponent of the present formal model needs to say that in these
+cases, the answerer is implicitly changing or amending the question that was
+explicitly asked, and instead is addressing a different (though related)
+question that they don't formulate explicitly but expect their audience to infer
+(``accommodate'').
+
+Now the only piece of our story that is missing is a recipe for ``update by
+question''. The idea, as we have said, is that asking a question amounts to
+proposing a specific replacement of the current partitioned context set by a new
+one. As in the case of assertions, the construction of the new partitioned
+context set should be determined by the semantic value of the sentence that was
+uttered. We know what we have in mind for particular examples. E.g., when
+someone asks \emph{Is it raining?}, the intended outcome is a two-membered
+partition, with one cell consisting of worlds in which it is raining and the
+other cell of worlds in which it is not raining. If the question is a so-called
+``alternative question'' like \emph{Is Julie in Barcelona or did Emily call them
+  on the phone?}, the result should be a four-celled partition corresponding to
+the four possible configurations of truth-values for the two component
+sentences. If the question asked is \emph{Who among these two (Carli and Jodie)
+  came to the party?}, the result should be a partition with four cells: one
+with worlds in which Carli and Jodie both came, one with worlds in which Carli
+but not Jodie came, one with worlds in which Jodie but not Carli came, and one
+with worlds in which neither Carli nor Jodie came.
+
+What is the general recipe by which these outcomes are obtained as a function of
+the semantic value of each interrogative sentence? To answer this question, we
+have to carry out the semanticist's task, i.e., assign semantic values to
+interrogative clauses. We will do so in the next section, but for now we will
+articulate a basic intuition about the semantic value of interrogatives and
+explore how they can be used to construct a partitioned context set.
+
+Perhaps the most widespread idea about the semantic value of interrogatives is
+that they denote \emph{sets of propositions}. The particular structural features
+of interrogatives are taken to serve to both ``lift'' the type of the denotation
+from the type of propositions (the denotation of declaratives) to the type of
+sets of propositions, and to generate the individual propositions in the set. We
+will look at the mechanics of this in the next section. For now, let's assume
+the following semantic value for the sample \emph{wh}-questions \emph{Who among
+  these two (Carli and Jodie) came to the party?}:
+
+\ex
+$\svt{Who among these two (Carli and Jodie) came to the party?} =$\\
+$\{\lambda w.\ \text{Carli came to the party in}\ w, \lambda w.\ \text{Jodie
+  came to the party in}\ w\}$
+\xe
+
+Now, notice that the propositions in this set are not disjoint (they can both be
+true of the same world) and that their union leaves out the worlds where neither
+Carli nor Jodie came to the party. So, this set of propositions is not a
+partition of the set of all possible worlds and also not a partition of any
+context set with minimal information about who came to the party. So, there's
+apparently not a seamless link between our partition pragmatics for question
+acts and our semantic values for interrogatives.
+
+Should we therefore redo our semantics so that it does, after all, map
+interrogative clauses to semantic values that are partitions? This can be done
+and has been argued for, and we will return to a discussion of this possibility.
+For now, however, we observe that it is not necessary. An equally reasonable
+take on the discrepancy between our semantics and our pragmatics is that it
+simply reflects the division of labor between semantics and pragmatics. We don't
+necessarily need a semantics that directly delivers partitions as semantic
+values. All we need is to make precise how the semantic values delivered by the
+semantics help determine the partitions that figure in the pragmatics. In other
+words, we need to formulate our pragmatic rule for ``update by question'' in
+such a way that it spells out how the partition effected by a question-act is
+determined by the semantic value of the uttered sentence. We will work up to
+this formulation in a few steps. As we will see, there is a straightforward and
+general recipe for converting an arbitrary set of propositions into a partition
+of a given set of worlds, and our update principle will make use of that recipe.
+
+Informally speaking, each proposition in the question-denotation defines a
+``dividing line'' across the space of worlds in the context set, and as we use
+multiple propositions to draw multiple lines across this space, we get
+increasingly fine-grained partitions as the number of propositions goes up. %
+\note{This assumes that the propositions are all ``logically independent'' of
+  each other and of the propositions in the original common ground. That is,
+  none of them contradicts or is entailed by any other (or any conjunction or
+  disjunction of others). If there are logical relations between the
+  propositions, then the total number of cells is smaller. Note that the
+  definition of ``partition'' requires all cells to be non-empty, so the
+  intersection of two incompatible propositions is not a cell.}%
+The first proposition cuts the space into two cells (the region where it is true
+and the region where it is false). The second proposition subdivides these two
+cells further into four; the third proposition leaves us with eight cells; and
+so on.
+
+Another way of describing this process is that each new proposition introduces a
+new condition that cell-mates must satisfy. At the beginning, before any line
+has been drawn, all of the context set is one big cell and every world counts as
+a cell-mate of every other one. Then we draw a line for the first proposition
+(call it $p_{1}$), and if two worlds differ with respect to the truth-value of
+$p_{1}$, they now are no longer cell-mates. $w$ and $w'$ are cell-mates now only
+if $p_{1}(w) = p_{1}(w')$. With the second proposition, $p_{2}$, we draw a
+second line and ``break up'' yet more of the original cell- mate relations. At
+this point, only those pairs of worlds remain cell-mates which are treated alike
+by both $p_{1}$ and $p_{2}$. I.e., $w$ and $w'$ are cell-mates now iff
+$p_{1}(w) = p_{1}(w')\ \&\ p_{2}(w) = p_{2}(w')$. And so on for the third and
+all other propositions in the given set of propositions.
+
+So a set of propositions can be used to define a ``cell-mate relation'', and
+thus a partition.
+
+\pex Let $\mathcal{P}$ be a set of propositions and $c$ a set of worlds.%
+\label{ex:cellmate-partition}
+
+\a $\sim_{\mathcal{P},c}$, the cellmate relation in $c$ based on $\mathcal{P}$, is defined as
+follows:\\
+$\forall w,w'\co w \sim_{\mathcal{P},c} w'$ iff
+$w\in c\ \&\ w'\in c\ \&\ \forall p\in \mathcal{P}\co p(w)=p(w')$.
+
+\a $\textsc{parts}(\mathcal{P},c)$, the partition of $c$ based on $\mathcal{P}$,
+is defined as
+follows:\\
+$\textsc{parts}(\mathcal{P},c) = \bigl\{p\co \exists w\in c. p = \{w'\co w \sim_{\mathcal{P},c} w'\}\bigr\}$
+\xe
+%
+The cellmate-relation is an equivalence relation (reflexive, symmetric, and
+transitive). It holds between any two worlds that give the same truth-value to
+each proposition in the ``seed set''. The corresponding partition consists of
+the subsets of $c$ that are made up of worlds that are cell-mates.
+
+We are ready to propose a preliminary rule of ``Update by question'':
+
+\begin{restatable}[Update by question (draft)]{definition}{updatebyquestiondraft}%
+  \label{def:update-by-question-draft}%
+  To ask a question by uttering a sentence $\phi$ that denotes a set of
+  propositions $\mathcal{P}$ is to propose that the current partitioned context
+  set $\mathcal{C}$ be replaced by the new partitioned context set
+  $\textsc{part}(\mathcal{P},\bigcup \mathcal{C})$.
+\end{restatable}
+
+In the next section, we turn to the task of compositionally deriving the
+semantic value of an interrogative.
+
+\clearpage
+\section{Compositional computation of semantic values for interrogative clauses}
+\label{sec:compositional-interrogative}
+
+\subsection{An updated version of \cite{karttunen-1977-questions}}%
+\label{sec:karttunen-1977}
+
+\note{The implementation here differs from \cite{karttunen-1977-questions} in
+  not using the Montague Grammar framework; instead we presuppose a division of
+  labor between syntax and semantics in line with
+  \cite{heim-kratzer-1998-semantics}. Aside from implementation, there are some
+  small substantive differences as well. Most saliently, the extensions we will
+  assign to interrogative clauses will include both true and false propositions.
+  (In \cite{hagstrom-2003-GLOT-questions}'s terminology, they will correspond to
+  ANSPOSS rather than ANSTRUE.) Moreover, we will depart from Karttunen in the
+  treatment of polar questions.
+
+  Karttunen's motivation for including a restriction to true propositions had to
+  do with the semantics of question-embedding constructions. So the time to
+  discuss it is when we get to embedded questions. Right now we focus on matrix
+  questions.}%
+Interrogative clauses are built largely with the same lexicon and syntactic
+rules as declarative clauses; but they also contain certain
+interrogative-specific morphemes, syntactic features, or functional heads that
+make crucial contributions to their non-declarative meanings. Following
+\cite{karttunen-1977-questions}, our syntax for English posits an abstract
+(i.e., silent) complementizer that has a non-vacuous semantics, and a feature on
+wh-phrases that is semantically vacuous but subject to a certain distributional
+constraint.
+%
+\note{The official denotation in \refx{ex:?} maps propositions to functions from
+  propositions to truth-values, or equivalently, it maps propositions to
+  characteristic functions of sets of propositions. If we replaced these
+  characteristic functions by the corresponding sets, (\ref{ex:?}) would read as
+  follows:
+
+  \ex[exno={\ref{ex:?}'}]%
+  $\sv{?}^{w} = \lambda p.\{p\}$
+  \xe
+%
+  In other words, it would be a function that maps each proposition to the
+  singleton set that has it as its only member.}%
+\ex\label{ex:?}%
+Karttunen's ``proto-question'' operator, syntactically a C-head:\\
+$\sv{?}^{w} = \lambda p_{st}.\lambda q_{st}.\ p=q$.
+\xe
+
+\ex lexical entries for interrogative words, e.g.:\\
+$\sv{\text{who}^{[\textsc{wh}]}}^{w} = \lambda f_{et}.\ \exists x\ [x\ \text{is
+  human in}\ w\ \&\ f(x)=1]$
+\xe
+%
+The meaning of \emph{who} is exactly the same as the meaning of \emph{somebody}.
+We will address the role of the feature [\textsc{wh}] in section ????.
+
+In the syntactic derivation of a constituent question, wh-movement applies and
+puts the wh-word above the operator in C. For the example \emph{Who did Sakina
+  see?} or \emph{who Sakina saw} (we will ignore tense and auxiliary \emph{do},
+and thereby ignore the difference between matrix and embedded versions), this
+gives rise to a structure like \Next:
+
+\ex who 2 [? Sakina see $t_{2}$] \xe
+%
+Unfortunately, when we examine the semantic types at each node in \Last, we
+discover a type-mismatch that prevents us from interpreting the top-most node.
+We fix this problem by positing a slightly more complex C-head: We base-generate
+\emph{?} together with another, covert operator as its sister. %
+\note{Other vacuous covert operators of this sort are H\&K's relative pronouns
+  (and their PRO in ch. 8).}%
+This covert operator is semantically vacuous, but it can move and leave a trace
+of type $\type{s,t}$. The full syntactic derivation for a constituent question
+then proceeds as in \Next.
+%
+\note{The movement of who is evidently overt (pre-SS) movement (in this
+  example). For the movement of the operator, which is not pronounced, we can't
+  tell whether it happens before SS or between SS and LF.}%
+%
+\ex Who did Sakina see?\\
+\null [$_{C}$ ? OP] Sakina see who\\
+who 2 [ [? OP] Sakina see $t_{2_{e}}$ ] \hfill (wh-movement)\\
+OP 1 [ who 2 [ [? $t_{1_{st}}$ ] Sakina see $t_{2_{e}}$ ] ] \hfill (operator
+movement)
+\xe
+%
+\kwn The resulting LF looks thus like this in tree format:
+
+\ex
+\begin{forest}
+baseline,
+sn edges,
+for tree={s sep=5mm, inner sep=0, l=0}
+[{}, my pretty nice empty nodes
+[OP$_1$] [[who$_2$] [[[\textbf{?}] [$t_1$]] [[Sakina] [[see] [$t_2$]]]]]
+]
+\end{forest}
+\xe
+
+We will usually drop the type-labels on the traces, but keep in mind that the
+operator leaves a trace of type \type{s,t} (i.e., a variable over propositions,
+not individuals). Accordingly the topmost application of Predicate Abstraction
+will yield a function from propositions to truth-values (type \type{st,t}, the
+characteristic function of a set of propositions). %
+\note{We leave out the vacuous operator OP and just interpret the predicate
+  abstract it creates. $\emptyset$ in the superscript stands for the empty
+  variable assignment, see H\&K ch.5}%
+Let's compute the meaning of this LF:
+
+\noindent\begin{minipage}{1.5\textwidth}
+\ex Computation for LF \Last:\label{ex:wh-comp}\\
+$\sv{1.\ \text{who}\ 2.\ [?\ t_{1}]\ \text{Sakina see}\ t_{2}}^{w,\emptyset}$\\
+{\small = (by Predicate Abstraction)}\\
+$\lambda p.\ \sv{\text{who}\ 2.\ [?\ t_{1}]\ \text{Sakina
+    see}\ t_{2}}^{w,[1\rightarrow p]}$\\
+{\small = (by entry for \emph{who} and lambda reduction)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human in}\ w\ \&\ \sv{2.\ [?\ t_{1}]\ \text{Sakina
+    see}\ t_{2}}^{w,[1\rightarrow p]}(x) = 1\ ]$\\
+{\small = (by Predicate Abstraction and lambda reduction)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human in}\ w\ \&\ \sv{[?\ t_{1}]\ \text{Sakina
+    see}\ t_{2}}^{w,[1\rightarrow p,2\rightarrow x]} = 1\ ]$\\
+{\small = (by IFA)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human
+  in}\ w\ \&\ \sv{?\ t_{1}}^{w,[1\rightarrow p,2\rightarrow x]}(\lambda w'.\ \sv{\text{Sakina
+    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}) = 1\ ]$\\
+{\small = (by FA and dropping irrelevant superscripts)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human
+  in}\ w\ \&\ \svt{?}(\sv{t_{1}}^{[1\rightarrow p,2\rightarrow x]})(\lambda w'.\ \sv{\text{Sakina
+    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}) = 1\ ]$\\
+{\small = (by Traces rule)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human
+  in}\ w\ \&\ \svt{?}(p)(\lambda w'.\ \sv{\text{Sakina
+    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}) = 1\ ]$\\
+{\small = (by entry for \emph{?})}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human
+  in}\ w\ \&\ p = \lambda w'.\ \sv{\text{Sakina
+    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}\ ]$\\
+{\small = (by FA, entries for \emph{Sakina}, \emph{see}, Traces Rule)}\\
+$\lambda p.\ \exists x\ [\ x\ \text{is human
+  in}\ w\ \&\ p = \lambda w'.\ \text{Sakina
+  sees}\ x\ \text{in}\ w'\ ]$\\
+\xe
+\end{minipage}
+%
+\note{This is the ANSPOSS in \cite{hagstrom-2003-GLOT-questions}'s
+  terminology.}%
+This characterizes a set of propositions that contains one proposition per
+human-in-$w$: the proposition that that human was seen by Sakina.
+
+How about polar and alternative questions? Can we just posit the same operators
+in the C-head? Let's try.
+
+\ex Did Sakina see Emily?\\
+\null[$_{C}$ ? OP] Sakina see Emily\\
+OP 1 [ ? $t_{1}$] Sakina see Emily
+\xe
+
+\ex Computation for LF of the polar question \Last:\\
+$\sv{1.\ [?\ t_{1}]\ \text{Sakina see Emily}}^{{w,\emptyset}}$\\
+{\small = (by Predicate Abstraction)}\\
+$\lambda p_{st}. \sv{[?\ t_{1}]\ \text{Sakina see
+    Emily}}^{w,[1\rightarrow p]}$\\
+{\small = (by IFA)}\\
+$\lambda p_{st}. \sv{?\ t_{1}}^{w,[1\rightarrow p]}(\lambda w'. \svt{Sakina see Emily}^{w',[1\rightarrow p]})$\\
+{\small = (by FA)}\\
+$\lambda p_{st}. \sv{?}^{w,[1\rightarrow p]}(\sv{t_{1}}^{w,[1\rightarrow p]})(\lambda w'. \svt{Sakina see Emily}^{w',[1\rightarrow p]})$\\
+{\small = (by Traces Rule and dropping irrelevant assignment superscripts)}\\
+$\lambda p_{st}. \sv{?}(p)(\lambda w'. \svt{Sakina see Emily}^{w'})$\\
+{\small = (by entry for ? and lambda reduction)}\\
+$\lambda p_{st}.\ [p = \lambda w'. \svt{Sakina see Emily}^{w'}]$\\
+{\small = (by FA and entries for \emph{Sakina}, \emph{Emily}, \emph{see})}\\
+$\lambda p_{st}.\ [p = \lambda w'.\ \text{Sakina see Emily in}\ w']$
+\xe
+%
+This is the characteristic function of a singleton set containing one
+proposition. Is this a good result? If we have in mind that our denotations for
+interrogative clauses should directly correspond to an intuitive notion of
+``possible answer'', then this is problematic. There is certainly more than one
+possible answer to a polar question! But we think of the relation
+between the semantics and the pragmatics of interrogative clauses in a less
+simple-minded way. A singleton set of a proposition is used to induce a two-way
+partition of the context set: one cell containing worlds where the proposition
+is true and another where it isn't. Any relevant response needs to eliminate one
+of the cells.
+
+To complete the current section, we consider an alternative question:
+%
+\note{The slashes are intended as a crude representation of the distinctive
+  intonational contour that characterizes the alternative-question reading.}%
+\ex Did Sakina see Emily /or did he see Julie\textbackslash ?\\
+DS: [[$_{C}$ ? OP] Sakina see Emily] or [[$_{C}$ ? OP] Sakina see Julie]\\
+LF: OP 1 [ [ [? $t_{1}$] Sakina see Emily] or [ [? $t_{1}$] Sakina see Julie] ]
+\xe
+%
+In the alternative question in \Last, operator movement must be ``across the
+board'' (ATB), with the result that a single binder binds two coindexed traces.
+This is the only way to obtain an interpretable structure, given the semantic
+type of \emph{or}, which is \type{t,\type{t,t}}.
+
+\ex Computation for LF of the alternative question in \Last:\\
+$\sv{1.\ [?\ t_{1}]\ \text{Sakina see Emily or}\ [?\ t_{1}]\ \text{Sakina see
+    Julie}}^{w,\emptyset}$\\
+{\small = (by Predicate Abstraction)}\\
+$\lambda p_{st}.\ \sv{[?\ t_{1}]\ \text{Sakina see Emily
+    or}\ [?\ t_{1}]\ \text{Sakina see
+    Julie}}^{w,[1\rightarrow p]}$\\
+{\small = (by FA twice and entry for or)}\\
+$\lambda p_{st}.\ \sv{[?\ t_{1}]\ \text{Sakina see Emily}}^{w,[1\rightarrow p]}\
+\vee\ \sv{[?\ t_{1}]\ \text{Sakina see Julie}}^{w,[1\rightarrow p]}$\\
+{\small = (by IFA, FA, entry for ?, etc \dash see previous computations)}\\
+$\lambda p_{st}.\ [ p = \lambda w'.\svt{Sakina see Emily}^{w',[1\rightarrow p]}\
+\vee\ p = \lambda w'.\svt{Sakina see Julie}^{w',[1\rightarrow p]}]$\\
+{\small = (by FA and entries for \emph{see} etc.)}\\
+$\lambda p_{st}.\ [ p = \lambda w'.\ \text{Sakina see Emily
+  in}\ w'\ \vee\ p = \lambda w'.\ \text{Sakina
+  see Julie in}\ w']$\\
+\xe
+%
+This is the characteristic function of a set containing two propositions \dash
+the same set, in fact, that is denoted by the constituent question \emph{who did
+  Sakina see} if the set of humans happens to be just \{Emily, Julie\}.
+
+\subsection{Back to pragmatics: Mapping interrogative denotations to partitions}
+\label{sec:back-to-pragmatics}
+
+We can now make good on the promise to provide a bridge between the
+compositional semantics of interrogatives and their use in updating a context.
+We gave a draft version earlier in
+Definition~\ref{def:update-by-question-draft}, repeated here:
+
+\updatebyquestiondraft*%
+
+To finalize the definition, we need to use our semantics to supply a set of
+propositions to serve as the seed for the partition. This is straightforward in
+the case of polar and alternative questions, each of which has as its semantic
+value a set of propositions that is evaluation-world independent. But in the
+case of wh-questions, an issue arises: their semantic value depends
+non-trivially on the evaluation world.
+
+\ex $\svt{Who did Sakina see?}^{w}$\\
+$= \lambda p.\ \exists x\co x\ \text{is human
+  in}\ w.\ p = \lambda w'.\ \text{Sakina saw}\ x\ \text{in}\ w'$
+\xe
+%
+What set of propositions the interrogative denotes in a world $w$ depends on who
+the humans in that world are. In case this seems esoteric, consider a more
+substantively restricted wh-phrase:
+
+\ex $\svt{Which students called?}^{w}$\\
+$= \lambda p.\ \exists x\co x\ \text{is a student
+  in}\ w.\ p = \lambda w'.\ \text{Sakina saw}\ x\ \text{in}\ w'$
+\xe
+%
+\phantomsection\label{par:context-uncertainty}%
+The semantic value of \Last depends on who the students in the evaluation world
+are. It is easy to imagine circumstances where it is not common ground who the
+students are. So, how should we update the context with a question like \Last?
+
+\note{Option 1 would say something like: To ask a question by uttering a
+  sentence $\phi$ in world $w$ is to propose that the current partitioned
+  context set $\mathcal{C}$ be replaced by the new partitioned context set
+  $\textsc{part}(\sv{\phi}^{w},\bigcup \mathcal{C})$.}%
+\emph{Option 1: The world of utterance}. We could say that the context gets
+partitioned based on the set of propositions denoted by the interrogative
+relative to the world in which the question is asked. However, this would miss
+the fact that the participants in the conversation do not know which world they
+are in. The context set is precisely meant to model that they have some common
+ground on what world they're in but no more: there are always multiple
+candidates for what the actual world is. Furthermore, it is presumably
+inescapable that participants make some false presuppositions, in which case the
+actual world in which the utterance occurs isn't even part of the context set
+(even though everyone is acting as if the common ground contains the actual
+world).
+
+So, it seems clear that we need to interpret the interrogative with respect to
+the worlds in the context set and use the resulting set of propositions to
+partition the context set. But now we need to face the possibility that the
+participants in the conversation where \Last is uttered are uncertain about who
+the (relevant) students are. To set up a minimal test scenario, assume that
+everyone knows that $a$ is a student but there's uncertainty about whether $b$
+is. Now, assume that \Last is uttered against that background. There are worlds
+in the context set where $a$ and $b$ are the students, and other worlds where
+only $a$ is a student. Our semantics will deliver two different sets of
+propositions as the semantic value of the interrogative for the two different
+kinds of worlds in the context set: for the $a,b$-worlds, we get the set
+containing the proposition that $a$ called and the proposition that $b$ called;
+while for the $a$-worlds, we get the set that contains only the proposition that
+$a$ called. How should the interrogative partition the context set?
+
+\note{Equivalently, form the big union of all the sets of propositions that are
+  the semantic value of the interrogative in worlds of the context sets:
+  \[\bigcup_{w\in c} \sv{\phi}^{w}\]}
+\emph{Option 2: Collecting all the propositions}. To obtain the set of
+propositions that is used to partition the context set, we could collect all the
+propositions that for \emph{some} world in the context set are in the semantic
+value of the interrogative:
+
+\ex The set of propositions that is used to partition a context set $c$ upon
+the utterance of an interrogative $\phi$ is
+\[\{p\co \exists w\in c.\ p\in\sv{\phi}^w\}\]
+\xe
+
+For our minimal test scenario, that means that the context set will be
+partitioned by the the set containing the proposition that $a$ called and the
+proposition that $b$ called. By our definition of relevance, this means that the
+answer ``$b$ called'' will be relevant. But notice that when the context set is
+updated by the assertion that $b$ called, there will still be worlds left in the
+context set where $b$ is not a student (while it is now accepted that $b$ left).
+This is incorrect: answering that $b$ called when what was asked is \emph{Which
+  students called?} surely commits one to $b$ being a student.
+
+\emph{Option 3: Presupposition of consensus}. \cite{stalnaker-1978-assertion} in
+his analysis of the speech act of assertion formulated three principles that he
+views as ``essential conditions of rational communication'':
+
+\begin{enumerate}[1.]
+  \item A proposition asserted is always true in some but not all of the
+        possible worlds in the context set.
+  \item Any assertive utterance should express a proposition, relative to each
+        possible world in the context set, and that proposition should have a
+        truth-value in each possible world in the context set.
+  \item The same proposition is expressed relative to each possible world in the
+        context set.
+\end{enumerate}
+%
+What's relevant for us here is the third principle, which ensures that there is
+common ground on which proposition the speaker is proposing to add to the common
+ground. We suggest that essentially the same principle applies to the speech act
+of asking a question: the same set of propositions needs to be expressed by the
+interrogative relative to each possible world in the context set. This then
+amounts to the assumption that for each wh-phrase that is used, the
+interlocutors agree on a specific set of individuals as its intended range. This
+means that in our test scenario, the question \emph{Which students called?} is a
+pragmatic error: asking the question presupposes that it is common ground who
+the students are.
+
+Hence, the final version of our definition is as follows:
+
+\begin{definition}[Update by question (final)]%
+  \label{def:update-by-question-final}%
+  Asking a question by uttering a sentence $\phi$ is only felicitous in a
+  partitioned context set $\mathcal{C}$ if
+  $\forall w,w'\in \bigcup C\co \sv{\phi}^{w}=\sv{\phi}^{w'}$.
+
+  If felicitous, asking a question by uttering a sentence $\phi$ is to propose
+  that the current partitioned context set $\mathcal{C}$ be replaced by the new
+  partitioned context set $\textsc{part}(\sv{\phi}^{w},\bigcup \mathcal{C})$,
+  where $w$ is an arbitrary world in $\bigcup \mathcal{C}$.
+\end{definition}
+
+
+
+\subsection{Syntax: the role of the [WH] feature}
+\label{sec:wh-syntax}
+
+In the theory as it stands so far, the semantic identification of wh-words with
+indefinites (e.g. $\svt{who}^{w}=\svt{somebody}^{w}$) leads to overgeneration of readings.
+Consider the minimal pair in \Next.
+
+\pex\label{ex:wh-pol}
+\a Who did Sakina see?
+\a Did Sakina see somebody?
+\xe
+
+We have shown in Section~\ref{sec:karttunen-1977} how the Karttunen theory
+derives the intended denotation for \Last[a] (= \refx{ex:wh-comp}). But from the
+Deep Structure we posited in \refx{ex:wh-comp}, we could have derived more
+  than one interpretable structure, namely not just \Next[a] (which we
+  considered in \refx{ex:wh-comp} above) but also \Next[b].
+
+\pex\label{ex:wh-high-low}
+\a LF-high: OP 1 [ who 2 [ [? $t_{1}$] Sakina see $t_{2}$ ] ]
+\a LF-low: OP 1 [[? $t_{1}$] who 2 [ Sakina see $t_{7}$ ] ]
+\xe
+%
+Similarly we can derive two interpretable LFs for \LLast[b].
+
+\pex\label{ex:somebody-high-low}%
+DS: [$_{C}$ ? OP] Sakina see somebody
+\a LF-high: OP 1 [ somebody 2 [ [? $t_{1}$] Sakina see $t_{2}$ ] ]
+\a LF-low: OP 1 [[? $t_{1}$] somebody 2 [ Sakina see $t_{2}$ ] ]
+\xe
+
+In all of these potential LFs, the IP-sister of C, as well as the mother-node of
+C, are semantically of type $t$. Therefore, both should be suitable adjunction
+sites for the generalized quantifiers \emph{who} and \emph{somebody} as far as
+type-compatibility goes. (The mnemonic labels `high' and `low' indicate the
+difference in the quantifier's scope.)
+
+But what do these LFs mean? We have already computed \refx[a]{ex:wh-high-low}
+and seen that it expresses an appropriate meaning for \refx[a]{ex:wh-pol}.
+Specifically, if we combine our semantics with our pragmatics, and if the domain
+of people that who ranges over consists of just Emily and Julie,
+\refx[a]{ex:wh-high-low} determines a 4-cell partition. This matches the
+intuition that the possible fully exhaustive answers to \refx[a]{ex:wh-pol} are
+that Sakina saw only Emily, that he saw only Julie, that he saw both Emily and Julie,
+and that he saw neither. But such a 4-cell partition is clearly not what an
+utterance of \refx[b]{ex:wh-pol} sets up. \refx[b]{ex:wh-pol} is a polar
+question and elicits answers such as Yes or No, expressing the propositions that
+Sakina saw somebody and that he saw nobody. So here we want our semantics and
+pragmatics to determine a 2-cell partition. The LF-low in
+\refx[b]{ex:somebody-high-low} does deliver precisely this. (Compute this as an
+exercise.)
+
+So LF-high in \refx[a]{ex:wh-high-low} captures the attested meaning of the
+wh-question in \refx[a]{ex:wh-pol}, and LF-low in \refx[b]{ex:somebody-high-low}
+captures the attested meaning of the polar question in \refx[b]{ex:wh-pol}. In
+each case, this is the only attested reading for the English sentence: the
+wh-question cannot be read as a polar question, and the polar question cannot be
+read as a wh-question. Our theory so far fails to derive this un-ambiguity. The
+LF-low in \refx[b]{ex:wh-high-low} is semantically equivalent to the LF-low in
+\refx[b]{ex:somebody-high-low} and thus represents an unattested polar reading
+for the wh-question. Similarly, the LF-high in \refx[a]{ex:somebody-high-low} is
+equivalent to the LF-high in \refx[a]{ex:wh-high-low} and thus represents an
+unattested wh-question reading for the polar question with \emph{somebody}. We
+need to amend our theory so that only one of the LFs is generated for each of
+the sentences.
+
+A standard solution \dash effectively Karttunen's \dash is to invoke a syntactic
+constraint that regulates scopal relations between existential DPs (\emph{who},
+\emph{somebody}) and the interrogative complementizer. As our example teaches
+us, \emph{who} apparently can only scope above \emph{?} (more specifically,
+between \emph{?} and its associated \emph{OP}), whereas \emph{somebody} is
+barred from scoping there and must instead scope below \emph{?}. The following
+stipulation enforces this generalization.
+
+\ex Wh-Licensing Principle:\\
+At LF, a phrase $\alpha$ occupies a specifier position of \emph{?} if and only
+if $\alpha$ has the feature [WH].
+\xe
+%
+\Last relies on appropriate assumptions about which phrases have the feature
+[WH]. For the time being, assume that certain words such as \emph{who},
+\emph{what}, \emph{how} are marked as [WH] in the lexicon. These then will be
+the only phrases that can be located right above \emph{?} in well-formed LFs,
+and moreover, they cannot be located anywhere else. LF-high for the wh-question
+in \refx[a]{ex:wh-high-low} complies with \Last, as does LF-low for the polar
+question in \refx[b]{ex:somebody-high-low}. LF-low in \refx[b]{ex:wh-high-low}
+is ruled out because it has a phrase marked [WH] in a location other than
+spec-of-\emph{?}, and LF-high in \refx[a]{ex:somebody-high-low} is prohibited
+because it has a phrase in spec-of-\emph{?} which lacks [WH].
+
+\begin{exercise}
+  Consider the multiple wh-question \Next.
+
+  \ex Who likes who? \xe
+%
+  Propose an LF, say how it is derived in the syntax, compute its semantic
+  interpretation, and then compute the partition it imposes. For simplicity,
+  assume in this last part that the domain of people that who ranges over is
+  just \{s, e\}, and that the common ground before the question is totally
+  uninformative, i.e, it is a partitioned context set whose union is W (the set
+  of all worlds whatsoever). How many cells does the partition have and what are
+  its cells? Regarding syntax, attend in particular to the satisfaction of the
+  Wh-Licensing Principle.
+\end{exercise}
+
+\begin{exercise}
+  In written language, a question containing \emph{or}, such as \Next, can be
+  ambiguous.
+
+  \ex Did you talk to David or Norvin?\xe
+%
+  The questioner may want to know which of the two professors you talked to
+  (``alternative-question reading'') or just whether you talked to at least one
+  of them (``polar-question reading''). Perhaps the alternative reading is more
+  salient out of the blue, but the polar reading can be facilitated by an
+  appropriate context. (E.g. imagine that your squib is on
+  multiple-wh-constructions, and you have previously been told that you ought to
+  consult a faculty member who has published on this topic, namely David or
+  Norvin.)
+
+  Your task in the exercise is to analyze the two readings of \Last, by
+  proposing an appropriate LF for each reading and discussing its syntactic
+  derivation as well as its semantic and pragmatic interpretation. You should
+  assume that English has only one unambiguous word \emph{or}, and its semantic
+  type is $\type{t,\type{t,t}}$. This means that, for both readings, you must
+  posit some amount of elided material in the right disjunct, since \emph{or}
+  can only coordinate constituents of type $t$.
+\end{exercise}
+
+\section{Embedded questions and question-embedding verbs}
+\label{sec:embedded-questions}
+
+A first superficial survey of English verbs that take complement clauses turns
+up three groups. %
+\note{\cite{white-2021-believing-whether} argues that things are not that
+  simple.}%
+One group, exemplified by the verb \emph{believe}, consists of verbs that take
+\emph{that}-clauses but are ungrammatical with an embedded interrogative clause.
+
+\pex
+\a Sakina believes that Becky called.
+\a *Sakina believes who called.
+\xe
+
+Another rather large second group consists of verbs that can take either. This
+includes \emph{know}, \emph{remember}, and \emph{tell}.
+
+\pex
+\a Sakina knows/remembers/told Emily that Becky called.
+\a Sakina knows/remembers/told Emily who called.\label{ex:know-Q}
+\xe
+
+Third, there are verbs which take interrogative complements but are
+ungrammatical with \emph{that}-clauses.
+
+\pex
+\a *Sakina asked/is wondering that Becky called.
+\a Sakina asked/is wondering who called.
+\xe
+
+We will focus at first on the middle group, which
+\cite{lahiri-2002-questions-book} dubbed the class of ``responsive'' verbs.
+
+\subsection{Responsive verbs, a type-mismatch, and Dayal's strategy}
+\label{sec:responsive-verbs}
+
+Let's look at the responsive verb \emph{know}. We have at least a preliminary
+analysis for verbs like \emph{know} in sentences like \emph{John knows that Ann
+  called}. Such verbs take a proposition and a person as their arguments, and
+their meaning encodes universal quantifcation over a certain set of possible
+worlds. Since \emph{know} is a factive verb, it also triggers the presupposition
+that its complement is true. For simplicity, we assume here that apart from the
+factive presupposition, the meaning of \emph{know} is the same as the meaning of
+\emph{believe}, and so we can write the lexical entry in \Next.
+%
+\ex%
+\note{Here, \textsc{dox} maps an individual $x$ and a world $w$ into the set of
+  worlds compatible with what $x$ believes in $w$.}%
+$\svt{know}^{w} = \lambda p_{st}\co p(w)=1.\ \lambda x_{e}.\ \forall w' [w'\in \dox(x,w) \rightarrow p(w')=1]$
+\xe
+%
+This entry was designed to work for \emph{know} with a \emph{that}-clause. What
+would happen if we tried to interpret an LF with an interrogative clause as the
+sister of \emph{know}? Evidently, we would run into a type-mismatch. On our
+current analysis of interrogative clauses, their extensions are of type
+\type{st,t} and their intensions of type \type{s,\type{st,t}}. Neither type can
+compose with the type of know in \Last by means of any of our semantic rules.
+
+What shall we do? Older literature on question-embedding made verbs like
+\emph{know} lexically ambiguous, with distinct (though not unrelated) lexical
+entries for declarative-taking \emph{know} and interrogative-taking \emph{know}.
+More recent work has pursued the strategy of positing a single unambiguous verb
+and readjusting the semantic type of the interrogative complement.
+\cite{groenendijk-stokhof-1982-wh-complements} did this first, and another
+influential version of this approach originates with
+\cite{dayal-1996-locality-wh}. Dayal proposed that the combination of the verb
+with the Karttunen-denotation of its complement is mediated by an ``answer
+operator'', which maps sets of propositions to propositions. We will follow
+Dayal's general strategy in these notes. We will entertain a couple of possible
+meanings for the answer operator and talk about the empirical considerations
+that bear on the question which meaning is correct.
+
+The rough intuition to be implemented is that ``to know who called'' means
+something like ``to know the answer to the question `who called?'''.
+(Paraphrases of this form work for all the verbs in this group, hence Lahiri's
+term ``responsive verbs''.) The answer to a question is a proposition, hence an
+object of a suitable semantic type to feed to the meaning of \emph{know} in
+\Last. If the LFs of sentences like \refx{ex:know-Q} contain an operator that
+maps a question-denotation to the proposition that's the answer to that
+question, we have a solution to the type-mismatch problem.
+
+Since our syntax for interrogative clauses already happens to posit a silent
+operator at the top edge of the clause (albeit one that we have so far treated
+as semantically vacuous) we need not actually make the structure more complex.
+Instead we can assume (following a suggestion by Danny Fox) that our new answer
+operator appears instead of the previous vacuous one. This means that we
+base-generate it inside C as the sister of \emph{?} and move it up for
+interpretability, leaving a type-\type{s,t} trace as before. Our LF-structure
+for a sentence with know and an interrogative complement then looks as in
+\Next[b].
+
+\pex\label{ex:knows-who}
+\a Sakina knows who called.
+\a Sakina [$_{VP}$ knows [$_{CP}$ \ans 1 [ who 2 [[$_{C}$ ? $t_{1}$]
+$t_{2}$ called]]]]
+\xe
+
+We will now focus on the task of proposing a meaning for \ans which not only
+fixes the type-mismatch, but also yields reasonable truth conditions for the
+\emph{know}-sentence.
+
+\subsection{An \ans operator inspired by Karttunen}
+\label{sec:ans-karttunen}
+
+Our initial proposal for the semantics of \ans effectively follows
+\cite{karttunen-1977-questions} in terms of the truth conditions it predicts for
+the \emph{know}-sentence as a whole (although the compositional implementation
+is different). The \ans operator defined in \Next maps the set of propositions
+denoted by the interrogative to the single proposition which is the conjunction
+of all its true elements.
+
+\ex
+$\sv{\ans}^{w} = \lambda \mathcal{Q}_{\type{st,t}}.\ \forall p [\mathcal{Q}(p)=1\ \&\ p(w)=1 \rightarrow p(w')=1]$
+\xe
+
+\ex~[exno=\lastx']\note{equivalent formulation (modulo sets vs. characteristic
+functions)}%
+$\sv{\ans}^{w}= \lambda \mathcal{Q}_{\type{st,t}}.\ \bigcap\{p\in \mathcal{Q}\co w\in p\}$\\
+\hfill (the intersection of all members of $\mathcal{Q}$ that are true in $w$)
+\xe
+
+Let's put this entry to work in a computation for the example sentence.
+
+\pex\label{ex:knows-who-comp}%
+\a computation of presupposition:\\
+Let $w$ be a world. Then \\
+$\svt{Sakinda knows who called}^{w}$ is defined\\
+{\small iff (by FA twice)}\\
+$\svt{know}^{w}(\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w})(s)$ is defined\\
+{\small iff (by entry for \emph{know})}\\
+$\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w}(w)=1$\\
+{\small iff (by FA)}\\
+$\svt{\ans}^{w}\big(\svt{1 who 2 ?-$t_1$ $t_2$ called}^{w}\bigr)(w)=1$\\
+{\small iff by entry for \ans}\\
+$\forall p [ \svt{1 who 2 ?-$t_1$ $t_2$ called}^{w}(p)=1\ \& p(w)=1 \rightarrow p(w)=1 ]$\\
+This is a tautology, so we know that $\svt{Sakinda knows who called}^{w}$ is
+defined for all $w$.
+\a computation of truth condition:\\
+Let $w$ be a world. Then\\
+$\svt{Sakinda knows who called}^{w} = 1$\\
+{\small iff (by FA twice)}\\
+$\svt{know}^{w}(\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w})(s) = 1$\\
+{\small iff (by entry for \emph{know} and truth of presupposition)}\\
+$\forall w' [w'\in \dox(s,w) \rightarrow \svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w}(w')=1]$
+\a We interrupt for an embedded computation:\\
+$\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w}(w')=1$\\
+{small iff (by entry for \ans)}\\
+$\forall p [ \svt{1 who 2 ?-$t_1$ $t_2$ called}^{w}(p)=1\ \&\ p(w)=1 \rightarrow p(w')=1 ]$\\
+{\small iff (by earlier computations)}\\
+$\forall p [\exists x [x\ \text{is a human
+  in}\ w\ \&\ p=\lambda w''.\ x\ \text{called
+  in}\ w'']\ \&\ p(w)=1 \rightarrow p(w')=1 ]$\\
+{\small iff (by logic of quantifiers)}\\
+$\forall p\forall x [x\ \text{is a human
+  in}\ w\ \&\ p=\lambda w''.\ x\ \text{called
+  in}\ w''\ \&\ p(w)=1 \rightarrow p(w')=1 ]$\\
+{\small iff (by logic of identity)}\\
+$\forall x [ x\ \text{is a human
+  in}\ w\ \&\ [\lambda w''.\ x\ \text{called
+  in}\ w''](w)=1 \rightarrow [\lambda w''.\ x\ \text{called in}\ w''](w')=1]$\\
+{\small iff (by $\lambda$-reduction)}\\
+$\forall x [ x\ \text{is a human in}\ w\ \&\ x\ \text{called
+  in}\ w \rightarrow x\ \text{called in}\ w']$
+\a resuming main computation:
+\dots \\
+{\small iff (by plugging in result of embedded computation)}\\
+$\forall w' [w'\in \dox(s,w) \rightarrow \forall x [ x\ \text{is a human in}\ w\ \&\ x\ \text{called
+  in}\ w \rightarrow x\ \text{called in}\ w']]$\\
+{\small iff (by logic of quantifiers)}\\
+$\forall x [x\ \text{is a human in}\ w\ \&\ x\ \text{called
+  in}\ w \rightarrow \forall w' [w'\in \dox{s,w} \rightarrow x\ \text{called
+  in}\ w']]$
+\xe
+%
+In other words, the sentence \emph{Sakina knows who called} is true in $w$ if
+and only if, for every person who in fact called in $w$, Sakina believes (in
+$w$) that this person called.
+
+\subsection{Problems, and an \ans operator inspired by Groenendijk \& Stokhof}
+\label{sec:ANS-GS}
+
+The essence of \ans in our present analysis is that for any evaluation world
+$w$, when applied to the semantic value $\mathcal{Q}$ of an interrogative (which
+is a set of proposition), it gives the proposition that is the conjunction of
+all the propositions in $\mathcal{Q}$ that are true in $w$. This is well known
+to make some troublesome predictions. Let's start with the most glaring case,
+then move to subtler ones, before we diagnose the general problem and proceed to
+solve it.
+
+The example we analyzed above involved an embedded constituent question. What if
+we embedded a polar question instead?
+
+\pex
+\a Sakina knows whether Emily called.
+\a LF: Sakina knows [$_{CP}$ \ans 1[ [$_{C}$? $t_{1}$] Emily called ] ]
+\xe
+%
+Recall that our denotation for a polar question is a singleton set. The sister
+of \ans in \Last[b] denotes the set whose only member is the proposition that
+Emily called. If we complete the calculation, we get the following truth
+condition.
+
+\ex presupposition of \Last[b]: tautological\\
+$\svt{\Last[b]}^{w} = 1$ iff\\
+Emily called in
+$w \rightarrow \forall w' [w'\in\dox(s,w) \rightarrow \text{Emily called
+  in}\ w']$
+\xe
+%
+This says that the sentence \LLast[a] is true in $w$ if either one of the
+following two conditions is met: either (i) Emily did not call in $w$, or else
+(ii) she did call in w and Sakina believes in w that she did. This is not
+satisfactory. What it gets right is that, if Emily called but Sakina is unaware
+of this, then the sentence is false. But it also predicts that, if Emily didn't
+call, then the sentence is true no matter what Sakina believes \dash even if she
+wrongly believes that she did call.
+
+A gut reaction to this problem is that the culprit is our semantics for polar
+questions, not our \ans operator. This is what Karttunen would have said.
+Indeed, he gave a different semantics for polar questions and did not have this
+problem. %
+\note{How might we do that? Perhaps by giving a meaning to \emph{whether},
+  letting it denote a function that maps a singleton set $\{p\}$ to the set
+  $\{p, \neg p\}$.}%
+In our variant of his theory, if we minimally changed the semantics of polar
+questions so that the sister of \ans were to denote the 2-membered set \{that
+Emily called, that Emily didn't call\}, the truth conditions would come out
+correct without any revision to our entry for \ans. (Exercise: Convince yourself
+of this.) This looks like a good way out \dash at least at first. But when we
+look at further problem cases, we will come to see it is a move that is neither
+sufficient nor necessary.
+
+Let's return to the case of the embedded constituent question in
+\refx{ex:knows-who} and scrutinize the truth conditions we derived in
+\refx{ex:knows-who-comp} a bit more carefully. Suppose that w is a world in
+which nobody called. Then the universal quantification we computed in
+\refx[b]{ex:knows-who-comp} is trivially true: Whatever Sakina's beliefs in $w$
+may be, the material conditional `[$x$ called in $w$ $\rightarrow$ Sakina
+believes in $w$ that $x$ called]' is true for every $x$ (since the antecedent is
+always false). So the sentence \refx{ex:knows-who} is predicted to be true, for
+example, in a world where nobody called but Sakina falsely believes that Emily
+and Julie called. This does not conform to our intuitions.
+
+Finally, as \cite{groenendijk-stokhof-1982-wh-complements} forcefully pointed
+out, even if we only consider worlds in which some people did in fact call, the
+truth conditions imposed by our current (and Karttunen's) semantics are too lax.
+Suppose that only Emily called, but Sakina thinks that Emily, Julie, and
+Delphine all called. Would we say that Sakina knows who called? We'd be
+reluctant to. But our semantics deems the sentence \emph{Sakina knows who
+  called} to be true in this scenario. After all, Sakina does believe of every
+person who in fact called (namely, of Emily), that that person called.
+
+This is all that our predicted truth conditions require. If our analysis were
+right, it simply shouldn't matter how many false beliefs Sakina has about people
+calling who did not in fact call.
+
+Groenendijk \& Stokhof argued that the correct semantics for \emph{Sakina knows
+  who called} is what they dubbed ``strongly exhaustive'' \dash i.e., the
+\emph{know}-sentence is true only when Sakina is fully informed about who called
+and who didn't. She believes that they called of all the people who did in fact
+call, and she believes that they didn't call of all the ones who didn't. Can we
+revise our entry for the answer operator so that it delivers this more stringent
+truth condition? Yes, here is how.
+
+\ex strongly exhaustive answer operator:\\
+$\sv{\ans}^{w} = \lambda \mathcal{Q}_{\type{st,t}}.\lambda w'.\ \forall p [p\in\mathcal{Q} \rightarrow p(w)=p(w')]$
+\xe
+
+\ex~[exno=\lastx']%
+\note{equivalent formulation, using the definition of
+  ``cell-mate'' from \refx[a]{ex:cellmate-partition}. Here, capital $W$ in the
+  subscript to the $\sim$-relation is the set of all possible worlds.}%
+$\sv{\ans}^{w} = \lambda \mathcal{Q}_{\type{st,t}}.\ \{w'\co w'\sim_{\mathcal{Q},W}w\}$
+\xe
+
+What does this semantics for \ans do? It takes the set of propositions
+$\mathcal{Q}$ denoted by the underlying interrogative and maps the evaluation
+world to the worlds that agree with it on the truth-value of all propositions in
+$\mathcal{Q}$. In other words, it maps the evaluation world to its cell-mates
+relative to $\mathcal{Q}$.
+
+This new semantics solves all the problems that we saw in this section. For
+embedded polar questions, it delivers the prediction that if Emily didn't call,
+then \emph{Sakina knows whether Emily called} is only true if Sakina knows that
+Emily didn't call. For embedded constituent questions, it predicts that if $x$
+didn't call, then \emph{Sakina knows who called} is not true unless Sakina knows
+that $x$ didn't call. As a special case of this latter prediction, we derive
+that if nobody called, then \emph{Sakina knows who called} is only true if
+Sakina knows about each person that they didn't call.
+
+\begin{exercise}
+  Verify these claims, by doing the computations.
+\end{exercise}
+
+\subsection{\ans in matrix questions?}
+\label{sec:matrix-ans}
+
+Our latest, strongly exhaustive answer operator bears an obvious logical
+relation to the pragmatic rule ``update by question''
+(Definition~\ref{def:update-by-question-final}) that we posited earlier to link
+the semantic values of matrix interrogative clauses to the speech acts that they
+serve to perform. In both cases, we use the set of propositions $\mathcal{Q}$ to
+lump together any evaluation world with those worlds that agree with it on the
+truth-values of all propositions in $\mathcal{Q}$. In the case of interrogatives
+embedded under responsive predicates like \emph{know}, this set of worlds that
+are cell-mates with the evaluation world is fed to the attitude predicate as its
+prejacent proposition. In the case of matrix questions, we use the set of
+disjoint but exhaustive cells to partition the context set.
+
+Given this similarity, we may want to consider positing \ans in matrix questions
+as well, instead of the vacuous covert operator $OP$. This would mean rewriting
+the ``update by question'' rule. The idea would be that the pragmatic rule can
+use the intension of the uttered sentence to construct the cells of the new
+partition. The recipe, informally, is to apply this intension to each world in
+the current context set and intersect each result with the current context set.
+
+\begin{definition}[Update by question,
+  draft revision]\label{def:updatebyquestiondraftrevision}%
+  \note{Note that the relevant sentences $\phi$ are of the form ``\ans $Q$'' and
+    relative to any world $w$ denote the proposition that is true of any world
+    that agrees with $w$ on all the propositions in the set denoted by $Q$
+    relative to $w$.}%
+  To ask a question by uttering a sentence $\phi$ is to propose that the current
+  partitioned context set $\mathcal{C}$ be replaced by the new partitioned
+  context set
+
+\[\{p\co \exists w\in\bigcup\mathcal{C}.\ p = \sv{\phi}^{w}\cap \bigcup\mathcal{C}\}.\]
+
+\end{definition}
+%
+We take each world $w$ in the prior context set in turn. We evaluate the matrix
+question $\phi$ ($= \ans\ Q$) in $w$ and intersect the resulting proposition
+with the context set, thus finding those worlds in the context set that agree
+with $w$ on all the propositions in $\sv{Q}^{w}$. We collect the resulting set
+of sets of worlds to serve as the new partitioned context set.
+
+There is a tricky issue here, which is a reprise of what we discussed on
+page~\pageref{par:context-uncertainty}ff. Take again a test scenario where
+everyone knows that $a$ is a student but there's uncertainty about whether $b$
+is. And there's maximal uncertainty about who called. Now, assume that \Next is
+uttered against that background:
+
+\ex Which students called?\xe
+%
+There are worlds in the context set where $a$ and $b$ are the students, and
+other worlds where only $a$ is a student. We saw earlier that in such a context,
+it is best to rule \Last out as pragmatically infelicitous because the set of
+propositions denoted by the interrogative varies among the worlds in the context
+set. This was easy enough to do in the system we were working with at that
+point. Now, however, we are considering the possibility that what is being
+uttered is really ``\ans which students called''. That structure has different
+semantic values across the worlds in the context set simply because there are
+different true answers in those worlds (otherwise why ask the question?). %
+\note{In an earlier version of these lecture notes, it was erroneously claimed
+  that we could evade the problem this way.}%
+So, we can't enforce a presupposition that the interrogative have the same value
+(the same strong true answer) across the context set.
+
+The set of sets of worlds we would get from
+Definition~\ref{def:updatebyquestiondraftrevision} in our test scenario would
+not in fact be a partition of the context set:
+
+\begin{enumerate}[(i)]
+  \item a world $w$ where $a$ called and $b$ is not a student will be lumped
+        with any world where $a$ called and $b$ is a student, no matter whether
+        $b$ called (since the proposition that $b$ called is not in the
+        denotation in $w$ of the underlying interrogative);
+  \item a world $w'$ where $a$ called and $b$ is a student who called will be
+        lumped only with other worlds where $a$ called and $b$ is a student who
+        called;
+  \item the two sets generated by $w$ and $w'$ are not disjoint, since they both
+        contain worlds where $a$ called and $b$ is a student who called.
+\end{enumerate}
+
+The only way we can see to prevent this situation is to state directly in the
+``update by question'' rule that the update is only felicitous if it results in
+a partition:
+
+\begin{definition}[Update by question,
+  final revision]\label{def:updatebyquestionfinalrevision}%
+  To ask a question by uttering a sentence $\phi$ is to propose that the current
+  partitioned context set $\mathcal{C}$ be replaced by the new context set
+
+  \[\{p\co \exists w\in\bigcup\mathcal{C}.\ p = \sv{\phi}^{w}\cap \bigcup\mathcal{C}\}\]
+
+  If the resulting set of sets of worlds is not a partition of
+  $\bigcup\mathcal{C}$, the utterance is infelicitous.
+\end{definition}
+
+\note{In particular, note that we have derived a condition on any wide-scope
+  restriction on wh-phrases that requires the set characterized by that
+  restriction to be ``settled'' in the prior context set. It would be
+  interesting to compare this result to ideas about ``d-linking'' that are found
+  in the literature on questions.}%
+We conclude this subsection by noting that we have now encountered a kind of
+presupposition that is not grounded in the denotational semantics of the
+sentences uttered but emerges from the rules and principles of pragmatics.
+
+\subsection{Embedding under rogative verbs}
+\label{sec:embedding-rogative}
+
+Access to the intension of the LF headed by \ans also figures plausibly in the
+semantics of sentences with non-responsive (``rogative'') question-embedders,
+such as the verbs \emph{ask} and \emph{wonder}. These verbs have lexical
+meanings that suggest rough paraphrases in which \emph{know} or \emph{tell} is
+in the scope of another intensional operator, e.g., \emph{ask} = `request to be
+told', \emph{wonder} = `want to know'. Following Groenendijk \& Stokhof, let's
+hypothesize that these verbs differ in semantic type from responsive verbs.
+Their (internal) argument is of type $\type{s,\type{s,t}}$ rather than
+$\type{s,t}$. A concrete entry for \emph{wonder} along these lines is \Next.
+
+\note{$\textsc{des}$ maps an individual and a world to those worlds that satisfy
+  the individual's desires as they are in the given world.}
+\ex
+$\svt{wonder}^{w} = \lambda q_{s,st}.\lambda x_{e}.$\\
+\hfill$\forall w' [w'\in\textsc{des}(x,w) \rightarrow \forall w'' [w''\in\dox(x,w') \rightarrow q(w')(w'')=1]]$
+\xe
+
+The higher semantic type straightforwardly gives us the prediction that
+\emph{wonder} cannot combine with a \emph{that}-clause. If we attempted to
+interpret such an LF, we would encounter a type-mismatch. A \emph{that}-clause
+has an extension of type $t$ and an intension of type $\type{s,t}$. Whether we
+used plain FA or IFA, we wouldn't obtain the type-\type{s,st}-function that
+wonder is looking for. But if we embed an interrogative clause (headed by \ans)
+under \emph{wonder}, we will succeed. The extension of the mother-node of \ans
+is type \type{s,t}, and its intension is type \type{s,st}. So IFA allows us to
+interpret the structure.
+
+\begin{exercise}
+  Convince yourself that, given entry \Last, the predicted truth condition for
+  \emph{Sakina wonders who called} matches the informal paraphrase that we gave
+  in the text.
+\end{exercise}
+
+\section{Further reading}
+
+We have only scratched the surface of the rich literature on interrogatives. In
+particular, the treatment of embedded interrogatives is an ongoing and intense
+area of research. Another complex area concerns the interpretation of
+restrictions on wh-phrases, interacting with issues of pied-piping and
+reconstruction. We hope that the foregoing chapter can help with getting started
+in studying these issues.
 
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "IntensionalSemantics"
 %%% End:
+
+
+
