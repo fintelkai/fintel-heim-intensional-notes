@@ -7,6 +7,7 @@
 % Packages
 
 \RequirePackage[standard]{ntheorem} % load early, so amssymb is loaded before newtxmath
+\RequirePackage{thmtools}
 \RequirePackage{fontspec}
 \setmainfont{fbb}
 \RequirePackage[libertine,vvarbb]{newtxmath}
