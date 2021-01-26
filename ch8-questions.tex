@@ -30,7 +30,7 @@ non-declarative clause: interrogatives. These also can stand on their own:
 \a Who did Sakina see?
 \xe
 %
-And they can appear as embedded clauses:
+\kwn And they can appear as embedded clauses:
 
 \pex
 \a Melanie wonders whether Sakina saw Emily.
@@ -119,7 +119,6 @@ Here's the formal definition of a partition:
   The elements of a partition are also called its cells.
 \end{definition}
 
-\clearpage
 \note{The idea of refining the Stalnakerian model of the context by moving from
   the context set to a partitioned context set goes back to
   \cite{groenendijk-1999-interrogation}. A formally equivalent way is to model
@@ -347,16 +346,6 @@ We are ready to propose a preliminary rule of ``Update by question'':
   $\textsc{part}(\mathcal{P},\bigcup \mathcal{C})$.
 \end{restatable}
 
-In the next section, we turn to the task of compositionally deriving the
-semantic value of an interrogative.
-
-\clearpage
-\section{Compositional computation of semantic values for interrogative clauses}
-\label{sec:compositional-interrogative}
-
-\subsection{An updated version of \cite{karttunen-1977-questions}}%
-\label{sec:karttunen-1977}
-
 \note{The implementation here differs from \cite{karttunen-1977-questions} in
   not using the Montague Grammar framework; instead we presuppose a division of
   labor between syntax and semantics in line with
@@ -371,6 +360,15 @@ semantic value of an interrogative.
   do with the semantics of question-embedding constructions. So the time to
   discuss it is when we get to embedded questions. Right now we focus on matrix
   questions.}%
+In the next section, we turn to the task of compositionally deriving the
+semantic value of an interrogative.
+
+\section{Compositional computation of semantic values for interrogative clauses}
+\label{sec:compositional-interrogative}
+
+\subsection{An updated version of \cite{karttunen-1977-questions}}%
+\label{sec:karttunen-1977}
+
 Interrogative clauses are built largely with the same lexicon and syntactic
 rules as declarative clauses; but they also contain certain
 interrogative-specific morphemes, syntactic features, or functional heads that
@@ -403,7 +401,8 @@ $\sv{\text{who}^{[\textsc{wh}]}}^{w} = \lambda f_{et}.\ \exists x\ [x\ \text{is
 \xe
 %
 The meaning of \emph{who} is exactly the same as the meaning of \emph{somebody}.
-We will address the role of the feature [\textsc{wh}] in section ????.
+We will address the role of the feature [\textsc{wh}] in
+Section~\ref{sec:wh-syntax}.
 
 In the syntactic derivation of a constituent question, wh-movement applies and
 puts the wh-word above the operator in C. For the example \emph{Who did Sakina
@@ -637,14 +636,15 @@ containing the proposition that $a$ called and the proposition that $b$ called;
 while for the $a$-worlds, we get the set that contains only the proposition that
 $a$ called. How should the interrogative partition the context set?
 
-\note{Equivalently, form the big union of all the sets of propositions that are
-  the semantic value of the interrogative in worlds of the context sets:
-  \[\bigcup_{w\in c} \sv{\phi}^{w}\]}
+\clearpage
 \emph{Option 2: Collecting all the propositions}. To obtain the set of
 propositions that is used to partition the context set, we could collect all the
 propositions that for \emph{some} world in the context set are in the semantic
 value of the interrogative:
 
+\note{Equivalently, form the big union of all the sets of propositions that are
+  the semantic value of the interrogative in worlds of the context sets:
+  \[\bigcup_{w\in c} \sv{\phi}^{w}\]}
 \ex The set of propositions that is used to partition a context set $c$ upon
 the utterance of an interrogative $\phi$ is
 \[\{p\co \exists w\in c.\ p\in\sv{\phi}^w\}\]
