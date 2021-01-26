@@ -5,9 +5,7 @@ Lecture notes on intensional semantics by Kai von Fintel and Irene Heim.
 
 Preferred way to cite:
 
-```
-von Fintel, Kai and Irene Heim. 1997-2021. Intensional semantics. MIT. URL: https://github.com/fintelkai/fintel-heim-intensional-notes. 
-```
+> von Fintel, Kai and Irene Heim. 1997-2021. Intensional semantics. MIT. URL: https://github.com/fintelkai/fintel-heim-intensional-notes. 
 
 These notes have been shared with the semantics community for years. We are now making the source files available as well. 
 
