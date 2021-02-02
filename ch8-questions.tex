@@ -123,10 +123,11 @@ Here's the formal definition of a partition:
   the context set to a partitioned context set goes back to
   \cite{groenendijk-1999-interrogation}. A formally equivalent way is to model
   the context as an equivalence relation (see, for example,
-  \cite{hulstijn-1997-issues}). We will later see approaches that give a
-  partition semantics to interrogatives. It's important to distinguish the two
-  moves. As we'll see in this section, one can have a partition pragmatics
-  without a partition semantics.}%
+  \cite{jaeger-1996-only-updates} and \cite{hulstijn-1997-issues}). We will
+  later see approaches that give a partition semantics to interrogatives. It's
+  important to distinguish the two moves. As we'll see in this section, one can
+  have a partition pragmatics without a partition semantics. This theme is
+  explored in much more sophisticated detail in \cite{fox-2018-partition-exh}.}%
 \note{\cite{starr-2020-imperatives} adds to the partitioned context set model a
   way of tracking the speech act effect of imperatives.}%
 \note{Our proposed context model is simple compared to some other well-known
@@ -336,6 +337,13 @@ transitive). It holds between any two worlds that give the same truth-value to
 each proposition in the ``seed set''. The corresponding partition consists of
 the subsets of $c$ that are made up of worlds that are cell-mates.
 
+\note{Note that this update rule implies that each new question ``wipes out''
+  the current partitioning of the context set and replaces it by a new one. This
+  may not be right and isn't the only way we can go. We may want a system where
+  successive questions can serve to \emph{refine} the partition. Even more
+  complex possibilities exists, as for example in
+  \cite{roberts-2012-information-structure}.}%
+%
 We are ready to propose a preliminary rule of ``Update by question'':
 
 \begin{restatable}[Update by question (draft)]{definition}{updatebyquestiondraft}%
@@ -456,8 +464,9 @@ characteristic function of a set of propositions). %
   variable assignment, see H\&K ch.5}%
 Let's compute the meaning of this LF:
 
-\noindent\begin{minipage}{1.5\textwidth}
+\noindent
 \ex Computation for LF \Last:\label{ex:wh-comp}\\
+\begin{minipage}{1.5\textwidth}
 $\sv{1.\ \text{who}\ 2.\ [?\ t_{1}]\ \text{Sakina see}\ t_{2}}^{w,\emptyset}$\\
 {\small = (by Predicate Abstraction)}\\
 $\lambda p.\ \sv{\text{who}\ 2.\ [?\ t_{1}]\ \text{Sakina
@@ -471,7 +480,9 @@ $\lambda p.\ \exists x\ [\ x\ \text{is human in}\ w\ \&\ \sv{[?\ t_{1}]\ \text{S
 {\small = (by IFA)}\\
 $\lambda p.\ \exists x\ [\ x\ \text{is human
   in}\ w\ \&\ \sv{?\ t_{1}}^{w,[1\rightarrow p,2\rightarrow x]}(\lambda w'.\ \sv{\text{Sakina
-    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}) = 1\ ]$\\
+    see}\ t_{2}}^{w',[1\rightarrow p,2\rightarrow x]}) = 1\ ]$
+\end{minipage}
+\clearpage\begin{minipage}{1.5\textwidth}
 {\small = (by FA and dropping irrelevant superscripts)}\\
 $\lambda p.\ \exists x\ [\ x\ \text{is human
   in}\ w\ \&\ \svt{?}(\sv{t_{1}}^{[1\rightarrow p,2\rightarrow x]})(\lambda w'.\ \sv{\text{Sakina
@@ -488,10 +499,10 @@ $\lambda p.\ \exists x\ [\ x\ \text{is human
 $\lambda p.\ \exists x\ [\ x\ \text{is human
   in}\ w\ \&\ p = \lambda w'.\ \text{Sakina
   sees}\ x\ \text{in}\ w'\ ]$\\
-\xe
 \end{minipage}
+\xe
 %
-\note{This is the ANSPOSS in \cite{hagstrom-2003-GLOT-questions}'s
+\note{This is the \textsc{ansposs} in \cite{hagstrom-2003-GLOT-questions}'s
   terminology.}%
 This characterizes a set of propositions that contains one proposition per
 human-in-$w$: the proposition that that human was seen by Sakina.
@@ -499,10 +510,12 @@ human-in-$w$: the proposition that that human was seen by Sakina.
 How about polar and alternative questions? Can we just posit the same operators
 in the C-head? Let's try.
 
+\note{Here we show an LF and computation that includes the vacuous operator. As
+  an exercise, convince yourself that in the case of polar questions, a simpler
+  structure without OP is likewise interpretable, with equivalent results.}%
 \ex Did Sakina see Emily?\\
 \null[$_{C}$ ? OP] Sakina see Emily\\
-OP 1 [ ? $t_{1}$] Sakina see Emily
-\xe
+OP 1 [ ? $t_{1}$] Sakina see Emily \xe
 
 \ex Computation for LF of the polar question \Last:\\
 $\sv{1.\ [?\ t_{1}]\ \text{Sakina see Emily}}^{{w,\emptyset}}$\\
@@ -532,6 +545,7 @@ partition of the context set: one cell containing worlds where the proposition
 is true and another where it isn't. Any relevant response needs to eliminate one
 of the cells.
 
+\clearpage
 To complete the current section, we consider an alternative question:
 %
 \note{The slashes are intended as a crude representation of the distinctive
@@ -956,7 +970,12 @@ Let's put this entry to work in a computation for the example sentence.
 \pex\label{ex:knows-who-comp}%
 \a computation of presupposition:\\
 Let $w$ be a world. Then \\
-$\svt{Sakinda knows who called}^{w}$ is defined\\
+$\svt{Sakina knows who called}^{w}$ is defined\\
+\note{Observe that the mother node of \emph{know} is interpreted by plain
+  Functional Application (not by Intensional Functional Application, which would
+  have applied if \emph{know} were taking a declarative complement). This is
+  because the \emph{extension} of the constituent headed by \ans is of type
+  \type{s,t}.}%
 {\small iff (by FA twice)}\\
 $\svt{know}^{w}(\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w})(s)$ is defined\\
 {\small iff (by entry for \emph{know})}\\
@@ -965,11 +984,11 @@ $\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w}(w)=1$\\
 $\svt{\ans}^{w}\big(\svt{1 who 2 ?-$t_1$ $t_2$ called}^{w}\bigr)(w)=1$\\
 {\small iff by entry for \ans}\\
 $\forall p [ \svt{1 who 2 ?-$t_1$ $t_2$ called}^{w}(p)=1\ \& p(w)=1 \rightarrow p(w)=1 ]$\\
-This is a tautology, so we know that $\svt{Sakinda knows who called}^{w}$ is
+This is a tautology, so we know that $\svt{Sakina knows who called}^{w}$ is
 defined for all $w$.
 \a computation of truth condition:\\
 Let $w$ be a world. Then\\
-$\svt{Sakinda knows who called}^{w} = 1$\\
+$\svt{Sakina knows who called}^{w} = 1$\\
 {\small iff (by FA twice)}\\
 $\svt{know}^{w}(\svt{\ans 1 who 2 ?-$t_1$ $t_2$ called}^{w})(s) = 1$\\
 {\small iff (by entry for \emph{know} and truth of presupposition)}\\
@@ -987,22 +1006,20 @@ $\forall p\forall x [x\ \text{is a human
   in}\ w\ \&\ p=\lambda w''.\ x\ \text{called
   in}\ w''\ \&\ p(w)=1 \rightarrow p(w')=1 ]$\\
 {\small iff (by logic of identity)}\\
-$\forall x [ x\ \text{is a human
-  in}\ w\ \&\ [\lambda w''.\ x\ \text{called
+$\forall x [ x\ \text{is a human in}\ w\ \&\ [\lambda w''.\ x\ \text{called
   in}\ w''](w)=1 \rightarrow [\lambda w''.\ x\ \text{called in}\ w''](w')=1]$\\
 {\small iff (by $\lambda$-reduction)}\\
 $\forall x [ x\ \text{is a human in}\ w\ \&\ x\ \text{called
-  in}\ w \rightarrow x\ \text{called in}\ w']$
-\a resuming main computation:
+  in}\ w \rightarrow x\ \text{called in}\ w']$ \a resuming main computation:
 \dots \\
 {\small iff (by plugging in result of embedded computation)}\\
-$\forall w' [w'\in \dox(s,w) \rightarrow \forall x [ x\ \text{is a human in}\ w\ \&\ x\ \text{called
+$\forall w' [w'\in \dox(s,w) \rightarrow \forall x [ x\ \text{is a human
+  in}\ w\ \&\ x\ \text{called
   in}\ w \rightarrow x\ \text{called in}\ w']]$\\
 {\small iff (by logic of quantifiers)}\\
 $\forall x [x\ \text{is a human in}\ w\ \&\ x\ \text{called
   in}\ w \rightarrow \forall w' [w'\in \dox{s,w} \rightarrow x\ \text{called
-  in}\ w']]$
-\xe
+  in}\ w']]$ \xe
 %
 In other words, the sentence \emph{Sakina knows who called} is true in $w$ if
 and only if, for every person who in fact called in $w$, Sakina believes (in
@@ -1062,6 +1079,19 @@ of this.) This looks like a good way out \dash at least at first. But when we
 look at further problem cases, we will come to see it is a move that is neither
 sufficient nor necessary.
 
+\note{The problem we're discussing here was noticed by
+  \cite{karttunen-1977-questions} in a footnote, and he fixed it by complicating
+  his lexical entry for interrogative-taking \emph{know}. He ended up stating
+  the truth condition in the form of a disjunction, with a special clause for
+  the case where the question-denotation only contains false propositions.
+  \cite{heim-1994-interrogatives-IATL} showed how to generalize Karttunen's
+  special clause to a general solution for all the problem cases we consider in
+  this section. The solution we will present in these lecture notes is not quite
+  the same as Heim's. See papers by
+  \cite{rullmann-beck-1998-presupposition-which},
+  \cite{beck-rullmann-1999-flexible}, \cite{sharvit-2002-embedded-questions},
+  and \cite{sharvit-guerzoni-2003-reconstruction} for discussion and
+  comparison.}%
 Let's return to the case of the embedded constituent question in
 \refx{ex:knows-who} and scrutinize the truth conditions we derived in
 \refx{ex:knows-who-comp} a bit more carefully. Suppose that w is a world in
