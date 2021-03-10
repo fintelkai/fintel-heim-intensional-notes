@@ -1294,15 +1294,343 @@ interpret the structure.
   in the text.
 \end{exercise}
 
-\section{Further reading}
+\section{Wh-movement with pied-piping and reconstruction}
+\label{sec:pied-piping}
 
-We have only scratched the surface of the rich literature on interrogatives. In
-particular, the treatment of embedded interrogatives is an ongoing and intense
-area of research. Another complex area concerns the interpretation of
-restrictions on wh-phrases, interacting with issues of pied-piping and
-reconstruction. We hope that the foregoing chapter can help with getting started
-in studying these issues.
+As an example of the phenomenon of so-called pied-piping, we will analyze the
+sentence \emph{How many cats did you adopt?} Before we get to the point that
+makes the example interesting for our purposes, we must fill in a rudimentary
+account of plurals and gradability.
 
+\subsection{Background on plurals and \emph{many}}
+\label{sec:backgr-plur-many}
+
+The basic idea in most current semantic treatments of plural DPs is that plural
+definites and pronouns denote entities in $D_{e}$, just like singular definites,
+pronouns, and proper names. The only difference is that the entities denoted by
+plurals are more complex (and typically spatially discontinuous). A distinction
+is made within the domain $D_{e}$, between so-called ``atoms'' or ``atomic
+individuals'' (the referents of singular DPs) and ``pluralities'' or
+``non-atomic individuals'' (the referents of plural DPs). Non-atomic individuals
+contain atomic individuals as (proper) parts; e.g., if Lucy is one of the
+players, then $\svt{Lucy}$ (i.e., Lucy) is an atomic part of
+$\svt{the players}$. An atomic individual, on the other hand, has no atomic
+parts other than itself. (An atom counts as an atomic part of itself.)
+
+Given that $D_{e}$ contains pluralities along with atoms, predicate extensions
+of type $\type{e,t}$ are functions that apply to both atoms and pluralities. In
+the case of common nouns, English has a morphological number distinction which
+seems to have semantic import:
+
+\pex
+\a $\svt{cat}^{w} = \lambda x.$ is a cat in $w$
+\a $\svt{cats}^{w} = \lambda x.$ every atomic part of $x$ is a cat in $w$
+\xe
+%
+\note{Notice that an entity that $\svt{cats}^{w}$ maps to 1 is not
+  \emph{necessarily} a plurality. As interpreted in \Last[b], the plural noun
+  \emph{cats} is also true of a single cat, because of the fact that an atom is
+  an atomic part of itself. It would be possible to revise \Last[b] so that it
+  requires $x$ to be non-atomic. But as we will see below, the current
+  formulation actually works better. The reason is, in a nutshell, that ``One.''
+  is a perfectly good answer to a \emph{how-many} question.}%
+Being a cat entails being an atomic individual (this is how we agree to
+understand our metalanguage). Therefore, the denotation of the singular noun as
+defined in \Last[a] maps every plurality to 0. The pluralized noun in \Last[b],
+on the other hand, maps to 1 those pluralities whose atomic parts are all cats.
+
+Verbs can show morphological number too, but we assume that this is always due
+to morphological agreement with a number-marked subject, and that the number
+morphology on the verb is not interpreted itself. As far as semantics is
+concerned, verbs are ``number neutral'' and typically can be true
+indiscriminately of both atoms and pluralities. This is reflected, for example,
+in a lexical entry like \Next.
+
+\ex $\svt{meow}^{w} = \lambda x.$ every atomic part of $x$ meows in $w$ \xe
+%
+The condition in \Last can be met by both pluralities and atoms. A plurality is
+mapped to 1 iff all its atomic parts meow, and an atom is mapped to 1 if it
+itself meows. (Recall that every atom counts as an atomic part of itself.)
+
+We can count the atomic parts of a plural individual. For example, the plural
+individual composed of Lucy, Kathellen, and Shanice has 3 atomic parts. Let's
+have a concise notation for this.
+
+\ex Let $x$ be an element of $D_{e}$. Then\\
+    $\#(x) :=$ the cardinality of the set $\{y\co y\ \text{is an atomic part
+      of}\ x\}$.
+\xe
+
+\note{Actually, Hackl assumes (with most of the literature on adjectives and
+  gradability) that there is an additional basic type $d$ (for ``degrees'')
+  separate from type $e$. The number argument of \emph{many} is a special case
+  of a degree argument, and the type for \emph{many} is then
+  $\type{d,\type{et,\type{et,t}}}$.}%
+\note{Hackl's analysis implies that the superficially simplest uses of
+  \emph{many}, as in \emph{Many cats meowed}, are actually more complex at LF:
+  the argument position of \emph{many} is bound by a covert \textsc{pos}
+  (``positive operator''), which is a quantifier over numbers (degrees) and
+  means something like `a number (degree) above the contextually specified
+  threshold'.}%
+With this little bit of plural semantics in place, we can now introduce
+\cite{hackl-2001-thesis}'s semantics for \emph{many} and an appropriate
+semantics for interrogative \emph{how} that will go with it. Hackl proposes that
+\emph{many} is not by itself a quantificational determiner of type
+$\type{et,\type{et,t}}$. Rather it is looking for an argument which denotes a
+number, and only after it has been saturated with such an argument, the
+resulting phrase is a quantificational determiner. So the type of \emph{many} is
+type $\type{e,\type{et,\type{et,t}}}$ \dash assuming that numbers are abstract
+individuals of some kind, hence members of $D_{e}$ \dash and its entry is as in
+\Next.
+
+\ex $\svt{many} = \lambda n\co n$ is a number.
+$\lambda f_{et}.\lambda g_{et}.\ \exists x [\#(x)=n\ \&\ f(x)=1\ \&\ g(x)=1]$
+\xe
+%
+When building a sentence with \emph{many}, in the simplest case we would fill
+the first argument slot of \emph{many} with a word that refers to a number. This
+might be an anaphoric demonstrative pronoun \emph{that}, which in appropriate
+discourse contexts can refer to a previously mentioned number, say the number 3.
+Or it could be a numeral word, like \emph{three}, which we take here to have a
+meaning of type $e$ and be a proper name of the number 3. These options give us
+interpretable syntactic representations like \Next[a,b].
+
+\pex\label{ex:that-three}
+\a\null [ [ that$_{7}$ many ] cats ] meowed
+\a\null [ [ three many ] dogs ] barked
+\xe
+
+\Last[a] is straightforwardly pronounced as it stands, whereas for \Last[b],
+Hackl assumes that \emph{many} is unpronounced after numeral words, so this
+structure surfaces as \emph{Three dogs barked}. Let us compute truth-conditions,
+using \LLast. Suppose we have a contextually given assignment for \Last[a] which
+maps the variable 7 to the number 3, and we evaluate the sentence in the actual
+world $@$. Then, by using FA three times to apply $\svt{many}$ to its three
+arguments, we obtain the truth-condition in \Next.
+
+\ex $\exists x [\#(x)=3\ \&\ \svt{cats}^{@}(x)=1\ \&\ \svt{meow}^{@}(x)=1]$ \xe
+%
+Now we use our entries for \emph{cats} and \emph{meow}, and this becomes \Next.
+
+\ex $\exists x [ \#(x) = 3$\\
+$\&$ every atomic part of $x$ is a cat in @\\
+$\&$ every atomic part of $x$ meows in @ $]$
+\xe
+%
+In other words, there is a plurality composed of three meowing cats. Which is
+loud but correct.
+
+\clearpage
+\subsection{\emph{How many}-questions}
+\label{sec:how-many-qs}
+
+\note{The main source for the argument in this section is Arnim von Stechow's
+  paper ``Against LF pied-piping'' \parencite{stechow-1996-LFPiedPiping}.}%
+In a \emph{how-many} question, the argument slot that was saturated by that or
+three in \refx{ex:that-three} is instead occupied by the wh-word \emph{how}. In
+Karttunen’s theory, this will be an existential quantifier, equivalent to
+\emph{some number}.
+
+\ex $\svt{how} = \lambda f_{et}.\ \exists n [n\ \text{is a
+  number}\ \&\ f(n)=1]$\\
+\note{For Hackl, it would be type $\type{dt,t}$, a generalized quantifier over
+  degrees.}%
+(type $\type{et,t}$, a generalized quantifier)
+\xe
+%
+This semantic type is not interpretable in situ as the sister of \emph{many},
+and must undergo (covert) movement for interpretability. With this in mind,
+let’s attempt a syntactic derivation for the question \emph{How many cats did
+  you adopt?}
+
+\pex\label{ex:LF-cats}
+\a\null [$_{C}$ ? OP] [you adopted how many cats]
+\a OP 5 [ [? $t_{5}$] [you adopted how many cats] ]
+\a OP 5[how many cats 1 [[? $t_{5}$] you adopted $t_{1}$]
+\a OP 5[how 2[$t_{2}$ many cats 1[[? $t_{5}$] you adopted $t_{1}$] ] ]
+\xe
+%
+We have three movements that derive the LF from the base generated structure in
+\Last[a]: the movement of the empty OP in \Last[b], the wh-movement of the
+wh-phrase \emph{how many cats} in \Last[c], and the QR of the quantifier
+\emph{how} in \Last[d].
+
+We can check the semantic types to confirm that we have derived an interpretable
+structure (do this as an exercise). Let’s compute what \Last[d] means. (The details
+are left as an exercise. Here we conflate sets of propositions with their
+characteristic functions.)
+
+\ex $\svt{\Last[d]}^{@} =$\\
+\dots\\
+$= \{p\co \exists n\ [n\ \text{is a
+  number}\ \&\ \exists x [\#(x)=n\ \&\ \svt{cats}^{@}(x)=1]\ \&$\\
+\hfill$p = \lambda w.\svt{adopt}^{w}(x)(\text{you})]\}$
+\xe
+%
+\note{We are exploiting the equivalence of various scopal arrangements in a
+  formula with existential quantifiers and conjunctions. The following four are
+  all equivalent.
+
+  $\exists x[Fx\ \&\ \exists y[Rxy\ \&\ Gy]]$\\
+  $\exists x\exists y[Fx\ \&\ Rxy\ \&\ Gy]$\\
+  $\exists y\exists x[Fx\ \&\ Rxy\ \&\ Gy]$\\
+  $\exists y[\exists x[Fx\ \&\ Rxy]\ \&\ Gy]$}%
+With a little bit of Predicate Logic reasoning, we can rewrite this equivalently
+as follows:
+
+\ex $\{p\co \exists x [\boxed{\exists n [n\ \text{is a
+  number}\ \&\ \#(x)=n]}\ \&\ \svt{cats}^{@}(x)=1\ \&$\\
+\hfill$p = \lambda w.\svt{adopt}^{w}(x)(\text{you})]\}$
+\xe
+%
+We can now contemplate the underlined part and convince ourselves that this part
+is a tautology. It just says that $x$ has some number or other of atomic parts,
+which cannot fail to be true. So we might as well drop this conjunct and rewrite
+\Last as \Next.
+
+\ex $\{p\co \exists x [\svt{cats}^{@}(x)=1\ \&\
+p = \lambda w.\svt{adopt}^{w}(x)(\text{you})]\}$
+\xe
+%
+Interestingly now, this is precisely the meaning we would have derived for the
+question \emph{Which cats did you adopt?} In other words, if
+\refx[d]{ex:LF-cats} really were the LF (or one of the LFs) for the \emph{how-
+  many}-question \emph{How many cats did you adopt?}, then we would be making
+the bad prediction that this question is synonymous with (or at least shares a
+reading with) the \emph{which}-question \emph{Which cats did you adopt?} This
+would be unfortunate for our theory.
+
+Upon closer inspection of \refx[d]{ex:LF-cats}, however, it turns out that our
+theory does not actually generate this LF. We have neglected to check whether
+\refx[d]{ex:LF-cats} conforms to the Wh-Licensing Principle, repeated here.
+
+\ex
+At LF, a phrase $\alpha$ occupies a specifier position of \emph{?} if and only
+if $\alpha$ has the feature [WH].
+\xe
+%
+In \refx[d]{ex:LF-cats}, we have two phrases that are scoped above ?, namely
+\emph{how} and \emph{$t_{2}$ many cats}. Let’s say that the positions they
+occupy both count as specifier positions of ? (similar to what one has to say
+for multiple questions like \emph{who ate what?} \dash see your homework). Then
+\Last would require that both of these phrases have the feature [WH]. But only
+\emph{how} actually does, at least on our current assumption that [WH] is a
+lexical property possessed by only a small set of words. The other phrase that
+is scoped above ? in \refx[d]{ex:LF-cats} is \emph{$t_{2}$ many cats}, which
+does not carry the feature [WH]. So the structure \refx[d]{ex:LF-cats} is
+filtered out by the Wh-Licensing principle as syntactically ill-formed. And this
+is a good thing, because it means we don't generate the unwelcome reading in
+\LLast.
+
+We still have to worry, however, about how we generate the reading that our
+example actually does have. Is there a second, well-formed, LF for our example?
+The answer is yes if our syntax allows for ``reconstruction'', i.e. some
+mechanism by which overtly moved phrases can be restored to (one of) their
+pre-moved positions at LF. In order to satisfy the Wh-Licensing Principle,
+reconstruction must apply to the phrase \emph{$t_{2}$ many cats} (though not, of
+course, to \emph{how}). Where can this phrase be reconstructed to? Well, if we
+restored it all the way down to its original base position as the object of
+\emph{adopt}, it wouldn't be interpretable there, because quantifiers are not
+interpretable in object positions. But if we can assume that wh-movement
+proceeds (or at least is allowed to proceed) successive cyclically, and that an
+object wh-phrase can stop over e.g. at the edge of VP before it moves on to
+Spec-CP, we can target this intermediate landing site for reconstruction.
+(Assuming the VP-internal subject hypothesis, VPs are semantically of type $t$
+and hence quantifiers are interpretable at their edges.) By means of
+reconstruction, we can thus obtain another LF that is both interpretable and in
+compliance with the WH-Licensing principle.
+
+\ex OP 5[how 2[[? $t_{5}$] $t_{2}$ many cats 1[you adopted $t_{1}$] ] ] \xe
+%
+The denotation of \Last (which you should compute as an exercise!) is \Next.
+
+\ex $\{p\co \exists n [n\ \text{is a
+  number}\ \&\ p = \lambda w.\ \exists x [\#(x)=n\ \&\ \svt{cats}^{w}(x)=1\ \&\
+\svt{adopt}^{w}(x)(\text{you})]\}$
+\xe
+%
+This set contains one proposition per number. It contains the proposition that
+you adopted 1 cat, the proposition that you adopted 2 cats, the proposition that
+you adopted 3 cats, etc. This prediction accords well with what we feel are
+expected answers to the question \emph{how many cats did you adopt?}
+
+\subsection{More on reconstruction}
+\label{sec:more-reconstruction}
+
+Earlier in these notes in Section~\ref{sec:syntactic-reconstruction}, we briefly
+introduced a version of the ``copy theory of movement'', in which reconstruction
+can be implemented as deletion of a higher copy. We reproduce the relevant
+passage here:
+
+\begin{quote}
+  \begin{small}
+    This assumes that movement generally
+    proceeds in two separate steps, rather than as a single complex operation as we
+    have assumed so far. Recall that in H\&K, it was stipulated that every
+    movement effects the following four changes:
+
+    \begin{enumerate}
+      [(i)]
+      \item a phrase $\alpha$ is deleted,
+      \item an index \emph{i} is attached to the resulting empty node (making it a
+      so-called trace, which the semantic rule for ``Pronouns and Traces''
+      recognizes as a variable),
+      \item a new copy of $\alpha$ is created somewhere else in the tree (at the
+      ``landing site''), and
+      \item the sister-constituent of this new copy gets another instance of the index
+      \emph{i} adjoined to it (which the semantic rule of Predicate Abstraction
+      recognizes as a binder index).
+    \end{enumerate}
+
+    If we adopt the Copy Theory, we assume instead that there are three distinct
+    operations:
+
+    \begin{description}
+
+      \item[``Copy'':] Create a new copy of $\alpha$ somewhere in the tree, attach an
+            index \emph{i} to the original $\alpha$, and adjoin another instance of
+            \emph{i} to the sister of the new copy of $\alpha$. (= steps (ii), (iii), and
+            (iv) above)
+
+      \item[``Delete Lower Copy'':] Delete the original $\alpha$. (= step (i) above)
+
+      \item[``Delete Upper Copy'':] Delete the new copy of $\alpha$ and both instances
+            of \emph{i}.
+    \end{description}
+    %
+    The Copy operation is part of every movement operation, and can happen anywhere
+    in the syntactic derivation. The Delete operations happen at the end of the LF
+    derivation and at the end of the PF deletion. We have a choice of applying
+    either Delete Lower Copy or Delete Upper Copy to each pair of copies, and we can
+    make this choice independently at LF and at PF. (E.g., we can do Copy in the
+    common part of the derivation and than Delete Lower Copy at LF and Delete Upper
+    Copy at PF.)
+  \end{small}
+\end{quote}
+
+When we try to apply this machinery to reconstruction of pied-piped material in
+wh-movement, there is a detail that needs attention: After having created two
+copies (or more) of \emph{how many cats}, what happens when we ``move''
+\emph{how}? Presumably we create another, higher, copy of \emph{how} and coindex
+it with the lower copy of \emph{how}. With which lower copy of \emph{how}? With
+the one in the uppermost copy of \emph{how many cats}? If so, then after
+deletion of that uppermost copy of \emph{how many cats}, the binder index next
+to the top copy of \emph{how} will no longer bind any trace and the structure
+will not be interpretable. What we want is to end up with is an LF in which the
+top copy of \emph{how} binds a variable in a lower (retained) copy of \emph{how
+  many cats}. There may be various ways to achieve this. Perhaps we can simply
+choose a derivation in which \emph{how} ``moves'' out of a lower copy of
+\emph{how many cats}, not out the highest copy.
+(\cite{richards-1998-PrincipleMinimalCompliance}'s Principle of Minimal
+Compliance might explain why this long movement is legitimate and yet relies for
+its legitimacy on the previous movement of the larger phrase.) Alternatively, we
+may posit a general principle ``Copies must remain copies'', which says that, as
+long as a structure contains more than one copy of a given phrase, every
+alteration to one of these copies must identically affect them all. In our case,
+this would mean that when we create the top copy of \emph{how}, we must coindex
+it with all its existing copies, in the highest as well as all lower instances
+of \emph{how many cats}. This principle could hopefully be made to fall out from
+a suitable formalization of copy theory, perhaps in a multi-dominance framework.
 
 %%% Local Variables:
 %%% mode: latex
