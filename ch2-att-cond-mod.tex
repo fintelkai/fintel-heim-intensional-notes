@@ -446,11 +446,14 @@ complications become necessary.
   \ex\label{ex:embedded-if}
   Allie believes that if there's an earthquake, this house will collapse.
   \xe
+  %
+  You don't need to analyze the internal make-up of the antecedent and the
+  consequent of the conditional.
 \end{exercise}
 
 \begin{exercise}
   Here's a potentially simpler analysis of conditionals. What if the silent
-  pronoun were of type \type{s,t}, a set of worlds? \emph{If}
+  pronoun were of type \type{s,t}, a set of worlds? The connective \emph{if}
   would then take the contextually assigned set of worlds and say that all
   the worlds in that set in which the antecedent is true are worlds where the
   consequent is true. Spell out the details of this idea. How would it fare when
@@ -472,10 +475,11 @@ be addressed.
 
 \subsection{Syntactic assumptions} \label{sec:synt-assumpt-1}
 
-% \note{The issue of raising vs. control will probably be taken up later. If you
-% are eager to get started on it and other questions of the morphosyntax of
-% modals, read the handout from an LSA class Sabine and Kai taught some years
-% ago: \url{http://web.mit.edu/fintel/lsa220-class-2-handout.pdf}.}
+\note{To explore questions about the syntax-semantics interface of modals, a
+  good place to start is a handout by Kai von Fintel and Sabine Iatridou from an
+  LSA class: \url{https://web.mit.edu/fintel/lsa220-class-2-handout.pdf}. See
+  also \cite{iatridou-zeijlstra-2013-NegationPolarityDeonticModals} and
+  \cite{barbiers-vandooren-2017-ModalAuxiliaries}.}%
 We will assume, at least for the time being, that a modal like \expression{may}
 is a \term{raising} predicate (rather than a \term{control} predicate), i.e.,
 its subject is not its own argument, but has been moved from the
@@ -509,13 +513,14 @@ full sentence as their semantic argument. Now then, what do modals mean?
 
 \subsection{Quantification over possible worlds} \label{sec:quant-over-poss}
 
-\note{This idea goes back a long time. It was famously held by Leibniz,
-  but there are precedents in the medieval literature; see
-  \cite{knuuttila-2003-modality-medieval}. See \cite{copeland-2002-genesis}
-  for the modern history of the possible worlds analysis of modal expressions.}%
-The basic idea of the possible worlds semantics for modal expressions is that they
-are quantifiers over possible worlds. Toy lexical entries for \expression{must}
-and \expression{may}, for example, would look like this:
+\note{This idea goes back a long time. It was famously held by Leibniz, but
+  there are precedents in the medieval literature; see
+  \cite{knuuttila-2021-MedievalTheoriesModality}. See
+  \cite{copeland-2002-genesis} for the modern history of the possible worlds
+  analysis of modal expressions.}%
+The basic idea of the possible worlds semantics for modal expressions is that
+they are quantifiers over possible worlds. Toy lexical entries for
+\expression{must} and \expression{may}, for example, would look like this:
 
 \ex $\sv{\mbox{must}}^{w,g} = \lambda p_{\type{s,t}}.\ \forall w'\co p(w') =
 1$. \xe
@@ -1297,7 +1302,7 @@ consistent, by which we mean that there's at least one world where all of the
 propositions in the set are true:
 
 \ex A set of propositions $\mathcal{P}$ is \term{consistent} relative to a set
-of worlds $W$ iff $\exists w\in W\co \forall p\in\mathcal{P}\co p(w)=1)$. \xe
+of worlds $W$ iff $\exists w\in W\co \forall p\in\mathcal{P}\co p(w)=1$. \xe
 
 From any consistent set of propositions, we can retrieve the set of worlds
 characterized by it: those worlds such that each proposition in the set is true
@@ -1310,16 +1315,21 @@ grand intersection of the set of propositions:
 
 The semantics of the modal \expression{must}, for example, can now be rewritten:
 
-\ex \(\exts{must} = \lambda \mathcal{M}_{\type{s,\type{\type{st,t}}}}.\ \lambda
+\ex \(\exts{must} = \lambda \mathcal{M}_{\type{s,\type{st,t}}}.\ \lambda
 p.\ \bigcap(\mathcal{M}(w)) \subseteq p\) \xe
 %
+\note{The type of $\mathcal{M}$ in unabbreviated form is
+  $\type{s,\type{\type{s,t},t}}$. Officially, this is the type of functions from
+  worlds to functions from propositions (themselves functions from worlds to
+  truth-values) to truth-values. Set-talk, as used in the main text, is easier:
+  $\mathcal{M}$ maps worlds to sets of propositions.}%
 The context supplies a function $\mathcal{M}$ from worlds to sets of
 propositions and \expression{must} claims that when applied to the evaluation
 world, $\mathcal{M}$ yields a set of propositions that jointly entail the
 prejacent $p$, or in other words: all the worlds where all the propositions in
 $\mathcal{M}(w)$ are true are worlds where the prejacent $p$ is true.
 
-Kratzer called functions of type $\type{s,\type{\type{st,t}}}$
+Kratzer called functions of type $\type{s,\type{st,t}}$
 \term{conversational backgrounds} and used the term \term{modal base} for the
 conversational backgrounds that restrict modal operators. She also sometimes
 calls the resulting sets of propositions \term{premise sets}.
@@ -1430,7 +1440,7 @@ backgrounds.
   \refx{convers} will be one-to-one. \qed
 \end{exercise} 
 
-\section*{Further readings}
+\section{Further readings}
 
 We have just put in place some of the basics of the analysis of attitudes,
 conditionals, and modals. Much of the work in this area will become accessible
@@ -1459,13 +1469,15 @@ Two introductory readings on conditionals are
 The most important background readings on modals are the two papers
 \cite{kratzer-1981-notional,kratzer-1991-modality}. There are updated versions
 of Kratzer's classic papers in her volume ``Modals and conditionals''
-\parencite{kratzer-2012-book}. A major resource on modality is Paul
-Portner's book: \cite{portner-2009-modality-book}. You might also profit from
-some survey-ish type papers on modals and modality: \cite{fintel-2005-modality},
-\cite{fintel-gillies-2007-ose2}, \cite{swanson-2008-modality},
-\cite{hacquard-2009-hsk-modality}.
+\parencite{kratzer-2012-book}. A major resource on modality is Paul Portner's
+book: \cite{portner-2009-modality-book}. You might also profit from some
+survey-ish type papers on modals and modality: \cite{fintel-2005-modality},
+\cite{fintel-gillies-2007-OpinionatedGuideEpistemicModality},
+\cite{swanson-2008-modality}, \cite{hacquard-2011-Modality}. Finally,
+Condoravdi's commentary on Kratzer's ``Notional category'' paper:
+\cite{condoravdi-2022-KratzerNotionalCategoryModality}.
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "ik-book"
+%%% TeX-master: "IntensionalSemantics"
 %%% End:

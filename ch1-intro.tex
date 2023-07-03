@@ -59,7 +59,7 @@ in the \term{temporal} dimension:
 \ex At noon yesterday, it was snowing. \xe
 %
 This sentence makes a claim not about snow now but about snow at noon yesterday,
-a different time from now. We will look at temporal semantics in Part 2 of this
+a different time from now. We will look at temporal semantics later in this
 book.
 
 \kwn%
@@ -71,7 +71,7 @@ book.
   (after the four dimensions of space and time). Take a look at the original
   intro to \emph{The Twilight Zone}:
   \url{https://www.youtube.com/watch?v=vB1Ot9MEOOs}}%
-In Part 1 of this book, we will focus on what might be called the \term{modal}
+In the beginning, we will focus on what might be called the \term{modal}
 dimension. Here's an example of modal displacement:
 
 \ex \term{counterfactual conditional}\\
@@ -85,7 +85,6 @@ us), a merely \term{possible world}.
 
 Natural language abounds in modal constructions (see
 \cite{kratzer-1981-notional}). Here are some other examples:
-
 \lingset{sampleexno=(12)}%
 %
 \ex \term{Modal Auxiliaries}\\
@@ -99,8 +98,13 @@ Miriam believes that it is snowing. \xe
 
 \ex~ \term{Evidentials}\\
 It appears that it is snowing.\xe
-
-\ex~ \term{Habituals}\\
+%
+\note{What's modal about \Next and \NNext? Consider an example like
+  \expression{This can opens at the top.} It's well possible that this can (or
+  any of its kind) has not and will not ever be opened. Maybe it's meant to be
+  displayed on a collector's shelf. So, our sentence must be talking about
+  opening in some other possible world(s).}%
+\ex[aboveexskip=-15pt] \term{Habituals}\\
 Ellen smokes. \xe
 
 \ex~ \term{Generics}\\
@@ -181,7 +185,7 @@ is a way that things might have been. In the actual world, there are two coffee
 mugs on my desk, but there could have been more or less. So, there is a possible
 world \dash albeit a rather bizarre one \dash where there are 17 coffee mugs on
 my desk. We join Heim \& Kratzer in adducing this quote from
-\citet[1f.]{lewis-1986-plurality-worlds}:
+\citet[1f.]{lewis-1986-PluralityWorlds}:
 
 \begin{quote}
   \marginfig{lewis.jpg}%
@@ -215,8 +219,7 @@ my desk. We join Heim \& Kratzer in adducing this quote from
 \note{It's possible that your previous inventory also included pluralities,
   events, and/or degrees. We're just adding to the menagerie now. Questions
   arise about what the limits are and whether the inventory is universal. For
-  some discussion, see the manuscript ``A typology of semantic entities''
-  \parencite{rett-2019-types}.}%
+  some discussion, see \cite{rett-2022-TypologySemanticEntities}.}%
 Previously, our ``metaphysical inventory'' included a domain of entities and a
 set of two truth-values and increasingly complex functions between entities,
 truth-values, and functions thereof. Now, we will add possible worlds to the
@@ -257,9 +260,11 @@ care of pronouns, traces, variables, etc. From now on, we will relativize the
 semantic values in our system to possible worlds as well. What this means is
 that from now on, our interpretation function will have two superscripts: a
 world $w$ and an assignment $g$: $\svt{\textperiodcentered}^{w,g}$. For a given
-expression $\phi$, we call $\sv{\phi}^{w,g}$ the \term{extension} of $\phi$ at $w$
-(relative to $g$). The extension of an expression at a world is the central
-notion of an intensional semantics. 
+expression $\phi$, we call $\sv{\phi}^{w,g}$ the \term{extension} of $\phi$ at
+$w$ (relative to $g$). The extension of an expression at a world is in fact the
+central notion of an intensional semantics. We will see that this system built
+around the extensions of expressions at any given world automatically provides
+the notion of an intension.
 
 \clearpage
 \note{Recall from H\&K, pp.22f, that what's inside the interpretation brackets
@@ -345,6 +350,11 @@ Note that there is no occurrence of $w$ on the right-hand side of the entries in
 (\lastx). That's the tell-tale sign of the world-independence of the semantics of
 these items.
 
+\note{This is a popular thing to complain about. Alternatives exist and may in
+  the long run be preferable to the simpler assumption made here. See
+  \cite{matushansky-2008-LinguisticComplexityProperNames} for an influential
+  contribution from a linguistic perspective. See \cite{abbott-2013-Names} and
+  \cite{cumming-2019-Names} for some philosophical background.}%
 We will also assume that proper names have world-independent semantic values,
 that is, they refer to the same individual in any possible world.
 
@@ -392,7 +402,7 @@ utterances:
 
 \ex \extitle{Truth and Falsity Conditions for Utterances}\\
 An utterance of a sentence $\phi$ in a context $c$ in a possible world $w$ is
-\emph{true} iff $\sv{\phi}^{w,g_c} = 1$ and \emph{false} if $\sv{\phi}^{w,g_c} =
+\emph{true} if $\sv{\phi}^{w,g_c} = 1$ and \emph{false} if $\sv{\phi}^{w,g_c} =
 0$.
 \xe
 
@@ -510,22 +520,28 @@ will feed the intension of the embedded sentence to the shifting operator. The
 operator will use that intension and apply it to the world it wants the
 evaluation to happen in. Voilà.
 
-\enlargethispage{24pt}
-\note{Just like H\&K, we make no claim that the semantic values that are
-  attributed to expressions in our framework fully capture what is informally
-  meant by ``meaning''. But certainly, intensions come closer to ``meaning''
-  than extensions.}%
+\enlargethispage{24pt} \note{Just like H\&K, we make no claim that the semantic
+  values that are attributed to expressions in our framework fully capture what
+  is informally meant by ``meaning''. But certainly, intensions come closer to
+  ``meaning'' than extensions.}%
 Now let's spell that account out. Our system actually provides us with two kinds
 of meanings. For any expression $\alpha$, we have $\sv{\alpha}^{w,g}$, the
 semantic value of $\alpha$ in $w$, also known as the \term{extension} of
-$\alpha$ in $w$. But we can also calculate $\lambda w. \sv{\alpha}^{w,g}$, the
-function that assigns to any world $w$ the extension of $\alpha$ in that world.
-This is usually called the \term{intension} of $\alpha$. We will sometimes use
-an abbreviatory notation for the intension of $\alpha$:%
+$\alpha$ in $w$. But since our system delivers an extension (or lack of one) for
+any expression at any world and assignment, we can also calculate
+$\lambda w. \sv{\alpha}^{w,g}$, the function that assigns to any world $w$ the
+extension of $\alpha$ in that world. This is usually called the \term{intension}
+of $\alpha$.
 
 \clearpage
-\ex\note{The notation with the subscripted cent-sign comes from Montague Grammar.
-  See \cite[147]{dowty-wall-peters-1981-intro}.}%
+
+We will sometimes use an abbreviatory notation for the intension of $\alpha$:%
+\ex\note{The notation with the subscripted cent-sign comes from Montague
+  Grammar. See \cite[147]{dowty-wall-peters-1981-intro} (it's a bit of mystery
+  to us why the cent-sign was chosen for this. There's a footnote marker
+  (${}^{6}$) in the relevant place but no corresponding footnote text in the
+  endnotes to the chapter. In fact, the existing footnotes in that chapter start
+  with Fn.1 on a much later page.}%
 $\svcent{\alpha}^g := \lambda w. \sv{\alpha}^{w,g}$ \xe
 
 It should be immediately obvious that since the definition of intension
@@ -585,9 +601,10 @@ intension, a function from possible worlds to that kind of extension.
 We add a new clause, (\nextx c), to the definition of semantic types:\note{This
   is as good a place as any to add a sermon about the notation for types.
   Functional types like \(\type{e,t}\) are written with angled brackets because
-of the mathematical connection between functions and ordered pairs. The basic
-types like \(e\) and \(t\), however are not written with angled brackets, since
-they are not of the type of functions. Please do not make this mistake.}
+  of the mathematical connection between functions and ordered pairs. The basic
+  types like \(e\) and \(t\), however are not written with angled brackets,
+  since they are not of the type of functions. Please do not make this mistake.
+  See \cite{rawlins-2018-eNotType} for more of a disquisition on this.}
 
 \pex \extitle{Semantic Types}
 \a $e$ and $t$ are semantic types.
@@ -616,7 +633,7 @@ $D_{\sigma}$.
   associated domain. This corresponds to the assumption that there are no
   expressions of English that take as their extension a possible world, that is,
   there are no pronouns or names referring to possible worlds. We will actually
-  question this assumption in a later chapter. For now, we will stay with this
+  question this assumption later in this book. For now, we will stay with this
   more conventional set-up.}%
 Clause (d) is the addition to our previous system of types. The functions of the
 schematic type $\type{s,\dots}$ are intensions. Here are some examples of
@@ -631,10 +648,12 @@ intensions:
   than not, however, propositions will be \term{partial} functions from worlds
   to truth-values, that is functions that fail to map certain possible worlds
   into either truth-value. This will be the case when the sentence contains a
-  presupposition trigger, such as \expression{the}. The famous sentence
-  \expression{The King of France is bald} has an intension that (at least in the
-  analysis sketched in Heim \& Kratzer) is undefined for any world where
-  there fails to be a unique King of France.
+  presupposition trigger, such as \expression{the}. %
+  \note{Exercise: specify the intension of \expression{The King of France is
+      bald} in lambda notation.}%
+  The famous sentence \expression{The King of France is bald} has an intension
+  that (at least in the analysis sketched in Heim \& Kratzer) is undefined for
+  any world where there fails to be a unique King of France.
 \item The intensions of one-place predicates are of type
   $\type{s,\type{e,t}}$, functions from worlds to set of individuals. These
   are usually called \term{properties}.
@@ -677,10 +696,13 @@ composition principle.
 We add the new rule of Intensional Functional Application.
 
 \ex \term{Intensional Functional Application (IFA)}\\
+\note{Note that for the function-denoting expressions $\beta$, we use its
+  extension at $w$. Question: what would go wrong if we tried
+  $\svcent{\beta}^{g}(\svcent{\gamma}^{g})$?}%
 If $\alpha$ is a branching node and $\{\beta, \gamma\}$ the set of its
 daughters, then, for any world $w$ and assignment $g$: if $\sv{\beta}^{w,g}$ is
-a function whose domain contains $\svcent{\gamma}^g$, then $\sv{\alpha}^{w,g} =
-\sv{\beta}^{w,g} (\svcent{\gamma}^g)$. \xe
+a function whose domain contains $\svcent{\gamma}^g$, then
+$\sv{\alpha}^{w,g} = \sv{\beta}^{w,g} (\svcent{\gamma}^g)$. \xe
 
 This is the crucial move. It makes space for expressions that want to take the
 intension of their sister as their argument and do stuff to it. Now, everything
@@ -772,6 +794,22 @@ expression that creates a non-extensional context. As the exercise just showed,
 this might be more a matter of taste than a deep scientific decision. We will
 turn to questions of expressive power later in this book.
 
+\begin{exercise}
+  Imagine that for whatever reason, the extension of sentences were a proposition:
+  \begin{itemize}
+  \item $\svt{it is snowing}^{w,g} = \lambda w'.\text{ it is snowing in }w'$
+  \item $\svt{it is cold}^{w,g} = \lambda w'.\text{ it is cold in }w'$ 
+  \end{itemize}
+  And imagine that \expression{and} continues to have its normal
+  world-independent extension:
+  \begin{itemize}
+  \item $\svt{and}^{w,g} = \lambda u.\lambda v.\ u=v=1$
+  \end{itemize}
+  Devise a new composition principle that would allow us to calculate the
+  truth-value of a conjoined sentence like \expression{It is snowing and it is
+    cold}.
+\end{exercise}
+
 \subsection{Why talk about other worlds?} \label{sec:why-talk-about}
 
 Why would natural language bother having such elaborate mechanisms to talk about
@@ -828,8 +866,8 @@ consider:
 At one level this is a claim about my grandmother. But it is also a claim about
 me: namely that I have a grandmother who is sick. Thus it is with modal
 statements. They talk about possible worlds that stand in a certain relation to
-the actual world and thus they make claims about the actual world, albeit
-slightly indirectly.
+the actual world and thus they, at least indirectly, make claims about the
+actual world.
 
 \subsection{The worlds of Sherlock Holmes} \label{sec:worlds-sherl-holm}
 
@@ -917,15 +955,122 @@ with a certain quantificational \emph{force} \(M\) about the relation between
 the projected set of worlds and the \emph{prejacent} worlds \(\phi\). Indirectly
 then, a claim is thereby made about the anchor.
 
-We will look at the non-trivial issues that arise when several intensional
-operators interact (modals under attitudes, modals in the consequent of a
-conditional, etc.). We will also see that constituents of the prejacent can
-sometimes be evaluated with respect to a world that is not the world that the
-intensional operator is taking us to (so-called \emph{de re} readings). Further,
-we will move from worlds to times and explore the semantics of tense and aspect.
-And, for the intrepid, this can all come together by exploring how tense and
-aspect interact with attitudes, modality, and conditionals.
+\note{The term ``anchor'' was used in the discussion of modal semantics by
+  \cite{hacquard-2006-dissertation} and is a central concept in
+  \cite{kratzer-2013-Modality21stCentury}. The term was widespread in adjacent
+  areas before; see for example \cite{enc-1987-AnchoringConditionsTense}.}%
+The latter feature of this kind of analysis is crucial. It may seem cognitively
+dubious that to evaluate a modal claim (such as an \expression{in Sherlock
+  Holmes} claim), we would mentally travel one by one to all the worlds
+compatible wth the stories. Rather, we read the stories and reason about
+propositions entailed by them. %
+\note{If you'd like to begin thinking about how modal semantics fits into human
+  cognition, you might start with
+  \cite{phillips-kratzer-2022-DecomposingModalThought}.}%
+We examine the modal anchor here rather than booking flights on Trans-World
+Airlines to each of an infinite set of possible worlds.
 
+In what's to come, we will look at the non-trivial issues that arise when
+several intensional operators interact (modals under attitudes, modals in the
+consequent of a conditional, etc.). We will also see that constituents of the
+prejacent can sometimes be evaluated with respect to a world that is not the
+world that the intensional operator is taking us to (so-called \emph{de re}
+readings). Further, we will move from worlds to times and explore the semantics
+of tense and aspect. And, for the intrepid, this can all come together by
+exploring how tense and aspect interact with attitudes, modality, and
+conditionals.
+
+\section{Two more reasons to go intensional}
+\label{sec:two-more-reasons}
+
+The main reason we have discussed so far for going intensional is the property
+of ``displacement'', the shifting of circumstances of evaluation. We will now
+briefly touch upon two further reasons.
+
+\subsection{Propositions as the objects of linguistic interaction}
+\label{sec:linguistic-interaction}
+
+When A tells B that \(\phi\), what travels between them is not a binary choice
+between the truth-values 1 and 0. A informs B that the proposition expressed by
+\(\phi\) is true in the world they both are in. This is a different piece of
+information than saying \(\psi\) is also true.
+
+\cite{stalnaker-1978-Assertion} proposes that a core component tracked in
+context is the ``common ground'' of the participants in the conversation: The
+common ground of a conversation at any given time is the set of propositions
+that the participants in that conversation at that time mutually assume to be
+taken for granted and not subject to (further) discussion.
+
+\clearpage
+\note{In more sophisticated theories, there may be distinctions between the
+  ``ingredient sense'' contributed by a sentence in a more complex construction
+  and the ``assertoric content'' expressed by a sentence that is put forth in a
+  conversation. (The distinction is due to
+  \cite{dummett-1991-LogicalBasisMetaphysics}, and related to the proposal in
+  \cite{lewis-1980-IndexContextContent} by
+  \cite{stanley-2017-NamesRigidDesignation}). But we will for now stick with
+  having propositions do both jobs.}%
+When uttered assertively, sentences are meant to update the common ground. If
+the sentence is accepted by the participants, the proposition it expresses is
+added to the common ground. From then on, the truth of the sentence is part of
+the common ground, is mutually assumed to be taken for granted and not subject
+to further discussion.
+
+\enlargethispage{24pt}%
+The common ground describes a set of worlds, the ``context set'', which are
+those worlds in which all of the propositions in the common ground are true. The
+context set is the set of worlds that for all that is currently assumed to be
+taken for granted, could be the actual world. If a proposition is added to the
+common ground, the context set is updated by removing the worlds in which this
+proposition is false and by keeping the worlds in which the proposition is true.
+
+\subsection{Propositions in the meaning of \emph{only}}
+\label{sec:only}
+
+\note{The argument for going intensional in this section is borrowed from class
+  slides by Luka Crnič.}%
+\emph{Only} is a generalized negation of sorts. It says that all of the relevant
+alternatives to its prejacent are false. Focus-marking constrains what the
+alternatives are.
+
+\ex Only [I invited TIERNA\textsubscript{F}].\note{Never mind that the
+  sentence actually surfaces with the subject on the left of \emph{only}.} \xe
+%
+\Last says that all of the sentences of the form ``I invited \(x\)'' where \(x\)
+is not Tierna are false. This can be made precise by using a recursive
+calculation of the constraints on alternatives induced by focus: see
+\cite{katzir-2007-StructurallyDefinedAlternatives,
+  fox-katzir-2011-CharacterizationAlternatives}.
+
+But non-identity between the prejacent and the alternatives to be negated fails
+when we consider examples like the following:
+
+\ex Only [I invited [TIERNA and SILVIA]\textsubscript{F}]. \xe
+%
+This sentence is not interpreted as negating the non-identical sentences ``I
+invited Tierna'' and ``I invited Silvia'' (which would lead to a contradiction).
+
+The way out is to say that \emph{only} only negates those alternatives that are
+not entailed by its prejacent. \Last doesn't negate that I invited Tierna
+because the proposition that I invited Tierna and Silvia entails the proposition
+that I invited Tierna.
+
+\ex $\sv{\text{only}\ \phi}^{w,g} = 1 \text{ iff } \sv{\phi}^{w,g} = 1\ \&\ \forall
+\psi\in ALT(\phi)\co$ \\[-8pt]
+\null\hfill$\bigl(\exists w'\co \sv{\phi}^{w',g} = 1\ \&\ \sv{\psi}^{w',g} = 0\bigr) \rightarrow \sv{\psi}^{w,g} = 0$
+\xe
+%
+The entry in \Last ``tests'' whether there is at least one world where the
+prejacent is true but the given alternative is false, if so it says that the
+alternative is in fact false.
+
+\note{The literature on \emph{only} is huge. Just to pick one at random:
+  \cite{fintel-1997-BarePluralsBareConditionalsOnly}.}%
+So, we need to use propositions in the semantics of \emph{only}, even though
+\emph{only} is not an intensional shifter the way that attitude predicates,
+modals, and conditionals are.
+
+\clearpage
 \section{*Issues with an informal meta-language}
 \label{sec:meta-issues}
 
@@ -1008,7 +1153,7 @@ statements supply truth-values wherever that makes sense. In that case,
 \newcommand{\nupsis}[1]{\ensuremath{\vdash #1 \dashv}}
 
 Alternatively, %
-\note{This is the approach Ede Zimmermann (pc) advocates and has been using
+\note{This is the approach Ede Zimmermann (pc) prefers and has been using
   in his classes.}%
 one can introduce a new notation that indicates that a meta-language statement
 is being used to contribute a truth-value:
@@ -1026,50 +1171,97 @@ introduce any further innovations. So, \refx{ex:badwatson} is illicit and only
 \section{Further readings}
 
 There is considerable overlap between this chapter and Chapter 12 of
-\cite{heim-kratzer-1998-semantics}. Here, we approach intensional semantics from
-a slightly different angle. It would probably be beneficial if you read H\&K's
-Chapter 12 in addition to this chapter and if you did the exercises in there.
-Come to think of it, some other ancillary reading is also recommended. You may
-want to look at relevant chapters in other textbooks (for example:
-\cite[Chapters 5\&6]{dowty-wall-peters-1981-intro}, \cite[Volume II: Intensional
-Logic and Logical Grammar]{gamut:91}, \cite[Chapter 5:
-Intensionality]{chierchia-mcconnell-ginet-2000-meaning-grammar}, and
-\cite{zimmermann-sternefeld-2013-semantics}).
+\cite{heim-kratzer-1998-SemanticsGenerativeGrammar}. Here, we approach
+intensional semantics from a slightly different angle. It would probably be
+beneficial if you read H\&K's Chapter 12 in addition to this chapter and if you
+did the exercises in there. Come to think of it, some other ancillary reading is
+also recommended. You may want to look at relevant chapters in other textbooks
+(for example: \cite[Chapters 5\&6]{dowty-wall-peters-1981-intro}, \cite[Volume
+II: Intensional Logic and Logical Grammar]{gamut:91}, \cite[Chapter 5:
+Intensionality]{chierchia-mcconnell-ginet-2000-meaning-grammar}, \cite[Chapters
+7\&8: Propositions,
+Intensions]{zimmermann-sternefeld-2013-IntroductionSemanticsEssentialGuide}, and
+\cite[Chapter 6: Intensionality and Possible
+Worlds]{winter-2016-ElementsFormalSemanticsIntroduction}, and \cite[Chapters
+12\&13]{coppock-champollion-2022-InvitationFormalSemantics}).
 
-The \emph{Stanford encyclopedia of philosophy} is always a good resource.
-\cite{menzel-2016-sep-possible-worlds} is the entry on possible worlds. A couple
-of influential philosophical works on the metaphysics and uses of possible
-worlds are \cite{kripke:naming:80} and \cite{lewis-1986-plurality-worlds}. An
-interesting paper on the origins of the modern possible worlds semantics for
-modal logic is \cite{copeland-2002-genesis}.
+Between textbooks and the primary literature, there are handbook articles,
+encyclopedia entries, and other surveys and reviews. In semantics, the following
+are all relevant:
+
+\begin{itemize}
+\item \href{https://plato.stanford.edu/}{The Stanford encyclopedia of philosophy}. 
+\item The first semantics handbook: \cite{stechow-wunderlich-1991-Semantik}.
+\item The handbook of logic and language:
+  \cite{benthem-meulen-2011-HandbookLogicLanguage}.
+\item The three volumes of \cite{maienborn-heusinger-portner-2011-Semantics-I,
+    maienborn-heusinger-portner-2011-Semantics-II,
+    maienborn-heusinger-portner-2011-Semantics-III}.
+\item The Routledge companion to philosophy of language: \cite{russell-fara-2013-RoutledgeCompanionPhilosophyLanguage}.
+\item The handbook of contemporary semantic theory: \cite{lappin-fox-2015-handbook}.
+\item The Cambridge handbook of formal semantics: \cite{aloni-dekker-2016-CambridgeHandbookFormalSemantics}.
+\item The Wiley companion to philosophy of language: \cite{hale-wright-miller-2017-CompanionPhilosophyLanguage}.
+\item The Wiley Blackwell companion to semantics: \cite{gutzmann-matthewson-meier-rullmann-zimmermann-2020-WileyBlackwellCompanion}.
+\item The three journals:
+  \href{https://compass.onlinelibrary.wiley.com/journal/1749818x}{Language and
+    Linguistics Compass},
+  \href{https://compass.onlinelibrary.wiley.com/journal/17479991}{Philosophy
+    Compass}, and
+  \href{https://www.annualreviews.org/journal/linguistics}{Annual Review of
+    Linguistics}.
+\end{itemize}
+
+It makes sense to familiarize yourself with these resources and consult them
+regularly when you want to dive into a new area or topic.
+
+A collection of classic papers is \cite{portner-partee-2002-essential}. And a
+useful collection of modern-day reappraisals of classic papers is
+\cite{mcnally-szabo-2022-ReaderGuideClassicPapers}.
+
+To get a sense of where the field is moving, keep informed about articles in the
+four leading journals (\emph{Journal of Semantics, Linguistics and Philosophy,
+  Natural Language Semantics, Semantics and Pragmatics}), as well as the
+proceedings of the big semantics conferences (SALT, Sinn und Bedeutung,
+Amsterdam Colloquium).
+
+A couple of influential philosophical works on the metaphysics and uses of
+possible worlds are \cite{kripke:naming:80} and
+\cite{lewis-1986-PluralityWorlds}. An interesting paper on the origins of the
+modern possible worlds semantics for modal logic is
+\cite{copeland-2002-genesis}.
 
 A must read for students who plan to go on to becoming specialists in semantics,
 together with a handbook article putting it in perspective:
-\cite{montague-1973-ptq} and \cite{partee-hendriks-1997-hbll}.
+\cite{montague-1973-ProperTreatmentQuantification} and
+\cite{partee-hendriks-2011-MontagueGrammar}.
 
 To learn more about discourse about fiction, read \cite{lewis-1978-fiction}.
 Recent reconsiderations: \cite{bonomi-zucchi-2003-fiction},
 \cite{hanley-2004-lewis-fiction}, \cite{proudfoot-2006-fiction}. An interesting
 paper that explores the meaning of fictional texts:
 \cite{bauer-beck-2014-fiction}. Inconsistencies in fictions and elsewhere are
-discussed in: \cite{varzi-1997-inconsistency} and
+discussed in \cite{varzi-1997-inconsistency} and
 \cite{lewis-1982-equivocators}.
   
 Some other interesting work on stories and pictures and their content:
 \cite{ross-1997-media}, \cite{zucchi-2001-tense-fiction},
-\cite{blumson-2009-pictures}. More recently, there's been quite a bit of work on
-pictorial semantics, see for example
+\cite{blumson-2010-PicturesPerspectivePossibility}. More recently, there's been
+quite a bit of work on pictorial semantics, see for example
 \cite{abusch-rooth-2017-pictorial,greenberg-2018-pictorial,
   maier-bimpikou-2019-pictorial}.
 
 \cite{hockett-altmann-1968-design} is a follow-up to Hockett's original article
 on design features. See \cite{emonds-2011-primate-human} for a recent
 re-appraisal. If you're interested in whether displacement really is an
-exclusive feature of human language and cognition, there are some recent survey
-articles: \cite{cheke-clayton-2010-mtt,redshaw-2014-mtt}. Two very recent
+exclusive feature of human language and cognition, there are some survey
+articles: \cite{cheke-clayton-2010-mtt,redshaw-2014-mtt}. Two quite recent
 articles about displacement in humans and other animals are
 \cite{leahy-carey-2020-modal-acquisition} and
-\cite{redshaw-suddendorf-2020-timelines}.
+\cite{redshaw-suddendorf-2020-timelines}. There's now also a book for a general
+audience: \cite{suddendorf-redshaw-bulley-2022-InventionTomorrowNaturalHistory}.
+
+For more on the cognitive science aspects of modality, see \cite{phillips-knobe-2018-PsychologicalRepresentationModality, grigoroglou-ganea-2022-LanguageMechanismReasoningPossibilities,
+  phillips-kratzer-2022-DecomposingModalThought}.
 
 \enlargethispage{24pt}
 Astonishingly, Lewis' doctrine of the reality of the plurality of possible
@@ -1083,7 +1275,11 @@ and a Fresh Air interview with physicist Brian Greene about his book \emph{The
   Hidden Reality: Parallel Universes and the Deep Laws of the Cosmos}:
 \url{http://www.npr.org/2011/01/24/132932268/a-physicist-explains-why-parallel-universes-may-exist}.
 
+As a follow-up on the section about our meta-language, it might be instructive
+to read \cite{saka-2017-BlahBlahBlah}, where a variety of thorny questions about
+kinds of quotation are raised.
+
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "ik-book"
+%%% TeX-master: "IntensionalSemantics"
 %%% End:

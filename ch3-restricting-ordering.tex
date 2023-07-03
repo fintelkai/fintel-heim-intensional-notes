@@ -57,7 +57,8 @@ One possible explanation is that conditionals signal that the antecedent is
 not certain about what ``the evidence'' is. That can only be if ``the evidence''
 is not the evidence that the speaker has full access to. Relevant examples
 include the ``cancer scenarios'' of \cite{derose-1991-epistemic} and the
-``Mastermind'' cases of \cite{fintel-gillies-2007-ose2,fintel-gillies-2011-mmr}:
+``Mastermind'' cases of
+\cite{fintel-gillies-2007-OpinionatedGuideEpistemicModality,fintel-gillies-2011-MightMadeRight}:
 \marginfig{Mastermind.jpg}%
 
 \pex
@@ -347,11 +348,11 @@ for tree={s sep=10mm, inner sep=0, l=0}
   much of an argument, dismissed) in Section 3.2 of \cite{fintel-1994-thesis}
   and is also found in lecture notes from 2004 by von Stechow. In Section 3.3 of
   \cite{fintel-1994-thesis}, a different approach is developed, which is adopted
-  (at least for illustration) by \cite{kratzer-2015-hook}. The idea is that
-  \emph{if}-clauses are variable modifiers, something very like variable binders
-  without entirely overwriting the current variable assignment. Further
-  references about the restrictor theory are given at the end of this chapter.
-}%
+  (at least for illustration) by \cite{kratzer-2021-ChasingHookQuantified}. The
+  idea is that \emph{if}-clauses are variable modifiers, something very like
+  variable binders without entirely overwriting the current variable assignment.
+  Further references about the restrictor theory are given at the end of this
+  chapter. }%
 The idea now is that the two restrictive devices work together: we just feed to
 the modal the \emph{intersection} of (i) the set of worlds that are
 $f_{3}$-accessible from the actual world, and (ii) the set of worlds where they
@@ -413,9 +414,9 @@ We have distinguished (at least) epistemic and deontic accessibility functions:
 \a Your guest can't stay past midnight.                          \hfill{deontic}
 \xe
 
-For deontic modals, and perhaps more generally what
-\cite{portner-2017-mood-book} calls ``priority'' expressions, there is a strong
-argument that there is more at play.
+For deontic modals, and perhaps more generally what \cite{portner-2018-Mood}
+calls ``priority'' expressions, there is a strong argument that there is more at
+play.
 
 \subsection{The best we can get}
 \label{subsec:best}
@@ -607,7 +608,8 @@ to assume that for two given worlds, we can necessarily order them with respect
 to each other at all. So, our order will not be total. %
 \note{This is essentially the same as what is also known as the ``Limit
   Assumption'' in conditional/modal semantics. For discussion, see
-  \cite{lewis-1974-dyadic} and now \cite{kaufmann-2017-limit}.}%
+  \cite{lewis-1974-SemanticAnalysesDyadicDeontic} and now
+  \cite{kaufmann-2017-limit}.}%
 It will be a useful idealization if we assume that our orders will be
 well-founded. Then, we can assume that we can always find worlds that are ``as
 good as possible''. In sum, we assume that the context will supply a function
@@ -734,7 +736,7 @@ Kratzerian kind:
 
 \ex\label{ex:modal-2}
 $\svt{must}^w = \lambda f_{s,st}.\lambda o_{s,stt}.\lambda p.\ \forall
-w'\in\opt_{o(w)}(f(w))\co p(w)=1$.
+w'\in\opt_{<_{o(w)}}(f(w))\co p(w')=1$.
 \xe
 
 \begin{exercise}
@@ -792,11 +794,12 @@ Kratzer argues that what underlies \Last is a combination of an epistemic modal
 base and an ordering source based on not completely exceptionless generalization
 and assumptions. %
 \note{The debate continues with \cite{lassiter-2016-must,
-    delpinal-waldon-2019-epistemic-tension, fintel-gillies-2020-sgs}.}%
-In more recent work, \cite{fintel-gillies-2010-mss} have argued
-that any weakness in the meaning of \Last has to do with an ``evidential
-signal'' (that the evidence for the prejacent is merely indirect) rather than a
-lack of logical strength. 
+    delpinal-waldon-2019-epistemic-tension,
+    fintel-gillies-2021-StillGoingStrong}.}%
+In more recent work, \cite{fintel-gillies-2010-mss} have argued that any
+weakness in the meaning of \Last has to do with an ``evidential signal'' (that
+the evidence for the prejacent is merely indirect) rather than a lack of logical
+strength.
 
 \textbf{Wanting what's best.} Intriguingly, we can find the facts + ordering phenomenology in the semantics of
 propositional attitudes as well, most clearly with bouletic attitudes like
@@ -862,11 +865,11 @@ worlds, which would make \Last false, as desired.
 
 \note{Even though Lewis' work appeared five years after Stalnaker's, it was
   independently developed. See \cite{arvan-2015-sprigge} and Fn.29 in
-  \cite{starr-2019-sep-counterfactuals} for further details about the
+  \cite{starr-2021-Counterfactuals} for further details about the
   intellectual history of these ideas.}%
 Historically, the use of an ordering of possible worlds in the semantics of
 intensional operators was first proposed by Stalnaker and Lewis in their work
-on conditionals \parencite{stalnaker-1968-theory,lewis-1973-counterfactuals}. In
+on conditionals \parencite{stalnaker-1968-TheoryConditionals,lewis-1973-counterfactuals}. In
 our attempt at an analysis for conditionals in Section~\ref{sec:conditionals},
 we used a one-factor approach where conditionals quantify over \emph{all}
 contextually accessible antecedent worlds. Stalnaker and Lewis argue that the
@@ -939,7 +942,7 @@ but semantically simple idea that modals are just sensitive to an accessibility
 relation even when that relation incorporates considerations of ordering. So,
 assume that the accessibility relation is the one that delivers the best worlds
 among those that match the evaluation world with respect to whether the book was
-late or not. Now, imagine a scenario where unbekownst to us, Howard actually
+late or not. Now, imagine a scenario where unbeknownst to us, Howard actually
 returned the book on time. It would seem that this would not threaten the
 intuitive truth of \Last. But according to the analysis under consideration, we
 predict something odd: the worlds that match the evaluation world are all worlds
@@ -1119,12 +1122,12 @@ At this point, we leave this intriguing and complex inquiry and refer you to the
 ever-growing literature, some we've already mentioned and more we will list
 below. 
 
-\section*{Further readings} 
+\section{Further readings} 
 
 \textbf{Conditionals}. In-depth overviews of the logico-philosophical
 perspective on conditionals include \cite{nute-1984-conditional},
 \cite{edgington-1995-conditionals}, \cite{bennett-2003-guide}, and
-\cite{starr-2019-sep-counterfactuals}.
+\cite{starr-2021-Counterfactuals}.
 
 Ideas pertaining to the implementation of the restrictor theory are found in
 \cite{reich-2009-asymmetric} and \cite{ebert-ebert-hinterwimmer-2014-unified}.
@@ -1148,9 +1151,11 @@ puzzle \citep{fintel-1998-qandif} and sometimes not
 \citep{fintel-iatridou-2002-ifwhen}. See \cite{dekker-2001-if-only},
 \cite{higginbotham-2003-conditionals}, \cite{leslie-2009-unless},
 \cite{huitink-2010-quantified-conditionals}, \cite{klinedinst-2011-qc-cem},
-\cite{kratzer-2015-hook}, \cite{lauer-nadathur-2016-qic-most} among others.
+\cite{kratzer-2021-ChasingHookQuantified}, \cite{lauer-nadathur-2016-qic-most}
+among others.
 
-To understand \emph{only if}-conditionals, \cite{fintel-1997-bare} needs to work
+To understand \emph{only if}-conditionals,
+\cite{fintel-1997-BarePluralsBareConditionalsOnly} needs to work
 hard to neutralize the universal force of bare conditionals stemming from
 Kratzer's implicit necessity modal.
 
@@ -1161,8 +1166,9 @@ bare conditionals are actually (sometimes or always) existentially quantified.
 \textbf{Attitudes}. Linguistic work on attitudes has often been concerned with
 various co-occurrence patterns, particularly which moods (indicative or
 subjunctive or infinitive) occur in the complement and whether negative polarity
-items are licensed in the complement. Mood licensing: \cite{portner-1997-mood}.
-NPI-Licensing: \cite{kadmon-landman-1993-any}, \cite{fintel-1999-npi},
+items are licensed in the complement. Mood licensing:
+\cite{portner-1997-MoodComplementationConversationalForce}. NPI-Licensing:
+\cite{kadmon-landman-1993-any}, \cite{fintel-1999-npi},
 \cite{giannakidou-1999-affective}.
 
 Tamina Stephenson in her MIT dissertation and related work explores the way
@@ -1178,10 +1184,7 @@ Interesting work has also been done on presupposition projection in attitude
 contexts: \cite{asher-1987-attitudes}, \cite{heim-1992-attitude},
 \cite{geurts-1998-attitudes}.
 
-\textbf{Modals}. On the syntax of modals, there are only a few papers of uneven
-quality: \cite{bhatt-1997-haveto}, \cite{wurmbrand-1999-raising},
-\cite{cormack-smith-2002-modals}, \cite{butler-2003-modality}. Follow up on
-older references from the bibliographies in these papers. The following paper
+\textbf{Modals}. We recommend \cite{bhatt-1997-haveto} and \cite{wurmbrand-1999-raising} on the question of whether modals are raising predicates. A more general survey on the syntax of modals is \cite{barbiers-vandooren-2017-ModalAuxiliaries}. The following paper
 explores some issues in the LF-syntax of epistemic modals:
 \cite{fintel-iatridou-2003-ec},
 
@@ -1194,22 +1197,23 @@ flavors with syntactic position of the modal auxiliaries:
 \cite{hacquard-2010-event-relativity}, \cite{hacquard-2013-modality}. A recent
 handbook article by Hacquard on actuality entailments (involving the interaction
 of modality with aspect; we'll discuss aspect later in these notes):
-\cite{hacquard-2016-actuality}.
+\cite{hacquard-2020-ActualityEntailments}.
 
 The semantics of epistemic modals has become a hot topic recently. Here are some
 of the main references: \cite{hacking-1967-possibility},
 \cite{teller-1972-epistemic}, \cite{derose-1991-epistemic},
 \cite{egan-hawthorne-weatherson-2005-epistemic}, \cite{egan-2007-epistemic},
-\cite{macfarlane-2006-might}. \cite{stephenson-2007-judge-lp},
-\cite{hawthorne-2007-danger}, \cite{fintel-gillies-2008-cia-leaks},
-\cite{fintel-gillies-2008-mmr}.
+\cite{macfarlane-2011-EpistemicModalsAreAssessment}.
+\cite{stephenson-2007-judge-lp},
+\cite{hawthorne-2007-EavesdroppersEpistemicModals},
+\cite{fintel-gillies-2008-cia-leaks}, \cite{fintel-gillies-2011-MightMadeRight}.
 
 A paper by Pranav Anand and Valentine Hacquard tackles what happens to epistemic
 modals under attitude predicates:
 \cite{anand-hacquard-2013-epistemics-attitudes}.
 
 Evidentiality is a topic closely related to epistemic modality. Some references:
-\cite{willett-1988-evidentials}, \cite{aikhenvald-2004-evidentiality},
+\cite{willett-1988-evidentials}, \cite{aikhenvald-2004-Evidentiality},
 \cite{drubig-2001-epistemic}, \cite{blain-dechaine-2007-evidentials},
 \cite{mccready-ogata-2007-evidentials}, \cite{speas-2008-evidentials},
 \cite{fintel-gillies-2010-mss}.
@@ -1221,10 +1225,14 @@ small set of initial references: \cite{kamp-1973-freechoice},
 \cite{aloni-2007-freechoice}, \cite{alonso-ovalle-2006-thesis},
 \cite{fox-2007-freechoice}, \cite{rooij-2006-donkeys}.
 
+On ability modals, see
+\cite{hackl-1998-ability,mandelkern-schultheis-boylan-2017-AgentiveModals}.
+
 \textbf{Restricting and ordering}. Very important for the problem we ended the
 chapter on are these papers:
 \cite{kaufmann-schwager-2009-conditional-imperatives} and
-\cite{condoravdi-lauer-2016-anankastic}. 
+\cite{condoravdi-lauer-2016-anankastic}. Recent work includes:
+\cite{blumberg-holguin-2019-EmbeddedAttitudes,fintel-pasternak-2022-AttitudesAboutness}.
 
 %%% Local Variables:
 %%% mode: latex

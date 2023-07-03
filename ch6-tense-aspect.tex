@@ -8,7 +8,7 @@
 
 \minitoc
 
-\section{A first proposal for tense}
+\section{The world is not enough; the times, they are a-changing}
 \label{sec:first-proposal}
 
 \note{This chapter is even more the outcome of collaborative efforts than other
@@ -40,12 +40,11 @@ entries that incorporate their sensitivity to both worlds and times:
   in}\ w_{i}\ \text{at}\ t_{i}$ \xe
 
 The composition principles from Heim \& Kratzer and the preceding chapters stay
-the same, except that type $s$ is now the type of indices, and intensions are
-functions from indices to extensions. For example, the intension of sentence is
+the same, except that the (pseudo-)type $s$ now stands for indices (pairs of
+worlds and times) and not just worlds. For example, the intension of sentence is
 now a function from world-time pairs to truth-values. %
 \note{This necessitates a slight rewriting of our previous entries for modals
-  and attitude verbs. We will attend to this when we get to relevant examples
-  later on.}%
+  and attitude verbs. We will attend to this when we get to relevant examples.}%
 We might call this a ``temporal proposition'', to distinguish it from a function
 from just worlds to truth-values, but we will often just call it a
 ``proposition''.
@@ -85,9 +84,9 @@ be tired \rb \rb \rb \rb \rb \rb\\
 %
 \note{We use ``\emph{woll}'' as the name of the root underlying \emph{will} and
   \emph{would}, following \cite{abusch-1988-wccfl} and
-  \cite[p.32]{ogihara-1989-thesis}; \textcite[fn.14, p.22]{abusch-1997-sequence}
-  attributes the coinage of \emph{woll} to Mats Rooth in class lectures at UT
-  Austin.}%
+  \cite[p.32]{ogihara-1989-thesis}; \textcite[fn.14,
+  p.22]{abusch-1997-SequenceTenseTemporalDeRe} attributes the coinage of
+  \emph{woll} to Mats Rooth in class lectures at UT Austin.}%
 \emph{woll} in \Last stands for the underlying uninflected form of the auxiliary
 which surfaces as \emph{will} in the present tense (and as \emph{would} in the
 past tense). When we have proper name subjects, we will assume for simplicity
@@ -129,7 +128,7 @@ Svenja is tired. This suggests the following entry:
 
 \ex For any index $i$:
 $\svt{\past}^{i} = \lambda p \in D_{\type{s,t}}.\
-\exists t\ \text{before}\ t_{i}\co p(\pair{w_{i,},t}) = 1$ \xe
+\exists t\ \text{before}\ t_{i}\co p(\pair{w_{i},t}) = 1$ \xe
 %
 So, the past tense seems to be an existential quantifier over times, restricted
 to times before the utterance time.
@@ -145,7 +144,7 @@ For \emph{will}, we can say something completely analogous:
 
 \ex For any index $i$:
 $\svt{woll}^{i} = \lambda p \in D_{\type{s,t}}.\
-\exists t\ \text{after}\ t_{i}\co p(\pair{w_{i,},t}) = 1$ \xe
+\exists t\ \text{after}\ t_{i}\co p(\pair{w_{i},t}) = 1$ \xe
 %
 Apparently, \past and \emph{woll} are semantically alike, even mirror images of
 each other, though they are of different syntactic categories. The fact that
@@ -156,7 +155,7 @@ complete sentence. Semantically, this has no effect, since \pres is vacuous.
 \note{Strict linear orders are transitive, irreflexive, asymmetric, and
   connected. See Section~\ref{subsec:math-orderings} on the basics of order
   theory. Some rethinking is needed once we move to intervals.}%
-Both \LLast and \Last presuppose that the set or times comes with an intrinsic
+Both \LLast and \Last presuppose that the set of times comes with an intrinsic
 order. For concreteness, assume that the relation ‘precedes’ (in symbols: <) is
 a strict linear order on the set of all times. The relation ‘follows’, of
 course, can be defined in terms of ‘precedes’ ($t$ follows $t'$ iff $t'$
@@ -165,8 +164,8 @@ precedes $t$).
 \section{Time frame adverbials}
 \label{sec:frames}
 
-In this section, we take a brief look at temporal adverbials, specifically
-so-called frame adverbials, such as:
+Let's take a brief look at temporal adverbials, specifically so-called frame
+adverbials, such as:
 
 \ex Svenja was tired on February 1, 2001.\label{ex:on} \xe
 %
@@ -222,7 +221,6 @@ presupposition tests confirm this. For example, the negated sentence (\emph{Sven
   Feb 1, 2001?}) also convey that the speaker assumes he is speaking after Feb
 1, 2001.
 
-\clearpage
 \note{It also has the virtue of avoiding the potential overgeneration issue that
   you looked at in the exercise above. Q: How so?}%
 If we want to account for this more fine-grained intuition, the restrictor
@@ -231,10 +229,11 @@ approach has an advantage after all. Let's revise the entries for \past and
 non-emptiness presupposition.
 
 \ex For any index $i$:\\
-$\svt{\past}^{i} = \lambda p\co \exists t [t < t_{i}\ \&\ p(w_{i},t) = 1].$\\
-\hfill $\lambda q. \exists t [ t < t_{i}\ \&\ p(w_{i},t)=1\ \&\ q(w_{i},t) = 1]$
+$\svt{\past}^{i} = \lambda p\co \exists t [t < t_{i}\ \&\ p(\pair{w_{i},t}) = 1].$\\
+\hfill $\lambda q.\ \exists t [ t < t_{i}\ \&\ p(\pair{w_{i},t})=1\ \&\ q(\pair{w_{i},t}) = 1]$
 \xe
 
+\clearpage
 \ex~%
 \note{How about present tense? Should we make this presuppositonal as well \dash
   which would imply it is not, after all, completely vacuous? Frame adverbials
@@ -244,15 +243,15 @@ $\svt{\past}^{i} = \lambda p\co \exists t [t < t_{i}\ \&\ p(w_{i},t) = 1].$\\
   make room for them and duplicate this requirement as a presupposition:
 
   \ex For any index $i$:
-  $\svt{\pres}^{i} = \lambda p\in D_{\type{s,t}}\co p(w_{i},t_{i}).\
-  \lambda q\in D_{\type{s,t}}.\ q(w_{i},t_{i}) = 1$ \xe
+  $\svt{\pres}^{i} = \lambda p\in D_{\type{s,t}}\co p(\pair{w_{i},t_{i}}).\
+  \lambda q\in D_{\type{s,t}}.\ q(\pair{w_{i},t_{i}}) = 1$ \xe
 %
   For the purposes of these lecture notes, we leave the matter open and stick
   with the vacuous meaning for \pres in the discussions of the upcoming sections.
 }%
 For any index $i$:\\
-$\svt{woll}^{i} = \lambda p\co \exists t [t > t_{i}\ \&\ p(w_{i},t) = 1].$\\
-\hfill $\lambda q. \exists t [ t > t_{i}\ \&\ p(w_{i},t)=1\ \&\ q(w_{i},t) = 1]$
+$\svt{woll}^{i} = \lambda p\co \exists t [t > t_{i}\ \&\ p(\pair{w_{i},t}) = 1].$\\
+\hfill $\lambda q.\ \exists t [ t > t_{i}\ \&\ p(\pair{w_{i},t})=1\ \&\ q(\pair{w_{i},t}) = 1]$
 \xe
 %
 Furthermore, let's change (i.e., simplify) the meaning of the adverbial so that
@@ -308,6 +307,7 @@ Is the sentence ambiguous in this way? If not this sentence, are there analogous
 sentences that do have the ambiguity? \qed
 \end{exercise}
 
+\clearpage
 \begin{exercise}
   Our official entry for \emph{every} makes it a time-insensitive (and
   world-insensitive) item:
@@ -427,11 +427,13 @@ or even the entire past from the big bang to the utterance time, or all
 eternity. (What exactly the right restrictor is in this case, and what makes it
 contextually available, may be a bit unclear, but we leave it at that.)
 
+\enlargethispage{48pt}
 \begin{exercise}
   Assuming the restricted existential quantifier analysis of past tense that we
   adopted in Section~\ref{sec:frames}, which of the scope constellations in
   \LLast captures the meaning of \refx{ex:stove} correctly?
 \end{exercise}
+\vfill\clearpage
 
 \section{Referential tense and perfective/imperfective aspect}
 \label{sec:aspect}
@@ -454,13 +456,13 @@ and we concluded that past tense must be supplying it. But this conclusion is
 not inescapable. Granted that there has to be an existential quantifier
 somewhere \dash but couldn't it be somewhere else than in the meaning of tense?
 One alternative that comes to mind is to locate it in the lexical meaning of the
-verb (here \emph{turn off}). This means we abandon the lexical entry in \Next
-and instead adopt the one in \NNext.
+verb (here \emph{turn off}). This means we would abandon the lexical entry in
+\Next and instead adopt the one in \NNext.
 
-\ex $\svt{turn-off}^{i} = \lambda y. \lambda x. x\ \text{turns
+\ex $\svt{turn-off}^{i} = \lambda y. \lambda x.\ x\ \text{turns
   off}\ y\ \text{in}\ w_{i}\ \text{at}\ t_{i}$ \label{ex:turnoff-at}\xe
 
-\ex~ $\svt{turn-off}^{i} = \lambda y. \lambda x. x\ \text{turns
+\ex~ $\svt{turn-off}^{i} = \lambda y. \lambda x.\ x\ \text{turns
   off}\ y\ \text{in}\ w_{i}\ \boxed{\text{in}}\ t_{i}$\label{ex:turnoff-in} \xe
 %
 The difference between `at' and `in' looks small at first, but if we reflect on
@@ -469,7 +471,7 @@ happens in an interval, it happens at some part of the interval. We can make
 this more transparent in the metalanguage and rewrite \Last as \Next.
 
 \ex
-$\svt{turn-off}^{i} = \lambda y. \lambda x. \exists t \subseteq t_{i}\co x\
+$\svt{turn-off}^{i} = \lambda y. \lambda x.\ \exists t \subseteq t_{i}\co x\
 \text{turns off}\ y\ \text{in}\ w_{i}\ \text{at}\ t$ \label{ex:turnoff-ex}\xe
 %
 The subset sign here stands for the containment relation between time intervals.
@@ -490,12 +492,12 @@ semantics.
 \xe
 
 \ex~ event-talk formulation of \refx{ex:turnoff-at}, the old entry with 'at':\\
-$\svt{turn-off}^{i} = \lambda y.\lambda x.\exists e [\text{turn-off}(e,x,y)\ \&\
+$\svt{turn-off}^{i} = \lambda y.\lambda x.\ \exists e [\text{turn-off}(e,x,y)\ \&\
 e\ \text{is in } w_{i}\ \&\ \tau(e) = t_{i}]$
 \xe
 
 \ex~ event-talk formulation of \refx{ex:turnoff-in}, the new entry with 'in':\\
-$\svt{turn-off}^{i} = \lambda y.\lambda x.\exists e [\text{turn-off}(e,x,y)\ \&\
+$\svt{turn-off}^{i} = \lambda y.\lambda x.\ \exists e [\text{turn-off}(e,x,y)\ \&\
 e\ \text{is in } w_{i}\ \&\ \tau(e) \subseteq t_{i}]\label{ex:turnoff-ev}$
 \xe
 %
@@ -709,10 +711,10 @@ We can't infer from this sentence that John actually made it to the store, or
 will ever make it there. The sentence leaves this open. Perhaps John does
 complete his trip to the store after the encounter, and perhaps he doesn't. The
 truth-conditions of the sentence \Last are compatible with either scenario. The
-entry in \LLast, on the other hand, would require that there be a John-going-
-to-the-store event which occupies a super-interval of the time of the encounter
-with Svenja and which \emph{occurs in the actual world}. So \LLast can't be quite
-right.
+entry in \LLast, on the other hand, would require that there be a
+John-going-to-the-store event which occupies a super-interval of the time of the
+encounter with Svenja and which \emph{occurs in the actual world}. So \LLast
+can't be quite right.
 
 Dowty's analysis of the progressive says instead that a John-going-to-the-store
 event occurs in certain \emph{possible} worlds. These possible worlds are
@@ -769,7 +771,7 @@ unembedded assertion). It only talks about the inertia worlds. However, there is
 a property of the lexical meaning of \emph{laugh} that permits us to draw
 further inferences. Laughing events are made up of lots of sub-events which
 themselves are laughing events, down to very little ones that don't last much
-more than an instant. Given this, consider a world in Inert$(w_{u},t_{u})$, say
+more than an instant. Given this, consider a world in Inert$(\pair{w_{u},t_{u}})$, say
 $w$. If \Last[b] is true in $w_{u}$ at $t_{u}$ , it follows that $w$ contains an
 event of Sari laughing whose run-time includes $t_{u}$. Among the subevents of
 this event, which themselves are events of Sari laughing, there will most likely
@@ -796,16 +798,16 @@ Importantly, however, this almost-equivalence depends on the particular property
 of the meaning of the VP that we just exploited in our reasoning. Had the VP
 been \emph{Sari go to the store}, it would have been a very different matter.
 Events of Sari going to the store are \emph{not} made up of lots of smaller
-events which each are events of Sari going to store. They are made up of smaller
-events which are events of Sari going \emph{towards} the store, but since most
-of these don't end with Sari at the store, they are not events of Sari going
-\emph{to} the store. So if we are told that every $w \in$ Inert$(i)$ contains an
-event of Sari going to the store which occupies a super-interval of $t_{i}$, we
-cannot infer that Sari goes to the store in $w_{i}$. We can merely infer that
-$w_{i}$ contains an event that is indistinguishable from those parts of the
-inertia-worldly trips-to-the-store which fall \emph{before the end of} $t_{i}$.
-In other words, we infer that $w_{i}$ contains the \emph{beginning} of a
-Sari-go-to-the-store event, but not necessarily anything more.
+events which each are events of Sari going to the store. They are made up of
+smaller events which are events of Sari going \emph{towards} the store, but
+since most of these don't end with Sari at the store, they are not events of
+Sari going \emph{to} the store. So if we are told that every $w \in$ Inert$(i)$
+contains an event of Sari going to the store which occupies a super-interval of
+$t_{i}$, we cannot infer that Sari goes to the store in $w_{i}$. We can merely
+infer that $w_{i}$ contains an event that is indistinguishable from those parts
+of the inertia-worldly trips-to-the-store which fall \emph{before the end of}
+$t_{i}$. In other words, we infer that $w_{i}$ contains the \emph{beginning} of
+a Sari-go-to-the-store event, but not necessarily anything more.
 
 The attentive reader may have wondered why we used a past tense example to
 illustrate the perfective in the previous section, but a present tense example
@@ -825,14 +827,15 @@ an aspect.
   the content of a plan or schedule. We don't worry about these cases here,
   since they very plausibly involve a covert modal operator of some kind that
   applies to the VP before any tense or (higher) aspect. (See for example,
-  \cite{copley-2008-plan} or \cite{thomas-2014-tense-mbya}.) That modal operator
-  may itself be an aspect head, or it may create a bigger VP which is a
-  predicate of states. In the latter case, whatever explains the acceptability
-  of stative VPs under present tense will also explain the acceptability of
-  present tense generics/habituals. See below. Some kind of modal analysis might
-  also work for some of the cases in the list, like stage directions and plot
-  summaries, but less plausibly to e.g. the sportscaster style or the historical
-  present.}%
+  \cite{copley-2008-plan}, \cite{thomas-2014-tense-mbya},
+  \cite{rullmann-huijsmans-matthewson-todorovic-2022-PlainFuturates}.) That
+  modal operator may itself be an aspect head, or it may create a bigger VP
+  which is a predicate of states. In the latter case, whatever explains the
+  acceptability of stative VPs under present tense will also explain the
+  acceptability of present tense generics/habituals. See below. Some kind of
+  modal analysis might also work for some of the cases in the list, like stage
+  directions and plot summaries, but less plausibly to e.g. the sportscaster
+  style or the historical present.}%
 It is well known that non-stative predicates in the simple present tense have a
 limited range of felicitous uses. Sentences such as those in \Next are
 spontaneously judged as odd by speakers of English.
@@ -997,8 +1000,7 @@ epistemic reading okay \xe
 \ex~ Sari believed Svenja to *sleep/*go to the store/be at home/be sleeping.
 \label{ex:believe}\xe
 %
-We will return to this observation in a later section, in connection with the
-discussion of so-called ``Sequence of Tense''.
+We may return to this observation later.
 
 \section{Formalizing the referential analysis}
 \label{sec:formalizing-referential}
@@ -1012,8 +1014,8 @@ if there is no such time)
 \xe
 %
 Apart from not being fully compositional, this is a bit vague for us to work
-with when (in the next chapter) we consider complex sentences with several
-occurrences of past tense. Let us therefore make it a little more precise.
+with when we consider complex sentences with several occurrences of past tense.
+Let us therefore make it a little more precise.
 
 Partee suggested that past tense was analogous to a pronoun like \emph{he}. We
 are used to representing pronouns as variables (see e.g. Heim \& Kratzer), so
@@ -1118,6 +1120,17 @@ both assume that these items \emph{shift} the evaluation time for their
 complements. The two approaches also agree on the treatment of \pres, which,
 according to both, does not shift evaluation time and makes no semantic
 contribution other than a presupposition when there is a frame adverb.
+
+\section{Further readings}
+\label{sec:tense-readings}
+
+To get more background and second opinions on much of what we've discussed here,
+you could start with: \cite{kusumoto-2005-times,stechow-beck-2015-event-times}.
+
+The sidenotes in this chapter include plenty of initial further reading on
+specific issues raised.
+
+On the perennial question of the nature of future reference: \cite{bochnak-2019-FutureReference,cariani-2022-FutureDisplacementModality}.
 
 %%% Local Variables:
 %%% mode: latex
